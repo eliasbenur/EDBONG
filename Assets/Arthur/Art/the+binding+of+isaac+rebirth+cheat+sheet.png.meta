@@ -1,0 +1,2073 @@
+fileFormatVersion: 2
+guid: 7888a105145577549907c68dc4c78e8a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: the+binding+of+isaac+rebirth+cheat+sheet_0
+    21300002: the+binding+of+isaac+rebirth+cheat+sheet_1
+    21300004: the+binding+of+isaac+rebirth+cheat+sheet_2
+    21300006: the+binding+of+isaac+rebirth+cheat+sheet_3
+    21300008: the+binding+of+isaac+rebirth+cheat+sheet_4
+    21300010: the+binding+of+isaac+rebirth+cheat+sheet_5
+    21300012: the+binding+of+isaac+rebirth+cheat+sheet_6
+    21300014: the+binding+of+isaac+rebirth+cheat+sheet_7
+    21300016: the+binding+of+isaac+rebirth+cheat+sheet_8
+    21300018: the+binding+of+isaac+rebirth+cheat+sheet_9
+    21300020: the+binding+of+isaac+rebirth+cheat+sheet_10
+    21300022: the+binding+of+isaac+rebirth+cheat+sheet_11
+    21300024: the+binding+of+isaac+rebirth+cheat+sheet_12
+    21300026: the+binding+of+isaac+rebirth+cheat+sheet_13
+    21300028: the+binding+of+isaac+rebirth+cheat+sheet_14
+    21300030: the+binding+of+isaac+rebirth+cheat+sheet_15
+    21300032: the+binding+of+isaac+rebirth+cheat+sheet_16
+    21300034: the+binding+of+isaac+rebirth+cheat+sheet_17
+    21300036: the+binding+of+isaac+rebirth+cheat+sheet_18
+    21300038: the+binding+of+isaac+rebirth+cheat+sheet_19
+    21300040: the+binding+of+isaac+rebirth+cheat+sheet_20
+    21300042: the+binding+of+isaac+rebirth+cheat+sheet_21
+    21300044: the+binding+of+isaac+rebirth+cheat+sheet_22
+    21300046: the+binding+of+isaac+rebirth+cheat+sheet_23
+    21300048: the+binding+of+isaac+rebirth+cheat+sheet_24
+    21300050: the+binding+of+isaac+rebirth+cheat+sheet_25
+    21300052: the+binding+of+isaac+rebirth+cheat+sheet_26
+    21300054: the+binding+of+isaac+rebirth+cheat+sheet_27
+    21300056: the+binding+of+isaac+rebirth+cheat+sheet_28
+    21300058: the+binding+of+isaac+rebirth+cheat+sheet_29
+    21300060: the+binding+of+isaac+rebirth+cheat+sheet_30
+    21300062: the+binding+of+isaac+rebirth+cheat+sheet_31
+    21300064: the+binding+of+isaac+rebirth+cheat+sheet_32
+    21300066: the+binding+of+isaac+rebirth+cheat+sheet_33
+    21300068: the+binding+of+isaac+rebirth+cheat+sheet_34
+    21300070: the+binding+of+isaac+rebirth+cheat+sheet_35
+    21300072: the+binding+of+isaac+rebirth+cheat+sheet_36
+    21300074: the+binding+of+isaac+rebirth+cheat+sheet_37
+    21300076: the+binding+of+isaac+rebirth+cheat+sheet_38
+    21300078: the+binding+of+isaac+rebirth+cheat+sheet_39
+    21300080: the+binding+of+isaac+rebirth+cheat+sheet_40
+    21300082: the+binding+of+isaac+rebirth+cheat+sheet_41
+    21300084: the+binding+of+isaac+rebirth+cheat+sheet_42
+    21300086: the+binding+of+isaac+rebirth+cheat+sheet_43
+    21300088: the+binding+of+isaac+rebirth+cheat+sheet_44
+    21300090: the+binding+of+isaac+rebirth+cheat+sheet_45
+    21300092: the+binding+of+isaac+rebirth+cheat+sheet_46
+    21300094: the+binding+of+isaac+rebirth+cheat+sheet_47
+    21300096: the+binding+of+isaac+rebirth+cheat+sheet_48
+    21300098: the+binding+of+isaac+rebirth+cheat+sheet_49
+    21300100: the+binding+of+isaac+rebirth+cheat+sheet_50
+    21300102: the+binding+of+isaac+rebirth+cheat+sheet_51
+    21300104: the+binding+of+isaac+rebirth+cheat+sheet_52
+    21300106: the+binding+of+isaac+rebirth+cheat+sheet_53
+    21300108: the+binding+of+isaac+rebirth+cheat+sheet_54
+    21300110: the+binding+of+isaac+rebirth+cheat+sheet_55
+    21300112: the+binding+of+isaac+rebirth+cheat+sheet_56
+    21300114: the+binding+of+isaac+rebirth+cheat+sheet_57
+    21300116: the+binding+of+isaac+rebirth+cheat+sheet_58
+    21300118: the+binding+of+isaac+rebirth+cheat+sheet_59
+    21300120: the+binding+of+isaac+rebirth+cheat+sheet_60
+    21300122: the+binding+of+isaac+rebirth+cheat+sheet_61
+    21300124: the+binding+of+isaac+rebirth+cheat+sheet_62
+    21300126: the+binding+of+isaac+rebirth+cheat+sheet_63
+    21300128: the+binding+of+isaac+rebirth+cheat+sheet_64
+    21300130: the+binding+of+isaac+rebirth+cheat+sheet_65
+    21300132: the+binding+of+isaac+rebirth+cheat+sheet_66
+    21300134: the+binding+of+isaac+rebirth+cheat+sheet_67
+    21300136: the+binding+of+isaac+rebirth+cheat+sheet_68
+    21300138: the+binding+of+isaac+rebirth+cheat+sheet_69
+    21300140: the+binding+of+isaac+rebirth+cheat+sheet_70
+    21300142: the+binding+of+isaac+rebirth+cheat+sheet_71
+    21300144: the+binding+of+isaac+rebirth+cheat+sheet_72
+    21300146: the+binding+of+isaac+rebirth+cheat+sheet_73
+    21300148: the+binding+of+isaac+rebirth+cheat+sheet_74
+    21300150: the+binding+of+isaac+rebirth+cheat+sheet_75
+    21300152: the+binding+of+isaac+rebirth+cheat+sheet_76
+    21300154: the+binding+of+isaac+rebirth+cheat+sheet_77
+    21300156: the+binding+of+isaac+rebirth+cheat+sheet_78
+    21300158: the+binding+of+isaac+rebirth+cheat+sheet_79
+    21300160: the+binding+of+isaac+rebirth+cheat+sheet_80
+    21300162: the+binding+of+isaac+rebirth+cheat+sheet_81
+    21300164: the+binding+of+isaac+rebirth+cheat+sheet_82
+    21300166: the+binding+of+isaac+rebirth+cheat+sheet_83
+    21300168: the+binding+of+isaac+rebirth+cheat+sheet_84
+    21300170: the+binding+of+isaac+rebirth+cheat+sheet_85
+    21300172: the+binding+of+isaac+rebirth+cheat+sheet_86
+    21300174: the+binding+of+isaac+rebirth+cheat+sheet_87
+    21300176: the+binding+of+isaac+rebirth+cheat+sheet_88
+    21300178: the+binding+of+isaac+rebirth+cheat+sheet_89
+    21300180: the+binding+of+isaac+rebirth+cheat+sheet_90
+    21300182: the+binding+of+isaac+rebirth+cheat+sheet_91
+    21300184: the+binding+of+isaac+rebirth+cheat+sheet_92
+    21300186: the+binding+of+isaac+rebirth+cheat+sheet_93
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 15
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_0
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 473
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fd73acd39a99b459b15be1dbe800f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_1
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 472
+        width: 56
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4113f334bb0b34d82b60f03e8f050d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 472
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da77e890146591f4ab90ca3d0da58ebd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_3
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 473
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a842a57b8797c4c8b2c8341913770f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_4
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 472
+        width: 45
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0faf32bfee73e6345a5247c0ac5ecac4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_5
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 472
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ca186311a1ca647bff05f01baf0c11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_6
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 472
+        width: 57
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f875eee73f6e110459da34d6d5acffab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_7
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 472
+        width: 58
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37ede9e8673f5e428715ce04e420d88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_8
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 472
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 819db21dcc331a34b82cda339a456f0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 472
+        width: 35
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6841aafbbb9ca7648a259d3010e3adb6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_10
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 413
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f719b292119eab446820a2dd4885d2f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_11
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 413
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49be83f1c16c774e8f5a0058bc750fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_12
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 418
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f16d8bd4897a494cbec55249334a83f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_13
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 355
+        width: 73
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9c430afaab3ec4cafc21115252ae0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_14
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 413
+        width: 50
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b3abdb4a74ae742b79344bad08590c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_15
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 413
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181c1028781126a439011c72cefa1633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_16
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 413
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7552a7f8c440444ebc68ccd04ff02be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_17
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 413
+        width: 59
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049c106fad946994d9d0f8e0bcb9bf96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_18
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 413
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a3fe8aa5f9a71429dabceac12c5e8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_19
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 413
+        width: 60
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc9593a5066b8141b67a1e38707da11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_20
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 355
+        width: 60
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ec00203e8c4404a9e6d16c58508b86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_21
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 355
+        width: 45
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f669b004f6f03b4e99c2a0d2f9f80e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_22
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 355
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37edce29dfcf2f14ca045d9320ef2552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_23
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 355
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a403c67406a0cf4d98b6e4b9f47f310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_24
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 355
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c330170c7dcefc4987fbef4074dfc5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_25
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 355
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba17232242e38cf4b92c7bcf9cbd659b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_26
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 355
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db85a0f686a5964189c1762b24a34f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_27
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 355
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e677cbc9debc5047969d099c18990a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_28
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 355
+        width: 37
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91774f1eef65180449c7817a66fd956c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_29
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 355
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d217d2c7d89f08c4b9ea17e306833f7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_30
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 296
+        width: 101
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c6632004f361c4194695c77b198590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_31
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 296
+        width: 59
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0d044126a1092408c51885b12dbe72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_32
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 296
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953cfe4dbc02f3e4f917774677a9a907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_33
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 296
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e74a217a01a3b4d901e0e63614dac6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_34
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 296
+        width: 51
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b30c0f10ceb934980df5d606925457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_35
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 296
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758bced8c5628234280f2de835db261e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_36
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 296
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30db8e177cbb0a04eae1684846b765d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_37
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 296
+        width: 59
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc1dec5ffa327d45bbd6cea5bfe095b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_38
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 296
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661ee3c445cf060428b0ddf5e96130eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_39
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 296
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3510db26f2658484f9840e7006f59e32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_40
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 238
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39883b6d27a83b14bb61a89c8e5e5d5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_41
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 238
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fe1cca78fea3b47b5d3dd0348f6d1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_42
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 238
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c278c164d46df40bcedc6d617312a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_43
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 238
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321b22924dc5e7e4491d87980e2188ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_44
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 240
+        width: 41
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f04dba1469ba8f4c93aeacf312356d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_45
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 238
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61eac2bff4d6d8f43bb47787a39d8329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_46
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 238
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df9f2780408155439539c6004dfba6a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_47
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 238
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c143b56001a836540954861d513b75fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_48
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 277
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb57ac970d88e044d9d2ea6a187e3bf1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_49
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 238
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b6ebd08d01204468fc8fc541a17ef2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_50
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 238
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e694e8bc669cd64488d3c6bd5b8bbb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_51
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 238
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024f235c01401314792da9e9d4206240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_52
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 271
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e8c3e16c0600b49b733168669c3206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_53
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 179
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c8241e5ca01f0f449e35d3384f40717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_54
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 180
+        width: 67
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c910e5900b25748a703ead04d0ac41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_55
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 179
+        width: 51
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0ace1a4367edd41bb81a984f69e864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_56
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 179
+        width: 53
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a13e17b8cfb0c84d9d3c639d805d94a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_57
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 179
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759f86ba474524448b94f5f3c86cdac1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_58
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 179
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5faab8f68a2c6469512332ed2e3aaa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_59
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 220
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd1086f87d62e248988d953a7a17ce2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_60
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 179
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e49296a9ecf63749a23c940775eb710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_61
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 179
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d676ac885681f084db2f7a3ab3e70edc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_62
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 179
+        width: 75
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ed04f0f137f9443a7e8fba51bf3260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_63
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 179
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942f1407d46cf354bb6b602bcef21aa3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_64
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 121
+        width: 56
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d8dc2a73199ff4eaa5b19fd377af3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_65
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 121
+        width: 51
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da1f64648585a94a8f7d45644fcb66d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_66
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 121
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45bcc69cb62b6334c83033c71d8c2dcb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_67
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 122
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1fce4aadc708945b012d86b46b5962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_68
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 121
+        width: 52
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8abae4378412944a15efeb33a6b0fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_69
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 121
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2c8ef56a169554f9788a57fe65ca16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_70
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 121
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20099c93cfb8374fa17a42f5f73b6a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_71
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 121
+        width: 76
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbdf68fd8299434aab003e0f9bd681e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_72
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 121
+        width: 75
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f218b53d25dc44ca29416fb9b49373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_73
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 121
+        width: 36
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c92e3e655fa774386da0ed472a9955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_74
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 62
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5133ffd6a7120449b318f32f20559b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_75
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 62
+        width: 53
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baae80d19b9e9ba46bd6a0f7eed7017e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_76
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 62
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bfe38c663ed0a46b0ffe1973bff0f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_77
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 62
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efedd9e249a6ca14f93df582340a5636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_78
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 62
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16879b35896e8c241822fc265bf2e636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_79
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 62
+        width: 51
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450a570dadba98241ae6d6ba1257183f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_80
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 62
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2548bd5b4dff0d74b888fa1f3584786a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_81
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 62
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7060510ef1b3c439f706be97b27831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_82
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 62
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0959590531dfded4687fb872d6b378bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_83
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 62
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc962e39153bb2647889510fe858890f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_84
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 4
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f31b3f4b6ea684ea928f81f7bbf4e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_85
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 4
+        width: 57
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3feb314cdd8e1c4a850d769dec3f44b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_86
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 4
+        width: 63
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe8d86a065b0bc42812d85edf5aed36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_87
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 4
+        width: 63
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06187d3868c20c049aec176333249758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_88
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 8
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958d5f5e925caf24aa772d727f2fc5a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_89
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 4
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9f6af357db31344abcf248eacebb06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_90
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 4
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87101fed291af445adc1620a6f3cf77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_91
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 4
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d72f1ab31c6264faa1ed2c92ef2bc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_92
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 4
+        width: 64
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3626aecfc1f675a4b8c0cf7eb147b283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the+binding+of+isaac+rebirth+cheat+sheet_93
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 4
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a3b3443831ac242986d984fef15875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 692366d57de7d48448ab1bd756981d0e
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
