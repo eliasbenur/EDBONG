@@ -21,6 +21,7 @@ public class Player2_Movement : MonoBehaviour {
 
     public bool auto_movement;
 
+    public Animator animator;
 
     private void Start()
     {
@@ -57,6 +58,18 @@ public class Player2_Movement : MonoBehaviour {
 
         moveX = Input.GetAxisRaw(horizontal);
         moveY = Input.GetAxisRaw(vertical);
+
+        if (moveX > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (moveX < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        animator.SetInteger("input_x", Mathf.RoundToInt(moveX));
+        animator.SetInteger("input_y", Mathf.RoundToInt(moveY));
 
         Move(moveX, moveY);
 
