@@ -22,6 +22,7 @@ public class Player_Movement : MonoBehaviour {
     public bool auto_movement;
 
     public Animator animator;
+    public float idle_anim_time;
 
 
     private void Start()
@@ -38,6 +39,12 @@ public class Player_Movement : MonoBehaviour {
         LR.SetPosition(0, gameObject.transform.position);
         Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
         LR.material = whiteDiffuseMat;
+        idle_anim_time = -1;
+    }
+
+    private void LateUpdate()
+    {
+        GameObject.Find("GameSystem").GetComponent<Camera_Focus>().update_cam();
     }
 
     void FixedUpdate()
@@ -72,6 +79,8 @@ public class Player_Movement : MonoBehaviour {
         animator.SetInteger("input_x", Mathf.RoundToInt(moveX));
         animator.SetInteger("input_y", Mathf.RoundToInt(moveY));
 
+        idle_anim();
+
         Move(moveX, moveY);
 
         //UI
@@ -81,6 +90,28 @@ public class Player_Movement : MonoBehaviour {
 
         LR.SetPosition(1, gameObject.transform.position);
         LR.SetPosition(0, gameObject.transform.position + (Vector3)movement.normalized * 20);
+    }
+
+    void idle_anim()
+    {
+        if (moveX == 0 && moveY == 0 && idle_anim_time == -1)
+        {
+            idle_anim_time = Random.Range(0, 10.0f);
+            animator.SetBool("idle_right_bool", false);
+        }else if (moveX != 0 || moveY != 0 )
+        {
+            idle_anim_time = -1;
+        }
+
+        if (idle_anim_time > 0)
+        {
+            idle_anim_time -= Time.fixedDeltaTime;
+        }
+        else if (idle_anim_time > -1 && idle_anim_time <= 0)
+        {
+            animator.SetBool("idle_right_bool", true);
+            idle_anim_time = -1;
+        }
     }
 
     void Move(float MoveX, float MoveY)
