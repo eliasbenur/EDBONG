@@ -24,6 +24,8 @@ public class Player2_Movement : MonoBehaviour {
     public Animator animator;
     public float idle_anim_time;
 
+    public bool rope_position;
+
     private void Start()
     {
         rg2D = GetComponent<Rigidbody2D>();
@@ -117,18 +119,34 @@ public class Player2_Movement : MonoBehaviour {
     void Move(float MoveX, float MoveY)
     {
         movement.Set(moveX, moveY);
-        //AUTOMOVE
-        if (auto_movement)
+
+        // OTHER ROPES
+
+        if (rope_position)
         {
-            move_auto();
+            if (dash_v > (dash_delay - dash_time))
+            {
+                movement = movement * dash_power;
+            }
+            GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P2 = movement;
         }
+        else
+        {
+            //AUTOMOVE
+            if (auto_movement)
+            {
+                move_auto();
+            }
+            //
+            movement = movement.normalized * speed  /* Time.fixedDeltaTime*/;
+            if (dash_v > (dash_delay - dash_time))
+            {
+                movement = movement * dash_power;
+            }
+            transform.GetComponent<Rigidbody2D>().velocity = movement;
+        }
+
         //
-        movement = movement.normalized * speed  /* Time.fixedDeltaTime*/;
-        if (dash_v > (dash_delay - dash_time))
-        {
-            movement = movement * dash_power;
-        }
-        transform.GetComponent<Rigidbody2D>().velocity = movement;
 
     }
 

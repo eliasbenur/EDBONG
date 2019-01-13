@@ -24,6 +24,8 @@ public class Player_Movement : MonoBehaviour {
     public Animator animator;
     public float idle_anim_time;
 
+    public bool rope_position;
+
 
     private void Start()
     {
@@ -59,7 +61,7 @@ public class Player_Movement : MonoBehaviour {
         }
 
 
-        if (Input.GetKeyUp(KeyCode.E) && dash_v <= 0 && movement != Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.E) && dash_v <= 0 && movement != Vector2.zero)
         {
             dash_v = dash_delay;
         }
@@ -117,18 +119,35 @@ public class Player_Movement : MonoBehaviour {
     void Move(float MoveX, float MoveY)
     {
         movement.Set(moveX, moveY);
-        //AUTOMOVE
-        if (auto_movement) {
-            move_auto();
-        }
-        //
-        movement = movement.normalized * speed  /* Time.fixedDeltaTime*/;
-        if (dash_v > (dash_delay-dash_time))
-        {
-            movement = movement * dash_power;
-        }
-        transform.GetComponent<Rigidbody2D>().velocity = movement;
 
+        // OTHER ROPES
+
+        if (rope_position)
+        {
+            if (dash_v > (dash_delay - dash_time))
+            {
+                movement = movement * dash_power;
+            }
+            //GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = new Vector2(-1,0) * 3;
+            GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement;
+        }
+        else
+        {
+            //AUTOMOVE
+            if (auto_movement)
+            {
+                move_auto();
+            }
+            //
+            movement = movement.normalized * speed  /* Time.fixedDeltaTime*/;
+            if (dash_v > (dash_delay - dash_time))
+            {
+                movement = movement * dash_power;
+            }
+            transform.GetComponent<Rigidbody2D>().velocity = movement;
+        }
+
+        //
     }
 
     public void move_auto()

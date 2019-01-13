@@ -25,6 +25,10 @@ public class Rope_Point : MonoBehaviour {
 
         close_coll = false;
 
+        new_pos_p1 = Vector3.zero;
+        new_pos_p2 = Vector3.zero;
+        new_pos = Vector3.zero;
+
     }
 	
 	// Update is called once per frame

@@ -92,7 +92,7 @@ public class Rope_System : MonoBehaviour {
     # endregion
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         TimeRemainder += Time.fixedDeltaTime;
         while (TimeRemainder > SubstepTime)
         {
@@ -109,8 +109,8 @@ public class Rope_System : MonoBehaviour {
 
     private void DistMaxConstraints(Vector3 P1_mov, Vector3 P2_mov)
     {
+        Coll_RollB(NumPoints/2);
 
-        
         //Points[0].transform.position += P1_mov;
         //Points[0].GetComponent<Rigidbody2D>().velocity = (Vector2)P1_mov;
         //Points[0].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[0].transform.position +  (Vector2)P1_mov);
@@ -121,8 +121,8 @@ public class Rope_System : MonoBehaviour {
         //Points[NumPoints - 1].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[NumPoints - 1].transform.position + (Vector2)P2_mov);
         Points[NumPoints - 1].new_pos_p2 = P2_mov;
 
-        //for (int curr_inte = 0; curr_inte <= Iterations; curr_inte++)
-        //{
+        for (int curr_inte = 0; curr_inte <= Iterations; curr_inte++)
+        {
             //if (P1_mov != Vector3.zero)
             //{
                 DistMaxP1();
@@ -131,61 +131,43 @@ public class Rope_System : MonoBehaviour {
             //{
                 DistMaxP2();
             //}
-            //if (curr_inte == 0)
-            //{
-            //    rop_tens = Check_MaxRope();
-            //}
             DistMaxCalcul(0);
             //CheckCollision();
 
-        //}
+        }
 
-        //Extrems_Correction();
+        Extrems_Correction();
+
+        for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++)
+        {
+            Rope_Point ParticleA = Points[PointIndex];
+
+            ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + (Vector2)ParticleA.new_pos);
+
+            ParticleA.new_pos_p1 = Vector3.zero;
+            ParticleA.new_pos_p2 = Vector3.zero;
+            ParticleA.new_pos = Vector3.zero;
+        }
+
+        
     }
 
     private void DistMaxP1()
     {
         bool stop = false;
 
-        for (int PointIndex = 0; PointIndex < NumPoints - 1 && !stop; PointIndex++)
+        for (int PointIndex = 0; PointIndex < NumPoints - 2 && !stop; PointIndex++)
         {
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex + 1];
 
-            Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p1) - ParticleB.transform.position;
+            Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p1 + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
             float CurrentDistance = Delta.magnitude;
 
             if (CurrentDistance > MaxLenght_xPoint)
-            //if(true)
             {
                 Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
                 ParticleB.new_pos_p1 = P_B;
-            }
-            else
-            {
-                ParticleB.new_pos_p1 = Vector3.zero;
-            }
-        }
-    }
-
-    private void DistMaxP2()
-    {
-        bool stop = false;
-
-        for (int PointIndex = NumPoints-1; PointIndex > 0 && !stop; PointIndex--)
-        {
-
-            Rope_Point ParticleA = Points[PointIndex];
-            Rope_Point ParticleB = Points[PointIndex - 1];
-
-            Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p2) - ParticleB.transform.position;
-            float CurrentDistance = Delta.magnitude;
-
-            if (CurrentDistance > MaxLenght_xPoint)
-            //if(true)
-            {
-                Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-                ParticleB.new_pos_p2 = P_B;
             }
             else
             {
@@ -194,68 +176,27 @@ public class Rope_System : MonoBehaviour {
         }
     }
 
-    private void CheckCollision_Old()
+    private void DistMaxP2()
     {
-        /*for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++){
+        bool stop = false;
+
+        for (int PointIndex = NumPoints-1; PointIndex > 1 && !stop; PointIndex--)
+        {
+
             Rope_Point ParticleA = Points[PointIndex];
-            Vector3 sum_nex_pos = ParticleA.new_pos_p1 + ParticleA.new_pos_p2;
-            ParticleA.new_pos = sum_nex_pos;
-        }*/
-        for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++){
-            Rope_Point ParticleA = Points[PointIndex];
+            Rope_Point ParticleB = Points[PointIndex - 1];
 
-            //Raycast - Collision Detection
-            /*int layer_mask = LayerMask.GetMask("Objects");
-            Vector3 sum_nex_pos = ParticleA.new_pos;
-            RaycastHit2D hit = Physics2D.Raycast(ParticleA.transform.position, sum_nex_pos.normalized, sum_nex_pos.magnitude, layer_mask);
-            if (hit.collider != null){
-                ParticleA.new_pos = sum_nex_pos.normalized * hit.distance + (Vector3)hit.normal * 0.1f;
-            }*/
+            Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p2 + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
+            float CurrentDistance = Delta.magnitude;
 
-            CircleCollider2D collid = GameObject.Find("Target2").GetComponent<CircleCollider2D>();
-
-            if (collid.bounds.Contains((Vector2)ParticleA.transform.position))
+            if (CurrentDistance > MaxLenght_xPoint)
             {
-                ColliderDistance2D coll_distance = ParticleA.gameObject.GetComponent<CircleCollider2D>().Distance(collid);
-                ParticleA.transform.position += (Vector3)coll_distance.normal * coll_distance.distance;
+                Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
+                ParticleB.new_pos_p2 = P_B;
             }
-        }
-        
-        Vector3 Delta = Points[NumPoints/2].transform.position - Points[(NumPoints/2) -1].transform.position;
-        float CurrentDistance = Delta.magnitude;
-        if (CurrentDistance > MaxLenght_xPoint)
-        {
-            Vector3 P_B = ((CurrentDistance - MaxLenght_xPoint) / 2) * Delta.normalized;
-            Points[(NumPoints / 2) - 1].transform.position += P_B;
-            Points[NumPoints / 2].transform.position -= P_B;
-        }
-        int mid_right = NumPoints / 2;
-        int mid_left = (NumPoints / 2) - 1;
-
-        for (int SegmentIndex = mid_right; SegmentIndex < NumPoints -1; SegmentIndex++)
-        {
-            Rope_Point ParticleA = Points[SegmentIndex];
-            Rope_Point ParticleB = Points[SegmentIndex + 1];
-            // Solve for this pair of particles
-            Vector3 Delta2 = ParticleA.transform.position - ParticleB.transform.position;
-            float CurrentDistance2 = Delta2.magnitude;
-            if (CurrentDistance2 > MaxLenght_xPoint)
+            else
             {
-                Vector3 P_B = (CurrentDistance2 - MaxLenght_xPoint) * Delta2.normalized;
-                ParticleB.transform.position += P_B;
-            }
-        }
-        for (int SegmentIndex2 = mid_left; SegmentIndex2 > 0; SegmentIndex2--)
-        {
-            Rope_Point ParticleA = Points[SegmentIndex2];
-            Rope_Point ParticleB = Points[SegmentIndex2 - 1];
-            // Solve for this pair of particles
-            Vector3 Delta2 = ParticleA.transform.position - ParticleB.transform.position;
-            float CurrentDistance2 = Delta2.magnitude;
-            if (CurrentDistance2 > MaxLenght_xPoint)
-            {
-                Vector3 P_B = (CurrentDistance2 - MaxLenght_xPoint) * Delta2.normalized;
-                ParticleB.transform.position += P_B;
+                stop = true;
             }
         }
     }
@@ -284,83 +225,15 @@ public class Rope_System : MonoBehaviour {
 
     private void DistMaxCalcul(int curr_it)
     {
-        Vector3 obj_mov = Vector3.zero;
-        GameObject obj_tomov = null;
-
-        list_coll.Clear();
-
 
         for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++) {
             Rope_Point ParticleA = Points[PointIndex];
 
-            int layer_mask = LayerMask.GetMask("Objects");
-            RaycastHit2D hit = Physics2D.Raycast(ParticleA.transform.position, (ParticleA.new_pos_p1 + ParticleA.new_pos_p2).normalized, (ParticleA.new_pos_p1 + ParticleA.new_pos_p2).magnitude + 0.1f, layer_mask);
-
-            if (hit.collider != null){
-
-                ParticleA.new_pos = (ParticleA.new_pos_p1 + ParticleA.new_pos_p2).normalized * (hit.distance - 0.1f);
-
-                if (hit.transform.tag == "obj_mov" || hit.transform.tag == "enemy_mov" || hit.transform.tag == "Objects"){
-                    coll_pos cp = new coll_pos();
-                    cp.point_nul = PointIndex;
-                    cp.dist = ((ParticleA.new_pos_p1 + ParticleA.new_pos_p2).magnitude + 0.1f) - (hit.distance - 0.1f);
-                    if (list_coll.Count > 0){
-                        bool found = false;
-                        for (int x = 0; x < list_coll.Count; x++){
-                            if (list_coll[x].dist < cp.dist && !found){
-                                list_coll.Insert(x, cp);
-                                found = true;
-                            }
-                        }
-                        if (!found){
-                            list_coll.Add(cp);
-                        }
-                    }
-                    else{
-                        list_coll.Add(cp);
-                    }
-                }
-            }
-            else{
-                ParticleA.new_pos = ParticleA.new_pos_p1 + ParticleA.new_pos_p2;
-            }
-                
-        }
-        for (int curr_ite = 0; curr_ite < Iterations; curr_ite++)
-        {
-            for (int x = 0; x < list_coll.Count; x++)
-            {
-                Coll_RollB(list_coll[x].point_nul);
-            }
-        }
-
-
-        for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++){
-            Rope_Point ParticleA = Points[PointIndex];
-
-            ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + (Vector2)ParticleA.new_pos);
+            ParticleA.new_pos += ParticleA.new_pos_p1 + ParticleA.new_pos_p2;
 
             ParticleA.new_pos_p1 = Vector3.zero;
             ParticleA.new_pos_p2 = Vector3.zero;
-            ParticleA.new_pos = Vector3.zero;
         }
-
-        //Vector2 lal = (ParticleA.new_pos_p1 + ParticleA.new_pos_p2);
-        //ParticleA.transform.position += ParticleA.new_pos_p1 + ParticleA.new_pos_p2;
-        //ParticleA.GetComponent<Rigidbody2D>().velocity = (Vector2)(ParticleA.new_pos_p1 + ParticleA.new_pos_p2);
-        //ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + lal);
-
-        //ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + new Vector2(0,0.2f));
-
-        Extrems_Correction();
-
-        //ParticleA.transform.position += ParticleA.new_pos_p1 + ParticleA.new_pos_p2;
-
-
-
-        //Debug.Log(obj_mov);
-        //Debug.DrawLine(GameObject.Find("Target2").transform.position, GameObject.Find("Target2").transform.position + obj_mov, Color.white, 2.5f);
-
     }
 
     private void Coll_RollB(int Index_coll)
@@ -370,23 +243,12 @@ public class Rope_System : MonoBehaviour {
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex + 1];
 
-            Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
+            Vector3 Delta = ParticleA.transform.position - ParticleB.transform.position;
             float CurrentDistance = Delta.magnitude;
 
             if (CurrentDistance > MaxLenght_xPoint)
             {
-                /*if (new Pose IS INSIDE COLLIDER, DISTANCE... PARA SACARLO FUERA)
-                 {
-
-                 }*/
-                //ParticleB.transform.position += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
-                ParticleB.new_pos += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
-                //ParticleB.transform.position += ParticleB.new_pos;
-                //ParticleB.new_pos = Vector3.zero;
-            }
-            else
-            {
-                //PointIndex = NumPoints;
+                ParticleB.transform.position += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
             }
         }
 
@@ -395,35 +257,22 @@ public class Rope_System : MonoBehaviour {
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex - 1];
 
-            Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
+            Vector3 Delta = ParticleA.transform.position - ParticleB.transform.position;
             float CurrentDistance = Delta.magnitude;
 
 
             if (CurrentDistance > MaxLenght_xPoint)
             {
-                /* if (new Pose IS INSIDE COLLIDER, DISTANCE... PARA SACARLO FUERA)
-                 {
-
-                 }*/
-                //ParticleB.transform.position += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
-                ParticleB.new_pos += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
-                //ParticleB.transform.position += ParticleB.new_pos;
-                //ParticleB.new_pos = Vector3.zero;
-
-            }
-            else
-            {
-                //PointIndex = 0;
+                ParticleB.transform.position += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
             }
         }
 
-        //CheckCollision();
     }
 
 
     private void Extrems_Correction()
     {
-        /*Vector3 Delta = (Points[1].transform.position + Points[1].new_pos_p1 + Points[1].new_pos_p2) - (Points[0].transform.position + Points[0].new_pos_p1 + Points[0].new_pos_p2);
+        Vector3 Delta = (Points[1].transform.position + Points[1].new_pos) - (Points[0].transform.position + Points[0].new_pos);
         float CurrentDistance = Delta.magnitude;
 
         if (CurrentDistance > MaxLenght_xPoint)
@@ -434,7 +283,7 @@ public class Rope_System : MonoBehaviour {
             Points[0].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[0].transform.position +  (Vector2)P_B);
         }
 
-        Delta = (Points[NumPoints - 2].transform.position + Points[NumPoints - 2].new_pos_p1 + Points[NumPoints - 2].new_pos_p2 )- (Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos_p1 + Points[NumPoints - 1].new_pos_p2);
+        Delta = (Points[NumPoints - 2].transform.position + Points[NumPoints - 2].new_pos)- (Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos);
         CurrentDistance = Delta.magnitude;
 
         if (CurrentDistance > MaxLenght_xPoint)
@@ -443,10 +292,10 @@ public class Rope_System : MonoBehaviour {
             //Points[NumPoints - 1].transform.position += P_B;
             //Points[NumPoints - 1].GetComponent<Rigidbody2D>().velocity = (Vector2)P_B;
             Points[NumPoints - 1].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[NumPoints - 1].transform.position + (Vector2)P_B);
-        }*/
+        }
 
-        CableStart.position = Points[0].transform.position;
-        CableEnd.position = Points[NumPoints - 1].transform.position;
+        CableStart.position = Points[0].transform.position + Points[0].new_pos;
+        CableEnd.position = Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos;
     }
 
     private void Update_LineRender()
@@ -455,20 +304,6 @@ public class Rope_System : MonoBehaviour {
         for (int SegmentIndex = 0; SegmentIndex < NumPoints; SegmentIndex++)
         {
             _lineRenderer.SetPosition(SegmentIndex, Points[SegmentIndex].transform.position);
-        }
-    }
-
-    private bool Check_MaxRope()
-    {
-
-        if (Points[NumPoints - 2].new_pos_p1 != Vector3.zero && (Points[1].new_pos_p2) != Vector3.zero)
-        {
-            //Debug.Log(Vector3.Dot((Vector3)mov_P2.normalized, Points[NumPoints - 2].new_pos_p1.normalized));
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 
