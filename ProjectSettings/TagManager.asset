@@ -13,6 +13,12 @@ TagManager:
   - obj_mov
   - enemy_mov
   - rope
+  - player
+  - monster
+  - encer_trig_left
+  - encer_trig_right
+  - encer_trig_up
+  - encer_trig_down
   layers:
   - Default
   - TransparentFX
