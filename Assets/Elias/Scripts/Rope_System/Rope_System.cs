@@ -5,9 +5,9 @@ using UnityEngine;
 public class Rope_System : MonoBehaviour {
 
     #region Ini_Properties
-    private List<Rope_Point> Points = new List<Rope_Point>();
+    public List<Rope_Point> Points = new List<Rope_Point>();
     public List<GameObject> Objects_Coll = new List<GameObject>();
-    public Transform PrefabPoint;
+    public Rope_Point PrefabPoint;
     public Transform PrefabRay_Trig;
 
     public float MaxLenght_xPoint = 0.2f;
@@ -28,6 +28,10 @@ public class Rope_System : MonoBehaviour {
 
     bool rop_tens = false;
 
+    public AnimationCurve animatedcurve;
+
+    public bool state_surround;
+
     [System.Serializable] public struct coll_pos
     {
         public int point_nul;
@@ -39,6 +43,9 @@ public class Rope_System : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
+        state_surround = false;
+
         Points.Clear();
 
         mov_P1 = Vector3.zero;
@@ -50,8 +57,8 @@ public class Rope_System : MonoBehaviour {
             _lineRenderer = gameObject.AddComponent<LineRenderer>();
         }
         _lineRenderer.positionCount = NumPoints;
-        _lineRenderer.startWidth = 2f;
-        _lineRenderer.endWidth = 2f;
+        _lineRenderer.startWidth = 0.2f;
+        _lineRenderer.endWidth = 0.2f;
         _lineRenderer.startColor = Color.black;
         _lineRenderer.endColor = Color.black;
 
@@ -59,20 +66,21 @@ public class Rope_System : MonoBehaviour {
         Vector3 Delta = CableEnd.position - CableStart.position;
 
         for (int ParticleIndex = 0; ParticleIndex < NumPoints; ParticleIndex++){
-            Transform newTransform = Instantiate(PrefabPoint, Vector3.zero, Quaternion.identity) as Transform;
+            Rope_Point particle = Instantiate(PrefabPoint, Vector3.zero, Quaternion.identity);
 
             float Alpha = (float)ParticleIndex / (float)(NumPoints-1);
             Vector3 InitializePosition = CableStart.transform.position + (Alpha * Delta);
 
             //Ini variables of the Particle
-            Rope_Point particle = newTransform.GetComponent<Rope_Point>();
             particle.transform.position = InitializePosition;
             particle.transform.parent = this.transform;
             particle.transform.tag = "rope";
             particle.name = "Point_" + ParticleIndex.ToString();
 
             particle.gameObject.layer = 9;
-            Physics2D.IgnoreLayerCollision(8, 9);
+
+            //TODO: Move Ignore Layer collision outside of loop
+            Physics2D.IgnoreLayerCollision(8, 9);//////////////////
             Physics2D.IgnoreLayerCollision(9, 9);
 
             //RAYCAST TRIGER
@@ -81,7 +89,14 @@ public class Rope_System : MonoBehaviour {
 
             Points.Add(particle);
 
+            //TODO: Delete
             if (ParticleIndex == 0 || ParticleIndex == (NumPoints - 1)){
+
+                /*var collider = particle.gameObject.AddComponent<BoxCollider2D>();
+                collider.offset = new Vector2(0,0);
+                collider.size = new Vector2(1,2.2f);*/
+                var collider = particle.gameObject.AddComponent<CircleCollider2D>();
+                collider.radius = 0.5f;
                 particle.p_free = false;
             }
             else{
@@ -89,7 +104,7 @@ public class Rope_System : MonoBehaviour {
             }
         }
     }
-    # endregion
+    #endregion
 
     // Update is called once per frame
     void FixedUpdate () {
@@ -111,28 +126,19 @@ public class Rope_System : MonoBehaviour {
     {
         Coll_RollB(NumPoints/2);
 
-        //Points[0].transform.position += P1_mov;
-        //Points[0].GetComponent<Rigidbody2D>().velocity = (Vector2)P1_mov;
-        //Points[0].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[0].transform.position +  (Vector2)P1_mov);
+        //CableStart.transform.position = Points[0].transform.position;
+        //CableEnd.transform.position = Points[NumPoints - 1].transform.position;
+
         Points[0].new_pos_p1 = P1_mov;
 
-        //Points[NumPoints - 1].transform.position += P2_mov;
-        //Points[NumPoints - 1].GetComponent<Rigidbody2D>().velocity = (Vector2)P2_mov;
-        //Points[NumPoints - 1].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[NumPoints - 1].transform.position + (Vector2)P2_mov);
         Points[NumPoints - 1].new_pos_p2 = P2_mov;
 
         for (int curr_inte = 0; curr_inte <= Iterations; curr_inte++)
         {
-            //if (P1_mov != Vector3.zero)
-            //{
-                DistMaxP1();
-            //}
-            //if (P2_mov != Vector3.zero)
-            //{
-                DistMaxP2();
-            //}
+            DistMaxP1();
+            DistMaxP2();
+
             DistMaxCalcul(0);
-            //CheckCollision();
 
         }
 
@@ -142,13 +148,23 @@ public class Rope_System : MonoBehaviour {
         {
             Rope_Point ParticleA = Points[PointIndex];
 
-            ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + (Vector2)ParticleA.new_pos);
+            if (!state_surround)
+            {
+                ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + (Vector2)ParticleA.new_pos);
+            }else
+            {
+                if (!ParticleA.coll_state)
+                {
+                    //TODO: add new pos to the RiGbody2D 
+                    ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + (Vector2)ParticleA.new_pos);
+                }
+            }
+
 
             ParticleA.new_pos_p1 = Vector3.zero;
             ParticleA.new_pos_p2 = Vector3.zero;
             ParticleA.new_pos = Vector3.zero;
         }
-
         
     }
 
@@ -160,7 +176,6 @@ public class Rope_System : MonoBehaviour {
         {
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex + 1];
-
             Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p1 + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
             float CurrentDistance = Delta.magnitude;
 
@@ -187,6 +202,7 @@ public class Rope_System : MonoBehaviour {
             Rope_Point ParticleB = Points[PointIndex - 1];
 
             Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p2 + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
+
             float CurrentDistance = Delta.magnitude;
 
             if (CurrentDistance > MaxLenght_xPoint)
@@ -238,7 +254,24 @@ public class Rope_System : MonoBehaviour {
 
     private void Coll_RollB(int Index_coll)
     {
-        for (int PointIndex = Index_coll; PointIndex < NumPoints - 1; PointIndex++)
+        int new_indew = Index_coll;
+        List<Rope_Point> lisr_p = new List<Rope_Point>();
+        for (int PointIndex = 0; PointIndex < NumPoints - 1; PointIndex++)
+        {
+            Rope_Point ParticleA = Points[PointIndex];
+            if (ParticleA.coll_state)
+            {
+                lisr_p.Add(ParticleA);
+            }
+        }
+        if (lisr_p.Count != 0)
+        {
+            Rope_Point p = lisr_p[lisr_p.Count / 2];
+            new_indew = Points.IndexOf(p);
+        }
+
+
+        for (int PointIndex = new_indew; PointIndex < NumPoints - 1; PointIndex++)
         {
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex + 1];
@@ -246,13 +279,23 @@ public class Rope_System : MonoBehaviour {
             Vector3 Delta = ParticleA.transform.position - ParticleB.transform.position;
             float CurrentDistance = Delta.magnitude;
 
-            if (CurrentDistance > MaxLenght_xPoint)
+            if (CurrentDistance > MaxLenght_xPoint && !state_surround)
             {
-                ParticleB.transform.position += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
+                ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
+                //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+            }
+            else if (state_surround)
+            {
+                if (!ParticleB.coll_state)
+                {
+                    //TODO: add new pos to the RiGbody2D 
+                    ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
+                    //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+                }
             }
         }
 
-        for (int PointIndex = Index_coll; PointIndex > 0; PointIndex--)
+        for (int PointIndex = new_indew; PointIndex > 0; PointIndex--)
         {
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex - 1];
@@ -261,9 +304,18 @@ public class Rope_System : MonoBehaviour {
             float CurrentDistance = Delta.magnitude;
 
 
-            if (CurrentDistance > MaxLenght_xPoint)
+            if (CurrentDistance > MaxLenght_xPoint && !state_surround)
             {
-                ParticleB.transform.position += Delta.normalized * (CurrentDistance - MaxLenght_xPoint);
+                ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
+                //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+            } else if (state_surround)
+            {
+                if (!ParticleB.coll_state)
+                {
+                    //TODO: add new pos to the RiGbody2D 
+                    ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
+                    //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+                }
             }
         }
 
@@ -278,9 +330,13 @@ public class Rope_System : MonoBehaviour {
         if (CurrentDistance > MaxLenght_xPoint)
         {
             Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-            //Points[0].transform.position += P_B;
-            //Points[0].GetComponent<Rigidbody2D>().velocity = (Vector2)P_B;
+            //TODO: Find Rigidbody2D using property or fonction
             Points[0].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[0].transform.position +  (Vector2)P_B);
+            //CableStart.position = Points[0].transform.position + P_B;
+        }
+        else
+        {
+            //CableStart.position = Points[0].transform.position + Points[0].new_pos;
         }
 
         Delta = (Points[NumPoints - 2].transform.position + Points[NumPoints - 2].new_pos)- (Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos);
@@ -289,13 +345,17 @@ public class Rope_System : MonoBehaviour {
         if (CurrentDistance > MaxLenght_xPoint)
         {
             Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-            //Points[NumPoints - 1].transform.position += P_B;
-            //Points[NumPoints - 1].GetComponent<Rigidbody2D>().velocity = (Vector2)P_B;
+            //TODO: Find Rigidbody2D using property or fonction
             Points[NumPoints - 1].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[NumPoints - 1].transform.position + (Vector2)P_B);
+            //CableEnd.position = Points[NumPoints - 1].transform.position + P_B;
+        }
+        else
+        {
+            //CableEnd.position = Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos;
         }
 
-        CableStart.position = Points[0].transform.position + Points[0].new_pos;
-        CableEnd.position = Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos;
+        
+        
     }
 
     private void Update_LineRender()

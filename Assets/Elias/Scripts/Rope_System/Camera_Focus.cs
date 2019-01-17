@@ -5,6 +5,7 @@ using UnityEngine;
 public class Camera_Focus : MonoBehaviour
 {
     public List<Transform> targets;
+    public Rope_System rope_system;
 
     public Vector3 offset;
     public float smoothTime = .5f;
@@ -16,6 +17,14 @@ public class Camera_Focus : MonoBehaviour
     public void Start()
     {
         //GetComponent<Camera>().orthographicSize = (1920 / (((1920 / 1080) * 2) * 48)) * 4;
+        targets.Clear();
+        targets.Add(rope_system.Points[0].transform);
+        targets.Add(rope_system.Points[rope_system.NumPoints - 1].transform);
+    }
+
+    private void Update()
+    {
+        update_cam();
     }
 
     public void update_cam()
@@ -23,11 +32,8 @@ public class Camera_Focus : MonoBehaviour
         Vector3 centerPoint = GetCenterPoint();
 
         Vector3 newPosition = centerPoint + offset;
-        if ((camera.transform.position - newPosition).magnitude > 10)
-        {
-            camera.transform.position = Vector3.SmoothDamp(camera.transform.position, newPosition, ref velocity, smoothTime);
-        }
-
+        camera.transform.position = Vector3.SmoothDamp(camera.transform.position, newPosition, ref velocity, smoothTime);
+        //camera.transform.position = newPosition;
     }
 
 

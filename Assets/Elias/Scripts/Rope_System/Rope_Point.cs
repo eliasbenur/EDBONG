@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rope_Point : MonoBehaviour {
 
     public bool p_free;
+    public bool coll_state;
     public Vector3 new_pos_p1;
     public Vector3 new_pos_p2;
     public Vector3 new_pos;
@@ -14,7 +15,7 @@ public class Rope_Point : MonoBehaviour {
     // Use this for initialization
     void Start () {
         var collider = gameObject.AddComponent<CircleCollider2D>();
-        collider.radius = 1f;
+        collider.radius = 0.1f;
         //collider.isTrigger = true;
 
         Rigidbody2D rb2D = gameObject.AddComponent<Rigidbody2D>();
@@ -28,6 +29,8 @@ public class Rope_Point : MonoBehaviour {
         new_pos_p1 = Vector3.zero;
         new_pos_p2 = Vector3.zero;
         new_pos = Vector3.zero;
+
+        coll_state = false;
 
     }
 	

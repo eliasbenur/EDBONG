@@ -20,7 +20,7 @@ public class encer_trig : MonoBehaviour
     {
         if (collision.transform.tag != "player" && collision.transform.tag != "monster" && collision.transform.tag != "encer_trig_right" && collision.transform.tag != "encer_trig_up" && collision.transform.tag != "encer_trig_down" && collision.transform.tag != "encer_trig_left")
         {
-            if (collision.transform.parent.transform.parent.tag == "rope")
+            if (collision.transform.parent.tag == "rope")
             {
                 switch (transform.tag)
                 {

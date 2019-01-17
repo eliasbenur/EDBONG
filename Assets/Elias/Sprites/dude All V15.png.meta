@@ -1,0 +1,1338 @@
+fileFormatVersion: 2
+guid: 39bb8dc8d24ba624aa5017f805eee707
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: dude All V15_0
+    21300002: dude All V15_1
+    21300004: dude All V15_2
+    21300006: dude All V15_3
+    21300008: dude All V15_4
+    21300010: dude All V15_5
+    21300012: dude All V15_10
+    21300014: dude All V15_11
+    21300016: dude All V15_12
+    21300018: dude All V15_13
+    21300020: dude All V15_17
+    21300022: dude All V15_19
+    21300024: dude All V15_20
+    21300026: dude All V15_21
+    21300028: dude All V15_22
+    21300030: dude All V15_23
+    21300032: dude All V15_24
+    21300034: dude All V15_25
+    21300036: dude All V15_26
+    21300038: dude All V15_27
+    21300040: dude All V15_28
+    21300042: dude All V15_29
+    21300044: dude All V15_30
+    21300046: dude All V15_32
+    21300048: dude All V15_33
+    21300050: dude All V15_34
+    21300052: dude All V15_37
+    21300054: dude All V15_38
+    21300056: dude All V15_39
+    21300058: dude All V15_40
+    21300060: dude All V15_41
+    21300062: dude All V15_42
+    21300064: dude All V15_43
+    21300066: dude All V15_44
+    21300068: dude All V15_45
+    21300070: dude All V15_46
+    21300072: dude All V15_47
+    21300074: dude All V15_49
+    21300076: dude All V15_53
+    21300078: dude All V15_57
+    21300080: dude All V15_60
+    21300082: dude All V15_61
+    21300084: dude All V15_62
+    21300086: dude All V15_63
+    21300088: dude All V15_64
+    21300090: dude All V15_65
+    21300092: dude All V15_66
+    21300094: dude All V15_67
+    21300096: dude All V15_68
+    21300098: dude All V15_69
+    21300100: dude All V15_70
+    21300102: dude All V15_71
+    21300104: dude All V15_72
+    21300106: dude All V15_73
+    21300108: dude All V15_74
+    21300110: dude All V15_75
+    21300112: dude All V15_76
+    21300114: dude All V15_77
+    21300116: dude All V15_78
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dude All V15_0
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 1113
+        width: 213
+        height: 302
+      alignment: 9
+      pivot: {x: 0.46537185, y: 0.46336475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47d655ae25288f4bbc58df4921e6d58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_1
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 1109
+        width: 212
+        height: 308
+      alignment: 9
+      pivot: {x: 0.601764, y: 0.44905743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ead394ef474fe546b0b1761a9830bbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_2
+      rect:
+        serializedVersion: 2
+        x: 2211
+        y: 1107
+        width: 212
+        height: 308
+      alignment: 9
+      pivot: {x: 0.5462554, y: 0.47452852}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61a7db247842c34ab14a1233faa0766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_3
+      rect:
+        serializedVersion: 2
+        x: 2577
+        y: 1107
+        width: 222
+        height: 308
+      alignment: 9
+      pivot: {x: 0.5044165, y: 0.47771266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aec23b3128009e44897cc2d41a6e377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_4
+      rect:
+        serializedVersion: 2
+        x: 3290
+        y: 1131
+        width: 258
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52f9f7ecc2726741b3dd24de2e69f04
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_5
+      rect:
+        serializedVersion: 2
+        x: 3656
+        y: 1131
+        width: 251
+        height: 299
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51dfc93ffe8d444fb2ef21f226a2843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_10
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1119
+        width: 218
+        height: 284
+      alignment: 9
+      pivot: {x: 0.5000004, y: 0.4523857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cfc283ae957afb45b2e12e8e4c5065c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_11
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1113
+        width: 200
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5000006, y: 0.47092828}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1958e760fcbb043b3a0e3ee3c9ee03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_12
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 1113
+        width: 200
+        height: 296
+      alignment: 9
+      pivot: {x: 0.6029669, y: 0.46686986}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f168f4912771cad4d9875c71f7825df0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_13
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 1107
+        width: 197
+        height: 302
+      alignment: 9
+      pivot: {x: 0.6045343, y: 0.46428108}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6ff3fe599dabf43aaedee2322599bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_17
+      rect:
+        serializedVersion: 2
+        x: 4017
+        y: 1131
+        width: 241
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feea936851489774a879d39de3580852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_19
+      rect:
+        serializedVersion: 2
+        x: 4735
+        y: 1101
+        width: 218
+        height: 302
+      alignment: 9
+      pivot: {x: 0.5184539, y: 0.4911188}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a9176fed535f44db2694ddf536abef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_20
+      rect:
+        serializedVersion: 2
+        x: 5097
+        y: 1101
+        width: 218
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5246067, y: 0.47734648}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3c0ec430d81fad4c804ea1b5a8ff282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_21
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 757
+        width: 290
+        height: 290
+      alignment: 9
+      pivot: {x: 0.41852584, y: 0.4999998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07da801c060774949b516eaac029ecd7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_22
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 757
+        width: 254
+        height: 290
+      alignment: 9
+      pivot: {x: 0.3620709, y: 0.51685643}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10fb9c28adb49dc4a9e3a04961ba1725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_23
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 745
+        width: 242
+        height: 302
+      alignment: 9
+      pivot: {x: 0.31146443, y: 0.52967584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb6131c88dd73a4ca94316282a7968a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_24
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 745
+        width: 242
+        height: 296
+      alignment: 9
+      pivot: {x: 0.28453076, y: 0.5385348}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2de8e92f6376b46a152bb3622f3f8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_25
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 745
+        width: 254
+        height: 296
+      alignment: 9
+      pivot: {x: 0.34198046, y: 0.55049855}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9c87579069e8e4f892a63a5cf69513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_26
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 745
+        width: 260
+        height: 290
+      alignment: 9
+      pivot: {x: 0.38478535, y: 0.5163103}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae53c689eee2cd488187366314906a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_27
+      rect:
+        serializedVersion: 2
+        x: 2258
+        y: 745
+        width: 236
+        height: 296
+      alignment: 9
+      pivot: {x: 0.33298504, y: 0.52663255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061e80381d286004fa36863e9e3a04e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_28
+      rect:
+        serializedVersion: 2
+        x: 2619
+        y: 745
+        width: 236
+        height: 296
+      alignment: 9
+      pivot: {x: 0.31294277, y: 0.54261184}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f61d8c4305c3db439a7e8e62d5babc6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_29
+      rect:
+        serializedVersion: 2
+        x: 3265
+        y: 793
+        width: 340
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc68b30f9154d0d408780df928e6a78d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_30
+      rect:
+        serializedVersion: 2
+        x: 3626
+        y: 793
+        width: 320
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83e6682791d8bd42af408afad1f3611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_32
+      rect:
+        serializedVersion: 2
+        x: 3986
+        y: 793
+        width: 319
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40fd65970d426b14f9898b3fffbc5a7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_33
+      rect:
+        serializedVersion: 2
+        x: 4789
+        y: 722
+        width: 164
+        height: 313
+      alignment: 9
+      pivot: {x: 0.3855159, y: 0.5257081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b573ae9d7446fb4d82b5e00d7e30379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_34
+      rect:
+        serializedVersion: 2
+        x: 5150
+        y: 722
+        width: 165
+        height: 307
+      alignment: 9
+      pivot: {x: 0.3943389, y: 0.5174736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d4f92439e1f2c41b5a9f085f7c6d36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_37
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 757
+        width: 126
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568c34a685ce6fe459e8b65ac1260d2b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_38
+      rect:
+        serializedVersion: 2
+        x: 3692
+        y: 757
+        width: 128
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69143b3da781d3b4284ab3c52668ba55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_39
+      rect:
+        serializedVersion: 2
+        x: 4052
+        y: 757
+        width: 127
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24880f941bcde564fa17db4bcebfb6e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_40
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 387
+        width: 230
+        height: 296
+      alignment: 9
+      pivot: {x: 0.54402214, y: 0.48045328}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d80b3dd38de3b4f9373db17486ee2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_41
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 387
+        width: 194
+        height: 302
+      alignment: 9
+      pivot: {x: 0.5238959, y: 0.5000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f1665430e0e6340a7e138caf960cf2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_42
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 393
+        width: 207
+        height: 302
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d6e0d106eccaf41bcef0badeb88df1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_43
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 387
+        width: 212
+        height: 302
+      alignment: 9
+      pivot: {x: 0.481743, y: 0.5000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6476bd49d91fd4593b6a23d89da304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_44
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 387
+        width: 212
+        height: 296
+      alignment: 9
+      pivot: {x: 0.4573992, y: 0.5000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62bf04068591b345a568d4fcc829311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_45
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 387
+        width: 212
+        height: 296
+      alignment: 9
+      pivot: {x: 0.47337484, y: 0.4904653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525076d0987c6024892ef4c68e8e9c9b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_46
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 387
+        width: 206
+        height: 296
+      alignment: 9
+      pivot: {x: 0.45889905, y: 0.4999998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e272503dd2911438d6e2f1b013c2d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_47
+      rect:
+        serializedVersion: 2
+        x: 2589
+        y: 387
+        width: 198
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2025f41473ceb2e479d5fb7321cb45b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_49
+      rect:
+        serializedVersion: 2
+        x: 3267
+        y: 411
+        width: 308
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcb6804d96c13c44a256f4d5a80844b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_53
+      rect:
+        serializedVersion: 2
+        x: 3621
+        y: 411
+        width: 314
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d3696a5704554f47b5ef5bde0722d7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_57
+      rect:
+        serializedVersion: 2
+        x: 3977
+        y: 411
+        width: 317
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc4a8843df435cb4cb752ecb69278b64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_60
+      rect:
+        serializedVersion: 2
+        x: 4735
+        y: 381
+        width: 218
+        height: 302
+      alignment: 9
+      pivot: {x: 0.5098149, y: 0.48228768}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed12a65c43731b438540d5ce871ac25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_61
+      rect:
+        serializedVersion: 2
+        x: 5098
+        y: 381
+        width: 218
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48192844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8fd92fc2840054fa467d4e62f802d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_62
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 2
+        width: 164
+        height: 313
+      alignment: 9
+      pivot: {x: 0.39256185, y: 0.525588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7b4ae3b0ab1ea47bc5b4eba1855997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_63
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 2
+        width: 164
+        height: 313
+      alignment: 9
+      pivot: {x: 0.36325967, y: 0.5204704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889d3cced6fe01944bf6f2023b197a67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_64
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 1
+        width: 165
+        height: 313
+      alignment: 9
+      pivot: {x: 0.3658795, y: 0.53627026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e39b53f39f4b0a94591efc3e7fb9a1af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_65
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 2
+        width: 164
+        height: 313
+      alignment: 9
+      pivot: {x: 0.33973953, y: 0.52166957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6a70a883596df40b97d66d448d1099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_66
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 2
+        width: 165
+        height: 313
+      alignment: 9
+      pivot: {x: 0.36512637, y: 0.5237}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37dec0288074646419f773fd39376cfa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_67
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 2
+        width: 164
+        height: 313
+      alignment: 9
+      pivot: {x: 0.3492268, y: 0.53159994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72369f22fb868b4b9ff2c65da5cefac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_68
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 2
+        width: 218
+        height: 331
+      alignment: 9
+      pivot: {x: 0.2788198, y: 0.5000001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc780fee3c53784894b5ef60d35be27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_69
+      rect:
+        serializedVersion: 2
+        x: 2631
+        y: 2
+        width: 236
+        height: 295
+      alignment: 9
+      pivot: {x: 0.26425636, y: 0.56705594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c42ab11337baa40b1c0b6ef4110bb6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_70
+      rect:
+        serializedVersion: 2
+        x: 2990
+        y: 2
+        width: 224
+        height: 283
+      alignment: 9
+      pivot: {x: 0.2902636, y: 0.58300537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc695b3cd6123f0438ec8d84f9e9249a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_71
+      rect:
+        serializedVersion: 2
+        x: 3351
+        y: 2
+        width: 254
+        height: 283
+      alignment: 9
+      pivot: {x: 0.24689057, y: 0.60048026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392aa672e753079428c5bd393939502d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_72
+      rect:
+        serializedVersion: 2
+        x: 3710
+        y: 2
+        width: 254
+        height: 283
+      alignment: 9
+      pivot: {x: 0.24689057, y: 0.59611154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1605ef26d0141784b9c216200cf1a417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_73
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 2
+        width: 251
+        height: 283
+      alignment: 9
+      pivot: {x: 0.25371754, y: 0.604849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c70bd2a9c2cc6842b600439b4fb1bbb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_74
+      rect:
+        serializedVersion: 2
+        x: 4430
+        y: 2
+        width: 236
+        height: 295
+      alignment: 9
+      pivot: {x: 0.24330269, y: 0.571247}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba97d1705cd91b49810a78f8ddad4f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_75
+      rect:
+        serializedVersion: 2
+        x: 4789
+        y: 2
+        width: 218
+        height: 331
+      alignment: 9
+      pivot: {x: 0.2618061, y: 0.51494086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260be798fd2716544ad447064c117c26
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_76
+      rect:
+        serializedVersion: 2
+        x: 5150
+        y: 2
+        width: 165
+        height: 313
+      alignment: 9
+      pivot: {x: 0.34264916, y: 0.5473998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0180533ec4866034c9289267806198d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_77
+      rect:
+        serializedVersion: 2
+        x: 5509
+        y: 2
+        width: 164
+        height: 313
+      alignment: 9
+      pivot: {x: 0.34922826, y: 0.5473998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061c0e1c2ddb1104394459446eb10a17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dude All V15_78
+      rect:
+        serializedVersion: 2
+        x: 5870
+        y: 2
+        width: 165
+        height: 313
+      alignment: 9
+      pivot: {x: 0.3051817, y: 0.5552998}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721d9b9b9a57a6d4e81cde1f2e53d38b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 452a0927d71a03d46b2f21c2d24cecab
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

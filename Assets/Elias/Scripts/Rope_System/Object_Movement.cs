@@ -28,8 +28,8 @@ public class Object_Movement : MonoBehaviour {
         }*/
 
         //transform.position += new Vector3(0, direction * speed * Time.fixedDeltaTime, 0);
-        transform.GetComponent<Rigidbody2D>().velocity = new Vector3(0, direction * speed, 0);
-        //transform.GetComponent<Rigidbody2D>().MovePosition(transform.position + new Vector3(0, direction * speed * Time.fixedDeltaTime, 0));
+        //transform.GetComponent<Rigidbody2D>().velocity = new Vector3(0, direction * speed, 0);
+        transform.GetComponent<Rigidbody2D>().MovePosition(transform.position + new Vector3(0, direction * speed * Time.fixedDeltaTime, 0));
 
         //transform.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         //transform.GetComponent<Rigidbody2D>().AddForce(new Vector3(0, direction * speed * Time.fixedDeltaTime, 0), ForceMode2D.Impulse);
