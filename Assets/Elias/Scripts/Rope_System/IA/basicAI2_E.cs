@@ -121,6 +121,10 @@ public class basicAI2_E : MonoBehaviour
         Vector3 ligne_echappe = allPlayers[0].transform.position - allPlayers[1].transform.position;
         Vector3 player_dir = allPlayers[0].GetComponent<Player_Movement>().movement.normalized + allPlayers[1].GetComponent<Player2_Movement>().movement.normalized;
         Vector3 playerto_enemy = transform.position - allPlayers[1].transform.position;
+        if (player_dir == Vector3.zero)
+        {
+            return false;
+        }
         if (Vector2.Dot(Vector2.Perpendicular(ligne_echappe.normalized), playerto_enemy.normalized) > 0) // BAS
         {
             if (Vector2.Dot(Vector2.Perpendicular(ligne_echappe.normalized), player_dir.normalized) < 0)
