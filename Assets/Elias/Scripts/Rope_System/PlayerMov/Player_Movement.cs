@@ -28,6 +28,8 @@ public class Player_Movement : MonoBehaviour {
 
     public Rope_System rope_system;
 
+    public AudioSource running_audio;
+
 
     private void Start()
     {
@@ -50,7 +52,6 @@ public class Player_Movement : MonoBehaviour {
     {
         //Vector3 Delta = (Vector3.zero - transform.position);
         //Debug.Log(Delta.magnitude +  "//////" + Delta.magnitude * Delta.magnitude);
-
         transform.position = rope_system.Points[0].transform.position;
         
     }
@@ -90,6 +91,16 @@ public class Player_Movement : MonoBehaviour {
         idle_anim();
 
         Move(moveX, moveY);
+
+        //Audio
+        if (moveX != 0 || moveY != 0)
+        {
+            running_audio.UnPause();
+        }
+        else
+        {
+            running_audio.Pause();
+        }
 
         //UI
 

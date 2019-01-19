@@ -16,6 +16,8 @@ public class basicAI_E : MonoBehaviour
 
     public Animator animator;
 
+    public float delay_attack;
+
     private void Awake()
     {
         Choice();
@@ -32,37 +34,45 @@ public class basicAI_E : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target.transform.position);
-        transform.Rotate(new Vector2(0, 90));
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-
-        if (GetDistance(target) < distancePreview)
+        if (delay_attack > 0)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
-            animator.SetBool("running", true);
+            delay_attack -= Time.deltaTime;
         }
         else
         {
-            animator.SetBool("running", false);
-        }
-            
+            transform.LookAt(target.transform.position);
+            transform.Rotate(new Vector2(0, 90));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
 
-        if (targetChange)
-            ChangeTargetTrigger();
+            if (GetDistance(target) < distancePreview)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
+                animator.SetBool("running", true);
+            }
+            else
+            {
+                animator.SetBool("running", false);
+            }
 
-        #region ToVERIFY
-        //if both player are colliding in same time with the monster, monster in default don't know wich one to pick
-        //In this case the monster keep 0 in speed and will stay fix until a player collide with him again
-        //so we have to plan this case, to avoid some static AI, we find wich one is the closest, and will be the next target
-        //when both of them will stop colliding with him
-        //Of course, as long are they keep colliding with him, they will loose life
-        /*
-        if(CollidedObjects.Count ==2)
-        {
-            multipleColliding = true;
+
+            if (targetChange)
+                ChangeTargetTrigger();
+
+            #region ToVERIFY
+            //if both player are colliding in same time with the monster, monster in default don't know wich one to pick
+            //In this case the monster keep 0 in speed and will stay fix until a player collide with him again
+            //so we have to plan this case, to avoid some static AI, we find wich one is the closest, and will be the next target
+            //when both of them will stop colliding with him
+            //Of course, as long are they keep colliding with him, they will loose life
+            /*
+            if(CollidedObjects.Count ==2)
+            {
+                multipleColliding = true;
+            }
+            */
+            #endregion
         }
-        */
-        #endregion
+
     }
 
     private void Choice()
@@ -73,7 +83,7 @@ public class basicAI_E : MonoBehaviour
             //Find which one is the closest 
             if (GetDistance(Obj) < distancePreview)
             {
-                distancePreview = GetDistance(Obj);
+                //distancePreview = GetDistance(Obj);
                 target = Obj;
             }
         }
@@ -131,14 +141,14 @@ public class basicAI_E : MonoBehaviour
         {
             //Debug.Log("Old Target " + target);
             target = allPlayers[1];
-            distancePreview = GetDistance(target);
+            //distancePreview = GetDistance(target);
             //Debug.Log("New target" + target);
         }
         else
         {
             //Debug.Log("Old Target " + target);
             target = allPlayers[0];
-            distancePreview = GetDistance(target);
+            //distancePreview = GetDistance(target);
             //Debug.Log("New target" + target);
         }
     }

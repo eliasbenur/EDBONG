@@ -60,7 +60,7 @@ public class AI_tp : MonoBehaviour{
 
         if (hit.collider != null)
         {
-            transform.position = new_pos + direction.normalized * (hit.distance -1);
+            transform.position = new_pos + direction.normalized * (hit.distance -2);
         }
         else
         {
