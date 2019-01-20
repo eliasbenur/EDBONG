@@ -59,8 +59,8 @@ public class Rope_System : MonoBehaviour {
         _lineRenderer.positionCount = NumPoints;
         _lineRenderer.startWidth = 0.2f;
         _lineRenderer.endWidth = 0.2f;
-        _lineRenderer.startColor = Color.black;
-        _lineRenderer.endColor = Color.black;
+        _lineRenderer.startColor = Color.red;
+        _lineRenderer.endColor = Color.red;
 
         // "Distance" between the 2 start points
         Vector3 Delta = CableEnd.position - CableStart.position;

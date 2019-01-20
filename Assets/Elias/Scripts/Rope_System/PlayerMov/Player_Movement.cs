@@ -52,7 +52,8 @@ public class Player_Movement : MonoBehaviour {
     {
         //Vector3 Delta = (Vector3.zero - transform.position);
         //Debug.Log(Delta.magnitude +  "//////" + Delta.magnitude * Delta.magnitude);
-        transform.position = rope_system.Points[0].transform.position;
+        //transform.position = rope_system.Points[0].transform.position;
+        gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
         
     }
 

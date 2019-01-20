@@ -18,6 +18,13 @@ public class basicAI_E : MonoBehaviour
 
     public float delay_attack;
 
+    public AudioSource hit_lasser;
+    public AudioSource audio_explision;
+
+    public GameObject blood_explo;
+
+    bool dead;
+
     private void Awake()
     {
         Choice();
@@ -29,6 +36,7 @@ public class basicAI_E : MonoBehaviour
     void Start()
     {
         //Debug.Log(distancePreview);
+        dead = false;
     }
 
     // Update is called once per frame
@@ -173,7 +181,7 @@ public class basicAI_E : MonoBehaviour
             if (collision.transform.parent.tag == "rope")
             {
                 animator.SetBool("dead", true);
-                GetComponent<CircleCollider2D>().enabled = false;
+                GetComponent<CircleCollider2D>().isTrigger = true;
                 StartCoroutine(Dead());
             }
         }
@@ -182,9 +190,18 @@ public class basicAI_E : MonoBehaviour
 
     IEnumerator Dead()
     {
-        distancePreview = float.MaxValue;
-        yield return new WaitForSeconds(0.6f);
-        Destroy(gameObject);
+        if (!dead)
+        {
+            dead = true;
+            distancePreview = float.MaxValue;
+            enemySpeed = 0;
+            yield return new WaitForSeconds(1.1f);
+            audio_explision.Play();
+            Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(gameObject);
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -205,5 +222,14 @@ public class basicAI_E : MonoBehaviour
         {
             enemySpeed = previousEnemySpeed;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!hit_lasser.isPlaying)
+        {
+            hit_lasser.Play();
+        }
+
     }
 }

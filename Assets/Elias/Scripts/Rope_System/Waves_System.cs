@@ -24,6 +24,9 @@ public class Waves_System : MonoBehaviour
     public List<Transform> current_enemies;
     public List<GameObject> dif_enemies;
 
+    public AudioSource background_music;
+    public AudioSource wave_start;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,7 @@ public class Waves_System : MonoBehaviour
             curr_delay_wave_tit = 0;
             wave_title.gameObject.SetActive(false);
             wave_title_num.gameObject.SetActive(false);
+            background_music.volume = 0.3f;
         }
 
         delete_enemies_dead();
@@ -77,7 +81,10 @@ public class Waves_System : MonoBehaviour
 
         current_wave++;
 
-
+        if (current_wave >= 10)
+        {
+            current_wave = 1;
+        }
 
         curr_delay_wave_tit = delay_wave_tit;
 
@@ -88,6 +95,9 @@ public class Waves_System : MonoBehaviour
         wave_txt_num.text = current_wave.ToString();
         wave_title.gameObject.SetActive(true);
         wave_title_num.gameObject.SetActive(true);
+
+        background_music.volume = 0.1f;
+        wave_start.Play();
 
 
         for (int x=0; x<num_enemies_dif; x++)
