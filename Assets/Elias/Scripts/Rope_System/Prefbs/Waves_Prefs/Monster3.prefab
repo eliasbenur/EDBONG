@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 363910200}
   - component: {fileID: 1342271892}
   - component: {fileID: 1342271891}
-  - component: {fileID: 1342271890}
   - component: {fileID: 1342271889}
   - component: {fileID: 1342271888}
   - component: {fileID: 7053411985052241014}
   - component: {fileID: 3119407563760773095}
+  - component: {fileID: 2079493490960568054}
   m_Layer: 0
   m_Name: Monster3
   m_TagString: monster
@@ -104,32 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1342271890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342271887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405732a32fc1ee54fb868a4401eb154a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allPlayers: []
-  detectionDistance: 200
-  target: {fileID: 0}
-  enemySpeed: 2
-  animator: {fileID: 1342271891}
-  delay_spawn: 5
-  timer_BeforeAttack: 0.5
-  timer: 0
-  attack: 0
-  anim_atack: 0
-  hit_lasser: {fileID: 7053411985052241014}
-  audio_explision: {fileID: 3119407563760773095}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
 --- !u!58 &1342271889
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -154,7 +128,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342271887}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -359,3 +333,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2079493490960568054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342271887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0495435924a5c204da47e9d3d947a7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  allPlayers: []
+  detectionDistance: 20
+  detectionDistance_minimalBeforeLeave: 5
+  distanceShoot: 15
+  enemySpeed: 2
+  speedProjectile: 1
+  cooldown: 5
+  cooldown_betweenNextProejctile: 0.7
+  projectileToFire: 10

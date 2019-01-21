@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class basicAI_Modif : MonoBehaviour {
+
     public List<GameObject> allPlayers = new List<GameObject>();
     public float distancePreview = float.MaxValue;
     public GameObject target;
@@ -19,20 +20,23 @@ public class basicAI_Modif : MonoBehaviour {
         Choice();
         previousEnemySpeed = enemySpeed;
     }
-  
+
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Debug.Log(distancePreview);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         transform.LookAt(target.transform.position);
         transform.Rotate(new Vector2(0, 90));
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
 
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
+        if (GetDistance(target) < 100)
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
 
         if (targetChange)
             ChangeTargetTrigger();
@@ -54,7 +58,7 @@ public class basicAI_Modif : MonoBehaviour {
 
     private void Choice()
     {
-        foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("tack"))
+        foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
         {
             allPlayers.Add(Obj);
             //Find which one is the closest 
@@ -62,7 +66,7 @@ public class basicAI_Modif : MonoBehaviour {
             {
                 distancePreview = GetDistance(Obj);
                 target = Obj;
-            }              
+            }
         }
         //The enemy is focus on the closest player but we do a lottery draw to add some challenge/ variation, AI has 20% of luck to change his target
         RandomProbTarget();
@@ -97,9 +101,8 @@ public class basicAI_Modif : MonoBehaviour {
 
             case 4:
                 //20% of success to change the main target
-                Debug.Log("LUCKKKKKKYYYYY");
-                NewTarget();             
-                break;    
+                NewTarget();
+                break;
             default:
                 break;
         }
@@ -107,8 +110,6 @@ public class basicAI_Modif : MonoBehaviour {
 
     private void ChangeTargetTrigger()
     {
-        Debug.Log("Other one target has been collided, what i'm doing ?");
-        Debug.Log("Should i change my target ?");
         NewTarget();
         enemySpeed = 0;
         targetChanged = true;
@@ -142,7 +143,7 @@ public class basicAI_Modif : MonoBehaviour {
             enemySpeed = 0;
         }
 
-        if(collision.gameObject != target && !targetChanged && collision.gameObject.tag =="tack")
+        if (collision.gameObject != target && !targetChanged && collision.gameObject.tag == "tack")
         {
             targetChange = true;
         }
@@ -162,7 +163,7 @@ public class basicAI_Modif : MonoBehaviour {
             targetChanged = false;
         }
 
-        if (collision.gameObject.tag =="Rope")
+        if (collision.gameObject.tag == "Rope")
         {
             enemySpeed = previousEnemySpeed;
         }
