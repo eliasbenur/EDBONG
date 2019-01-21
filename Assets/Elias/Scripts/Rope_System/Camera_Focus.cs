@@ -17,9 +17,9 @@ public class Camera_Focus : MonoBehaviour
     public void Start()
     {
         //GetComponent<Camera>().orthographicSize = (1920 / (((1920 / 1080) * 2) * 48)) * 4;
-        targets.Clear();
-        targets.Add(rope_system.Points[0].transform);
-        targets.Add(rope_system.Points[rope_system.NumPoints - 1].transform);
+        //targets.Clear();
+        //targets.Add(rope_system.Points[0].transform);
+        //targets.Add(rope_system.Points[rope_system.NumPoints - 1].transform);
     }
 
     private void Update()

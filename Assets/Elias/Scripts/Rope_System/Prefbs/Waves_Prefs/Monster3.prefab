@@ -117,11 +117,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allPlayers: []
-  distancePreview: 100
+  detectionDistance: 200
   target: {fileID: 0}
   enemySpeed: 2
   animator: {fileID: 1342271891}
-  delay_attack: 5
+  delay_spawn: 5
+  timer_BeforeAttack: 0.5
+  timer: 0
   hit_lasser: {fileID: 7053411985052241014}
   audio_explision: {fileID: 3119407563760773095}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
@@ -150,7 +152,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342271887}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -5,18 +5,19 @@ using UnityEngine;
 public class basicAI_E : MonoBehaviour
 {
     public List<GameObject> allPlayers = new List<GameObject>();
-    public float distancePreview;
+    public float detectionDistance;
     public GameObject target;
     public float enemySpeed;
-    private float previousEnemySpeed;
+    private float oldSpeed;
 
-    private bool targetChange;
-    private bool targetChanged;
-    private bool multipleColliding;
 
     public Animator animator;
 
-    public float delay_attack;
+    public float delay_spawn;
+
+    public float timer_BeforeAttack;
+    public float timer;
+    public bool attack;
 
     public AudioSource hit_lasser;
     public AudioSource audio_explision;
@@ -27,8 +28,7 @@ public class basicAI_E : MonoBehaviour
 
     private void Awake()
     {
-        Choice();
-        previousEnemySpeed = enemySpeed;
+        oldSpeed = enemySpeed;
     }
 
 
@@ -42,61 +42,73 @@ public class basicAI_E : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (delay_attack > 0)
+        if (delay_spawn > 0)
         {
-            delay_attack -= Time.deltaTime;
+            delay_spawn -= Time.deltaTime;
         }
         else
         {
-            transform.LookAt(target.transform.position);
-            transform.Rotate(new Vector2(0, 90));
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-
-            if (GetDistance(target) < distancePreview)
+            if (target != null)
             {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
-                animator.SetBool("running", true);
-            }
-            else
-            {
-                animator.SetBool("running", false);
-            }
+                //If one player (who are not the actual target) is closer than the target, then the script change of target
+                var maxDistance = float.MaxValue;
+                foreach (var player in allPlayers)
+                {
+                    var whichOneCloser = GetDistance(player);
+                    if (whichOneCloser < maxDistance)
+                    {
+                        target = player;
+                        maxDistance = whichOneCloser;
+                    }
+                }
+                if (GetDistance(target) < detectionDistance)
+                {
+                    Follow();
+                    animator.SetBool("running", true);
+                }
+                else
+                {
+                    animator.SetBool("running", false);
+                }
+                if (attack)
+                {
+                    timer += Time.deltaTime;
+                    if (timer > timer_BeforeAttack)
+                    {
+                        Camera.main.GetComponent<GameManager>().Hit();
+                        timer = 0;
+                    }
+                }
+                else
+                {
+                    timer = 0;
+                }
 
-
-            if (targetChange)
-                ChangeTargetTrigger();
-
-            #region ToVERIFY
-            //if both player are colliding in same time with the monster, monster in default don't know wich one to pick
-            //In this case the monster keep 0 in speed and will stay fix until a player collide with him again
-            //so we have to plan this case, to avoid some static AI, we find wich one is the closest, and will be the next target
-            //when both of them will stop colliding with him
-            //Of course, as long are they keep colliding with him, they will loose life
-            /*
-            if(CollidedObjects.Count ==2)
-            {
-                multipleColliding = true;
+                //Look at the Target
+                transform.LookAt(target.transform.position);
+                transform.Rotate(new Vector2(0, 90));
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
             }
-            */
-            #endregion
         }
 
-    }
-
-    private void Choice()
-    {
-        foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
+        if (/*transform.parent.GetComponent<Rooms>().stayedRoom && */target == null)
         {
-            allPlayers.Add(Obj);
-            //Find which one is the closest 
-            if (GetDistance(Obj) < distancePreview)
+            foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
             {
-                //distancePreview = GetDistance(Obj);
-                target = Obj;
+                allPlayers.Add(Obj);
+            }
+            var maxDistance = float.MaxValue;
+            foreach (var player in allPlayers)
+            {
+                var whichOneCloser = GetDistance(player);
+                if (whichOneCloser < maxDistance)
+                {
+                    target = player;
+                    maxDistance = whichOneCloser;
+                }
             }
         }
-        //The enemy is focus on the closest player but we do a lottery draw to add some challenge/ variation, AI has 20% of luck to change his target
-        RandomProbTarget();
+
     }
 
     float GetDistance(GameObject obj)
@@ -105,80 +117,29 @@ public class basicAI_E : MonoBehaviour
         return distance;
     }
 
-    private void RandomProbTarget()
+    void Follow()
     {
-        int prob = UnityEngine.Random.Range(0, 5);
-        switch (prob)
-        {
-            case 0:
-                //80% prob so we won't change anything
-                break;
-
-            case 1:
-                //80% prob so we won't change anything
-                break;
-
-            case 2:
-                //80% prob so we won't change anything
-                break;
-
-            case 3:
-                //80% prob so we won't change anything
-                break;
-
-            case 4:
-                //20% of success to change the main target
-                NewTarget();
-                break;
-            default:
-                break;
-        }
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
     }
 
-    private void ChangeTargetTrigger()
-    {
-        NewTarget();
-        enemySpeed = 0;
-        targetChanged = true;
-        targetChange = false;
-    }
-
-    private void NewTarget()
-    {
-        if (target == allPlayers[0])
-        {
-            //Debug.Log("Old Target " + target);
-            target = allPlayers[1];
-            //distancePreview = GetDistance(target);
-            //Debug.Log("New target" + target);
-        }
-        else
-        {
-            //Debug.Log("Old Target " + target);
-            target = allPlayers[0];
-            //distancePreview = GetDistance(target);
-            //Debug.Log("New target" + target);
-        }
-    }
 
     //When an enemy collide with a player, he stop moving to avoid some shakings 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject == target)
+        if (collision.gameObject.tag == "player")
         {
             enemySpeed = 0;
-        }
+            attack = true;
+            allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
+            allPlayers[1].GetComponent<Player2_Movement>().alreadyVibrated = false;
 
-        if (collision.gameObject != target && !targetChanged && collision.gameObject.tag == "tack")
-        {
-            targetChange = true;
         }
 
         if (collision.transform.tag != "player" && collision.transform.tag != "monster")
         {
             //if (collision.transform.parent.transform.parent.tag == "rope")
-            if (collision.transform.parent.tag == "rope")
+            if (collision.transform.parent.tag == "rope" && delay_spawn <= 0)
             {
                 animator.SetBool("dead", true);
                 GetComponent<CircleCollider2D>().isTrigger = true;
@@ -190,10 +151,17 @@ public class basicAI_E : MonoBehaviour
 
     IEnumerator Dead()
     {
-        if (!dead)
+        if (!dead && delay_spawn <= 0) 
         {
             dead = true;
-            distancePreview = float.MaxValue;
+
+            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+            allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+
+            if (!hit_lasser.isPlaying)
+            {
+                hit_lasser.Play();
+            }
             enemySpeed = 0;
             yield return new WaitForSeconds(1.1f);
             audio_explision.Play();
@@ -206,29 +174,10 @@ public class basicAI_E : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject == target)
+        if (collision.gameObject.tag == "player")
         {
-            enemySpeed = previousEnemySpeed;
-            targetChanged = false;
-        }
-
-        if (collision.gameObject != target)
-        {
-            targetChange = false;
-            targetChanged = false;
-        }
-
-        if (collision.gameObject.tag == "Rope")
-        {
-            enemySpeed = previousEnemySpeed;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!hit_lasser.isPlaying)
-        {
-            hit_lasser.Play();
+            enemySpeed = oldSpeed;
+            attack = false;
         }
 
     }

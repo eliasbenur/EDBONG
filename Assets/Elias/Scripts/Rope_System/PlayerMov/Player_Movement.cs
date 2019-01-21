@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 public class Player_Movement : MonoBehaviour {
 
@@ -30,8 +31,53 @@ public class Player_Movement : MonoBehaviour {
 
     public AudioSource running_audio;
 
+    //Blincking Effect
+    public float spriteBlinkingTimer = 0.0f;
+    public float spriteBlinkingMiniDuration = 0.1f;
+    public float spriteBlinkingTotalTimer = 0.0f;
+    public float spriteBlinkingTotalDuration = 1.0f;
+    public bool startBlinking = false;
+
+    //Camera Shake Effect
+    // Transform of the GameObject you want to shake
+    public Transform cameraTransform;
+    public float shakeDuration;
+    public float shakeMagnitude;
+    public float dampingSpeed;
+    public Vector3 initialPosition;
+
+    GameManager checkLifePlayers;
+
+    //Controller Vibration
+    public PlayerIndex playerIndex;
+    bool playerIndexSet = false;
+    GamePadState prevState;
+    public bool testVibrationHitRope;
+    public float timerRope;
+
+    public bool alreadyVibrated;
+
+    public float timerTot_RopeHitVibrate;
+    public float leftMotor_RopeHit, rightMotor_RopeHit;
+    public float leftMotor_EnnemyHit, rightMotor_EnnemyHit;
+
+    public float shakeDuration_RopeHit;
+    public float shakeMagnitude_RopeHit;
+    public float dampingSpeed_RopeHit;
 
 
+    [SerializeField]
+    public GameManager CheckMoney;
+
+    public Collider2D collisionItems;
+
+    private void Awake()
+    {
+        cameraTransform = Camera.main.GetComponent<Transform>();
+        checkLifePlayers = Camera.main.GetComponent<GameManager>();
+        CheckMoney = Camera.main.GetComponent<GameManager>();
+        collisionItems = GetComponent<Collider2D>();
+    }
 
     private void Start()
     {
@@ -52,10 +98,52 @@ public class Player_Movement : MonoBehaviour {
 
     private void Update()
     {
-        //Vector3 Delta = (Vector3.zero - transform.position);
-        //Debug.Log(Delta.magnitude +  "//////" + Delta.magnitude * Delta.magnitude);
-        //transform.position = rope_system.Points[0].transform.position;
-        gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
+
+        if (testVibrationHitRope)
+        {
+            Vibrate_Control(leftMotor_RopeHit, rightMotor_RopeHit);
+            initialPosition = Camera.main.transform.position;
+            CameraShake_RopeHit();
+            shakeDuration_RopeHit = 0.2f;
+            timerRope += Time.deltaTime;
+            if (timerRope > timerTot_RopeHitVibrate)
+            {
+                testVibrationHitRope = false;
+                timerRope = 0;
+            }
+        }
+
+        if (!testVibrationHitRope || alreadyVibrated)
+            Vibrate_Control(0, 0);
+
+        if (startBlinking)
+        {
+            alreadyVibrated = false;
+            Vibrate_Control(leftMotor_EnnemyHit, rightMotor_EnnemyHit);
+            initialPosition = Camera.main.transform.position;
+            shakeDuration = 0.3f;
+            SpriteBlinkingEffect();
+            CameraShake();
+            checkLifePlayers.godMode = true;
+        }
+
+        if (!playerIndexSet || !prevState.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testState = GamePad.GetState(testPlayerIndex);
+                if (testState.IsConnected)
+                {
+                    Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+                    playerIndex = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        transform.position = rope_system.Points[0].transform.position;
+        //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
         
     }
 
@@ -183,5 +271,104 @@ public class Player_Movement : MonoBehaviour {
         {
             movement.Set(1, 0);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Item")
+        {
+            CheckMoney.KeyPressed = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "player")
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Trap")
+        {
+            //checkLifePlayers.Hit();
+        }
+
+        if (collision.tag == "Coin")
+        {
+            CheckMoney.money++;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.tag == "Item")
+        {
+            CheckMoney.KeyPressed = true;
+            collisionItems = collision;
+        }
+
+    }
+
+    private void SpriteBlinkingEffect()
+    {
+        spriteBlinkingTotalTimer += Time.deltaTime;
+        if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
+        {
+            startBlinking = false;
+            alreadyVibrated = true;
+            spriteBlinkingTotalTimer = 0.0f;
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to your sprite
+            return;
+        }
+
+        spriteBlinkingTimer += Time.deltaTime;
+        if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
+        {
+            spriteBlinkingTimer = 0.0f;
+            if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;  //make changes
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   //make changes
+            }
+        }
+    }
+
+    void CameraShake()
+    {
+        if (shakeDuration > 0)
+        {
+            cameraTransform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+            shakeDuration -= Time.deltaTime * dampingSpeed;
+        }
+        else
+        {
+            cameraTransform.localPosition = initialPosition;
+            checkLifePlayers.godMode = false;
+        }
+    }
+
+    void CameraShake_RopeHit()
+    {
+        if (shakeDuration_RopeHit > 0)
+        {
+            cameraTransform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude_RopeHit;
+            shakeDuration_RopeHit -= Time.deltaTime * dampingSpeed_RopeHit;
+        }
+        else
+        {
+            cameraTransform.localPosition = initialPosition;
+            checkLifePlayers.godMode = false;
+        }
+    }
+
+
+
+    public void Vibrate_Control(float leftMotor, float rightMotor)
+    {
+        GamePad.SetVibration(playerIndex, leftMotor, rightMotor);
     }
 }
