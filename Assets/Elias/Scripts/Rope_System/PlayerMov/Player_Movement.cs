@@ -318,7 +318,8 @@ public class Player_Movement : MonoBehaviour {
             startBlinking = false;
             alreadyVibrated = true;
             spriteBlinkingTotalTimer = 0.0f;
-            this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to your sprite
+            //this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to your sprite
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255,255,255,255);
             return;
         }
 
@@ -326,13 +327,13 @@ public class Player_Movement : MonoBehaviour {
         if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
         {
             spriteBlinkingTimer = 0.0f;
-            if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+            if (this.gameObject.GetComponent<SpriteRenderer>().color == new Color(255, 255, 255, 255))
             {
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;  //make changes
+                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   //make changes
+                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
             }
         }
     }

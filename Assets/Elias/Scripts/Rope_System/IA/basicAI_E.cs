@@ -18,6 +18,7 @@ public class basicAI_E : MonoBehaviour
     public float timer_BeforeAttack;
     public float timer;
     public bool attack;
+    public bool anim_atack;
 
     public AudioSource hit_lasser;
     public AudioSource audio_explision;
@@ -70,13 +71,20 @@ public class basicAI_E : MonoBehaviour
                 {
                     animator.SetBool("running", false);
                 }
-                if (attack)
+                if (anim_atack)
                 {
                     timer += Time.deltaTime;
+                    animator.SetBool("attack", true);
                     if (timer > timer_BeforeAttack)
                     {
-                        Camera.main.GetComponent<GameManager>().Hit();
+                        if (attack)
+                        {
+                            Camera.main.GetComponent<GameManager>().Hit();
+                        }
                         timer = 0;
+                        anim_atack = false;
+                        animator.SetBool("attack", false);
+                        enemySpeed = oldSpeed;
                     }
                 }
                 else
@@ -131,6 +139,8 @@ public class basicAI_E : MonoBehaviour
         {
             enemySpeed = 0;
             attack = true;
+            anim_atack = true;
+            //animator.SetBool("attack", true);
             allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
             allPlayers[1].GetComponent<Player2_Movement>().alreadyVibrated = false;
 
@@ -176,7 +186,6 @@ public class basicAI_E : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            enemySpeed = oldSpeed;
             attack = false;
         }
 

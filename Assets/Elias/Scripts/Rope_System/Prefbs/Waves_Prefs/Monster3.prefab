@@ -124,6 +124,8 @@ MonoBehaviour:
   delay_spawn: 5
   timer_BeforeAttack: 0.5
   timer: 0
+  attack: 0
+  anim_atack: 0
   hit_lasser: {fileID: 7053411985052241014}
   audio_explision: {fileID: 3119407563760773095}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
@@ -141,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09694719, y: 0.11481881}
   serializedVersion: 2
-  m_Radius: 0.90999997
+  m_Radius: 0.42611718
 --- !u!50 &1342271888
 Rigidbody2D:
   serializedVersion: 4
