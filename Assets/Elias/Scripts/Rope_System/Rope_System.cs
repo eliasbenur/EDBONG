@@ -92,11 +92,8 @@ public class Rope_System : MonoBehaviour {
             //TODO: Delete
             if (ParticleIndex == 0 || ParticleIndex == (NumPoints - 1)){
 
-                /*var collider = particle.gameObject.AddComponent<BoxCollider2D>();
-                collider.offset = new Vector2(0,0);
-                collider.size = new Vector2(1,2.2f);*/
-                var collider = particle.gameObject.AddComponent<CircleCollider2D>();
-                collider.radius = 0.5f;
+                /*var collider = particle.gameObject.AddComponent<CircleCollider2D>();
+                collider.radius = 0.5f;*/
                 particle.p_free = false;
             }
             else{
