@@ -123,7 +123,7 @@ public class Player2_Movement : MonoBehaviour {
             checkLifePlayers.godMode = true;
         }
 
-        if (!playerIndexSet || !prevState.IsConnected)
+        /*if (!playerIndexSet || !prevState.IsConnected)
         {
             for (int i = 0; i < 4; ++i)
             {
@@ -136,7 +136,7 @@ public class Player2_Movement : MonoBehaviour {
                     playerIndexSet = true;
                 }
             }
-        }
+        }*/
 
         transform.position = rope_system.Points[rope_system.NumPoints - 1].transform.position;
         //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[rope_system.NumPoints - 1].transform.position);
@@ -154,7 +154,7 @@ public class Player2_Movement : MonoBehaviour {
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && dash_v <= 0 && movement != Vector2.zero)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Joystick2Button0)) && dash_v <= 0 && movement != Vector2.zero)
         {
             dash_v = dash_delay;
         }

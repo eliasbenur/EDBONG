@@ -137,8 +137,8 @@ public class basicAI2_E : MonoBehaviour
                 timerCut += Time.deltaTime;
                 if (timerCut > timerCut_TOT)
                 {
-                    /*allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;*/
+                    allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
                     animator.SetBool("dead", true);
                     GetComponent<CircleCollider2D>().enabled = false;
                     StartCoroutine(Dead());
