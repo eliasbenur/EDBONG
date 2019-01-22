@@ -179,8 +179,16 @@ public class Rope_System : MonoBehaviour {
 
             if (CurrentDistance > MaxLenght_xPoint)
             {
-                Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-                ParticleB.new_pos_p1 = P_B;
+                if (!ParticleB.enemie_coll)
+                {
+                    Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
+                    ParticleB.new_pos_p1 = P_B;
+                }
+                else
+                {
+                    Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * (Delta.normalized * 0.2f);
+                    ParticleB.new_pos_p1 = P_B;
+                }
             }
             else
             {
@@ -205,8 +213,17 @@ public class Rope_System : MonoBehaviour {
 
             if (CurrentDistance > MaxLenght_xPoint)
             {
-                Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-                ParticleB.new_pos_p2 = P_B;
+                if (!ParticleB.enemie_coll)
+                {
+                    Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
+                    ParticleB.new_pos_p2 = P_B;
+                }
+                else
+                {
+                    Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * (Delta.normalized * 0.2f);
+                    ParticleB.new_pos_p2 = P_B;
+                }
+
             }
             else
             {
@@ -257,7 +274,7 @@ public class Rope_System : MonoBehaviour {
         for (int PointIndex = 0; PointIndex < NumPoints - 1; PointIndex++)
         {
             Rope_Point ParticleA = Points[PointIndex];
-            if (ParticleA.coll_state)
+            if (ParticleA.coll_state || ParticleA.enemie_coll)
             {
                 lisr_p.Add(ParticleA);
             }
@@ -279,8 +296,15 @@ public class Rope_System : MonoBehaviour {
 
             if (CurrentDistance > MaxLenght_xPoint && !state_surround)
             {
-                ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
-                //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+                if (!ParticleB.enemie_coll)
+                {
+                    ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
+                    //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+                }
+                else
+                {
+                    ParticleB.transform.position += (Delta.normalized*0.2f) * ((CurrentDistance - MaxLenght_xPoint));
+                }
             }
             else if (state_surround)
             {
@@ -304,8 +328,15 @@ public class Rope_System : MonoBehaviour {
 
             if (CurrentDistance > MaxLenght_xPoint && !state_surround)
             {
-                ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
-                //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+                if (!ParticleB.enemie_coll)
+                {
+                    ParticleB.transform.position += Delta.normalized * ((CurrentDistance - MaxLenght_xPoint));
+                    //ParticleA.transform.position -= Delta.normalized * ((CurrentDistance - MaxLenght_xPoint) / 2);
+                }
+                else
+                {
+                    ParticleB.transform.position += (Delta.normalized * 0.2f) * ((CurrentDistance - MaxLenght_xPoint));
+                }
             } else if (state_surround)
             {
                 if (!ParticleB.coll_state)

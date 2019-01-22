@@ -11,6 +11,7 @@ public class Rope_Point : MonoBehaviour {
     public Vector3 new_pos;
 
     public bool close_coll;
+    public bool enemie_coll;
 
     // Use this for initialization
     void Start () {
