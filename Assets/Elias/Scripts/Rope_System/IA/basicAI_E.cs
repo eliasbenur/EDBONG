@@ -27,6 +27,14 @@ public class basicAI_E : MonoBehaviour
 
     bool dead;
 
+    public List<encer_trig2> list_trig;
+    public Rope_System rope_system;
+    public bool rope_atachment;
+
+    public float timerCut, timerCut_TOT;
+
+    public int num_trig = 0;
+
     private void Awake()
     {
         oldSpeed = enemySpeed;
@@ -38,6 +46,10 @@ public class basicAI_E : MonoBehaviour
     {
         //Debug.Log(distancePreview);
         dead = false;
+        foreach (Transform child in transform)
+        {
+            list_trig.Add(child.GetComponent<encer_trig2>());
+        }
     }
 
     // Update is called once per frame
@@ -117,6 +129,56 @@ public class basicAI_E : MonoBehaviour
             }
         }
 
+        Start_surround();
+        if (num_trig >= 3)
+        {
+            if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+            {
+                timerCut += Time.deltaTime;
+                if (timerCut > timerCut_TOT)
+                {
+                    /*allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;*/
+                    animator.SetBool("dead", true);
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    StartCoroutine(Dead());
+                    //TODO: second player
+
+                    /*for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
+                    {
+                        if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
+                            transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
+                    }
+                    var coinToDropRand = Random.Range(0, 2);
+                    var coinCount = 0;
+                    if (coinCount < coinToDropRand)
+                    {
+                        //Instantiate(coinToDrop, transform.position, Quaternion.identity);
+                        Instantiate(Resources.Load("CoinAnim"), transform.position, Quaternion.identity);
+                        coinCount++;
+                    }*/
+                }
+            }
+            else
+                timerCut = 0;
+        }
+        else
+            timerCut = 0;
+
+    }
+
+    void Start_surround()
+    {
+        num_trig = 0;
+        foreach (encer_trig2 trig in list_trig)
+        {
+            if (trig.Check_isTouching())
+            {
+                num_trig++;
+            }
+        }
+
+
     }
 
     float GetDistance(GameObject obj)
@@ -151,9 +213,9 @@ public class basicAI_E : MonoBehaviour
             //if (collision.transform.parent.transform.parent.tag == "rope")
             if (collision.transform.parent.tag == "rope" && delay_spawn <= 0)
             {
-                animator.SetBool("dead", true);
+                /*animator.SetBool("dead", true);
                 GetComponent<CircleCollider2D>().isTrigger = true;
-                StartCoroutine(Dead());
+                StartCoroutine(Dead());*/
             }
         }
 
@@ -164,7 +226,7 @@ public class basicAI_E : MonoBehaviour
         if (!dead && delay_spawn <= 0) 
         {
             dead = true;
-
+            
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
 

@@ -242,7 +242,7 @@ public class Player_Movement : MonoBehaviour {
                 animator.SetBool("dash", false);
             }
             //GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = new Vector2(-1,0) * 0.3f;
-            GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement * speed;
+            GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement.normalized * speed;
         }
         else
         {

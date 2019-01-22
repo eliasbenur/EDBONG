@@ -11,7 +11,7 @@ public class encer_trig2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    public bool check_isTouching()
+    public bool Check_isTouching()
     {
         LayerMask mask = LayerMask.GetMask("Rope");
         if (gameObject.GetComponent<CircleCollider2D>().IsTouchingLayers(mask))

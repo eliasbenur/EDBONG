@@ -6,14 +6,14 @@ public class Yamete : MonoBehaviour
 {
     [HideInInspector]
     public List<Transform> allChilds = new List<Transform>();
-    private List<GameObject> allPlayers = new List<GameObject>();
-    private GameObject target;
+    public List<GameObject> allPlayers = new List<GameObject>();
+    public GameObject target;
     //Detection's variable, tweekable 
     public float detectionDistance, distanceShoot, speedProjectile;    
 
     bool hit;
     //Variable for projectile's shoot, tweekable
-    bool canShoot = true;
+    public bool canShoot = true;
     IEnumerator coroutineFire;
     public float cooldown;
     public float cooldownWait;
@@ -49,17 +49,6 @@ public class Yamete : MonoBehaviour
         }
         if (target != null)
         {
-            //If one player (who are not the actual target) is closer than the target, then the script change of target
-            var maxDistance = float.MaxValue;
-            foreach (var player in allPlayers)
-            {
-                var whichOneCloser = GetDistance(player);
-                if (whichOneCloser < maxDistance)
-                {
-                    target = player;
-                    maxDistance = whichOneCloser;
-                }
-            }
             if (GetDistance(target) < distanceShoot)
             {
                 if (canShoot)
@@ -86,7 +75,7 @@ public class Yamete : MonoBehaviour
             foreach (Transform child in allChilds)
             {
                 var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as GameObject;
-                instanceAddForce.GetComponent<Rigidbody2D>().AddForce((child.transform.position - transform.position) * speedProjectile);
+                instanceAddForce.GetComponent<Rigidbody2D>().AddForce((child.transform.position - transform.position) * speedProjectile, ForceMode2D.Impulse);
                 //We wait a short time, to let the previous element go more forward before spawing another one 
                 canShoot = false;
                 yield return new WaitForSeconds(cooldownWait);
@@ -115,7 +104,7 @@ public class Yamete : MonoBehaviour
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
 
-            for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
+            /*for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
             {
                 if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
                     transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
@@ -129,7 +118,7 @@ public class Yamete : MonoBehaviour
                 coinCount++;
             }
             else
-                return;
+                return;*/
             Destroy(this.gameObject);
         }
     }

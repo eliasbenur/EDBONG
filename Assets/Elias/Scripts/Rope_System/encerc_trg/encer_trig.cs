@@ -18,7 +18,7 @@ public class encer_trig : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag != "player" && collision.transform.tag != "monster" && collision.transform.tag != "encer_trig_right" && collision.transform.tag != "encer_trig_up" && collision.transform.tag != "encer_trig_down" && collision.transform.tag != "encer_trig_left")
+        /*if (collision.transform.tag != "player" && collision.transform.tag != "monster" && collision.transform.tag != "encer_trig_right" && collision.transform.tag != "encer_trig_up" && collision.transform.tag != "encer_trig_down" && collision.transform.tag != "encer_trig_left")
         {
             if (collision.transform.parent.tag == "rope")
             {
@@ -38,12 +38,12 @@ public class encer_trig : MonoBehaviour
                         break;
                 }
             }
-        }
+        }*/
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        switch (transform.tag)
+        /*switch (transform.tag)
         {
             case "encer_trig_left":
                 transform.parent.GetComponent<basicAI2_E>().trig_left = false;
@@ -57,6 +57,6 @@ public class encer_trig : MonoBehaviour
             case "encer_trig_down":
                 transform.parent.GetComponent<basicAI2_E>().trig_down = false;
                 break;
-        }
+        }*/
     }
 }

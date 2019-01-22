@@ -19,6 +19,7 @@ TagManager:
   - encer_trig_right
   - encer_trig_up
   - encer_trig_down
+  - piege
   layers:
   - Default
   - TransparentFX

@@ -5,31 +5,39 @@ using UnityEngine;
 public class basicAI2_E : MonoBehaviour
 {
     public List<GameObject> allPlayers = new List<GameObject>();
-    public float distancePreview;
+    public float detectionDistance;
     public GameObject target;
     public float enemySpeed;
-    private float previousEnemySpeed;
+    private float oldSpeed;
 
-    private bool targetChange;
-    private bool targetChanged;
-    private bool multipleColliding;
 
     public Animator animator;
 
-    public bool trig_left, trig_right, trig_down, trig_up;
+    public float delay_spawn;
+
+    public float timer_BeforeAttack;
+    public float timer;
+    public bool attack;
+    public bool anim_atack;
+
+    public AudioSource hit_lasser;
+    public AudioSource audio_explision;
+
+    public GameObject blood_explo;
+
+    bool dead;
 
     public List<encer_trig2> list_trig;
-
     public Rope_System rope_system;
     public bool rope_atachment;
 
+    public float timerCut, timerCut_TOT;
+
+    public int num_trig = 0;
+
     private void Awake()
     {
-        if (allPlayers.Count == 0)
-        {
-            Choice();
-        }
-        previousEnemySpeed = enemySpeed;
+        oldSpeed = enemySpeed;
     }
 
 
@@ -37,7 +45,8 @@ public class basicAI2_E : MonoBehaviour
     void Start()
     {
         //Debug.Log(distancePreview);
-        foreach(Transform child in transform)
+        dead = false;
+        foreach (Transform child in transform)
         {
             list_trig.Add(child.GetComponent<encer_trig2>());
         }
@@ -46,145 +55,130 @@ public class basicAI2_E : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target.transform.position);
-        transform.Rotate(new Vector2(0, 90));
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-
-        if (GetDistance(target) < distancePreview)
+        if (delay_spawn > 0)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
-            animator.SetBool("running", true);
+            delay_spawn -= Time.deltaTime;
         }
         else
         {
-            animator.SetBool("running", false);
+            if (target != null)
+            {
+                //If one player (who are not the actual target) is closer than the target, then the script change of target
+                var maxDistance = float.MaxValue;
+                foreach (var player in allPlayers)
+                {
+                    var whichOneCloser = GetDistance(player);
+                    if (whichOneCloser < maxDistance)
+                    {
+                        target = player;
+                        maxDistance = whichOneCloser;
+                    }
+                }
+                if (GetDistance(target) < detectionDistance)
+                {
+                    Follow();
+                    animator.SetBool("running", true);
+                }
+                else
+                {
+                    animator.SetBool("running", false);
+                }
+                if (anim_atack)
+                {
+                    timer += Time.deltaTime;
+                    animator.SetBool("attack", true);
+                    if (timer > timer_BeforeAttack)
+                    {
+                        if (attack)
+                        {
+                            Camera.main.GetComponent<GameManager>().Hit();
+                        }
+                        timer = 0;
+                        anim_atack = false;
+                        animator.SetBool("attack", false);
+                        enemySpeed = oldSpeed;
+                    }
+                }
+                else
+                {
+                    timer = 0;
+                }
+
+                //Look at the Target
+                transform.LookAt(target.transform.position);
+                transform.Rotate(new Vector2(0, 90));
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            }
         }
 
-
-        if (targetChange)
-            ChangeTargetTrigger();
-
-        #region ToVERIFY
-        //if both player are colliding in same time with the monster, monster in default don't know wich one to pick
-        //In this case the monster keep 0 in speed and will stay fix until a player collide with him again
-        //so we have to plan this case, to avoid some static AI, we find wich one is the closest, and will be the next target
-        //when both of them will stop colliding with him
-        //Of course, as long are they keep colliding with him, they will loose life
-        /*
-        if(CollidedObjects.Count ==2)
+        if (/*transform.parent.GetComponent<Rooms>().stayedRoom && */target == null)
         {
-            multipleColliding = true;
+            foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
+            {
+                allPlayers.Add(Obj);
+            }
+            var maxDistance = float.MaxValue;
+            foreach (var player in allPlayers)
+            {
+                var whichOneCloser = GetDistance(player);
+                if (whichOneCloser < maxDistance)
+                {
+                    target = player;
+                    maxDistance = whichOneCloser;
+                }
+            }
         }
-        */
-        #endregion
 
-        /*if (trig_down && trig_left && trig_right && trig_up)
+        Start_surround();
+        if (num_trig >= 8)
         {
-            animator.SetBool("dead", true);
-            GetComponent<CircleCollider2D>().enabled = false;
-            StartCoroutine(Dead());
-        }*/
+            if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+            {
+                timerCut += Time.deltaTime;
+                if (timerCut > timerCut_TOT)
+                {
+                    /*allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;*/
+                    animator.SetBool("dead", true);
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    StartCoroutine(Dead());
+                    //TODO: second player
 
-        start_surround();
+                    /*for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
+                    {
+                        if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
+                            transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
+                    }
+                    var coinToDropRand = Random.Range(0, 2);
+                    var coinCount = 0;
+                    if (coinCount < coinToDropRand)
+                    {
+                        //Instantiate(coinToDrop, transform.position, Quaternion.identity);
+                        Instantiate(Resources.Load("CoinAnim"), transform.position, Quaternion.identity);
+                        coinCount++;
+                    }*/
+                }
+            }
+            else
+                timerCut = 0;
+        }
+        else
+            timerCut = 0;
+
     }
 
-    void start_surround()
+    void Start_surround()
     {
-        int num_trig = 0;
+        num_trig = 0;
         foreach (encer_trig2 trig in list_trig)
         {
-            if (trig.check_isTouching())
+            if (trig.Check_isTouching())
             {
                 num_trig++;
             }
         }
-        if (rope_atachment)
-        {
-            if (num_trig >= 4 && !player_echap())
-            {
-                rope_system.state_surround = true;
-            }
-            else
-            {
-                rope_system.state_surround = false;
-            }
-        }
-        else
-        {
-            rope_system.state_surround = false;
-        }
 
-    }
 
-    public bool player_echap()
-    {
-        Vector3 ligne_echappe = allPlayers[0].transform.position - allPlayers[1].transform.position;
-        Vector3 player_dir = allPlayers[0].GetComponent<Player_Movement>().movement.normalized + allPlayers[1].GetComponent<Player2_Movement>().movement.normalized;
-        Vector3 playerto_enemy = transform.position - allPlayers[1].transform.position;
-        if (player_dir == Vector3.zero)
-        {
-            return false;
-        }
-        if (Vector2.Dot(Vector2.Perpendicular(ligne_echappe.normalized), playerto_enemy.normalized) > 0) // BAS
-        {
-            if (Vector2.Dot(Vector2.Perpendicular(ligne_echappe.normalized), player_dir.normalized) < 0)
-            {
-                LayerMask lm = LayerMask.GetMask("Rope");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.Perpendicular(ligne_echappe.normalized), 2, lm);
-                Debug.DrawLine(transform.position, transform.position + (Vector3)Vector2.Perpendicular(ligne_echappe.normalized), Color.red, 10f);
-                if (hit.collider != null)
-                {
-                    Debug.Log("Encer");
-                    return false;
-                }
-                Debug.Log("Echap");
-                return true;
-            }
-            else
-            {
-                Debug.Log("Echap");
-                return true;
-            }
-        }
-        else // UP
-        {
-            if (Vector2.Dot(Vector2.Perpendicular(ligne_echappe.normalized), player_dir.normalized) > 0)
-            {
-                LayerMask lm = LayerMask.GetMask("Rope");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.Perpendicular(ligne_echappe.normalized), 2, lm);
-                Debug.DrawLine(transform.position, transform.position + (Vector3)Vector2.Perpendicular(ligne_echappe.normalized), Color.red, 10f);
-                if (hit.collider != null)
-                {
-                    Debug.Log("Encer");
-                    return false;
-                }
-                Debug.Log("Echap");
-                return true;
-            }
-            else
-            {
-                Debug.Log("Echap");
-                return true;
-            }
-        }
-        //Debug.Log(Vector2.Dot(Vector2.Perpendicular(ligne_echappe.normalized), player_dir.normalized));
-        //return true;
-    }
-
-    private void Choice()
-    {
-        foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
-        {
-            allPlayers.Add(Obj);
-            //Find which one is the closest 
-            if (GetDistance(Obj) < distancePreview)
-            {
-                distancePreview = GetDistance(Obj);
-                target = Obj;
-            }
-        }
-        //The enemy is focus on the closest player but we do a lottery draw to add some challenge/ variation, AI has 20% of luck to change his target
-        RandomProbTarget();
     }
 
     float GetDistance(GameObject obj)
@@ -193,112 +187,69 @@ public class basicAI2_E : MonoBehaviour
         return distance;
     }
 
-    private void RandomProbTarget()
+    void Follow()
     {
-        int prob = UnityEngine.Random.Range(0, 5);
-        switch (prob)
-        {
-            case 0:
-                //80% prob so we won't change anything
-                break;
-
-            case 1:
-                //80% prob so we won't change anything
-                break;
-
-            case 2:
-                //80% prob so we won't change anything
-                break;
-
-            case 3:
-                //80% prob so we won't change anything
-                break;
-
-            case 4:
-                //20% of success to change the main target
-                NewTarget();
-                break;
-            default:
-                break;
-        }
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
     }
 
-    private void ChangeTargetTrigger()
-    {
-        NewTarget();
-        enemySpeed = 0;
-        targetChanged = true;
-        targetChange = false;
-    }
-
-    private void NewTarget()
-    {
-        if (target == allPlayers[0])
-        {
-            //Debug.Log("Old Target " + target);
-            target = allPlayers[1];
-            distancePreview = GetDistance(target);
-            //Debug.Log("New target" + target);
-        }
-        else
-        {
-            //Debug.Log("Old Target " + target);
-            target = allPlayers[0];
-            distancePreview = GetDistance(target);
-            //Debug.Log("New target" + target);
-        }
-    }
 
     //When an enemy collide with a player, he stop moving to avoid some shakings 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject == target)
+        if (collision.gameObject.tag == "player")
         {
             enemySpeed = 0;
+            attack = true;
+            anim_atack = true;
+            //animator.SetBool("attack", true);
+            allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
+            allPlayers[1].GetComponent<Player2_Movement>().alreadyVibrated = false;
+
         }
 
-        if (collision.gameObject != target && !targetChanged && collision.gameObject.tag == "tack")
+        if (collision.transform.tag != "player" && collision.transform.tag != "monster")
         {
-            targetChange = true;
-        }
-
-        /*if (collision.transform.tag != "player" && collision.transform.tag != "monster")
-        {
-            if (collision.transform.parent.transform.parent.tag == "rope")
+            //if (collision.transform.parent.transform.parent.tag == "rope")
+            if (collision.transform.parent.tag == "rope" && delay_spawn <= 0)
             {
-                animator.SetBool("dead", true);
-                GetComponent<CircleCollider2D>().enabled = false;
-                StartCoroutine(Dead());
+                /*animator.SetBool("dead", true);
+                GetComponent<CircleCollider2D>().isTrigger = true;
+                StartCoroutine(Dead());*/
             }
-        }*/
+        }
 
     }
 
     IEnumerator Dead()
     {
-        distancePreview = float.MaxValue;
-        yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        if (!dead && delay_spawn <= 0)
+        {
+            dead = true;
+
+            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+            allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+
+            if (!hit_lasser.isPlaying)
+            {
+                hit_lasser.Play();
+            }
+            enemySpeed = 0;
+            yield return new WaitForSeconds(1.1f);
+            audio_explision.Play();
+            Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(gameObject);
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject == target)
+        if (collision.gameObject.tag == "player")
         {
-            enemySpeed = previousEnemySpeed;
-            targetChanged = false;
+            attack = false;
         }
 
-        if (collision.gameObject != target)
-        {
-            targetChange = false;
-            targetChanged = false;
-        }
-
-        if (collision.gameObject.tag == "Rope")
-        {
-            enemySpeed = previousEnemySpeed;
-        }
     }
 }

@@ -154,7 +154,7 @@ public class Player2_Movement : MonoBehaviour {
         }
 
 
-        if (Input.GetKeyDown(KeyCode.I) && dash_v <= 0 && movement != Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.Space) && dash_v <= 0 && movement != Vector2.zero)
         {
             dash_v = dash_delay;
         }

@@ -32,6 +32,7 @@ public class Rope_System : MonoBehaviour {
 
     public bool state_surround;
 
+
     [System.Serializable] public struct coll_pos
     {
         public int point_nul;
