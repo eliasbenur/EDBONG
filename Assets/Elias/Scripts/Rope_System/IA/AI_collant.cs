@@ -53,6 +53,11 @@ public class AI_collant : MonoBehaviour
         {
             list_trig.Add(child.GetComponent<encer_trig2>());
         }
+
+        if (rope_system == null)
+        {
+            rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+        }
     }
 
     // Update is called once per frame

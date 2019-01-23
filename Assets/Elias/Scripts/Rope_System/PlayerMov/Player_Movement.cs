@@ -177,6 +177,8 @@ public class Player_Movement : MonoBehaviour {
             moveY = Input.GetAxisRaw(vertical);
         }
 
+        Debug.Log(Input.GetAxisRaw(horizontal) + "//" + Input.GetAxisRaw(vertical));
+
 
         if (moveX > 0)
         {

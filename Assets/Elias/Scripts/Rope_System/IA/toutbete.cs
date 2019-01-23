@@ -52,6 +52,11 @@ public class toutbete : MonoBehaviour
         {
             list_trig.Add(child.GetComponent<encer_trig2>());
         }
+
+        if (rope_system == null)
+        {
+            rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+        }
     }
 
     // Update is called once per frame
@@ -183,8 +188,11 @@ public class toutbete : MonoBehaviour
     void Follow()
     {
         //transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
-        Vector3 Delta = target.transform.position - transform.position;
-        gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + Delta.normalized * Time.fixedDeltaTime * enemySpeed);
+        if (enemySpeed != 0)
+        {
+            Vector3 Delta = target.transform.position - transform.position;
+            gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + Delta.normalized * Time.fixedDeltaTime * enemySpeed);
+        }
     }
 
 
