@@ -9,6 +9,8 @@ public class Player2_Movement : MonoBehaviour {
     public float speed, moveX, moveY;
     public Vector2 movement;
     public string horizontal, vertical;
+    public string horizontal_clavier, vertical_clavier;
+    public bool clavier_active;
 
     //DASH
     public float dash_power;
@@ -159,8 +161,16 @@ public class Player2_Movement : MonoBehaviour {
             dash_v = dash_delay;
         }
 
-        moveX = Input.GetAxisRaw(horizontal);
-        moveY = Input.GetAxisRaw(vertical);
+        if (clavier_active)
+        {
+            moveX = Input.GetAxisRaw(horizontal_clavier);
+            moveY = Input.GetAxisRaw(vertical_clavier);
+        }
+        else
+        {
+            moveX = Input.GetAxisRaw(horizontal);
+            moveY = Input.GetAxisRaw(vertical);
+        }
 
         if (moveX > 0)
         {
