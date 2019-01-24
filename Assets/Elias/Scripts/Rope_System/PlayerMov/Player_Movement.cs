@@ -68,7 +68,6 @@ public class Player_Movement : MonoBehaviour {
     public float dampingSpeed_RopeHit;
 
 
-    [SerializeField]
     public GameManager CheckMoney;
 
     public Collider2D collisionItems;
@@ -164,6 +163,8 @@ public class Player_Movement : MonoBehaviour {
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.Joystick1Button0)) && dash_v <= 0 && movement != Vector2.zero)
         {
             dash_v = dash_delay;
+            CheckMoney.timerGodMode = 1.5f;
+            CheckMoney.godMode = true;
         }
 
         if (clavier_active)
@@ -187,8 +188,34 @@ public class Player_Movement : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
-        animator.SetInteger("input_x", Mathf.RoundToInt(moveX));
-        animator.SetInteger("input_y", Mathf.RoundToInt(moveY));
+        if (moveX > 0)
+        {
+            animator.SetInteger("input_x", 1);
+        }
+        else if (moveX < 0)
+        {
+            animator.SetInteger("input_x", -1);
+        }
+        else
+        {
+            animator.SetInteger("input_x", 0);
+        }
+
+        if (moveY > 0)
+        {
+            animator.SetInteger("input_y", 1);
+        }
+        else if (moveY < 0)
+        {
+            animator.SetInteger("input_y", -1);
+        }
+        else
+        {
+            animator.SetInteger("input_y", 0);
+        }
+
+        //animator.SetInteger("input_x", Mathf.RoundToInt(moveX));
+        //animator.SetInteger("input_y", Mathf.RoundToInt(moveY));
 
         idle_anim();
 
@@ -238,6 +265,7 @@ public class Player_Movement : MonoBehaviour {
     void Move(float MoveX, float MoveY)
     {
         movement.Set(moveX, moveY);
+        movement.Normalize();
 
         // OTHER ROPES
 

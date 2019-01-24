@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     private Slider displayLife;
 
+    public AudioSource audio_ouff;
+
     public void Awake()
     {
         //listItemDisplay.AddRange(GameObject.FindGameObjectsWithTag("Item"));
@@ -151,6 +153,7 @@ public class GameManager : MonoBehaviour
         if (!godMode)
         {
             life -= 1;
+            audio_ouff.Play();
             for (int i = 0; i < GetComponent<Camera_Focus>().targets.Count; i++)
             {
                 if(GetComponent<Camera_Focus>().targets[i].name == "PlayerOne")

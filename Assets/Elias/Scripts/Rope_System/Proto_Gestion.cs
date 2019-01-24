@@ -200,10 +200,10 @@ public class Proto_Gestion : MonoBehaviour
                     monster.GetComponent<basicAI2_E_dash>().enemySpeed = 2;
                 }else if (monster.name == "Monster_piege" && room_act == 4)
                 {
-                    monster.GetComponent<toutbete>().enemySpeed = 0.2f;
+                    monster.GetComponent<toutbete>().enemySpeed = 2f;
                 }else if (monster.name == "Monster_collant" && room_act == 5)
                 {
-                    monster.GetComponent<AI_collant>().enemySpeed = 0.2f;
+                    monster.GetComponent<AI_collant>().enemySpeed = 2f;
                 }
             }
         }
