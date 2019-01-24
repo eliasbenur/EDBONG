@@ -74,16 +74,11 @@ public class AI_collant : MonoBehaviour
                 if (GetDistance(target) < detectionDistance)
                 {
                     Follow();
-                    animator.SetBool("running", true);
-                }
-                else
-                {
-                    animator.SetBool("running", false);
                 }
                 if (anim_atack)
                 {
                     timer += Time.deltaTime;
-                    animator.SetBool("attack", true);
+                    //animator.SetBool("attack", true);
                     if (timer > timer_BeforeAttack)
                     {
                         if (attack)
@@ -92,7 +87,7 @@ public class AI_collant : MonoBehaviour
                         }
                         timer = 0;
                         anim_atack = false;
-                        animator.SetBool("attack", false);
+                        //animator.SetBool("attack", false);
                         enemySpeed = oldSpeed;
                     }
                 }
