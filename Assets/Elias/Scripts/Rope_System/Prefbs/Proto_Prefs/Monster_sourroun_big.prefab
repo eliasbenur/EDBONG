@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 8489068197611879189}
   - component: {fileID: 4558126767065412666}
   m_Layer: 0
-  m_Name: Monster_sourround (3)
+  m_Name: Monster_sourroun_big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,9 +404,9 @@ MonoBehaviour:
   allPlayers: []
   detectionDistance: 200
   target: {fileID: 0}
-  enemySpeed: 0
+  enemySpeed: 2
   animator: {fileID: 4178879341633454352}
-  delay_spawn: 5
+  delay_spawn: 0
   timer_BeforeAttack: 0.5
   timer: 0
   attack: 0

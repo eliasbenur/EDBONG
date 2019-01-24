@@ -19,6 +19,30 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
     public float cooldown, cooldown_betweenNextProejctile;
     public float projectileToFire;
 
+    bool dead;
+    public List<encer_trig2> list_trig;
+    public Rope_System rope_system;
+    public bool rope_atachment;
+
+    public float timerCut, timerCut_TOT;
+
+    public int num_trig = 0;
+    public float delay_spawn;
+
+    public AudioSource hit_lasser;
+    public AudioSource audio_explision;
+
+    public GameObject blood_explo;
+    public float timer_BeforeExplosion;
+
+    private void Start()
+    {
+        foreach (Transform child in transform)
+        {
+            list_trig.Add(child.GetComponent<encer_trig2>());
+        }
+    }
+
     void Update()
     {
         if (hit)
@@ -73,6 +97,41 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
             if (GetDistance(target) > detectionDistance_minimalBeforeLeave)
                 leave = false;
         }
+
+        Start_surround();
+        if (num_trig >= 3)
+        {
+            if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+            {
+                timerCut += Time.deltaTime;
+                if (timerCut > timerCut_TOT)
+                {
+                    allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    StartCoroutine(Dead());
+
+                    /*for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
+                    {
+                        if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
+                            transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
+                    }
+                    var coinToDropRand = Random.Range(0, 2);
+                    var coinCount = 0;
+                    if (coinCount < coinToDropRand)
+                    {
+                        //Instantiate(coinToDrop, transform.position, Quaternion.identity);
+                        Instantiate(Resources.Load("CoinAnim"), transform.position, Quaternion.identity);
+                        coinCount++;
+                    }*/
+                }
+            }
+            else
+                timerCut = 0;
+        }
+        else
+            timerCut = 0;
+
         //Look at the Target
         //No need here ?? Depends on the sprite will be have on this one
         if (target != null)
@@ -83,12 +142,42 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
         }
     }
 
+    void Start_surround()
+    {
+        num_trig = 0;
+        foreach (encer_trig2 trig in list_trig)
+        {
+            if (trig.Check_isTouching())
+            {
+                num_trig++;
+            }
+        }
+    }
+
+    IEnumerator Dead()
+    {
+        if (!dead && delay_spawn <= 0)
+        {
+            dead = true;
+            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+            allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+            if (!hit_lasser.isPlaying)
+            {
+                hit_lasser.Play();
+            }
+            audio_explision.Play();
+            Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+            yield return new WaitForSeconds(timer_BeforeExplosion);
+        }
+        Destroy(this.gameObject);
+    }
+
     IEnumerator FireCoroutine(float cooldown)
     {
         for (int i = 0; i <= projectileToFire; i++)
         {
             var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as GameObject;
-            instanceAddForce.GetComponent<Rigidbody2D>().AddForce((target.transform.position - transform.position) * speedProjectile, ForceMode2D.Impulse);
+            instanceAddForce.GetComponent<Rigidbody2D>().AddForce((target.transform.position - transform.position).normalized * speedProjectile, ForceMode2D.Impulse);
             //We wait a short time, to let the previous element go more forward before spawing an other one 
             canShoot = false;
             yield return new WaitForSeconds(cooldown_betweenNextProejctile);
@@ -111,33 +200,5 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
     }
 
     #region Fonction void ON
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "rope")
-        {
-            //GamePad.SetVibration(collision.gameObject.GetComponent<PlayerMovement_E_Modif>().playerIndex, 0,1);
-            //collision.gameObject.GetComponent<PlayerMovement_E_Modif>().VibrateRightFull();
-            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-            allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
-            /*
-            for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
-            {
-                if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
-                    transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
-            }
-            var coinToDropRand = Random.Range(1, 3);
-            var coinCount = 0;
-            if (coinCount <= coinToDropRand)
-            {
-                //Instantiate(coinToDrop, transform.position, Quaternion.identity);
-                Instantiate(Resources.Load("CoinAnim"), transform.position, Quaternion.identity);
-                coinCount++;
-            }
-            else
-                return;*/
-            Destroy(this.gameObject);
-        }
-    }
     #endregion
 }

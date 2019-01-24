@@ -136,6 +136,11 @@ PrefabInstance:
       propertyPath: timerCut_TOT
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1270357147616745767, guid: 20d787b1cfa012e47bd4cce77a13767c,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d787b1cfa012e47bd4cce77a13767c, type: 3}
 --- !u!4 &1975257046585854582 stripped
@@ -197,6 +202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1977832352, guid: 955ec1d90e9137d4985728b817003bd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361740910103456513, guid: 955ec1d90e9137d4985728b817003bd9,
+        type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -289,6 +299,11 @@ PrefabInstance:
       propertyPath: timerCut_TOT
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1270357147616745767, guid: 20d787b1cfa012e47bd4cce77a13767c,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d787b1cfa012e47bd4cce77a13767c, type: 3}
 --- !u!4 &4431408525660425538 stripped
@@ -364,6 +379,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1270357147616745767, guid: 20d787b1cfa012e47bd4cce77a13767c,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d787b1cfa012e47bd4cce77a13767c, type: 3}
 --- !u!4 &2894961222337261415 stripped
@@ -425,6 +445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1977832352, guid: 955ec1d90e9137d4985728b817003bd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361740910103456513, guid: 955ec1d90e9137d4985728b817003bd9,
+        type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -559,6 +584,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
       propertyPath: delay_spawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -703,6 +732,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2805652120986245549, guid: 52a1d0aa1da42d2418fc38e78d5a8a94,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a1d0aa1da42d2418fc38e78d5a8a94, type: 3}
 --- !u!4 &4521515241715632094 stripped
@@ -773,6 +807,10 @@ PrefabInstance:
     - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
       propertyPath: timerCut_TOT
       value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+      propertyPath: enemySpeed
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
@@ -849,6 +887,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2805652120986245549, guid: 52a1d0aa1da42d2418fc38e78d5a8a94,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a1d0aa1da42d2418fc38e78d5a8a94, type: 3}
 --- !u!4 &4521515241969111804 stripped
@@ -916,6 +959,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2805652120986245549, guid: 52a1d0aa1da42d2418fc38e78d5a8a94,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a1d0aa1da42d2418fc38e78d5a8a94, type: 3}
 --- !u!4 &4521515241958365780 stripped
@@ -981,6 +1029,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
       propertyPath: delay_spawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1058,6 +1110,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2805652120986245549, guid: 52a1d0aa1da42d2418fc38e78d5a8a94,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a1d0aa1da42d2418fc38e78d5a8a94, type: 3}
 --- !u!4 &4521515242628414448 stripped
@@ -1133,6 +1190,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2805652120986245549, guid: 52a1d0aa1da42d2418fc38e78d5a8a94,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a1d0aa1da42d2418fc38e78d5a8a94, type: 3}
 --- !u!4 &4521515242600436658 stripped
@@ -1200,6 +1262,10 @@ PrefabInstance:
       propertyPath: delay_spawn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
 --- !u!4 &4521515242431573120 stripped
@@ -1265,6 +1331,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
       propertyPath: delay_spawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342271890, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1421,6 +1491,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2805652120986245549, guid: 52a1d0aa1da42d2418fc38e78d5a8a94,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a1d0aa1da42d2418fc38e78d5a8a94, type: 3}
 --- !u!4 &4521515243309017902 stripped
@@ -1482,6 +1557,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1977832352, guid: 955ec1d90e9137d4985728b817003bd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361740910103456513, guid: 955ec1d90e9137d4985728b817003bd9,
+        type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1574,6 +1654,11 @@ PrefabInstance:
       propertyPath: timerCut_TOT
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1270357147616745767, guid: 20d787b1cfa012e47bd4cce77a13767c,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d787b1cfa012e47bd4cce77a13767c, type: 3}
 --- !u!4 &5402262348020292605 stripped
@@ -1664,6 +1749,11 @@ PrefabInstance:
       propertyPath: timerCut_TOT
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1270357147616745767, guid: 20d787b1cfa012e47bd4cce77a13767c,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d787b1cfa012e47bd4cce77a13767c, type: 3}
 --- !u!4 &5582267745368383491 stripped
@@ -1739,6 +1829,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1270357147616745767, guid: 20d787b1cfa012e47bd4cce77a13767c,
+        type: 3}
+      propertyPath: enemySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d787b1cfa012e47bd4cce77a13767c, type: 3}
 --- !u!4 &5566565433057899761 stripped
@@ -1800,6 +1895,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1977832352, guid: 955ec1d90e9137d4985728b817003bd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361740910103456513, guid: 955ec1d90e9137d4985728b817003bd9,
+        type: 3}
+      propertyPath: enemySpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

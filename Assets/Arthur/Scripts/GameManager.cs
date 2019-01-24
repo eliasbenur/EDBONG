@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     //public UParticleSystem_E_Modif RopePowerUp_Malus;
     public TackRope RopePowerUp_Malus;
     public Player_Movement checkPlayer;
+    public Player2_Movement checkPlayer2;
 
     public GameObject gameOverCanvas;
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
 
 
         //Variable en dur !! Warning
-        life = 10;
+        life = 20;
 
         Time.timeScale = 1;
         //gameOverCanvas.SetActive(false);
@@ -72,7 +73,12 @@ public class GameManager : MonoBehaviour
         {
             //SceneManager.LoadScene("ProtoJuicy");
             //gameOverCanvas.SetActive(true);
+            checkPlayer.Vibrate_Control(0, 0);
+            checkPlayer2.Vibrate_Control(0, 0);
+            checkPlayer.enabled = false;
+            checkPlayer2.enabled = false;
             Time.timeScale = 0;
+            
         }
 
         if (godMode)

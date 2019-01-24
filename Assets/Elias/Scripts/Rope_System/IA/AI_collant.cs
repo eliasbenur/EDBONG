@@ -211,14 +211,22 @@ public class AI_collant : MonoBehaviour
 
     public bool Player_dashing()
     {
-        if (allPlayers[0].GetComponent<Player_Movement>().dash_v > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
-            || allPlayers[1].GetComponent<Player2_Movement>().dash_v > (allPlayers[1].GetComponent<Player2_Movement>().dash_delay - allPlayers[1].GetComponent<Player2_Movement>().dash_time))
+        if (allPlayers.Count > 0)
         {
-            return true;
+            if (allPlayers[0].GetComponent<Player_Movement>().dash_v > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
+                || allPlayers[1].GetComponent<Player2_Movement>().dash_v > (allPlayers[1].GetComponent<Player2_Movement>().dash_delay - allPlayers[1].GetComponent<Player2_Movement>().dash_time))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
             return false;
         }
+
     }
 }

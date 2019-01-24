@@ -356,9 +356,9 @@ MonoBehaviour:
   allPlayers: []
   detectionDistance: 200
   target: {fileID: 0}
-  enemySpeed: 0
+  enemySpeed: 2
   animator: {fileID: 253280199}
-  delay_spawn: 2
+  delay_spawn: 0
   timer_BeforeAttack: 0.5
   timer: 0
   attack: 0

@@ -198,12 +198,12 @@ public class basicAI2_E_dash : MonoBehaviour
         if (collision.transform.tag != "player" && collision.transform.tag != "monster")
         {
             //if (collision.transform.parent.transform.parent.tag == "rope")
-            if (collision.transform.parent.tag == "rope" && delay_spawn <= 0)
-            {
+            //if (collision.transform.parent.tag == "rope" && delay_spawn <= 0)
+            //{
                 /*animator.SetBool("dead", true);
                 GetComponent<CircleCollider2D>().isTrigger = true;
                 StartCoroutine(Dead());*/
-            }
+            //}
         }
 
     }

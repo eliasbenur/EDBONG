@@ -31,40 +31,40 @@ public class AI_Kamikaza : MonoBehaviour
 
     bool dead;
 
+    public List<encer_trig2> list_trig;
+    public Rope_System rope_system;
+    public bool rope_atachment;
+
+    public float timerCut, timerCut_TOT;
+
+    public int num_trig = 0;
+    public float delay_spawn;
+
+    public AudioSource hit_lasser;
+    public AudioSource audio_explision;
+
+    public GameObject blood_explo;
+
     private void Awake()
     {
         oldSpeed = enemySpeed;
+        AudioSource[] audios = gameObject.GetComponents<AudioSource>();
+        hit_lasser = audios[0];
+        audio_explision = audios[1];
+    }
+
+    private void Start()
+    {
+        foreach (Transform child in transform)
+        {
+            list_trig.Add(child.GetComponent<encer_trig2>());
+        }
     }
     void Update()
     {
         if (startBlinking)
             SpriteBlinkingEffect();
-        
-            if (dieQuick)
-            {
 
-            //GamePad.SetVibration(collision.gameObject.GetComponent<PlayerMovement_E_Modif>().playerIndex, 0,1);
-            //collision.gameObject.GetComponent<PlayerMovement_E_Modif>().VibrateRightFull();
-            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-            allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
-            /*
-            for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
-            {
-                if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
-                    transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
-            }
-            var coinToDropRand = Random.Range(1, 3);
-            var coinCount = 0;
-            if (coinCount <= coinToDropRand)
-            {
-                //Instantiate(coinToDrop, transform.position, Quaternion.identity);
-                Instantiate(Resources.Load("CoinAnim"), transform.position, Quaternion.identity);
-                coinCount++;
-            }
-            else
-                return;*/
-            Destroy(this.gameObject);
-        }
         if (/*transform.parent.GetComponent<Rooms>().stayedRoom && */target == null)
         {
             foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
@@ -114,6 +114,41 @@ public class AI_Kamikaza : MonoBehaviour
                 timer = 0;
             }
         }
+        
+        Start_surround();
+        if (num_trig >= 8)
+        {
+            if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+            {
+                timerCut += Time.deltaTime;
+                if (timerCut > timerCut_TOT)
+                {
+                    allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    StartCoroutine(Wait_EXPLOSIONN());
+
+                    /*for (int i = 0; i < transform.parent.GetComponent<Rooms>().currentEnnemies.Count; i++)
+                    {
+                        if (this.gameObject.transform == transform.parent.GetComponent<Rooms>().currentEnnemies[i])
+                            transform.parent.GetComponent<Rooms>().currentEnnemies.RemoveAt(i);
+                    }
+                    var coinToDropRand = Random.Range(0, 2);
+                    var coinCount = 0;
+                    if (coinCount < coinToDropRand)
+                    {
+                        //Instantiate(coinToDrop, transform.position, Quaternion.identity);
+                        Instantiate(Resources.Load("CoinAnim"), transform.position, Quaternion.identity);
+                        coinCount++;
+                    }*/
+                }
+            }
+            else
+                timerCut = 0;
+        }
+        else
+            timerCut = 0;
+
         //Look at the Target
         if (target != null)
         {
@@ -123,19 +158,37 @@ public class AI_Kamikaza : MonoBehaviour
         }
     }
 
-    IEnumerator Wait_EXPLOSIONN(float cooldown)
+    void Start_surround()
     {
-        if (!dead)
+        num_trig = 0;
+        foreach (encer_trig2 trig in list_trig)
+        {
+            if (trig.Check_isTouching())
+            {
+                num_trig++;
+            }
+        }
+    }
+
+    IEnumerator Wait_EXPLOSIONN()
+    {
+        if (!dead && delay_spawn <= 0)
         {
             dead = true;
+
             GetComponent<CircleCollider2D>().enabled = false;
             detectionDistance = 0;
             enemySpeed = 0;
             startBlinking = true;
             angle = 2 * Mathf.PI;
-            dieQuick = false;
+
             yield return new WaitForSeconds(timer_BeforeExplosion);
-            dieQuick = true;
+            if (!hit_lasser.isPlaying)
+            {
+                hit_lasser.Play();
+            }
+            audio_explision.Play();
+            Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             for (int i = 0; i < projectileToSpawn; i++)
             {
                 angle += angleToADD;
@@ -144,8 +197,9 @@ public class AI_Kamikaza : MonoBehaviour
                 var directionVect = instanceAddForce.transform.position - transform.position;
                 instanceAddForce.GetComponent<Rigidbody2D>().AddForce(directionVect.normalized * speedProjectile);
             }
-        }
-
+            yield return new WaitForSeconds(0.8f);
+            Destroy(gameObject);
+        }       
     }
 
     float GetDistance(GameObject obj)
@@ -198,11 +252,11 @@ public class AI_Kamikaza : MonoBehaviour
         }
 
 
-        if (collision.gameObject.tag == "rope")
+        /*if (collision.gameObject.tag == "rope")
         {
             Kamikaza = Wait_EXPLOSIONN(timer_BeforeExplosion);
             StartCoroutine(Kamikaza);
-        }
+        }*/
     }
 
     private void OnCollisionExit2D(Collision2D collision)
