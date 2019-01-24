@@ -13,6 +13,8 @@ public class Rope_Point : MonoBehaviour {
     public bool close_coll;
     public bool enemie_coll;
 
+    public Sprite chain_sprite;
+
     // Use this for initialization
     void Start () {
         var collider = gameObject.AddComponent<CircleCollider2D>();

@@ -53,7 +53,13 @@ public class Change_Prop : MonoBehaviour
 
                     particle.gameObject.layer = 9;
 
+                    if ((rope_system.NumPoints + x)%2 == 0)
+                    {
+                        particle.GetComponent<SpriteRenderer>().enabled = false;
+                    }
+
                     rope_system.Points.Add(particle);
+
                 }
                 rope_system.Points[rope_system.NumPoints - 1].p_free = false;
                 rope_system.Points[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;

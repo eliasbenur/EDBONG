@@ -33,6 +33,7 @@ public class Rope_System : MonoBehaviour {
     public bool state_surround;
 
 
+
     [System.Serializable] public struct coll_pos
     {
         public int point_nul;
@@ -99,6 +100,11 @@ public class Rope_System : MonoBehaviour {
             }
             else{
                 particle.p_free = true;
+            }
+
+            if (ParticleIndex%2 == 0)
+            {
+                particle.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
@@ -394,6 +400,19 @@ public class Rope_System : MonoBehaviour {
         {
             _lineRenderer.SetPosition(SegmentIndex, Points[SegmentIndex].transform.position);
         }
+
+        for (int SegmentIndex = 0; SegmentIndex < NumPoints - 1; SegmentIndex++)
+        {
+            if (SegmentIndex%2 != 0)
+            {
+                Vector3 difference = Points[SegmentIndex+1].transform.position - Points[SegmentIndex].transform.position;
+                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                Points[SegmentIndex].transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+                //Points[SegmentIndex].transform.LookAt(Points[SegmentIndex + 1].transform);
+            }
+        }
+
+
     }
 
 

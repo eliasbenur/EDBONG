@@ -101,12 +101,12 @@ public class toutbete : MonoBehaviour
                 }
 
                 //Look at the Target
-                if (!dead)
+                /*if (!dead)
                 {
                     transform.LookAt(target.transform.position);
                     transform.Rotate(new Vector2(0, 90));
                     transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-                }
+                }*/
 
             }
         }
