@@ -1,4 +1,4 @@
-﻿// Upgrade NOTE: upgraded instancing buffer 'MyProperties' to new syntax.
+// Upgrade NOTE: upgraded instancing buffer 'MyProperties' to new syntax.
 
 Shader "Tiled2Unity/Default Color Key (Instanced)"
 {

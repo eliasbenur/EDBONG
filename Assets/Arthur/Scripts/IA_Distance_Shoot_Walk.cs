@@ -11,8 +11,6 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
     public float detectionDistance, detectionDistance_minimalBeforeLeave, distanceShoot;
     //Variable for projectile's speed, tweekable
     public float enemySpeed, speedProjectile;
-    bool leave;
-    bool hit;
     //Variable for projectile's shoot, tweekable
     bool canShoot = true;
     IEnumerator coroutineFire;  
@@ -45,8 +43,6 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
 
     void Update()
     {
-        if (hit)
-            Camera.main.GetComponent<GameManager>().Hit();
         if (/*transform.parent.GetComponent<Rooms>().stayedRoom &&*/ target == null)
         {
             foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
@@ -81,21 +77,16 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
             }
             if (GetDistance(target) < distanceShoot)
             {
-                //if (!leave)
-                //{
-                    if(canShoot)
-                    {
-                        coroutineFire = FireCoroutine(cooldown);
-                        StartCoroutine(coroutineFire);
-                    }                
-                //}
+                if(canShoot)
+                {
+                    coroutineFire = FireCoroutine(cooldown);
+                    StartCoroutine(coroutineFire);
+                }                
             }
             if (GetDistance(target) < detectionDistance_minimalBeforeLeave)
             {
                 Leave();
             }
-            if (GetDistance(target) > detectionDistance_minimalBeforeLeave)
-                leave = false;
         }
 
         Start_surround();
@@ -195,7 +186,6 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
     }
     void Leave()
     {
-        leave = true;
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * -enemySpeed);
     }
 

@@ -1,4 +1,4 @@
-﻿Tiled2Unity
+Tiled2Unity
 Copyright (C) 2014 Sean Barton (http://www.seanba.com)
 
 

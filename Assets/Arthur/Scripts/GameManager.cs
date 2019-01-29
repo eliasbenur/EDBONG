@@ -160,12 +160,13 @@ public class GameManager : MonoBehaviour
         {
             life -= 1;
             audio_ouff.Play();
-            for (int i = 0; i < GetComponent<Camera_Focus>().targets.Count; i++)
+            List<Transform> targets = GetComponent<Camera_Focus>().GetCameraTargets();
+            for (int i = 0; i < targets.Count; i++)
             {
-                if(GetComponent<Camera_Focus>().targets[i].name == "PlayerOne")
-                    GetComponent<Camera_Focus>().targets[i].GetComponent<Player_Movement>().startBlinking = true;
-                else if(GetComponent<Camera_Focus>().targets[i].name == "PlayerTwo")
-                    GetComponent<Camera_Focus>().targets[i].GetComponent<Player2_Movement>().startBlinking = true;
+                if(targets[i].name == "PlayerOne")
+                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
+                else if(targets[i].name == "PlayerTwo")
+                    targets[i].GetComponent<Player2_Movement>().startBlinking = true;
             }
         }
 

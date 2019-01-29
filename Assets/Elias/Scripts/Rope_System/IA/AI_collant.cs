@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,6 @@ public class AI_collant : MonoBehaviour
     public GameObject target;
     public float enemySpeed;
     private float oldSpeed;
-
 
     public Animator animator;
 
@@ -35,7 +34,6 @@ public class AI_collant : MonoBehaviour
 
     public int num_trig = 0;
 
-    GameObject trou;
     public GameObject point_to_coll;
 
     private void Awake()
@@ -203,7 +201,6 @@ public class AI_collant : MonoBehaviour
     {
         if (collision.tag == "piege")
         {
-            trou = collision.gameObject;
             StartCoroutine(Dead());
             //dead = true;
         }

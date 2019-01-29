@@ -13,7 +13,6 @@ public class IA_Fire_Target : MonoBehaviour
     //moving variables of the target sprite and the object
     public float enemySpeed, enemySpeedLeaving, previousSpeed;
     //Coroutine and cooldown variable for the shoot
-    bool hit;
     IEnumerator coroutineFire;
     bool canShoot;
     //Time to wait before the projectile is fired
@@ -72,8 +71,6 @@ public class IA_Fire_Target : MonoBehaviour
         }*/
 
         //if the player is touch by a projectile, we trigger the hit's fonction for the screen shake, controller vibration...
-        if (hit)
-            Camera.main.GetComponent<GameManager>().Hit();
         if (/*transform.parent.GetComponent<Rooms>().stayedRoom &&*/ target == null)
         {
             foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))

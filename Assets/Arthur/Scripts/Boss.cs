@@ -315,7 +315,7 @@ public class Boss : MonoBehaviour
     {
         for (int i = 0; i < Monsters_To_Spawn; i++)
         {
-            var enemies = Instantiate(Resources.Load("Close_Ennemy"), spawnPosition[i].transform.position, Quaternion.identity);
+            Instantiate(Resources.Load("Close_Ennemy"), spawnPosition[i].transform.position, Quaternion.identity);
             canShoot = false;
             yield return new WaitForSeconds(cooldown_Between_Monsters);
             canShoot = true;
