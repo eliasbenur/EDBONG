@@ -389,7 +389,6 @@ namespace UnityEditor
 		{
 			if (parent == null || go == null)
 				return;
-
 			GameObject instance = null;
 #pragma warning disable CS0618 // Type or member is obsolete
             if (PrefabUtility.GetPrefabType(go) == PrefabType.Prefab)

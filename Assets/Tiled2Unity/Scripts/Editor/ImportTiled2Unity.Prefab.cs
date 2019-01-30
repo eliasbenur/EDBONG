@@ -20,6 +20,7 @@ namespace Tiled2Unity
     {
         public void PrefabImported(string prefabPath)
         {
+
             // Find the import behaviour that was waiting on this prefab to be imported
             string asset = Path.GetFileName(prefabPath);
             ImportBehaviour importComponent = ImportBehaviour.FindImportBehavior_ByWaitingPrefab(asset);

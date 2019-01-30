@@ -17,7 +17,6 @@ public class Player_Movement : MonoBehaviour {
     public float dash_time;
     public float dash_v;
     public float dash_delay;
-    LineRenderer LR;
     public Image dash_bar;
 
     public bool auto_movement;
@@ -81,15 +80,6 @@ public class Player_Movement : MonoBehaviour {
     {
         dash_v = 0;
         dash_time = 0.2f;
-        LR = gameObject.GetComponent<LineRenderer>();
-        LR.startWidth = 0.2f;
-        LR.endWidth = 0.2f;
-        LR.startColor = Color.gray;
-        LR.endColor = Color.gray;
-        LR.SetPosition(1, gameObject.transform.position);
-        LR.SetPosition(0, gameObject.transform.position);
-        Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
-        LR.material = whiteDiffuseMat;
         idle_anim_time = -1;
     }
 
@@ -213,12 +203,8 @@ public class Player_Movement : MonoBehaviour {
         }
 
         //UI
-
         dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20,35,0);
         dash_bar.fillAmount = dash_v / dash_delay;
-
-        LR.SetPosition(1, gameObject.transform.position);
-        LR.SetPosition(0, gameObject.transform.position + (Vector3)movement.normalized * 20);
     }
 
     void idle_anim()

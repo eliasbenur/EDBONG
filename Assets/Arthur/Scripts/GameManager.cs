@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Kilt.EasyRopes2D;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +14,6 @@ public class GameManager : MonoBehaviour
     public bool KeyPressed;
 
     //public UParticleSystem_E_Modif RopePowerUp_Malus;
-    public TackRope RopePowerUp_Malus;
     public Player_Movement checkPlayer;
     public Player2_Movement checkPlayer2;
 
@@ -98,6 +96,7 @@ public class GameManager : MonoBehaviour
             {
                 if (listItemDisplay[i] == checkPlayer.collisionItems.gameObject)
                 {
+
                     Debug.Log("Object Found");
                     if (listItemDisplay[i].name != "Reset")
                     {
@@ -105,51 +104,6 @@ public class GameManager : MonoBehaviour
                         Destroy(checkPlayer.collisionItems.gameObject);
                     }
                 }
-            }
-
-            switch (checkPlayer.collisionItems.gameObject.name)
-            {
-                case "PlusLengthRope":
-                    Debug.Log("PlusRope");
-                    RopePowerUp_Malus.AmountOfNodes = 60;
-                    //RopePowerUp_Malus.CableLengthDesired = 50;
-                    break;
-                case "HeavyObject":
-                    Debug.Log("Heavy");
-                    RopePowerUp_Malus.NodeMass = 10;
-                    //RopePowerUp_Malus.gravity = Vector3.zero;
-                    break;
-                case "MinusLengthRope":
-                    Debug.Log("MinusRope");
-                    RopePowerUp_Malus.AmountOfNodes = 20;
-                    //RopePowerUp_Malus.CableLengthDesired = 10;
-                    break;
-                case "Node_Linear_Drag_Rope":
-                    Debug.Log("LinearDrag");
-                    RopePowerUp_Malus.NodeLinearDrag = 1;
-                    //RopePowerUp_Malus.CableLengthDesired = 10;
-                    break;
-                case "Node_Angular_Drag_Rope":
-                    Debug.Log("Angular_Drag");
-                    RopePowerUp_Malus.NodeAngularDrag = 1;
-                    //RopePowerUp_Malus.CableLengthDesired = 10;
-                    break;
-                case "Node_Gravity_Scale_Rope":
-                    Debug.Log("Gravity_Scale");
-                    RopePowerUp_Malus.NodeGravityScale = 1;
-                    //RopePowerUp_Malus.CableLengthDesired = 10;
-                    break;
-                case "Reset":
-                    Debug.Log("reset");
-                    RopePowerUp_Malus.NodeGravityScale = 0;
-                    RopePowerUp_Malus.NodeAngularDrag = 0.25f;
-                    RopePowerUp_Malus.NodeLinearDrag = 0.01f;
-                    RopePowerUp_Malus.AmountOfNodes = 30;
-                    RopePowerUp_Malus.NodeMass = 1.5f;
-                    //RopePowerUp_Malus.CableLengthDesired = 10;
-                    break;
-                default:
-                    break;
             }
         }
     }
