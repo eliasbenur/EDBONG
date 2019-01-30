@@ -18,7 +18,7 @@ namespace UnityEditor
 
         internal override void RuleMatrixOnGUI(RuleTile ruleTile, Rect rect, RuleTile.TilingRule tilingRule)
         {
-            var isoTile = (IsometricRuleTile) ruleTile;
+            //var isoTile = (IsometricRuleTile) ruleTile;
 
             Handles.color = EditorGUIUtility.isProSkin ? new Color(1f, 1f, 1f, 0.2f) : new Color(0f, 0f, 0f, 0.2f);
             int index = 0;

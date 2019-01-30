@@ -10,6 +10,7 @@ public class AI_collant : MonoBehaviour
     public float enemySpeed;
     private float oldSpeed;
 
+    
     public Animator animator;
 
     public float delay_spawn;

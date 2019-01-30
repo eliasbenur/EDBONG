@@ -20,8 +20,6 @@ public class Player_Movement : MonoBehaviour {
     LineRenderer LR;
     public Image dash_bar;
 
-    private Rigidbody2D rg2D;
-
     public bool auto_movement;
 
     public Animator animator;
@@ -52,7 +50,6 @@ public class Player_Movement : MonoBehaviour {
 
     //Controller Vibration
     public PlayerIndex playerIndex;
-    bool playerIndexSet = false;
     GamePadState prevState;
     public bool testVibrationHitRope;
     public float timerRope;
@@ -82,7 +79,6 @@ public class Player_Movement : MonoBehaviour {
 
     private void Start()
     {
-        rg2D = GetComponent<Rigidbody2D>();
         dash_v = 0;
         dash_time = 0.2f;
         LR = gameObject.GetComponent<LineRenderer>();
@@ -127,21 +123,6 @@ public class Player_Movement : MonoBehaviour {
             CameraShake();
             checkLifePlayers.godMode = true;
         }
-
-        /*if (!playerIndexSet || !prevState.IsConnected)
-        {
-            for (int i = 0; i < 4; ++i)
-            {
-                PlayerIndex testPlayerIndex = (PlayerIndex)i;
-                GamePadState testState = GamePad.GetState(testPlayerIndex);
-                if (testState.IsConnected)
-                {
-                    Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
-                    playerIndex = testPlayerIndex;
-                    playerIndexSet = true;
-                }
-            }
-        }*/
 
         transform.position = rope_system.Points[0].transform.position;
         //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);

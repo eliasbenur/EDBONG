@@ -14,7 +14,6 @@ public class Rope_System : MonoBehaviour {
     public int NumPoints = 50;
 
     public int Iterations;
-
     public LineRenderer _lineRenderer;
 
     private float TimeRemainder = 0f;
@@ -25,8 +24,6 @@ public class Rope_System : MonoBehaviour {
 
     public Vector2 mov_P1;
     public Vector2 mov_P2;
-
-    bool rop_tens = false;
 
     public AnimationCurve animatedcurve;
 
@@ -39,8 +36,6 @@ public class Rope_System : MonoBehaviour {
         public int point_nul;
         public float dist;
     }
-
-    List<coll_pos> list_coll = new List<coll_pos>();
 
     // Use this for initialization
     void Start()
