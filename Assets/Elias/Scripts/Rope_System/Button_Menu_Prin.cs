@@ -24,7 +24,7 @@ public class Button_Menu_Prin : MonoBehaviour
 
     public void Waves_Button()
     {
-        SceneManager.LoadScene("Testing - Copy", LoadSceneMode.Single);
+        SceneManager.LoadScene("Waves_Mode", LoadSceneMode.Single);
     }
 
     public void Proto_Button()
