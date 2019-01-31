@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     //public UParticleSystem_E_Modif RopePowerUp_Malus;
     public Player_Movement checkPlayer;
-    public Player2_Movement checkPlayer2;
+    public Player_Movement checkPlayer2;
 
     public GameObject gameOverCanvas;
 
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
                 if(targets[i].name == "PlayerOne")
                     targets[i].GetComponent<Player_Movement>().startBlinking = true;
                 else if(targets[i].name == "PlayerTwo")
-                    targets[i].GetComponent<Player2_Movement>().startBlinking = true;
+                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
             }
         }
 

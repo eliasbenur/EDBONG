@@ -7,7 +7,7 @@ public class Change_Prop : MonoBehaviour
 {
     public Rope_System rope_system;
     public Slider slider_rope_l;
-    public Player2_Movement player2mov;
+    public Player_Movement player2mov;
     public Player_Movement playermov;
     public Slider slider_dash;
     public Slider slider_elasticity;

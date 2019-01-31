@@ -20,7 +20,7 @@ public class Yamete : MonoBehaviour
     public float projectileToFire;
 
     bool dead;
-    public List<encer_trig2> list_trig;
+    public List<encer_trig> list_trig;
     public Rope_System rope_system;
     public bool rope_atachment;
 
@@ -44,7 +44,7 @@ public class Yamete : MonoBehaviour
 
         foreach (Transform child in transform)
         {
-            list_trig.Add(child.GetComponent<encer_trig2>());
+            list_trig.Add(child.GetComponent<encer_trig>());
         }
     }
     void Update()
@@ -97,7 +97,7 @@ public class Yamete : MonoBehaviour
                 if (timerCut > timerCut_TOT)
                 {
                     allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                    allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+                    allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                     GetComponent<CircleCollider2D>().enabled = false;
                     StartCoroutine(Dead());
 
@@ -126,7 +126,7 @@ public class Yamete : MonoBehaviour
     void Start_surround()
     {
         num_trig = 0;
-        foreach (encer_trig2 trig in list_trig)
+        foreach (encer_trig trig in list_trig)
         {
             if (trig.Check_isTouching())
             {
@@ -161,7 +161,7 @@ public class Yamete : MonoBehaviour
             dead = true;
 
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-            allPlayers[1].GetComponent<Player2_Movement>().testVibrationHitRope = true;
+            allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
             if (!hit_lasser.isPlaying)
             {
                 hit_lasser.Play();
