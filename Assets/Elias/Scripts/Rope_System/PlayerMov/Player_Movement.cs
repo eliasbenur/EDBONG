@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XInputDotNetPure;
+using Rewired;
 
 public class Player_Movement : MonoBehaviour {
 
@@ -18,6 +19,11 @@ public class Player_Movement : MonoBehaviour {
     public float dash_v;
     public float dash_delay;
     public Image dash_bar;
+
+    //Players Inputs
+    public enum Enum_PlayerNum {PlayerOne = 1, PlayerTwo = 2};
+    public Enum_PlayerNum PlayerNum;
+    private Player rew_player;
 
     public bool auto_movement;
 
@@ -81,6 +87,15 @@ public class Player_Movement : MonoBehaviour {
         dash_v = 0;
         dash_time = 0.2f;
         idle_anim_time = -1;
+
+        //Player Inputs
+        if (PlayerNum == Enum_PlayerNum.PlayerOne)
+        {
+            rew_player = ReInput.players.GetPlayer("PlayerOne");
+        }else
+        {
+            rew_player = ReInput.players.GetPlayer("PlayerTwo");
+        }
     }
 
     private void Update()
@@ -113,8 +128,15 @@ public class Player_Movement : MonoBehaviour {
             CameraShake();
             checkLifePlayers.godMode = true;
         }
+        if (PlayerNum == Enum_PlayerNum.PlayerOne)
+        {
+            transform.position = rope_system.Points[0].transform.position;
+        }
+        else
+        {
+            transform.position = rope_system.Points[rope_system.NumPoints - 1].transform.position;
+        }
 
-        transform.position = rope_system.Points[0].transform.position;
         //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
         
     }
@@ -131,23 +153,17 @@ public class Player_Movement : MonoBehaviour {
         }
 
 
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.Joystick1Button0)) && dash_v <= 0 && movement != Vector2.zero)
+        //if ((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.Joystick1Button0)) && dash_v <= 0 && movement != Vector2.zero)
+        if(rew_player.GetButtonDown("Dash") && dash_v <= 0 && movement != Vector2.zero)
         {
             dash_v = dash_delay;
             CheckMoney.timerGodMode = 1.5f;
             CheckMoney.godMode = true;
         }
 
-        if (clavier_active)
-        {
-            moveX = Input.GetAxisRaw(horizontal_clavier);
-            moveY = Input.GetAxisRaw(vertical_clavier);
-        }
-        else
-        {
-            moveX = Input.GetAxisRaw(horizontal);
-            moveY = Input.GetAxisRaw(vertical);
-        }
+        moveX = rew_player.GetAxis("MoveHorizontal");
+        moveY = rew_player.GetAxis("MoveVertical");
+
 
 
         if (moveX > 0)
@@ -248,7 +264,15 @@ public class Player_Movement : MonoBehaviour {
                 animator.SetBool("dash", false);
             }
             //GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = new Vector2(-1,0) * 0.3f;
-            GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement * speed;
+            if (PlayerNum == Enum_PlayerNum.PlayerOne)
+            {
+                GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement * speed;
+            }
+            else
+            {
+                GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P2 = movement * speed;
+            }
+
         }
         else
         {

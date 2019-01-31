@@ -167,16 +167,13 @@ public class Player2_Movement : MonoBehaviour {
             animator.SetInteger("input_x", 0);
         }
 
-        if (moveY > 0)
-        {
+        if (moveY > 0){
             animator.SetInteger("input_y", 1);
         }
-        else if (moveY < 0)
-        {
+        else if (moveY < 0){
             animator.SetInteger("input_y", -1);
         }
-        else
-        {
+        else{
             animator.SetInteger("input_y", 0);
         }
 
