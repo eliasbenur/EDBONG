@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Collant_trig : MonoBehaviour{
+
+    float delay;
+    float cur_delay;
+
+    private void Start()
+    {
+        delay = 1f;
+        cur_delay = 1f;
+    }
+
+    private void Update()
+    {
+        if (transform.parent.GetComponent<Detection_dash_Distance>().Player_dashing() && cur_delay >= delay)
+        {
+            cur_delay = 0;
+        }
+
+        if (cur_delay < delay)
+        {
+            cur_delay += Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //If players are dashing and the monster is stick to the chain
+        if (cur_delay >= delay)
+        {
+            if (collision.gameObject.layer == 9)
+            {
+                //Then we takes off, and in delay's value, he would not be able to stick again
+                collision.gameObject.GetComponent<Rope_Point>().enemie_coll = true;
+                if (transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll == null)
+                {
+                    transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll = collision.gameObject;
+                    transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
+                }
+            }
+        }
+        else
+        {
+            transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll = null;
+            transform.parent.GetComponent<CircleCollider2D>().isTrigger = false;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            collision.gameObject.GetComponent<Rope_Point>().enemie_coll = false;
+            //transform.parent.GetComponent<AI_collant>().point_to_coll = null;
+        }
+    }
+}
+
