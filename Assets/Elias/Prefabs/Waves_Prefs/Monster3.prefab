@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1342271888}
   - component: {fileID: 7053411985052241014}
   - component: {fileID: 3119407563760773095}
-  - component: {fileID: 2079493490960568054}
+  - component: {fileID: 4040965878432723155}
   m_Layer: 0
   m_Name: Monster3
   m_TagString: monster
@@ -341,7 +341,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2079493490960568054
+--- !u!114 &4040965878432723155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,12 +350,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1342271887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0495435924a5c204da47e9d3d947a7a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 839a7faa30e82ee4188daf7316ba6e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   allPlayers: []
-  detectionDistance: 500
+  detectionDistance: 200
   detectionDistance_minimalBeforeLeave: 3
   distanceShoot: 400
   enemySpeed: 1
@@ -365,15 +365,12 @@ MonoBehaviour:
   projectileToFire: 6
   list_trig: []
   rope_system: {fileID: 0}
-  rope_atachment: 0
   timerCut: 0
   timerCut_TOT: 0.28
   num_trig: 0
-  delay_spawn: 0
-  hit_lasser: {fileID: 7053411985052241014}
-  audio_explision: {fileID: 3119407563760773095}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
+  hit_lasser: {fileID: 0}
+  audio_explision: {fileID: 0}
+  blood_explo: {fileID: 0}
   timer_BeforeExplosion: 0.2
 --- !u!1 &17681836366261823
 GameObject:

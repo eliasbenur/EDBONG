@@ -22,7 +22,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     Animator animator;
 
     //Variables we have to check to know if a monster can be cut, if so, then we trigger audioSource, animation
-    public List<encer_trig2> list_trig;
+    public List<encer_trig> list_trig;
     public Rope_System rope_system;
     public AudioSource hit_lasser;
     public AudioSource audio_explosion;
@@ -62,7 +62,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         dead = false;
         foreach (Transform child in transform)
         {
-            list_trig.Add(child.GetComponent<encer_trig2>());
+            list_trig.Add(child.GetComponent<encer_trig>());
         }
 
         //Method allows us to choose the type of monster we want to have
@@ -229,7 +229,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     void Start_surround()
     {
         num_trig = 0;
-        foreach (encer_trig2 trig in list_trig)
+        foreach (encer_trig trig in list_trig)
         {
             if (trig.Check_isTouching())
             {

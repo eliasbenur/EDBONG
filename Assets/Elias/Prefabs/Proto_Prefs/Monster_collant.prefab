@@ -75,7 +75,9 @@ GameObject:
   - component: {fileID: 1977832349}
   - component: {fileID: 1977832347}
   - component: {fileID: 1977832346}
-  - component: {fileID: 6361740910103456513}
+  - component: {fileID: 7145306569726448881}
+  - component: {fileID: 2793199525298077276}
+  - component: {fileID: 9145546348866974943}
   m_Layer: 0
   m_Name: Monster_collant
   m_TagString: Untagged
@@ -394,7 +396,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6361740910103456513
+--- !u!114 &7145306569726448881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,27 +405,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977832344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63d917195f0c2db40872a07a2360f859, type: 3}
+  m_Script: {fileID: 11500000, guid: a6e47454f6c5f6c46a4a4484bee9c0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDistance: 200
+  enemySpeed: 2
+  delay_Action: 1
+  point_to_coll: {fileID: 0}
+  init_IA: {fileID: 2793199525298077276}
+  checkDistance: {fileID: 9145546348866974943}
+--- !u!114 &2793199525298077276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977832344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3a83e7286fee04ab08656efedfc7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   allPlayers: []
-  detectionDistance: 200
   target: {fileID: 0}
-  enemySpeed: 2
-  animator: {fileID: 1977832348}
-  delay_spawn: 0
-  timer_BeforeAttack: 0.5
-  timer: 0
-  attack: 0
-  anim_atack: 0
-  hit_lasser: {fileID: 1977832347}
-  audio_explision: {fileID: 1977832346}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
-  list_trig: []
   rope_system: {fileID: 0}
-  rope_atachment: 0
-  timerCut: 0
-  timerCut_TOT: 0.28
-  num_trig: 0
-  point_to_coll: {fileID: 0}
+--- !u!114 &9145546348866974943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977832344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca824478d2f56574db97ea128f3ae40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

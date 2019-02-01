@@ -19,7 +19,7 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
 
     //Variable for death behavior
     bool dead;
-    [HideInInspector] public List<encer_trig2> list_trig;
+    [HideInInspector] public List<encer_trig> list_trig;
     [HideInInspector] public Rope_System rope_system;
     public float timerCut, timerCut_TOT;
     [HideInInspector] public int num_trig = 0;
@@ -33,7 +33,7 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
         //We get all childrens -> they all have a script call encer_trig2, he allow us to know if the rope is surrounding him or not
         foreach (Transform child in transform)
         {
-            list_trig.Add(child.GetComponent<encer_trig2>());
+            list_trig.Add(child.GetComponent<encer_trig>());
         }
     }
 
@@ -125,7 +125,7 @@ public class IA_Distance_Shoot_Walk : MonoBehaviour
     void Start_surround()
     {
         num_trig = 0;
-        foreach (encer_trig2 trig in list_trig)
+        foreach (encer_trig trig in list_trig)
         {
             if (trig.Check_isTouching())
             {

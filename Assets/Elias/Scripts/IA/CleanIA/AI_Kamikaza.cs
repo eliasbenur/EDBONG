@@ -33,7 +33,7 @@ public class AI_Kamikaza : MonoBehaviour
     bool dead;
     //Rope system will be used to found a target for the monster 
     public Rope_System rope_system;
-    public List<encer_trig2> list_trig;
+    public List<encer_trig> list_trig;
     public bool rope_atachment;
     public float timerCut, timerCut_TOT;
     public int num_trig = 0;
@@ -51,7 +51,7 @@ public class AI_Kamikaza : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            list_trig.Add(child.GetComponent<encer_trig2>());
+            list_trig.Add(child.GetComponent<encer_trig>());
         }
     }
     void Update()
@@ -132,7 +132,7 @@ public class AI_Kamikaza : MonoBehaviour
     void Start_surround()
     {
         num_trig = 0;
-        foreach (encer_trig2 trig in list_trig)
+        foreach (encer_trig trig in list_trig)
         {
             if (trig.Check_isTouching())
             {
@@ -181,8 +181,8 @@ public class AI_Kamikaza : MonoBehaviour
 
     void Follow()
     {
-        Vector3 Delta = transform.position - target.transform.position;
-        gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + Delta.normalized * enemySpeed);
+        Vector3 Delta = target.transform.position - transform.position;
+        gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + Delta.normalized * enemySpeed * Time.deltaTime);
     }
 
     private void SpriteBlinkingEffect()

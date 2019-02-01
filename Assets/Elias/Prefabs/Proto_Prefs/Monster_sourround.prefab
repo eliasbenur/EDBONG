@@ -373,11 +373,11 @@ GameObject:
   - component: {fileID: 1270357147616745764}
   - component: {fileID: 1270357147616745765}
   - component: {fileID: 1270357147616745766}
-  - component: {fileID: 1270357147616745767}
   - component: {fileID: 1270357147616745769}
   - component: {fileID: 1270357147616745770}
+  - component: {fileID: 2546744252220232854}
   m_Layer: 0
-  m_Name: Monster_sourround_small
+  m_Name: Monster_sourround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,38 +509,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1270357147616745767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270357147616745761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd139d9c8efacf744a77122cd1192929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allPlayers: []
-  detectionDistance: 200
-  target: {fileID: 0}
-  enemySpeed: 2
-  animator: {fileID: 1270357147616745764}
-  delay_spawn: 0
-  timer_BeforeAttack: 0.5
-  timer: 0
-  attack: 0
-  anim_atack: 0
-  hit_lasser: {fileID: 1270357147616745769}
-  audio_explision: {fileID: 1270357147616745770}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
-  list_trig: []
-  rope_system: {fileID: 0}
-  rope_atachment: 0
-  timerCut: 0
-  timerCut_TOT: 0.28
-  num_trig: 0
 --- !u!82 &1270357147616745769
 AudioSource:
   m_ObjectHideFlags: 0
@@ -733,6 +701,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2546744252220232854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270357147616745761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880bca65f1b62a34ab5856bcd106a1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDistance: 200
+  enemySpeed: 2
+  list_trig: []
+  rope_system: {fileID: 0}
+  hit_lasser: {fileID: 1270357147616745769}
+  audio_explosion: {fileID: 1270357147616745770}
+  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
+    type: 3}
+  method: 2
 --- !u!1 &1270357147782712405
 GameObject:
   m_ObjectHideFlags: 0

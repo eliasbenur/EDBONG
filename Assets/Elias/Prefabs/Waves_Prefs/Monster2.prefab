@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1342271888}
   - component: {fileID: 8745295092571111122}
   - component: {fileID: 8000970703477746070}
-  - component: {fileID: 9045685705949772855}
+  - component: {fileID: 2241928197874238137}
   m_Layer: 0
   m_Name: Monster2
   m_TagString: monster
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342271887}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -341,7 +341,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9045685705949772855
+--- !u!114 &2241928197874238137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,35 +350,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1342271887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ac157282bd11ba40b4d76819905719a, type: 3}
+  m_Script: {fileID: 11500000, guid: 32612e88dcf5d3743b3b3a968ae24b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   detectionDistance: 300
   enemySpeed: 2
   oldSpeed: 0
-  timer: 0
-  timer_BeforeAttack: 0.75
   timer_BeforeExplosion: 1.5
   projectileToSpawn: 11
   angleToADD: 40
   speedProjectile: 400
   cooldown: 2
   cooldownToWait: 2
+  hit_lasser: {fileID: 8745295092571111122}
+  audio_explision: {fileID: 8000970703477746070}
+  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
+    type: 3}
   spriteBlinkingMiniDuration: 0.1
   spriteBlinkingTotalTimer: 0
   spriteBlinkingTotalDuration: 4.85
   startBlinking: 0
-  list_trig: []
   rope_system: {fileID: 0}
+  list_trig: []
   rope_atachment: 0
   timerCut: 0
   timerCut_TOT: 0.28
   num_trig: 0
-  delay_spawn: 0
-  hit_lasser: {fileID: 0}
-  audio_explision: {fileID: 0}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
 --- !u!1 &871074764728327862
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 253280197}
   - component: {fileID: 253280202}
   - component: {fileID: 253280201}
-  - component: {fileID: 1977832345}
+  - component: {fileID: 1305412810094115558}
   m_Layer: 0
   m_Name: Monster_piege
   m_TagString: Untagged
@@ -341,7 +341,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1977832345
+--- !u!114 &1305412810094115558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,29 +350,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 253280194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a5ce67e3175d84e96f5e217c11eb6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f62c7a6bd6bdaf46b98b699d286512d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   allPlayers: []
-  detectionDistance: 200
   target: {fileID: 0}
+  detectionDistance: 200
+  rope_system: {fileID: 0}
   enemySpeed: 0
   animator: {fileID: 253280199}
-  delay_spawn: 2
-  timer_BeforeAttack: 0.5
-  timer: 0
-  attack: 0
-  anim_atack: 0
-  hit_lasser: {fileID: 253280202}
-  audio_explision: {fileID: 253280201}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
-  list_trig: []
-  rope_system: {fileID: 0}
-  rope_atachment: 0
-  timerCut: 0
-  timerCut_TOT: 0.28
-  num_trig: 0
 --- !u!1 &379724527
 GameObject:
   m_ObjectHideFlags: 0

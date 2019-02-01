@@ -15,7 +15,7 @@ public class collant_trig : MonoBehaviour{
 
     private void Update()
     {
-        if (transform.parent.GetComponent<AI_collant>().Player_dashing() && cur_delay >= delay)
+        if (transform.parent.GetComponent<Detection_dash_Distance>().Player_dashing() && cur_delay >= delay)
         {
             cur_delay = 0;
         }
@@ -33,16 +33,16 @@ public class collant_trig : MonoBehaviour{
             if (collision.gameObject.layer == 9)
             {
                 collision.gameObject.GetComponent<Rope_Point>().enemie_coll = true;
-                if (transform.parent.GetComponent<AI_collant>().point_to_coll == null)
+                if (transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll == null)
                 {
-                    transform.parent.GetComponent<AI_collant>().point_to_coll = collision.gameObject;
+                    transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll = collision.gameObject;
                     transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
                 }
             }
         }
         else
         {
-            transform.parent.GetComponent<AI_collant>().point_to_coll = null;
+            transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll = null;
             transform.parent.GetComponent<CircleCollider2D>().isTrigger = false;
         }
 
