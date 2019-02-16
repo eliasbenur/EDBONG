@@ -411,7 +411,7 @@ MonoBehaviour:
   rope_system: {fileID: 0}
   hit_lasser: {fileID: 3757547648681589580}
   audio_explosion: {fileID: 5434449346232900870}
-  blood_explo: {fileID: 1310551666060386906, guid: 8f7c7cea9580e2a459dbbd3eaa906470,
+  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
   method: 1
 --- !u!95 &1342271891

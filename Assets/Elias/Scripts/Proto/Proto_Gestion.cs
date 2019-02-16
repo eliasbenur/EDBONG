@@ -191,19 +191,19 @@ public class Proto_Gestion : MonoBehaviour
             {
                 if (monster.name == "Monster_coupe" && room_act == 1)
                 {
-                    monster.GetComponent<basicAI_E>().enemySpeed = 2;
+                    monster.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enemySpeed = 2;
                 }else if (monster.name == "Monster_sourround" && room_act == 2)
                 {
-                    monster.GetComponent<basicAI2_E>().enemySpeed = 2;
+                    monster.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enemySpeed = 2;
                 }else if (monster.name == "Monster_surround_dash" && room_act == 3)
                 {
-                    monster.GetComponent<basicAI2_E_dash>().enemySpeed = 2;
+                    monster.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enemySpeed = 2;
                 }else if (monster.name == "Monster_piege" && room_act == 4)
                 {
-                    monster.GetComponent<toutbete>().enemySpeed = 2f;
+                    monster.GetComponent<IA_Trap>().enemySpeed = 2f;
                 }else if (monster.name == "Monster_collant" && room_act == 5)
                 {
-                    monster.GetComponent<AI_collant>().enemySpeed = 2f;
+                    monster.GetComponent<Movement_IA_Collant>().enemySpeed = 2f;
                 }
             }
         }
@@ -218,23 +218,23 @@ public class Proto_Gestion : MonoBehaviour
             {
                 if (monster.name == "Monster_coupe" && room_act == 1)
                 {
-                    monster.GetComponent<basicAI_E>().enemySpeed = 0;
+                    monster.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enemySpeed = 0;
                 }
                 else if (monster.name == "Monster_sourround" && room_act == 2)
                 {
-                    monster.GetComponent<basicAI2_E>().enemySpeed = 0;
+                    monster.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enemySpeed = 0;
                 }
                 else if (monster.name == "Monster_surround_dash" && room_act == 3)
                 {
-                    monster.GetComponent<basicAI2_E_dash>().enemySpeed = 0;
+                    monster.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enemySpeed = 0;
                 }
                 else if (monster.name == "Monster_piege" && room_act == 4)
                 {
-                    monster.GetComponent<toutbete>().enemySpeed = 0;
+                    monster.GetComponent<IA_Trap>().enemySpeed = 0;
                 }
                 else if (monster.name == "Monster_collant" && room_act == 5)
                 {
-                    monster.GetComponent<AI_collant>().enemySpeed = 0;
+                    monster.GetComponent<Movement_IA_Collant>().enemySpeed = 0;
                 }
             }
         }
