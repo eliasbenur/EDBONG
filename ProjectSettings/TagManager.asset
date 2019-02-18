@@ -33,12 +33,12 @@ TagManager:
   - Rope
   - Objects
   - Walls
+  - LightsSources
+  - LightsObstacles
+  - AmbientLights
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Shadowcaster
+  - 'Lighting '
   - 
   - 
   - 

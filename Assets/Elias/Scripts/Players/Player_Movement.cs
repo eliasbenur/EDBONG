@@ -166,14 +166,14 @@ public class Player_Movement : MonoBehaviour {
 
 
 
-        /*if (moveX > 0)
+        if (moveX > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         else if(moveX < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }*/
+        }
 
         if (moveX > 0)
         {
