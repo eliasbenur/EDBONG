@@ -123,6 +123,7 @@ public class Rope_System : MonoBehaviour {
 
     private void DistMaxConstraints(Vector3 P1_mov, Vector3 P2_mov)
     {
+        // IF with the MovePositions some points are + far from MaxLenght (for collisions,etc..) we use transform position instead to correct their position
         Coll_RollB(NumPoints/2);
 
         //CableStart.transform.position = Points[0].transform.position;
@@ -152,6 +153,7 @@ public class Rope_System : MonoBehaviour {
                 ParticleA.GetComponent<Rigidbody2D>().MovePosition((Vector2)ParticleA.transform.position + (Vector2)ParticleA.new_pos);
             }else
             {
+                ////////////NOT USED///////////////////////
                 if (!ParticleA.coll_state)
                 {
                     //TODO: add new pos to the RiGbody2D 
@@ -164,7 +166,7 @@ public class Rope_System : MonoBehaviour {
             ParticleA.new_pos_p2 = Vector3.zero;
             ParticleA.new_pos = Vector3.zero;
         }
-        
+
     }
 
     private void DistMaxP1()
@@ -286,7 +288,7 @@ public class Rope_System : MonoBehaviour {
             new_indew = Points.IndexOf(p);
         }
 
-
+        // --> To the Right
         for (int PointIndex = new_indew; PointIndex < NumPoints - 1; PointIndex++)
         {
             Rope_Point ParticleA = Points[PointIndex];
@@ -309,6 +311,7 @@ public class Rope_System : MonoBehaviour {
             }
             else if (state_surround)
             {
+                ////////// NOT USED //////////////
                 if (!ParticleB.coll_state)
                 {
                     //TODO: add new pos to the RiGbody2D 
@@ -318,6 +321,7 @@ public class Rope_System : MonoBehaviour {
             }
         }
 
+        // <-- To the left
         for (int PointIndex = new_indew; PointIndex > 0; PointIndex--)
         {
             Rope_Point ParticleA = Points[PointIndex];
