@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 1342271888}
   - component: {fileID: 3757547648681589580}
   - component: {fileID: 5434449346232900870}
+  - component: {fileID: 7545393572757235520}
   m_Layer: 0
   m_Name: Monster_coupe
   m_TagString: monster
@@ -662,6 +663,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &7545393572757235520
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342271887}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09922969, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.0092298
 --- !u!1 &1667030455
 GameObject:
   m_ObjectHideFlags: 0

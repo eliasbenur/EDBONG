@@ -250,9 +250,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     }
 
     //When an enemy collide with a player, he stop moving to avoid some shakings 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "player")
+        if (other.gameObject.tag == "player")
         {
             enemySpeed = 0;
             //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
