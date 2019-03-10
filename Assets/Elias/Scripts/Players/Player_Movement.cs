@@ -128,11 +128,11 @@ public class Player_Movement : MonoBehaviour {
             CameraShake();
             checkLifePlayers.godMode = true;
         }
-        if (PlayerNum == Enum_PlayerNum.PlayerOne)
+        if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
         {
             transform.position = rope_system.Points[0].transform.position;
         }
-        else
+        else if(PlayerNum != Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
         {
             transform.position = rope_system.Points[rope_system.NumPoints - 1].transform.position;
         }
@@ -267,10 +267,16 @@ public class Player_Movement : MonoBehaviour {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
                 GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement * speed;
+                //TESTING - WIP
+                GameObject.Find("Rope_System").GetComponent<Rope_System_Elast>().mov_P1 = movement * speed;
+                gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + (Vector3)movement * 0.3f);
             }
             else
             {
                 GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P2 = movement * speed;
+                //TESTING - WIP
+                GameObject.Find("Rope_System").GetComponent<Rope_System_Elast>().mov_P2 = movement * speed;
+                gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + (Vector3)movement * 0.3f);
             }
 
         }

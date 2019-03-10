@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 114159639320414646}
   - component: {fileID: 304870342385484162}
   - component: {fileID: 7541289747951964564}
+  - component: {fileID: 1343564816677976114}
+  - component: {fileID: 2173904942351888736}
   m_Layer: 0
   m_Name: Rope_Point
   m_TagString: Untagged
@@ -54,6 +56,7 @@ MonoBehaviour:
   close_coll: 0
   enemie_coll: 0
   chain_sprite: {fileID: 21300000, guid: 23188b6cddadf80418bc661232219e63, type: 3}
+  spring_obj: {fileID: 0}
 --- !u!212 &304870342385484162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -121,6 +124,47 @@ MonoBehaviour:
   phase: 0
   frequency: 0.8
   affectsIntensity: 1
+--- !u!50 &1343564816677976114
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798760860605266}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!231 &2173904942351888736
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798760860605266}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 11.486706
+  m_DampingRatio: 0
+  m_Frequency: 1
 --- !u!1 &5491968640007493720
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,10 @@ public class IA_Trap : MonoBehaviour
             {
                 allPlayers.Add(Obj);
             }
-            target = rope_system.Points[rope_system.NumPoints / 2].gameObject;
+            if (rope_system.Points.Count > 0)
+            {
+                target = rope_system.Points[rope_system.NumPoints / 2].gameObject;
+            }
         }
 
         if (dead)
