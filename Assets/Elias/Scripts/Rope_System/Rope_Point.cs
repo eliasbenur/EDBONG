@@ -28,6 +28,8 @@ public class Rope_Point : MonoBehaviour {
         rb2D.freezeRotation = true;
         rb2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb2D.mass = 1;
+        //TEST
+        rb2D.drag = 10f;
 
         close_coll = false;
 

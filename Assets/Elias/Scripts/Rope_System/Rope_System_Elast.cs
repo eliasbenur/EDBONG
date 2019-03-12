@@ -33,6 +33,8 @@ public class Rope_System_Elast : MonoBehaviour {
     public GameObject player_One;
     public GameObject player_Two;
 
+    public Sprite chainA;
+    public Sprite chainB;
 
 
     [System.Serializable] public struct coll_pos
@@ -57,11 +59,9 @@ public class Rope_System_Elast : MonoBehaviour {
         {
             _lineRenderer = gameObject.AddComponent<LineRenderer>();
         }
-        _lineRenderer.positionCount = NumPoints;
-        _lineRenderer.startWidth = 0.2f;
-        _lineRenderer.endWidth = 0.2f;
-        _lineRenderer.startColor = Color.red;
-        _lineRenderer.endColor = Color.red;
+        _lineRenderer.positionCount = NumPoints + 2;
+        _lineRenderer.startWidth = 0.15f;
+        _lineRenderer.endWidth = 0.15f;
 
         // "Distance" between the 2 start points
         Vector3 Delta = CableEnd.position - CableStart.position;
@@ -103,7 +103,12 @@ public class Rope_System_Elast : MonoBehaviour {
 
             if (ParticleIndex%2 == 0)
             {
-                particle.GetComponent<SpriteRenderer>().enabled = false;
+                //particle.GetComponent<SpriteRenderer>().enabled = false;
+                particle.GetComponent<SpriteRenderer>().sprite = chainA;
+            }
+            else
+            {
+                particle.GetComponent<SpriteRenderer>().sprite = chainB;
             }
 
             //ELST
@@ -117,12 +122,49 @@ public class Rope_System_Elast : MonoBehaviour {
             }
         }
 
+        for (int ParticleIndex = 0; ParticleIndex < NumPoints; ParticleIndex++)
+        {
+            //ELST
+            if (ParticleIndex == (NumPoints - 1))
+            {
+                SpringJoint2D spring =  Points[ParticleIndex].gameObject.AddComponent<SpringJoint2D>();
+                spring.autoConfigureDistance = false;
+                spring.distance = 0.5f;
+                spring.frequency = 5;
+                spring.connectedBody = player_Two.GetComponent<Rigidbody2D>();
+                //Points[ParticleIndex].GetComponent<SpringJoint2D>().connectedBody = player_Two.GetComponent<Rigidbody2D>();
+            }
+            else
+            {
+                //Points[ParticleIndex].GetComponent<SpringJoint2D>().connectedBody = Points[ParticleIndex + 1].GetComponent<Rigidbody2D>();
+                SpringJoint2D spring = Points[ParticleIndex].gameObject.AddComponent<SpringJoint2D>();
+                spring.autoConfigureDistance = false;
+                spring.distance = 0.5f;
+                spring.frequency = 5;
+                spring.connectedBody = Points[ParticleIndex + 1].GetComponent<Rigidbody2D>();
+            }
+        }
+
         //ELST
+        //SpringJoint2D spring_j = player_Two.transform.GetChild(0).gameObject.AddComponent<SpringJoint2D>();
         SpringJoint2D spring_j =  player_Two.AddComponent<SpringJoint2D>();
         spring_j.autoConfigureDistance = false;
         spring_j.distance = 0.5f;
         spring_j.frequency = 5;
         spring_j.connectedBody = Points[NumPoints - 1].GetComponent<Rigidbody2D>();
+
+        SpringJoint2D spring_j2 = player_One.AddComponent<SpringJoint2D>();
+        spring_j2.autoConfigureDistance = false;
+        spring_j2.distance = 0.5f;
+        spring_j2.frequency = 5;
+        spring_j2.connectedBody = Points[0].GetComponent<Rigidbody2D>();
+
+        for (int ParticleIndex = 0; ParticleIndex < NumPoints; ParticleIndex++)
+        {
+            BoxCollider2D bc2d = Points[ParticleIndex].gameObject.AddComponent<BoxCollider2D>();
+            bc2d.offset = new Vector2(0.46f, 0f);
+            bc2d.size = new Vector2(0.75f, 0.1f);
+        }
     }
     #endregion
 
@@ -139,7 +181,7 @@ public class Rope_System_Elast : MonoBehaviour {
     public void PreformSubstep(Vector3 P1_mov, Vector3 P2_mov)
     {
         //DistMaxConstraints(P1_mov, P2_mov);
-        //Update_LineRender();
+        Update_LineRender();
     }
 
     private void DistMaxConstraints(Vector3 P1_mov, Vector3 P2_mov)
@@ -455,20 +497,47 @@ public class Rope_System_Elast : MonoBehaviour {
 
     private void Update_LineRender()
     {
+        _lineRenderer.SetPosition(0, player_One.transform.position);
+        _lineRenderer.SetPosition(NumPoints + 1, player_Two.transform.position);
         // Update render position
-        for (int SegmentIndex = 0; SegmentIndex < NumPoints; SegmentIndex++)
+        for (int SegmentIndex = 1; SegmentIndex < NumPoints + 1; SegmentIndex++)
         {
-            _lineRenderer.SetPosition(SegmentIndex, Points[SegmentIndex].transform.position);
+            _lineRenderer.SetPosition(SegmentIndex, Points[SegmentIndex - 1].transform.position);
         }
 
         for (int SegmentIndex = 0; SegmentIndex < NumPoints - 1; SegmentIndex++)
         {
-            if (SegmentIndex%2 != 0)
-            {
+            //if (SegmentIndex%2 != 0)
+            //{
                 Vector3 difference = Points[SegmentIndex+1].transform.position - Points[SegmentIndex].transform.position;
                 float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 Points[SegmentIndex].transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
                 //Points[SegmentIndex].transform.LookAt(Points[SegmentIndex + 1].transform);
+            //}
+        }
+
+        for (int ParticleIndex = 0; ParticleIndex < NumPoints; ParticleIndex++)
+        {
+            BoxCollider2D bc2d = Points[ParticleIndex].gameObject.GetComponent<BoxCollider2D>();
+
+            if (ParticleIndex == NumPoints -1)
+            {
+                Rope_Point ParticleA = Points[ParticleIndex];
+                Vector3 Delta = ParticleA.transform.position- player_Two.transform.position;
+                float CurrentDistance = Delta.magnitude;
+
+                bc2d.size = new Vector2(CurrentDistance/ParticleA.transform.localScale.x, 0.1f);
+                bc2d.offset = new Vector2((CurrentDistance / ParticleA.transform.localScale.x) / 2, 0f);
+            }
+            else
+            {
+                Rope_Point ParticleA = Points[ParticleIndex];
+                Rope_Point ParticleB = Points[ParticleIndex + 1];
+                Vector3 Delta = ParticleA.transform.position - ParticleB.transform.position;
+                float CurrentDistance = Delta.magnitude;
+
+                bc2d.size = new Vector2(CurrentDistance / ParticleA.transform.localScale.x, 0.1f);
+                bc2d.offset = new Vector2((CurrentDistance / ParticleA.transform.localScale.x) / 2, 0f);
             }
         }
 

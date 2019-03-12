@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 That shader is used after all light obstacles have been drawn to draw one pixel wide white corner over it.
 

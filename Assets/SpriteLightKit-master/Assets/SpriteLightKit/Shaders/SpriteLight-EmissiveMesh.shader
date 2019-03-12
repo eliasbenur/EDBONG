@@ -1,4 +1,4 @@
-﻿Shader "prime[31]/Sprite Light Kit/Emissive Mesh"
+Shader "prime[31]/Sprite Light Kit/Emissive Mesh"
 {
 	Subshader
 	{

@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 Light shader with 30 path tracking steps.
 Code contained in LightBase.cginc, only path tracking samples count is defined here.

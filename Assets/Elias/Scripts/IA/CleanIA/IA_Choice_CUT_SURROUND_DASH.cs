@@ -23,7 +23,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
     //Variables we have to check to know if a monster can be cut, if so, then we trigger audioSource, animation
     public List<encer_trig> list_trig;
-    public Rope_System rope_system;
+    public Rope_System_Elast rope_system;
     public AudioSource hit_lasser;
     public AudioSource audio_explosion;
     public GameObject blood_explo;
@@ -52,7 +52,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         //We find the Rope System, the target will be the center of the cain
         if (rope_system == null)
         {
-            rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+            rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System_Elast>();
         }
     }
 

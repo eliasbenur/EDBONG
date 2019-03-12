@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 This is most expensive light shader with variable count of path tracking steps.
 That shader could be used only on desktop / consoles due to poor performance and required features.
