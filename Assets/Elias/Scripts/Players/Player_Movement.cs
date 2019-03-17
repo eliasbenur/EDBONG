@@ -131,10 +131,12 @@ public class Player_Movement : MonoBehaviour {
         if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
         {
             transform.position = rope_system.Points[0].transform.position;
+            //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
         }
         else if(PlayerNum != Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
         {
             transform.position = rope_system.Points[rope_system.NumPoints - 1].transform.position;
+            //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[rope_system.NumPoints - 1].transform.position);
         }
 
         //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
@@ -267,16 +269,20 @@ public class Player_Movement : MonoBehaviour {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
                 GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement * speed;
-                //TESTING - WIP
-                GameObject.Find("Rope_System").GetComponent<Rope_System_Elast>().mov_P1 = movement * speed;
-                gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + (Vector3)movement * 0.3f);
+
+                //ACTIAVATE IF ELASTIQUE ROPE
+                //Vector2 poseso = transform.position + (Vector3)movement * speed * Time.fixedDeltaTime;
+                //gameObject.GetComponent<Rigidbody2D>().MovePosition(PixelPerfectClamp(poseso, 32));
+                //gameObject.GetComponent<Rigidbody2D>().velocity = movement * speed * Time.fixedDeltaTime;
             }
             else
             {
                 GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P2 = movement * speed;
-                //TESTING - WIP
-                GameObject.Find("Rope_System").GetComponent<Rope_System_Elast>().mov_P2 = movement * speed;
-                gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + (Vector3)movement * 0.3f);
+
+                //ACTIAVATE IF ELASTIQUE ROPE
+                //Vector2 poseso = transform.position + (Vector3)movement * speed * Time.fixedDeltaTime;
+                //gameObject.GetComponent<Rigidbody2D>().MovePosition(PixelPerfectClamp(poseso, 32));
+                //gameObject.GetComponent<Rigidbody2D>().velocity = movement * speed * Time.fixedDeltaTime;
             }
 
         }
@@ -407,5 +413,14 @@ public class Player_Movement : MonoBehaviour {
     public void Vibrate_Control(float leftMotor, float rightMotor)
     {
         GamePad.SetVibration(playerIndex, leftMotor, rightMotor);
+    }
+
+    private Vector2 PixelPerfectClamp(Vector2 moveVector, float pixelsPerUnit)
+    {
+        Vector2 vectorInPixels = new Vector2(
+            Mathf.RoundToInt(moveVector.x * pixelsPerUnit),
+            Mathf.RoundToInt(moveVector.y * pixelsPerUnit));
+
+        return vectorInPixels / pixelsPerUnit;
     }
 }

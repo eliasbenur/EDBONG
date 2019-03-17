@@ -29,6 +29,9 @@ public class Rope_System : MonoBehaviour {
 
     public bool state_surround;
 
+    public Sprite chainA;
+    public Sprite chainB;
+
 
 
     [System.Serializable] public struct coll_pos
@@ -97,9 +100,14 @@ public class Rope_System : MonoBehaviour {
                 particle.p_free = true;
             }
 
-            if (ParticleIndex%2 == 0)
+            if (ParticleIndex % 2 == 0)
             {
-                particle.GetComponent<SpriteRenderer>().enabled = false;
+                particle.GetComponent<SpriteRenderer>().sprite = chainA;
+                particle.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            }
+            else
+            {
+                particle.GetComponent<SpriteRenderer>().sprite = chainB;
             }
         }
     }

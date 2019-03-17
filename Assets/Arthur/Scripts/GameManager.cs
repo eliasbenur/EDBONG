@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
         //displayLife = GameObject.Find("Slider").GetComponent<Slider>();
 
         money = 0;
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
     private void Update()

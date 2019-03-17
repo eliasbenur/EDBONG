@@ -20,7 +20,7 @@ public class Rope_Point : MonoBehaviour {
     // Use this for initialization
     void Start () {
         var collider = gameObject.AddComponent<CircleCollider2D>();
-        collider.radius = 0.1f;
+        collider.radius = 0.15f;
         //collider.isTrigger = true;
 
         Rigidbody2D rb2D = gameObject.GetComponent<Rigidbody2D>();
@@ -28,8 +28,8 @@ public class Rope_Point : MonoBehaviour {
         rb2D.freezeRotation = true;
         rb2D.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb2D.mass = 1;
-        //TEST
-        rb2D.drag = 10f;
+        /*//TEST
+        rb2D.drag = 10f;*/
 
         close_coll = false;
 
@@ -38,13 +38,6 @@ public class Rope_Point : MonoBehaviour {
         new_pos = Vector3.zero;
 
         coll_state = false;
-
-        //Elast
-        SpringJoint2D spri_var = gameObject.GetComponent<SpringJoint2D>();
-        spri_var.autoConfigureDistance = false;
-        spri_var.distance = 0.5f;
-        spri_var.frequency = 5;
-        spring_obj = gameObject.GetComponent<SpringJoint2D>();
 
     }
 	
