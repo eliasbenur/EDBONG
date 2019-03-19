@@ -74,6 +74,8 @@ public class Player_Movement : MonoBehaviour {
 
     public Collider2D collisionItems;
 
+    public bool can_move = true;
+
     private void Awake()
     {
         cameraTransform = Camera.main.GetComponent<Transform>();
@@ -163,8 +165,12 @@ public class Player_Movement : MonoBehaviour {
             CheckMoney.godMode = true;
         }
 
-        moveX = rew_player.GetAxis("MoveHorizontal");
-        moveY = rew_player.GetAxis("MoveVertical");
+        if (can_move)
+        {
+            moveX = rew_player.GetAxis("MoveHorizontal");
+            moveY = rew_player.GetAxis("MoveVertical");
+        }
+
 
 
 
