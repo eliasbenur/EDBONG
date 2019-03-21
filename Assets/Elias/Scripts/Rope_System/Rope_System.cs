@@ -79,26 +79,30 @@ public class Rope_System : MonoBehaviour {
 
             particle.gameObject.layer = 9;
 
+            //TODO: Delete
+            if (ParticleIndex == 0 || ParticleIndex == (NumPoints - 1))
+            {
+
+                /*var collider = particle.gameObject.AddComponent<CircleCollider2D>();
+                collider.radius = 0.5f;*/
+                particle.p_free = false;
+            }
+            else
+            {
+                particle.p_free = true;
+            }
+
             //TODO: Move Ignore Layer collision outside of loop
             Physics2D.IgnoreLayerCollision(8, 9);//////////////////
             Physics2D.IgnoreLayerCollision(9, 9);
 
             //RAYCAST TRIGER
             //Transform pref_tri = Instantiate(PrefabRay_Trig, newTransform.position, Quaternion.identity) as Transform;
-           // pref_tri.gameObject.transform.parent = newTransform;
+            // pref_tri.gameObject.transform.parent = newTransform;
 
             Points.Add(particle);
 
-            //TODO: Delete
-            if (ParticleIndex == 0 || ParticleIndex == (NumPoints - 1)){
 
-                /*var collider = particle.gameObject.AddComponent<CircleCollider2D>();
-                collider.radius = 0.5f;*/
-                particle.p_free = false;
-            }
-            else{
-                particle.p_free = true;
-            }
 
             if (ParticleIndex % 2 == 0)
             {

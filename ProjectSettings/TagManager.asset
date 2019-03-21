@@ -20,6 +20,7 @@ TagManager:
   - encer_trig_up
   - encer_trig_down
   - piege
+  - extrems_chain
   layers:
   - Default
   - TransparentFX
@@ -36,10 +37,10 @@ TagManager:
   - LightsSources
   - LightsObstacles
   - AmbientLights
-  - 
+  - Door
   - Shadowcaster
   - 'Lighting '
-  - 
+  - extrems_chain
   - 
   - 
   - 
