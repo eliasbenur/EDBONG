@@ -22,6 +22,7 @@ public class Player_Movement : MonoBehaviour {
 
     //Players Inputs
     public enum Enum_PlayerNum {PlayerOne = 1, PlayerTwo = 2};
+    public bool modo_solo;
     public Enum_PlayerNum PlayerNum;
     private Player rew_player;
 
@@ -91,13 +92,22 @@ public class Player_Movement : MonoBehaviour {
         idle_anim_time = -1;
 
         //Player Inputs
-        if (PlayerNum == Enum_PlayerNum.PlayerOne)
+        if (modo_solo)
         {
             rew_player = ReInput.players.GetPlayer("PlayerOne");
-        }else
-        {
-            rew_player = ReInput.players.GetPlayer("PlayerTwo");
         }
+        else
+        {
+            if (PlayerNum == Enum_PlayerNum.PlayerOne)
+            {
+                rew_player = ReInput.players.GetPlayer("PlayerOne");
+            }
+            else
+            {
+                rew_player = ReInput.players.GetPlayer("PlayerTwo");
+            }
+        }
+
     }
 
     private void Update()
@@ -158,18 +168,56 @@ public class Player_Movement : MonoBehaviour {
 
 
         //if ((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.Joystick1Button0)) && dash_v <= 0 && movement != Vector2.zero)
-        if(rew_player.GetButtonDown("Dash") && dash_v <= 0 && movement != Vector2.zero)
+        if (modo_solo)
         {
-            dash_v = dash_delay;
-            CheckMoney.timerGodMode = 1.5f;
-            CheckMoney.godMode = true;
+            if (PlayerNum == Enum_PlayerNum.PlayerOne)
+            {
+                if (rew_player.GetButtonDown("Dash_p1") && dash_v <= 0 && movement != Vector2.zero)
+                {
+                    dash_v = dash_delay;
+                    CheckMoney.timerGodMode = 1.5f;
+                    CheckMoney.godMode = true;
+                }
+
+                if (can_move)
+                {
+                    moveX = rew_player.GetAxis("MoveHorizontal_p1");
+                    moveY = rew_player.GetAxis("MoveVertical_p1");
+                }
+            }
+            else
+            {
+                if (rew_player.GetButtonDown("Dash_p2") && dash_v <= 0 && movement != Vector2.zero)
+                {
+                    dash_v = dash_delay;
+                    CheckMoney.timerGodMode = 1.5f;
+                    CheckMoney.godMode = true;
+                }
+
+                if (can_move)
+                {
+                    moveX = rew_player.GetAxis("MoveHorizontal_p2");
+                    moveY = rew_player.GetAxis("MoveVertical_p2");
+                }
+            }
+
+        }
+        else
+        {
+            if (rew_player.GetButtonDown("Dash") && dash_v <= 0 && movement != Vector2.zero)
+            {
+                dash_v = dash_delay;
+                CheckMoney.timerGodMode = 1.5f;
+                CheckMoney.godMode = true;
+            }
+
+            if (can_move)
+            {
+                moveX = rew_player.GetAxis("MoveHorizontal");
+                moveY = rew_player.GetAxis("MoveVertical");
+            }
         }
 
-        if (can_move)
-        {
-            moveX = rew_player.GetAxis("MoveHorizontal");
-            moveY = rew_player.GetAxis("MoveVertical");
-        }
 
 
 

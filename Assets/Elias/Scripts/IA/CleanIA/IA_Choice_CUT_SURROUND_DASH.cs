@@ -35,6 +35,19 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     float num_triggered;
 
 
+    //Camera Shake Effect
+    // Transform of the GameObject you want to shake
+    public Transform cameraTransform;
+    public float shakeDuration;
+    public float shakeMagnitude;
+    public float dampingSpeed;
+    public Vector3 initialPosition;
+
+    public AudioSource signConfirmed;
+    public GameObject shockwave;
+    bool confirmed;
+
+
     public enum MethodToKill
     {
         Cut = 1,
@@ -46,6 +59,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
     private void Awake()
     {
+        cameraTransform = Camera.main.GetComponent<Transform>();
         oldSpeed = enemySpeed;
         animator = GetComponent<Animator>();
         timer_BeforeAttack = 0.5f;
@@ -62,7 +76,10 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         dead = false;
         foreach (Transform child in transform)
         {
-            list_trig.Add(child.GetComponent<encer_trig>());
+            if (child.name != "CleanCollision")
+            {
+                list_trig.Add(child.GetComponent<encer_trig>());
+            }
         }
 
         //Method allows us to choose the type of monster we want to have
@@ -91,6 +108,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        initialPosition = Camera.main.transform.position;
         if (target != null)
         {
             //If one player (who are not the actual target) is closer than the target, then the script change of target
@@ -168,8 +186,92 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
         if (method == MethodToKill.Cut || method == MethodToKill.Surround)
         {
+            if (method == MethodToKill.Surround)
+            {
+                var ropeSystemGetChild = GameObject.Find("Rope_System");
+                switch (num_trig)
+                {
+                    case 4:
+                        shakeDuration = 1;
+                        shakeMagnitude = 0.04f;
+                        dampingSpeed = 0.04f;
+                        foreach (Transform child in ropeSystemGetChild.transform)
+                        {
+                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                            child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+
+                        }
+                        break;
+
+                    case 5:
+                        shakeDuration = 1;
+                        shakeMagnitude = 0.05f;
+                        dampingSpeed = 0.05f;
+                        CameraShake();
+                        foreach (Transform child in ropeSystemGetChild.transform)
+                        {
+                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                            child.GetComponent<SpriteRenderer>().color = new Color(255, 150, 0, 255);
+                        }
+                        break;
+
+                    case 6:
+                        shakeDuration = 1;
+                        shakeMagnitude = 0.06f;
+                        dampingSpeed = 0.06f;
+                        CameraShake();
+                        foreach (Transform child in ropeSystemGetChild.transform)
+                        {
+                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                            child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0, 255);
+                        }
+                        break;
+
+                    case 7:
+                        shakeDuration = 1;
+                        shakeMagnitude = 0.07f;
+                        dampingSpeed = 0.07f;
+                        CameraShake();
+                        foreach (Transform child in ropeSystemGetChild.transform)
+                        {
+                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                            child.GetComponent<SpriteRenderer>().color = new Color(150, 255, 0, 255);
+                        }
+                        break;
+
+                    case 8:
+                        shakeDuration = 0;
+                        shakeMagnitude = 0;
+                        dampingSpeed = 0;
+                        foreach (Transform child in ropeSystemGetChild.transform)
+                        {
+                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                            child.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 255);
+                        }
+                        break;
+
+                    default:
+                        shakeDuration = 0;
+                        shakeMagnitude = 0;
+                        dampingSpeed = 0;
+                        foreach (Transform child in ropeSystemGetChild.transform)
+                        {
+                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = true;
+                            child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+                        }
+                        confirmed = false;
+                        break;
+                }
+            }
+
             if (num_trig >= num_triggered)
             {
+                if (!confirmed && method == MethodToKill.Surround)
+                {
+                    Instantiate(shockwave, transform.position, Quaternion.identity);
+                    signConfirmed.Play();
+                    confirmed = true;
+                }
                 if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
                 {
                     timerCut += Time.deltaTime;
@@ -179,6 +281,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         animator.SetBool("dead", true);
                         GetComponent<CircleCollider2D>().enabled = false;
+                        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                         StartCoroutine(Dead());
                     }
                 }
@@ -210,6 +313,18 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             }
             else
                 timerCut = 0;
+        }
+    }
+
+    void CameraShake()
+    {
+        if (shakeDuration > 0)
+        {
+            cameraTransform.localPosition = initialPosition + UnityEngine.Random.insideUnitSphere * shakeMagnitude;
+        }
+        else
+        {
+            cameraTransform.localPosition = initialPosition;
         }
     }
 
@@ -247,6 +362,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     void Follow()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
+
     }
 
     //When an enemy collide with a player, he stop moving to avoid some shakings 
