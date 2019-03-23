@@ -214,11 +214,7 @@ public class Player_Movement : MonoBehaviour {
 
         idle_anim();
 
-        //if (can_move)
-        //{
-            Move(moveX, moveY);
-        //}
-
+        Move(moveX, moveY);
 
         //Audio
         if (moveX != 0 || moveY != 0)
@@ -257,7 +253,7 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-    public void Move(float MoveX, float MoveY)
+    void Move(float MoveX, float MoveY)
     {
         movement.Set(moveX, moveY);
         movement.Normalize();
