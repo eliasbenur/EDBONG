@@ -14,7 +14,12 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TriggerDialogue();
+        if (collision.tag == "player")
+        {
+            TriggerDialogue();
+            Destroy(gameObject);
+            Debug.Log("Have a g...");
+        }
     }
 
 }

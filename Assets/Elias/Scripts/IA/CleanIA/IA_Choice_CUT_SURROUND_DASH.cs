@@ -374,8 +374,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
             attack = true;
             anim_atack = true;
-            allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
-            allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
+            //allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
+            //allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
         }
     }
 

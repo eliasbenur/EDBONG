@@ -21,6 +21,8 @@ TagManager:
   - encer_trig_down
   - piege
   - round
+  - Item
+  - door
   layers:
   - Default
   - TransparentFX

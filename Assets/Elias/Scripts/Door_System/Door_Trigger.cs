@@ -16,6 +16,9 @@ public class Door_Trigger : MonoBehaviour
     private Vector2 mov_p1, mov_p2;
     private int Num_points;
 
+    public Sprite door_opened;
+    public Sprite door_closed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +39,15 @@ public class Door_Trigger : MonoBehaviour
 
     public void Stop_AutoRuning()
     {
-        autoruning = false;
-        autoruning = false;
-        coll.enabled = true;
-        playerone.GetComponent<Player_Movement>().can_move = true;
-        playertwo.GetComponent<Player_Movement>().can_move = true;
+        if (autoruning)
+        {
+            autoruning = false;
+            autoruning = false;
+            coll.enabled = true;
+            playerone.GetComponent<Player_Movement>().can_move = true;
+            playertwo.GetComponent<Player_Movement>().can_move = true;
+            GetComponent<SpriteRenderer>().sprite = door_closed;
+        }
     }
 
     void Player_AutoRun()
@@ -56,7 +63,6 @@ public class Door_Trigger : MonoBehaviour
         if (collision.tag == "player")
         {
             NumPlayer_inside++;
-            Debug.Log(collision.name);
         }
 
         if (NumPlayer_inside == 2)
@@ -69,6 +75,7 @@ public class Door_Trigger : MonoBehaviour
             playerone.GetComponent<Player_Movement>().can_move = false;
             playertwo.GetComponent<Player_Movement>().can_move = false;
             colli_gestion();
+            GetComponent<SpriteRenderer>().sprite = door_opened;
             //Physics2D.IgnoreLayerCollision(9, 15);
             autoruning = true;
         }

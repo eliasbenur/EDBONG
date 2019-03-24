@@ -47,6 +47,13 @@ public class DialogueManager : MonoBehaviour{
             sprites.Enqueue(sentence);
         }
 
+        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = false;
+        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = false;
+        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().moveX = 0;
+        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().moveY = 0;
+        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().moveX = 0;
+        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().moveY = 0;
+
         DisplayNextSentence();
     }
 
@@ -83,5 +90,7 @@ public class DialogueManager : MonoBehaviour{
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = true;
+        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = true;
     }
 }

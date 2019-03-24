@@ -30,6 +30,13 @@ public class Room_Trigger : MonoBehaviour
             {
                 NextRound();
                 Destroy(gameObject.transform.GetChild(0).gameObject);
+            }else if (gameObject.transform.GetChild(0).tag == "door")
+            {
+                for (int x = 0; x < gameObject.transform.childCount; x++)
+                {
+                    gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[1].enabled = false;
+                    gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
+                }
             }
         }
     }
@@ -54,7 +61,12 @@ public class Room_Trigger : MonoBehaviour
             }
         }
         else{
+            Debug.Log("NO Enemyes");
             Destroy(gameObject.transform.GetChild(0).gameObject);
+            for (int x = 0; x < gameObject.transform.childCount; x++)
+            {
+                Debug.Log(gameObject.transform.GetChild(0).name);
+            }
         }
     }
 
