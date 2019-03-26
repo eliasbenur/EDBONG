@@ -19,6 +19,8 @@ public class Door_Trigger : MonoBehaviour
     public Sprite door_opened;
     public Sprite door_closed;
 
+    public bool auto_run_1time;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,25 +62,29 @@ public class Door_Trigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "player")
+        if (!auto_run_1time)
         {
-            NumPlayer_inside++;
+            if (collision.tag == "player")
+            {
+                NumPlayer_inside++;
+            }
+
+            if (NumPlayer_inside == 2)
+            {
+                playerone = GameObject.Find("PlayerOne");
+                playertwo = GameObject.Find("PlayerTwo");
+                mov_p1 = (autorun_position - (Vector2)playerone.transform.position).normalized;
+                mov_p2 = (autorun_position - (Vector2)playertwo.transform.position).normalized;
+                coll.enabled = false;
+                playerone.GetComponent<Player_Movement>().can_move = false;
+                playertwo.GetComponent<Player_Movement>().can_move = false;
+                colli_gestion();
+                GetComponent<SpriteRenderer>().sprite = door_opened;
+                //Physics2D.IgnoreLayerCollision(9, 15);
+                autoruning = true;
+            }
         }
 
-        if (NumPlayer_inside == 2)
-        {
-            playerone = GameObject.Find("PlayerOne");
-            playertwo = GameObject.Find("PlayerTwo");
-            mov_p1 = (autorun_position - (Vector2)playerone.transform.position).normalized;
-            mov_p2 = (autorun_position - (Vector2)playertwo.transform.position).normalized;
-            coll.enabled = false;
-            playerone.GetComponent<Player_Movement>().can_move = false;
-            playertwo.GetComponent<Player_Movement>().can_move = false;
-            colli_gestion();
-            GetComponent<SpriteRenderer>().sprite = door_opened;
-            //Physics2D.IgnoreLayerCollision(9, 15);
-            autoruning = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

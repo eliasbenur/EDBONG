@@ -416,6 +416,8 @@ MonoBehaviour:
   audio_explosion: {fileID: 5434449346232900870}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
+  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
   cameraTransform: {fileID: 0}
   shakeDuration: 0
   shakeMagnitude: 0

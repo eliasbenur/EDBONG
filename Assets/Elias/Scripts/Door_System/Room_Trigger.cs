@@ -35,6 +35,7 @@ public class Room_Trigger : MonoBehaviour
                 for (int x = 0; x < gameObject.transform.childCount; x++)
                 {
                     gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[1].enabled = false;
+                    gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
                     gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
                 }
             }
@@ -79,6 +80,13 @@ public class Room_Trigger : MonoBehaviour
             if (NumPlayer_inside == 2)
             {
                 FirstRound();
+                for (int x = 0; x < gameObject.transform.childCount; x++)
+                {
+                    if (gameObject.transform.GetChild(x).tag == "door")
+                    {
+                        gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().auto_run_1time = true;
+                    }
+                }
             }
         }
 
