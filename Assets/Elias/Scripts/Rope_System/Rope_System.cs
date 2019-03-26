@@ -103,7 +103,7 @@ public class Rope_System : MonoBehaviour {
             if (ParticleIndex % 2 == 0)
             {
                 particle.GetComponent<SpriteRenderer>().sprite = chainA;
-                particle.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                particle.GetComponent<SpriteRenderer>().sortingOrder = 5;
             }
             else
             {

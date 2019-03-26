@@ -371,12 +371,12 @@ GameObject:
   - component: {fileID: 1270357147616745760}
   - component: {fileID: 1270357147616745771}
   - component: {fileID: 1270357147616745764}
-  - component: {fileID: 1270357147616745765}
   - component: {fileID: 1270357147616745766}
   - component: {fileID: 1270357147616745769}
   - component: {fileID: 1270357147616745770}
   - component: {fileID: 2360145147702498251}
   - component: {fileID: 2546744252220232854}
+  - component: {fileID: 8710464728839764734}
   m_Layer: 0
   m_Name: Monster_sourround
   m_TagString: Untagged
@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 1270357147616745761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.86, y: 1.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 1270357146469205406}
   - {fileID: 1270357146169268100}
@@ -474,22 +474,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &1270357147616745765
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270357147616745761}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.084721975, y: 0.059803147}
-  serializedVersion: 2
-  m_Radius: 0.45649242
 --- !u!50 &1270357147616745766
 Rigidbody2D:
   serializedVersion: 4
@@ -819,6 +803,8 @@ MonoBehaviour:
   audio_explosion: {fileID: 1270357147616745770}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
+  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
   cameraTransform: {fileID: 0}
   shakeDuration: 0
   shakeMagnitude: 0
@@ -828,6 +814,22 @@ MonoBehaviour:
   shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
     type: 3}
   method: 2
+--- !u!70 &8710464728839764734
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270357147616745761}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08468914, y: 0.053487897}
+  m_Size: {x: 0.8483124, y: 0.8483124}
+  m_Direction: 0
 --- !u!1 &1270357147782712405
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,11 +957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270357147616745760}
     m_Modifications:
-    - target: {fileID: 1224724089171094816, guid: 809ca28c4fc03f44a91ffd7970ffcb00,
-        type: 3}
-      propertyPath: m_Name
-      value: CleanCollision
-      objectReference: {fileID: 0}
     - target: {fileID: 5615369447502599719, guid: 809ca28c4fc03f44a91ffd7970ffcb00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1014,6 +1011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224724089171094816, guid: 809ca28c4fc03f44a91ffd7970ffcb00,
+        type: 3}
+      propertyPath: m_Name
+      value: CleanCollision
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809ca28c4fc03f44a91ffd7970ffcb00, type: 3}

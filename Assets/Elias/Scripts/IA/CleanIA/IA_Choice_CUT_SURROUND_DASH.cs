@@ -34,6 +34,10 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     int num_trig = 0;
     float num_triggered;
 
+    public Material default_sprite;
+    public Material flash_sprite;
+
+
 
     //Camera Shake Effect
     // Transform of the GameObject you want to shake
@@ -275,13 +279,15 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
                 {
                     timerCut += Time.deltaTime;
+                    transform.localScale = Vector3.Lerp(new Vector3(1.3f, 1.3f, 1.3f), new Vector3(0.9f, 1.3f, 1.3f), timerCut/timerCut_TOT);
                     if (timerCut > timerCut_TOT)
                     {
                         allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         animator.SetBool("dead", true);
-                        GetComponent<CircleCollider2D>().enabled = false;
+                        gameObject.GetComponent<Collider2D>().enabled = false;
                         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                        transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
                         StartCoroutine(Dead());
                     }
                 }
@@ -304,7 +310,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         animator.SetBool("dead", true);
-                        GetComponent<CircleCollider2D>().enabled = false;
+                        GetComponent<CapsuleCollider2D>().enabled = false;
                         StartCoroutine(Dead());
                     }
                 }
@@ -395,6 +401,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
+            GetComponent<SpriteRenderer>().material = flash_sprite;
+            GetComponent<SpriteRenderer>().color = Color.white;
             if (audio_explosion == null || hit_lasser == null)
             {
                 Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
@@ -406,6 +414,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 hit_lasser.Play();
             }
             enemySpeed = 0;
+            yield return new WaitForSeconds(0.2f);
+            GetComponent<SpriteRenderer>().material = default_sprite;
+            GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(1.1f);
             audio_explosion.Play();           
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
