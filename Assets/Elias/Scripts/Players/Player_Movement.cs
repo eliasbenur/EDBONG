@@ -301,7 +301,7 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-    void Move(float MoveX, float MoveY)
+    public void Move(float MoveX, float MoveY)
     {
         movement.Set(moveX, moveY);
         movement.Normalize();
@@ -460,6 +460,13 @@ public class Player_Movement : MonoBehaviour {
             cameraTransform.localPosition = initialPosition;
             checkLifePlayers.godMode = false;
         }
+    }
+
+    public void Stop_Moving()
+    {
+        can_move = false;
+        moveX = 0;
+        moveY = 0;
     }
 
 

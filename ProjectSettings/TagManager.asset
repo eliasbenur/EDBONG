@@ -23,6 +23,7 @@ TagManager:
   - round
   - Item
   - door
+  - hole
   layers:
   - Default
   - TransparentFX

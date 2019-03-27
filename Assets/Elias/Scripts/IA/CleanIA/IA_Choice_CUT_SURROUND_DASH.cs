@@ -51,6 +51,10 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     public GameObject shockwave;
     bool confirmed;
 
+    //SPAWN 
+    public float spawn_delay;
+    float delay_flash;
+
 
     public enum MethodToKill
     {
@@ -107,219 +111,251 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 timerCut_TOT = 0.28f;
                 break;
         }
+
+        spawn_delay = 1;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        initialPosition = Camera.main.transform.position;
-        if (target != null)
+        if (spawn_delay >= 0)
         {
-            //If one player (who are not the actual target) is closer than the target, then the script change of target
-            var maxDistance = float.MaxValue;
-            foreach (var player in allPlayers)
+            spawn_delay -= Time.deltaTime;
+            delay_flash -= Time.deltaTime;
+            if (delay_flash <= 0.2)
             {
-                var whichOneCloser = GetDistance(player);
-                if (whichOneCloser < maxDistance)
+                if (delay_flash <= 0)
                 {
-                    target = player;
-                    maxDistance = whichOneCloser;
+                    delay_flash = 0.4f;
                 }
-            }
-            //Condition to turn animations on
-            if (GetDistance(target) < detectionDistance)
-            {
-                Follow();
-                animator.SetBool("running", true);
+                GetComponent<SpriteRenderer>().material = default_sprite;
             }
             else
             {
-                animator.SetBool("running", false);
+                GetComponent<SpriteRenderer>().material = flash_sprite;
             }
-            if (anim_atack)
+            if (spawn_delay <= 0)
             {
-                timer += Time.deltaTime;
-                animator.SetBool("attack", true);
-                if (timer > timer_BeforeAttack)
-                {
-                    if (attack)
-                    {
-                        Camera.main.GetComponent<GameManager>().Hit();
-                    }
-                    timer = 0;
-                    anim_atack = false;
-                    animator.SetBool("attack", false);
-                    enemySpeed = oldSpeed;
-                }
+                GetComponent<SpriteRenderer>().material = default_sprite;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
-            else
-            {
-                timer = 0;
-            }
-
-            //Look at the Target
-            //transform.LookAt(target.transform.position);
-            //transform.Rotate(new Vector2(0, 90));
-            //Since the LookAt method is a 3D method, we have to add a 90° rotation to be effective
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-        }
-
-        //If the monster don't have target then we look for one
-        if (target == null)
-        {
-            foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
-            {
-                allPlayers.Add(Obj);
-            }
-            var maxDistance = float.MaxValue;
-            foreach (var player in allPlayers)
-            {
-                var whichOneCloser = GetDistance(player);
-                if (whichOneCloser < maxDistance)
-                {
-                    target = player;
-                    maxDistance = whichOneCloser;
-                }
-            }
-        }
-
-        //Start surround check how many colliders are triggered by the rope, if we have for example 3 triggered on 8 then we turn on the timer of cut 
-        //   ->    it's a light delay to have the feelings of real cutting
-
-        Start_surround();
-
-        if (method == MethodToKill.Cut || method == MethodToKill.Surround)
-        {
-            if (method == MethodToKill.Surround)
-            {
-                var ropeSystemGetChild = GameObject.Find("Rope_System");
-                switch (num_trig)
-                {
-                    case 4:
-                        shakeDuration = 1;
-                        shakeMagnitude = 0.04f;
-                        dampingSpeed = 0.04f;
-                        foreach (Transform child in ropeSystemGetChild.transform)
-                        {
-                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
-                            child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
-
-                        }
-                        break;
-
-                    case 5:
-                        shakeDuration = 1;
-                        shakeMagnitude = 0.05f;
-                        dampingSpeed = 0.05f;
-                        CameraShake();
-                        foreach (Transform child in ropeSystemGetChild.transform)
-                        {
-                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
-                            child.GetComponent<SpriteRenderer>().color = new Color(255, 150, 0, 255);
-                        }
-                        break;
-
-                    case 6:
-                        shakeDuration = 1;
-                        shakeMagnitude = 0.06f;
-                        dampingSpeed = 0.06f;
-                        CameraShake();
-                        foreach (Transform child in ropeSystemGetChild.transform)
-                        {
-                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
-                            child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0, 255);
-                        }
-                        break;
-
-                    case 7:
-                        shakeDuration = 1;
-                        shakeMagnitude = 0.07f;
-                        dampingSpeed = 0.07f;
-                        CameraShake();
-                        foreach (Transform child in ropeSystemGetChild.transform)
-                        {
-                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
-                            child.GetComponent<SpriteRenderer>().color = new Color(150, 255, 0, 255);
-                        }
-                        break;
-
-                    case 8:
-                        shakeDuration = 0;
-                        shakeMagnitude = 0;
-                        dampingSpeed = 0;
-                        foreach (Transform child in ropeSystemGetChild.transform)
-                        {
-                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
-                            child.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 255);
-                        }
-                        break;
-
-                    default:
-                        shakeDuration = 0;
-                        shakeMagnitude = 0;
-                        dampingSpeed = 0;
-                        foreach (Transform child in ropeSystemGetChild.transform)
-                        {
-                            //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = true;
-                            child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
-                        }
-                        confirmed = false;
-                        break;
-                }
-            }
-
-            if (num_trig >= num_triggered)
-            {
-                if (!confirmed && method == MethodToKill.Surround)
-                {
-                    Instantiate(shockwave, transform.position, Quaternion.identity);
-                    signConfirmed.Play();
-                    confirmed = true;
-                }
-                if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
-                {
-                    timerCut += Time.deltaTime;
-                    transform.localScale = Vector3.Lerp(new Vector3(1.3f, 1.3f, 1.3f), new Vector3(0.9f, 1.3f, 1.3f), timerCut/timerCut_TOT);
-                    if (timerCut > timerCut_TOT)
-                    {
-                        allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                        allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                        animator.SetBool("dead", true);
-                        gameObject.GetComponent<Collider2D>().enabled = false;
-                        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                        transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
-                        StartCoroutine(Dead());
-                    }
-                }
-                else
-                    timerCut = 0;
-            }
-            else
-                timerCut = 0;
         }
         else
         {
-            //If the ennemy is beatable just with a dash finish move
-            if (num_trig >= num_triggered && Player_dashing())
+            initialPosition = Camera.main.transform.position;
+            if (target != null)
             {
-                if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+                //If one player (who are not the actual target) is closer than the target, then the script change of target
+                var maxDistance = float.MaxValue;
+                foreach (var player in allPlayers)
                 {
-                    timerCut += Time.deltaTime;
-                    if (timerCut > timerCut_TOT)
+                    var whichOneCloser = GetDistance(player);
+                    if (whichOneCloser < maxDistance)
                     {
-                        allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                        allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                        animator.SetBool("dead", true);
-                        GetComponent<CapsuleCollider2D>().enabled = false;
-                        StartCoroutine(Dead());
+                        target = player;
+                        maxDistance = whichOneCloser;
                     }
+                }
+                //Condition to turn animations on
+                if (GetDistance(target) < detectionDistance)
+                {
+                    Follow();
+                    animator.SetBool("running", true);
+                }
+                else
+                {
+                    animator.SetBool("running", false);
+                }
+                if (anim_atack)
+                {
+                    timer += Time.deltaTime;
+                    animator.SetBool("attack", true);
+                    if (timer > timer_BeforeAttack)
+                    {
+                        if (attack)
+                        {
+                            Camera.main.GetComponent<GameManager>().Hit();
+                        }
+                        timer = 0;
+                        anim_atack = false;
+                        animator.SetBool("attack", false);
+                        enemySpeed = oldSpeed;
+                    }
+                }
+                else
+                {
+                    timer = 0;
+                }
+
+                //Look at the Target
+                //transform.LookAt(target.transform.position);
+                //transform.Rotate(new Vector2(0, 90));
+                //Since the LookAt method is a 3D method, we have to add a 90° rotation to be effective
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            }
+
+            //If the monster don't have target then we look for one
+            if (target == null)
+            {
+                foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
+                {
+                    allPlayers.Add(Obj);
+                }
+                var maxDistance = float.MaxValue;
+                foreach (var player in allPlayers)
+                {
+                    var whichOneCloser = GetDistance(player);
+                    if (whichOneCloser < maxDistance)
+                    {
+                        target = player;
+                        maxDistance = whichOneCloser;
+                    }
+                }
+            }
+
+            //Start surround check how many colliders are triggered by the rope, if we have for example 3 triggered on 8 then we turn on the timer of cut 
+            //   ->    it's a light delay to have the feelings of real cutting
+
+            Start_surround();
+
+            if (method == MethodToKill.Cut || method == MethodToKill.Surround)
+            {
+                if (method == MethodToKill.Surround)
+                {
+                    var ropeSystemGetChild = GameObject.Find("Rope_System");
+                    switch (num_trig)
+                    {
+                        case 4:
+                            shakeDuration = 1;
+                            shakeMagnitude = 0.04f;
+                            dampingSpeed = 0.04f;
+                            foreach (Transform child in ropeSystemGetChild.transform)
+                            {
+                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                                child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+
+                            }
+                            break;
+
+                        case 5:
+                            shakeDuration = 1;
+                            shakeMagnitude = 0.05f;
+                            dampingSpeed = 0.05f;
+                            CameraShake();
+                            foreach (Transform child in ropeSystemGetChild.transform)
+                            {
+                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                                child.GetComponent<SpriteRenderer>().color = new Color(255, 150, 0, 255);
+                            }
+                            break;
+
+                        case 6:
+                            shakeDuration = 1;
+                            shakeMagnitude = 0.06f;
+                            dampingSpeed = 0.06f;
+                            CameraShake();
+                            foreach (Transform child in ropeSystemGetChild.transform)
+                            {
+                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                                child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0, 255);
+                            }
+                            break;
+
+                        case 7:
+                            shakeDuration = 1;
+                            shakeMagnitude = 0.07f;
+                            dampingSpeed = 0.07f;
+                            CameraShake();
+                            foreach (Transform child in ropeSystemGetChild.transform)
+                            {
+                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                                child.GetComponent<SpriteRenderer>().color = new Color(150, 255, 0, 255);
+                            }
+                            break;
+
+                        case 8:
+                            shakeDuration = 0;
+                            shakeMagnitude = 0;
+                            dampingSpeed = 0;
+                            foreach (Transform child in ropeSystemGetChild.transform)
+                            {
+                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
+                                child.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 255);
+                            }
+                            break;
+
+                        default:
+                            shakeDuration = 0;
+                            shakeMagnitude = 0;
+                            dampingSpeed = 0;
+                            foreach (Transform child in ropeSystemGetChild.transform)
+                            {
+                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = true;
+                                child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+                            }
+                            confirmed = false;
+                            break;
+                    }
+                }
+
+                if (num_trig >= num_triggered)
+                {
+                    if (!confirmed && method == MethodToKill.Surround)
+                    {
+                        Instantiate(shockwave, transform.position, Quaternion.identity);
+                        signConfirmed.Play();
+                        confirmed = true;
+                    }
+                    if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+                    {
+                        timerCut += Time.deltaTime;
+                        if (method == MethodToKill.Surround)
+                        {
+                            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.6f, 1, 1), timerCut / timerCut_TOT);
+                        }
+                        if (timerCut > timerCut_TOT)
+                        {
+                            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                            allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                            animator.SetBool("dead", true);
+                            gameObject.GetComponent<Collider2D>().enabled = false;
+                            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                            transform.localScale = new Vector3(1, 1, 1);
+                            StartCoroutine(Dead());
+                        }
+                    }
+                    else
+                        timerCut = 0;
                 }
                 else
                     timerCut = 0;
             }
             else
-                timerCut = 0;
+            {
+                //If the ennemy is beatable just with a dash finish move
+                if (num_trig >= num_triggered && Player_dashing())
+                {
+                    if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+                    {
+                        timerCut += Time.deltaTime;
+                        if (timerCut > timerCut_TOT)
+                        {
+                            allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                            allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                            animator.SetBool("dead", true);
+                            GetComponent<CapsuleCollider2D>().enabled = false;
+                            StartCoroutine(Dead());
+                        }
+                    }
+                    else
+                        timerCut = 0;
+                }
+                else
+                    timerCut = 0;
+            }
         }
+
     }
 
     void CameraShake()
@@ -416,7 +452,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             enemySpeed = 0;
             yield return new WaitForSeconds(0.2f);
             GetComponent<SpriteRenderer>().material = default_sprite;
-            GetComponent<SpriteRenderer>().color = Color.red;
+            GetComponent<SpriteRenderer>().color = Color.white;
             yield return new WaitForSeconds(1.1f);
             audio_explosion.Play();           
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
