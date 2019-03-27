@@ -51,6 +51,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     public GameObject shockwave;
     bool confirmed;
 
+    public float cut_delay;
+
     //SPAWN 
     public float spawn_delay;
     float delay_flash;
@@ -95,7 +97,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         {
             case MethodToKill.Cut:
                 num_triggered = 3;
-                timerCut_TOT = 0.28f;
+                timerCut_TOT = cut_delay;
                 break;
             case MethodToKill.Dash:
                 num_triggered = 8;
