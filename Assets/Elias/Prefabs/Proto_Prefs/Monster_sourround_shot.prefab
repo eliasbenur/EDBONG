@@ -385,7 +385,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300012, guid: 7b3910394a99e0240a35c50283ed07dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e9a5be053393d34494d584a7ee36327, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   spawn_delay: 1.5
   projectileToFire: 6
   detectionDistance: 200
-  detectionDistance_minimalBeforeLeave: 3
+  detectionDistance_minimalBeforeLeave: 8
   distanceShoot: 400
   cooldown: 3
   cooldown_betweenNextProejctile: 1.8
@@ -445,7 +445,7 @@ Animator:
   m_GameObject: {fileID: 1342271887}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f45c052abbede941ad63097fa42fe88, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2943ca113d235d04aa57b92a6b8bb558, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
