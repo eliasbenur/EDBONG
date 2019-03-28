@@ -13,6 +13,9 @@ public class Projectile_Boss_Division : MonoBehaviour
     public float projectileToSpawn;
     public float angleToADD;
 
+    bool confirmed;
+    public GameObject shockWave;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,9 +25,14 @@ public class Projectile_Boss_Division : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(division)
+        if (division)
         {
             canShoot = true;
+            if (!confirmed)
+            {
+                confirmed = true;
+                Instantiate(shockWave, transform.position, Quaternion.identity);
+            }
         }
 
         if (division && canShoot)
@@ -42,20 +50,26 @@ public class Projectile_Boss_Division : MonoBehaviour
         {
             angle += angleToADD;
             Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-            var instanceAddForce = Instantiate(Resources.Load("ShotDistance"),transform.position + direction, Quaternion.identity) as GameObject;
+            var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), transform.position + direction, Quaternion.identity) as GameObject;
             var directionVect = instanceAddForce.transform.position - transform.position;
-            instanceAddForce.GetComponent<Rigidbody2D>().AddForce( directionVect.normalized * ennemySpeed);
+            instanceAddForce.GetComponent<Rigidbody2D>().AddForce(directionVect.normalized * ennemySpeed);
             //A projectile explode in a number of determined projectile in an angle all around him
         }
         canShoot = false;
         division = false;
-        yield return null;      
+        yield return null;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag =="Boss")
-            division = true;
+        if (collision.GetType() == typeof(CircleCollider2D))
+        {
+            if (collision.gameObject.name == "Boss")
+            {
+                if (collision.tag == "Boss")
+                    division = true;
+            }
+        }
         //The boss has a circle trigger all around him, when the projectile exit it, then he can be divide
     }
 
