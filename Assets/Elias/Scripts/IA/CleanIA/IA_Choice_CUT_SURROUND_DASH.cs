@@ -423,7 +423,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "player")
         {

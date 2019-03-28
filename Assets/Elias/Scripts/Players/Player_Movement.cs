@@ -231,11 +231,11 @@ public class Player_Movement : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
-        if (moveX > 0)
+        if (moveX > 0.1f)
         {
             animator.SetInteger("input_x", 1);
         }
-        else if (moveX < 0)
+        else if (moveX < -0.1f)
         {
             animator.SetInteger("input_x", -1);
         }
@@ -244,11 +244,11 @@ public class Player_Movement : MonoBehaviour {
             animator.SetInteger("input_x", 0);
         }
 
-        if (moveY > 0)
+        if (moveY > 0.1f)
         {
             animator.SetInteger("input_y", 1);
         }
-        else if (moveY < 0)
+        else if (moveY < -0.1f)
         {
             animator.SetInteger("input_y", -1);
         }
