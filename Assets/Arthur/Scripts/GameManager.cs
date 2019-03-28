@@ -46,8 +46,12 @@ public class GameManager : MonoBehaviour
     public float regenShieldItem;
     public float speedUp;
 
+    public float oldValueTimerGod;
+
     public void Awake()
     {
+        oldValueTimerGod = timerTotGodMode;
+
         listItemDisplay.AddRange(GameObject.FindGameObjectsWithTag("Item"));
 
         life = 20;

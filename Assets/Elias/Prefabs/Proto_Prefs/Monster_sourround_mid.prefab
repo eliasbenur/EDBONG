@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 4588934755044568381}
   - component: {fileID: 4460125732443445245}
   - component: {fileID: 359571655192703221}
+  - component: {fileID: 3447208515375369089}
   - component: {fileID: 8548767870201891622}
   m_Layer: 0
   m_Name: Monster_sourround_mid
@@ -581,6 +582,102 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &3447208515375369089
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355548761956595742}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c78e5f349fc79a849a73322c1408472b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &8548767870201891622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +698,18 @@ MonoBehaviour:
   audio_explosion: {fileID: 359571655192703221}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
+  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
+  cameraTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeMagnitude: 0
+  dampingSpeed: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  signConfirmed: {fileID: 3447208515375369089}
+  shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
+    type: 3}
+  cut_delay: 0.28
+  spawn_delay: 1.5
   method: 2
 --- !u!1 &5791942911016340482
 GameObject:

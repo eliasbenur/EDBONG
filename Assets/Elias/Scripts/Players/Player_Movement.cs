@@ -113,6 +113,9 @@ public class Player_Movement : MonoBehaviour {
     private void Update()
     {
 
+        if (Camera.main.GetComponent<GameManager>().godMode == false)
+            Camera.main.GetComponent<GameManager>().timerTotGodMode = Camera.main.GetComponent<GameManager>().oldValueTimerGod;
+
         if (testVibrationHitRope)
         {
             Vibrate_Control(leftMotor_RopeHit, rightMotor_RopeHit);
@@ -312,6 +315,8 @@ public class Player_Movement : MonoBehaviour {
         {
             if (dash_v > (dash_delay - dash_time))
             {
+                Camera.main.GetComponent<GameManager>().timerTotGodMode = 0.2f;
+                Camera.main.GetComponent<GameManager>().godMode = true;
                 movement = movement * dash_power;
                 animator.SetBool("dash", true);
             }

@@ -182,7 +182,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         timer = 0;
                         anim_atack = false;
                         animator.SetBool("attack", false);
-                        enemySpeed = oldSpeed;
+                        if(!dead)
+                            enemySpeed = oldSpeed;
                     }
                 }
                 else

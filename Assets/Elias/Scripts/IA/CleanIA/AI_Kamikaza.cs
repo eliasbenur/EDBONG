@@ -122,10 +122,10 @@ public class AI_Kamikaza : MonoBehaviour
         if (target != null)
         {
             //Look at the Target
-            transform.LookAt(target.transform.position);
+            /*transform.LookAt(target.transform.position);
             transform.Rotate(new Vector2(0, 90));
             //Since the LookAt method is a 3D method, we have to add a 90° rotation to be effective
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);*/
         }
     }
 
