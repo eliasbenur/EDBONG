@@ -33,8 +33,9 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
             var desactivate = GameObject.FindGameObjectsWithTag("player");
             for (int i = 0; i < desactivate.Length; i++)
             {
-                desactivate[i].GetComponent<Animator>().enabled = false;              
-                desactivate[i].GetComponent<Player_Movement>().enabled = false;
+                //desactivate[i].GetComponent<Animator>().enabled = false;              
+                //desactivate[i].GetComponent<Player_Movement>().enabled = false;
+                desactivate[i].GetComponent<Player_Movement>().Stop_Moving();
             }
             camera.transform.position = Vector3.SmoothDamp(Camera.main.transform.position,new Vector3(Boss.transform.position.x, Boss.transform.position.y - offsetCamera,camera.transform.position.z), ref velocity, smoothTime);
             Boss.transform.position =  Vector2.Lerp(Boss.transform.position, new Vector2(Boss.transform.position.x, Boss.transform.position.y - 0.082f),0.5f);

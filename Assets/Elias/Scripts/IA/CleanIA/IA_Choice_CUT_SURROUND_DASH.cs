@@ -332,7 +332,11 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         timerCut = 0;
                 }
                 else
+                {
                     timerCut = 0;
+                    transform.localScale = new Vector3(1,1,1);
+                }
+                    
             }
             else
             {
