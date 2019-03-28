@@ -51,7 +51,8 @@ public class AI_Kamikaza : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            list_trig.Add(child.GetComponent<encer_trig>());
+            if(child.name != "CleanCollision")
+                list_trig.Add(child.GetComponent<encer_trig>());
         }
     }
     void Update()
@@ -99,7 +100,7 @@ public class AI_Kamikaza : MonoBehaviour
         
         Start_surround();
         //If players are surrounding him and are moving then he exploded
-        if (num_trig >= 8)
+        if (num_trig >= 3)
         {
             if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0)
             {
