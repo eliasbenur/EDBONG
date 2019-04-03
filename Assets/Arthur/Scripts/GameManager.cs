@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         listItemDisplay.AddRange(GameObject.FindGameObjectsWithTag("Item"));
 
-        life = 20;
+        life = 40;
 
         maxLife = life;
 

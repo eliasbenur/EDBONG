@@ -175,7 +175,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     animator.SetBool("attack", true);
                     if (timer > timer_BeforeAttack)
                     {
-                        if (attack)
+                        if (attack && !dead)
                         {
                             Camera.main.GetComponent<GameManager>().Hit();
                         }
