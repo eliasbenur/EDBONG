@@ -68,7 +68,6 @@ public class Door_Trigger : MonoBehaviour
             if (collision.tag == "player")
             {
                 NumPlayer_inside++;
-                Debug.Log(collision.name);
             }
 
             if (NumPlayer_inside == 2)

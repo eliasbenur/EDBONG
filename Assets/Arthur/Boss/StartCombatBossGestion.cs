@@ -23,7 +23,8 @@ public class StartCombatBossGestion : MonoBehaviour
             for (int i = 0; i < activate.Length; i++)
             {
                 activate[i].GetComponent<Animator>().enabled = true;
-                activate[i].GetComponent<Player_Movement>().enabled = true;
+                //activate[i].GetComponent<Player_Movement>().enabled = true;
+                activate[i].GetComponent<Player_Movement>().can_move = true;
             }
         }
         if(timer > timerTotStart +2.5)

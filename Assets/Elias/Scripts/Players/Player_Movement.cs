@@ -24,7 +24,7 @@ public class Player_Movement : MonoBehaviour {
     public enum Enum_PlayerNum {PlayerOne = 1, PlayerTwo = 2};
     public bool modo_solo;
     public Enum_PlayerNum PlayerNum;
-    private Player rew_player;
+    public Player rew_player;
 
     public bool auto_movement;
 
@@ -92,6 +92,12 @@ public class Player_Movement : MonoBehaviour {
         idle_anim_time = -1;
 
         //Player Inputs
+        set_Solo_Mode();
+
+    }
+
+    public void set_Solo_Mode()
+    {
         if (modo_solo)
         {
             rew_player = ReInput.players.GetPlayer("PlayerOne");
@@ -107,7 +113,6 @@ public class Player_Movement : MonoBehaviour {
                 rew_player = ReInput.players.GetPlayer("PlayerTwo");
             }
         }
-
     }
 
     private void Update()

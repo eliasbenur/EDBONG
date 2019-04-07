@@ -17,8 +17,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.tag == "player")
         {
             TriggerDialogue();
-            Destroy(gameObject);
-            Debug.Log("Have a g...");
+            Destroy(gameObject); 
         }
     }
 

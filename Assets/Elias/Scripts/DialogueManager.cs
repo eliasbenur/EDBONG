@@ -13,12 +13,31 @@ public class DialogueManager : MonoBehaviour{
     public Image image;
     public Animator animator;
 
+    private Player_Movement p1, p2;
+
     // Start is called before the first frame update
     void Start()
     {
         names = new Queue<string>();
         sentences = new Queue<string>();
         sprites = new Queue<Sprite>();
+
+        p1 = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
+        p2 = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
+    }
+
+    private void Update()
+    {
+        if (p1.rew_player.GetButtonDown("Dash") || p2.rew_player.GetButtonDown("Dash"))
+        {
+            if (sentences.Count != 0)
+            {
+                DisplayNextSentence();
+            }else if (sentences.Count == 0 && animator.GetBool("IsOpen"))
+            {
+                DisplayNextSentence();
+            }
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -93,4 +112,6 @@ public class DialogueManager : MonoBehaviour{
         GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = true;
         GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = true;
     }
+
+
 }

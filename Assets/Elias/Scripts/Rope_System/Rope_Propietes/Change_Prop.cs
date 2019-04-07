@@ -10,7 +10,7 @@ public class Change_Prop : MonoBehaviour
     public Player_Movement player2mov;
     public Player_Movement playermov;
     public Slider slider_dash;
-    public Slider slider_elasticity;
+    public Toggle toggle_solo_mode;
     public Slider slider_health;
     public Slider slider_speed;
     public Slider slider_gravityP;
@@ -19,10 +19,13 @@ public class Change_Prop : MonoBehaviour
 
     public GameObject cheat_menu;
 
+    private Player_Movement p1, p2;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        p1 = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
+        p2 = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
     }
 
     // Update is called once per frame
@@ -82,9 +85,23 @@ public class Change_Prop : MonoBehaviour
         }
     }
 
-    public void change_elasticity()
+    public void change_solo_mode()
     {
-        Debug.Log("Working Progres :/");
+        if (toggle_solo_mode.isOn)
+        {
+            toggle_solo_mode.isOn = false;
+            p1.modo_solo = false;
+            p2.modo_solo = false;
+        }
+        else
+        {
+            toggle_solo_mode.isOn = true;
+            p1.modo_solo = true;
+            p2.modo_solo = true;
+        }
+
+        p1.set_Solo_Mode();
+        p2.set_Solo_Mode();
     }
 
     public void change_DashColdown()
