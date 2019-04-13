@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     //Items Shop
     public float regenLifeItem;
-    private float maxLife;
+    public float maxLife;
     public AudioSource shopGuy;
     public AudioClip healSound, shieldSound, speedBoost;
 
@@ -214,5 +214,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Go_ToMainMenu()
+    {
+        SceneManager.LoadScene("Menu_Principal");
     }
 }

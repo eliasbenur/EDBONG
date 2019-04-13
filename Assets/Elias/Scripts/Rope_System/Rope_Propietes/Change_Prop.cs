@@ -12,6 +12,7 @@ public class Change_Prop : MonoBehaviour
     public Slider slider_dash;
     public Toggle toggle_solo_mode;
     public Slider slider_health;
+    private Slider slider_health_ui;
     public Slider slider_speed;
     public Slider slider_gravityP;
     public Slider slider_defense;
@@ -21,11 +22,17 @@ public class Change_Prop : MonoBehaviour
 
     private Player_Movement p1, p2;
 
+    private GameManager game_manager;
+
     // Start is called before the first frame update
     void Start()
     {
         p1 = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
         p2 = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
+
+        game_manager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+
+        slider_health_ui = GameObject.Find("SliderHealth").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -116,12 +123,14 @@ public class Change_Prop : MonoBehaviour
 
     public void setHealth()
     {
-        Debug.Log(slider_health.value);
+        game_manager.life = slider_health.value;
+        game_manager.maxLife = slider_health.value;
+        slider_health_ui.maxValue = slider_health.value;
     }
 
     public void resetHealth()
     {
-        Debug.Log("Max Health");
+        game_manager.life = game_manager.maxLife;
     }
 
     public void change_speedp1()

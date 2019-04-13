@@ -22,9 +22,9 @@ public class Button_Menu_Prin : MonoBehaviour
         Application.Quit();
     }
 
-    public void Waves_Button()
+    public void NewGame_Button()
     {
-        SceneManager.LoadScene("Waves_Mode", LoadSceneMode.Single);
+        SceneManager.LoadScene("LD1", LoadSceneMode.Single);
     }
 
     public void Proto_Button()
