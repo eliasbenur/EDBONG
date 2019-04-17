@@ -18,6 +18,7 @@ public class Player_Movement : MonoBehaviour {
     public float dash_time;
     public float dash_v;
     public float dash_delay;
+    private Vector2 dash_direction;
     public Image dash_bar;
 
     //Players Inputs
@@ -30,8 +31,6 @@ public class Player_Movement : MonoBehaviour {
 
     public Animator animator;
     public float idle_anim_time;
-
-    public bool rope_position;
 
     public Rope_System rope_system;
 
@@ -71,7 +70,7 @@ public class Player_Movement : MonoBehaviour {
     public float dampingSpeed_RopeHit;
 
 
-    public GameManager CheckMoney;
+    public GameManager camera_GameManager;
 
     public Collider2D collisionItems;
 
@@ -81,14 +80,13 @@ public class Player_Movement : MonoBehaviour {
     {
         cameraTransform = Camera.main.GetComponent<Transform>();
         checkLifePlayers = Camera.main.GetComponent<GameManager>();
-        CheckMoney = Camera.main.GetComponent<GameManager>();
+        camera_GameManager = Camera.main.GetComponent<GameManager>();
         collisionItems = GetComponent<Collider2D>();
     }
 
     private void Start()
     {
         dash_v = 0;
-        dash_time = 0.2f;
         idle_anim_time = -1;
 
         //Player Inputs
@@ -118,8 +116,8 @@ public class Player_Movement : MonoBehaviour {
     private void Update()
     {
 
-        if (Camera.main.GetComponent<GameManager>().godMode == false)
-            Camera.main.GetComponent<GameManager>().timerTotGodMode = Camera.main.GetComponent<GameManager>().oldValueTimerGod;
+        if (camera_GameManager.godMode == false)
+            camera_GameManager.timerTotGodMode = camera_GameManager.oldValueTimerGod;
 
         if (testVibrationHitRope)
         {
@@ -151,20 +149,13 @@ public class Player_Movement : MonoBehaviour {
         if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
         {
             transform.position = rope_system.Points[0].transform.position;
-            //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
         }
-        else if(PlayerNum != Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
+        else if(PlayerNum == Enum_PlayerNum.PlayerTwo && rope_system.Points.Count > 0)
         {
             transform.position = rope_system.Points[rope_system.NumPoints - 1].transform.position;
-            //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[rope_system.NumPoints - 1].transform.position);
         }
 
-        //gameObject.GetComponent<Rigidbody2D>().MovePosition(rope_system.Points[0].transform.position);
-        
-    }
 
-    void FixedUpdate()
-    {
         if (dash_v > 0)
         {
             dash_v -= Time.fixedDeltaTime;
@@ -174,100 +165,100 @@ public class Player_Movement : MonoBehaviour {
             dash_v = 0;
         }
 
-
-        //if ((Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.Joystick1Button0)) && dash_v <= 0 && movement != Vector2.zero)
         if (modo_solo)
         {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                if (rew_player.GetButtonDown("Dash_p1") && dash_v <= 0 && movement != Vector2.zero)
-                {
-                    dash_v = dash_delay;
-                    CheckMoney.timerGodMode = 1.5f;
-                    CheckMoney.godMode = true;
-                }
-
                 if (can_move)
                 {
                     moveX = rew_player.GetAxis("MoveHorizontal_p1");
                     moveY = rew_player.GetAxis("MoveVertical_p1");
                 }
-            }
-            else
-            {
-                if (rew_player.GetButtonDown("Dash_p2") && dash_v <= 0 && movement != Vector2.zero)
+                if (rew_player.GetButtonDown("Dash_p1") && dash_v <= 0 && new Vector2(moveX,moveY) != Vector2.zero)
                 {
                     dash_v = dash_delay;
-                    CheckMoney.timerGodMode = 1.5f;
-                    CheckMoney.godMode = true;
+                    dash_direction = new Vector2(moveX,moveY).normalized;
+                    camera_GameManager.timerGodMode = 1.5f;
+                    camera_GameManager.godMode = true;
                 }
-
+            }
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
+            {
                 if (can_move)
                 {
                     moveX = rew_player.GetAxis("MoveHorizontal_p2");
                     moveY = rew_player.GetAxis("MoveVertical_p2");
                 }
-            }
 
+                if (rew_player.GetButtonDown("Dash_p2") && dash_v <= 0 && new Vector2(moveX, moveY) != Vector2.zero)
+                {
+                    dash_v = dash_delay;
+                    dash_direction = new Vector2(moveX, moveY).normalized;
+                    camera_GameManager.timerGodMode = 1.5f;
+                    camera_GameManager.godMode = true;
+                }
+            }
         }
         else
         {
-            if (rew_player.GetButtonDown("Dash") && dash_v <= 0 && movement != Vector2.zero)
-            {
-                dash_v = dash_delay;
-                CheckMoney.timerGodMode = 1.5f;
-                CheckMoney.godMode = true;
-            }
-
             if (can_move)
             {
                 moveX = rew_player.GetAxis("MoveHorizontal");
                 moveY = rew_player.GetAxis("MoveVertical");
             }
+
+            if (rew_player.GetButtonDown("Dash") && dash_v <= 0 && new Vector2(moveX, moveY) != Vector2.zero)
+            {
+                dash_v = dash_delay;
+                dash_direction = new Vector2(moveX, moveY).normalized;
+                camera_GameManager.timerGodMode = 1.5f;
+                camera_GameManager.godMode = true;
+            }
         }
-
-
-
-
 
         if (moveX > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if(moveX < 0)
+        else if (moveX < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
-        if (moveX > 0.1f)
-        {
-            animator.SetInteger("input_x", 1);
-        }
-        else if (moveX < -0.1f)
-        {
-            animator.SetInteger("input_x", -1);
-        }
-        else
+        //Runing Animation
+        if (moveX == 0 && moveY == 0)
         {
             animator.SetInteger("input_x", 0);
-        }
-
-        if (moveY > 0.1f)
-        {
-            animator.SetInteger("input_y", 1);
-        }
-        else if (moveY < -0.1f)
-        {
-            animator.SetInteger("input_y", -1);
-        }
-        else
-        {
             animator.SetInteger("input_y", 0);
         }
+        else if (Mathf.Abs(moveX) > Mathf.Abs(moveY))
+        {
+            if (moveX > 0)
+            {
+                animator.SetInteger("input_x", 1);
+                animator.SetInteger("input_y", 0);
+            }
+            else
+            {
+                animator.SetInteger("input_x", -1);
+                animator.SetInteger("input_y", 0);
+            }
 
-        //animator.SetInteger("input_x", Mathf.RoundToInt(moveX));
-        //animator.SetInteger("input_y", Mathf.RoundToInt(moveY));
+        }else
+        {
+            if (moveY > 0)
+            {
+                animator.SetInteger("input_x", 0);
+                animator.SetInteger("input_y", 1);
+            }
+            else
+            {
+                animator.SetInteger("input_x", 0);
+                animator.SetInteger("input_y", -1);
+            }
+        }
 
+        // If Player dont move, play idle anim
         idle_anim();
 
         Move(moveX, moveY);
@@ -283,8 +274,11 @@ public class Player_Movement : MonoBehaviour {
         }
 
         //UI
-        dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20,35,0);
+        dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20, 35, 0);
         dash_bar.fillAmount = dash_v / dash_delay;
+
+
+
     }
 
     void idle_anim()
@@ -316,74 +310,45 @@ public class Player_Movement : MonoBehaviour {
 
         // OTHER ROPES
 
-        if (rope_position)
+        if (dash_v > (dash_delay - dash_time))
         {
-            if (dash_v > (dash_delay - dash_time))
-            {
-                Camera.main.GetComponent<GameManager>().timerTotGodMode = 0.2f;
-                Camera.main.GetComponent<GameManager>().godMode = true;
-                movement = movement * dash_power;
-                animator.SetBool("dash", true);
-            }
-            else
-            {
-                animator.SetBool("dash", false);
-            }
-            //GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = new Vector2(-1,0) * 0.3f;
+            // ARTURO : On peux enlever ça?
+            //camera_GameManager.timerTotGodMode = 0.2f;
+            //camera_GameManager.godMode = true;
+            movement = dash_direction;
+            animator.SetBool("dash", true);
+
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P1 = movement * speed;
-
-                //ACTIAVATE IF ELASTIQUE ROPE
-                //Vector2 poseso = transform.position + (Vector3)movement * speed * Time.fixedDeltaTime;
-                //gameObject.GetComponent<Rigidbody2D>().MovePosition(PixelPerfectClamp(poseso, 32));
-                //gameObject.GetComponent<Rigidbody2D>().velocity = movement * speed * Time.fixedDeltaTime;
+                rope_system.mov_P1 = movement * dash_power;
             }
-            else
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                GameObject.Find("Rope_System").GetComponent<Rope_System>().mov_P2 = movement * speed;
-
-                //ACTIAVATE IF ELASTIQUE ROPE
-                //Vector2 poseso = transform.position + (Vector3)movement * speed * Time.fixedDeltaTime;
-                //gameObject.GetComponent<Rigidbody2D>().MovePosition(PixelPerfectClamp(poseso, 32));
-                //gameObject.GetComponent<Rigidbody2D>().velocity = movement * speed * Time.fixedDeltaTime;
+                rope_system.mov_P2 = movement * dash_power;
             }
-
         }
         else
         {
-            //AUTOMOVE
-            if (auto_movement)
+            animator.SetBool("dash", false);
+
+            if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                move_auto();
+                rope_system.mov_P1 = movement * speed;
             }
-            //
-            movement = movement.normalized * speed  /* Time.fixedDeltaTime*/;
-            if (dash_v > (dash_delay - dash_time))
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                movement = movement * dash_power;
+                rope_system.mov_P2 = movement * speed;
             }
-            transform.GetComponent<Rigidbody2D>().velocity = movement;
         }
 
-        //
-    }
 
-    public void move_auto()
-    {
-        movement.Set(0, 1);
-
-        if (transform.position.y > 14)
-        {
-            movement.Set(1, 0);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Item")
         {
-            CheckMoney.KeyPressed = false;
+            camera_GameManager.KeyPressed = false;
         }
     }
 
@@ -404,13 +369,13 @@ public class Player_Movement : MonoBehaviour {
 
         if (collision.tag == "Coin")
         {
-            CheckMoney.money++;
+            camera_GameManager.money++;
             Destroy(collision.gameObject);
         }
 
         if (collision.tag == "Item")
         {
-            CheckMoney.KeyPressed = true;
+            camera_GameManager.KeyPressed = true;
             collisionItems = collision;
         }
 
