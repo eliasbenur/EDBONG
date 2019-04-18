@@ -157,7 +157,7 @@ public class Boss : MonoBehaviour
                     aller = true;
                     i = 0;
                     a = 0;
-                    canSpawn = true;
+                    
                     cooldown_Between_Monsters = oldCooldownBetweenMonsters;
                     checkBeforeNewPhase = false;
                     Destroy(GameObject.FindGameObjectWithTag("Eye"));
@@ -347,6 +347,12 @@ public class Boss : MonoBehaviour
     /// </summary>
     void Phase1()
     {
+        if (!confirmed)
+        {
+            confirmed = true;
+            canShoot = true;
+            canSpawn = true;
+        }
         cooldown_Between_Monsters = oldCooldownBetweenMonsters;
         if (timer < timerAttack1)
         {
@@ -419,11 +425,11 @@ public class Boss : MonoBehaviour
     /// </summary>
     void Phase2()
     {
-        cooldown_Between_Monsters = oldCooldownBetweenMonsters;
         if (!confirmed)
         {
             confirmed = true;
             canShoot = true;
+            canSpawn = true;
         }
         if (timer < timerAttack1)
         {
@@ -440,6 +446,13 @@ public class Boss : MonoBehaviour
         if (timer > timerAttack1 && timer < timerAttack2)
         {
             L = false;
+            M = false;
+            R = false;
+        }
+
+        if (timer > timerAttack2 && timer < timerAttack3)
+        {
+            L = false;
             M = true;
             R = false;
             bossAnimation.SetBool("FireLeftPhase2", false);
@@ -450,7 +463,7 @@ public class Boss : MonoBehaviour
                 StartCoroutine(coroutineFire);
             }
         }
-        if (timer > timerAttack2)
+        if (timer > timerAttack3 +2)
         {
             L = false;
             M = false;
@@ -501,7 +514,7 @@ public class Boss : MonoBehaviour
             }
         }
 
-        if (timer < timerAttack2)
+        if (timer > timerAttack1 && timer < timerAttack2)
         {
             if (canChaos)
             {
@@ -509,6 +522,7 @@ public class Boss : MonoBehaviour
                 StartCoroutine(coroutineFire);
             }
         }
+
         if (timer > timerAttack2)
         {
             L = false;

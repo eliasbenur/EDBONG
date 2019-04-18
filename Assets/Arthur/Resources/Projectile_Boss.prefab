@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   division: 1
-  ennemySpeed: 400
+  ennemySpeed: 300
   angle: 0
   projectileToSpawn: 6
   angleToADD: 45
