@@ -426,7 +426,7 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   signConfirmed: {fileID: 0}
   shockwave: {fileID: 0}
-  cut_delay: 0.2
+  cut_delay: 0.28
   spawn_delay: 0
   method: 1
 --- !u!95 &1342271891

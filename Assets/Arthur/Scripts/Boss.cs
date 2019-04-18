@@ -77,6 +77,7 @@ public class Boss : MonoBehaviour
     GameObject targetObject;
 
     bool checkedMonster;
+    public GameObject ennemyToSpawn;
 
     private void Awake()
     {
@@ -347,12 +348,6 @@ public class Boss : MonoBehaviour
     /// </summary>
     void Phase1()
     {
-        if (!confirmed)
-        {
-            confirmed = true;
-            canShoot = true;
-            canSpawn = true;
-        }
         cooldown_Between_Monsters = oldCooldownBetweenMonsters;
         if (timer < timerAttack1)
         {
@@ -554,7 +549,8 @@ public class Boss : MonoBehaviour
     {
         for (int i = 0; i < spawnPosition.Count; i++)
         {
-            Instantiate(Resources.Load("Monster_coupe 1"), spawnPosition[i].transform.position, Quaternion.identity);
+            var monster = Instantiate(ennemyToSpawn, spawnPosition[i].transform.position, Quaternion.identity);
+            monster.tag = "Monster_Phase";
         }
         canSpawn = false;
         yield return new WaitForSeconds(cooldown_Between_Monsters);
