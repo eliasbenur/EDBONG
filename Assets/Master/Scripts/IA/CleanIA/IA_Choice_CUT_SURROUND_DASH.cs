@@ -15,9 +15,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     float oldSpeed;
 
     //Time before the monster is enable to attack, time + animation
-    float timer_BeforeAttack;
+    public float timer_BeforeAttack;
     float timer;
-    bool attack;
+    bool atack_in_range;
     bool anim_atack;
     Animator animator;
 
@@ -72,7 +72,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         cameraTransform = Camera.main.GetComponent<Transform>();
         oldSpeed = enemySpeed;
         animator = GetComponent<Animator>();
-        timer_BeforeAttack = 0.5f;
         //We find the Rope System, the target will be the center of the cain
         if (rope_system == null)
         {
@@ -175,7 +174,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     animator.SetBool("attack", true);
                     if (timer > timer_BeforeAttack)
                     {
-                        if (attack && !dead)
+                        if (atack_in_range && !dead)
                         {
                             Camera.main.GetComponent<GameManager>().Hit();
                         }
@@ -352,6 +351,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                             animator.SetBool("dead", true);
                             GetComponent<CapsuleCollider2D>().enabled = false;
+                            animator.SetBool("attack", false);
                             StartCoroutine(Dead());
                         }
                     }
@@ -421,7 +421,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         {
             enemySpeed = 0;
             //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
-            attack = true;
+            atack_in_range = true;
             anim_atack = true;
             //allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
             //allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
@@ -432,7 +432,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            attack = false;
+            atack_in_range = false;
         }
     }
 
@@ -441,29 +441,28 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         if (!dead)
         {
             dead = true;
+            
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
             GetComponent<SpriteRenderer>().material = flash_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
-            if (audio_explosion == null || hit_lasser == null)
-            {
-                Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
-                yield return new WaitForSeconds(0.5f);
-                Destroy(gameObject);
-            }
             if (!hit_lasser.isPlaying)
             {
                 hit_lasser.Play();
             }
             enemySpeed = 0;
+
             yield return new WaitForSeconds(0.2f);
+
             GetComponent<SpriteRenderer>().material = default_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
-            yield return new WaitForSeconds(1.1f);
+
+            yield return new WaitForSeconds(0.2f);
+
             audio_explosion.Play();           
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
             Destroy(gameObject);
         }
     }
