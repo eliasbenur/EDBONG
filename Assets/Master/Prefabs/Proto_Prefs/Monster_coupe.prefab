@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionDistance: 100
   enemySpeed: 2
+  timer_BeforeAttack: 0.9
   list_trig: []
   rope_system: {fileID: 0}
   hit_lasser: {fileID: 3757547648681589580}
@@ -425,6 +426,8 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   signConfirmed: {fileID: 0}
   shockwave: {fileID: 0}
+  cut_delay: 0.2
+  spawn_delay: 0
   method: 1
 --- !u!95 &1342271891
 Animator:

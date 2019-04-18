@@ -178,6 +178,7 @@ public class Player_Movement : MonoBehaviour {
                 {
                     dash_v = dash_delay;
                     dash_direction = new Vector2(moveX,moveY).normalized;
+                    rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
                     camera_GameManager.timerGodMode = 1.5f;
                     camera_GameManager.godMode = true;
                 }
@@ -194,6 +195,7 @@ public class Player_Movement : MonoBehaviour {
                 {
                     dash_v = dash_delay;
                     dash_direction = new Vector2(moveX, moveY).normalized;
+                    rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
                     camera_GameManager.timerGodMode = 1.5f;
                     camera_GameManager.godMode = true;
                 }
@@ -211,6 +213,16 @@ public class Player_Movement : MonoBehaviour {
             {
                 dash_v = dash_delay;
                 dash_direction = new Vector2(moveX, moveY).normalized;
+
+                if (PlayerNum == Enum_PlayerNum.PlayerOne)
+                {
+                    rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+                }
+                else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
+                {
+                    rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
+                }
+
                 camera_GameManager.timerGodMode = 1.5f;
                 camera_GameManager.godMode = true;
             }
@@ -312,9 +324,10 @@ public class Player_Movement : MonoBehaviour {
 
         if (dash_v > (dash_delay - dash_time))
         {
-            // ARTURO : On peux enlever ça?
-            //camera_GameManager.timerTotGodMode = 0.2f;
-            //camera_GameManager.godMode = true;
+            ///////////////////
+            camera_GameManager.timerTotGodMode = 0.2f;
+            camera_GameManager.godMode = true;
+            ///////////////////
             movement = dash_direction;
             animator.SetBool("dash", true);
 
@@ -330,6 +343,15 @@ public class Player_Movement : MonoBehaviour {
         else
         {
             animator.SetBool("dash", false);
+
+            if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled != true)
+            {
+                rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = true;
+            }
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo && rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled != true)
+            {
+                rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = true;
+            }
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
