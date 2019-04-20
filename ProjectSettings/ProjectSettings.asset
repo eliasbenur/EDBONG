@@ -560,7 +560,10 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
     Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -581,10 +584,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 2
-  cloudProjectId: 460efaee-f2a4-4929-acd6-f9cc7d33757d
+  cloudProjectId: 2f4b80b0-2318-4319-bc32-4fb3a59e26f0
   framebufferDepthMemorylessMode: 0
-  projectName: proto
-  organizationId: nedga
+  projectName: EDBONG_p
+  organizationId: edbong
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

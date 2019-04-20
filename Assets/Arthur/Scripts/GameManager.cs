@@ -19,10 +19,14 @@ public class GameManager : MonoBehaviour
 
     public string actualRoom;
 
-    //Control of the godMode
-    public float timerGodMode;
-    public float timerTotGodMode;
-    public bool godMode;
+    // GodMode P1
+    public float timerGodMode_p1;
+    public float timerTotGodMode_p1;
+    public bool godMode_p1;
+    // GodMode P2
+    public float timerGodMode_p2;
+    public float timerTotGodMode_p2;
+    public bool godMode_p2;
 
     public AudioSource audio_ouff;
 
@@ -50,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        oldValueTimerGod = timerTotGodMode;
+        oldValueTimerGod = timerTotGodMode_p1;
 
         listItemDisplay.AddRange(GameObject.FindGameObjectsWithTag("Item"));
 
@@ -114,13 +118,22 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (godMode)
+        if (godMode_p1)
         {
-            timerGodMode += Time.deltaTime;
-            if (timerGodMode > timerTotGodMode)
+            timerGodMode_p1 += Time.deltaTime;
+            if (timerGodMode_p1 > timerTotGodMode_p1)
             {
-                godMode = false;
-                timerGodMode = 0;
+                godMode_p1 = false;
+                timerGodMode_p1 = 0;
+            }
+        }
+        if (godMode_p2)
+        {
+            timerGodMode_p2 += Time.deltaTime;
+            if (timerGodMode_p2 > timerTotGodMode_p2)
+            {
+                godMode_p2 = false;
+                timerGodMode_p2 = 0;
             }
         }
 
@@ -194,9 +207,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Hit()
+    public void Hit_p1()
     {
-        if (!godMode)
+        if (!godMode_p1)
+        {
+            if (shieldPoint <= 0)
+                life -= 1;
+            else
+                shieldPoint -= 1;
+
+            audio_ouff.Play();
+            List<Transform> targets = GetComponent<Camera_Focus>().GetCameraTargets();
+            for (int i = 0; i < targets.Count; i++)
+            {
+                if (targets[i].name == "PlayerOne")
+                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
+                else if (targets[i].name == "PlayerTwo")
+                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
+            }
+        }
+
+    }
+    public void Hit_p2()
+    {
+        if (!godMode_p2)
         {
             if (shieldPoint <= 0)
                 life -= 1;
