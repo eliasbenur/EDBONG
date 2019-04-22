@@ -82,7 +82,7 @@ public class AI_collant : MonoBehaviour
                     {
                         if (attack)
                         {
-                            Camera.main.GetComponent<GameManager>().Hit_p1();
+                            Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.position, "AI_collant");
                         }
                         timer = 0;
                         anim_atack = false;

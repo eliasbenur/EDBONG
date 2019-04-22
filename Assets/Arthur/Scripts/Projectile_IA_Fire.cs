@@ -27,7 +27,7 @@ public class Projectile_IA_Fire : MonoBehaviour
             {
                 if (!Camera.main.GetComponent<GameManager>().godMode_p1)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_p1();
+                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", collision.transform.position, "Projectile IA Fire");
                     Destroy(this.gameObject);
                 }
             }
@@ -35,7 +35,7 @@ public class Projectile_IA_Fire : MonoBehaviour
             {
                 if (!Camera.main.GetComponent<GameManager>().godMode_p2)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_p2();
+                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", collision.transform.position, "Projectile IA Fire");
                     Destroy(this.gameObject);
                 }
             }

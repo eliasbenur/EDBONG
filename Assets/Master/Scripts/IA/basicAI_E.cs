@@ -91,7 +91,7 @@ public class basicAI_E : MonoBehaviour
                     {
                         if (attack)
                         {
-                            Camera.main.GetComponent<GameManager>().Hit_p1();
+                            Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.position, "basicAi_E");
                         }
                         timer = 0;
                         anim_atack = false;

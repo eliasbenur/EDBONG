@@ -92,7 +92,7 @@ public class basicAI2_E_dash : MonoBehaviour
                     {
                         if (attack)
                         {
-                            Camera.main.GetComponent<GameManager>().Hit_p1();
+                            Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.position, "basicAI2_E_dash");
                         }
                         timer = 0;
                         anim_atack = false;

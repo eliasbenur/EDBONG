@@ -97,6 +97,11 @@ public class Player_Movement : MonoBehaviour {
         // This should print "Ok" if the event was sent correctly.
         Debug.Log(result);
 
+        AnalyticsEvent.LevelStart(1);
+
+        AnalyticsEvent.Custom("Analytics Event");
+        Analytics.CustomEvent("Analytics X", transform.position);
+
 
     }
 

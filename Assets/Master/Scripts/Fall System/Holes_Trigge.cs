@@ -64,7 +64,7 @@ public class Holes_Trigge : MonoBehaviour
                 delay_tmp = 0;
                 playerone = null;
 
-                Camera.main.GetComponent<GameManager>().Hit_p1();
+                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", playerone.transform.position, "Fall Damage");
 
 
             }
@@ -107,7 +107,7 @@ public class Holes_Trigge : MonoBehaviour
                 delay_tmp_two = 0;
                 playertwo = null;
 
-                Camera.main.GetComponent<GameManager>().Hit_p2();
+                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", playertwo.transform.position, "Fall Damage");
 
             }
         }

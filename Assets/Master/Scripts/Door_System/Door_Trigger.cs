@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class Door_Trigger : MonoBehaviour
 {
@@ -84,6 +86,12 @@ public class Door_Trigger : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = door_opened;
                 //Physics2D.IgnoreLayerCollision(9, 15);
                 autoruning = true;
+
+                AnalyticsEvent.Custom("Room Reached", new Dictionary<string, object>
+                {
+                    { "Scene", SceneManager.GetActiveScene().name },
+                    { "Room" , transform.parent.name }
+                });
             }
         }
 

@@ -60,7 +60,7 @@ public class IA : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer > timer_BeforeAttack)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_p1();
+                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.position, "IA");
                     timer = 0;                
                 }
             }

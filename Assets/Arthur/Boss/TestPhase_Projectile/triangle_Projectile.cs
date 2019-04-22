@@ -49,7 +49,7 @@ public class triangle_Projectile : MonoBehaviour
             {
                 if (!Camera.main.GetComponent<GameManager>().godMode_p1)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_p1();
+                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", collision.transform.position, "Boss - triangle_Projectile");
                     Destroy(this.gameObject);
                 }
             }
@@ -57,7 +57,7 @@ public class triangle_Projectile : MonoBehaviour
             {
                 if (!Camera.main.GetComponent<GameManager>().godMode_p2)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_p2();
+                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - triangle_Projectile");
                     Destroy(this.gameObject);
                 }
             }
@@ -73,7 +73,7 @@ public class triangle_Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            Camera.main.GetComponent<GameManager>().Hit_p1();
+            Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", collision.transform.position, "triangle_Projectile");
             Destroy(this.gameObject);
         }
 

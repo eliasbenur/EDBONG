@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class GameManager : MonoBehaviour
 {
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (life <= 0)
+        /*if (life <= 0)
         {
             gameOverCanvas.SetActive(true);
             lifeDisplay.SetActive(false);
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour
             //checkPlayer.enabled = false;
             Time.timeScale = 0;
 
-        }
+        }*/
 
         if (godMode_p1)
         {
@@ -207,47 +208,70 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Hit_p1()
-    {
-        if (!godMode_p1)
-        {
-            if (shieldPoint <= 0)
-                life -= 1;
-            else
-                shieldPoint -= 1;
 
-            audio_ouff.Play();
-            List<Transform> targets = GetComponent<Camera_Focus>().GetCameraTargets();
-            for (int i = 0; i < targets.Count; i++)
+
+    public void Hit_verification(string player, Vector3 pos, string who_hit)
+    {
+        if (player == "PlayerOne" && !godMode_p1)
+        {
+            Hit(player, pos, who_hit);
+        }
+        else if (player == "PlayerTwo" && !godMode_p2)
+        {
+            Hit(player, pos, who_hit);
+        }
+        else if (player == "PlayerUndefined" && !(godMode_p1 && godMode_p1))
+        {
+            Hit(player, pos, who_hit);
+        }
+        else if (player == "TwoOfThem" && !(godMode_p1 && godMode_p1))
+        {
+            Hit(player, pos, who_hit);
+        }
+    }
+
+    public void Check_GameOver(Vector3 pos, string who_hit)
+    {
+        if (life <= 0)
+        {
+            AnalyticsEvent.Custom("Death", new Dictionary<string, object>
             {
-                if (targets[i].name == "PlayerOne")
-                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
-                else if (targets[i].name == "PlayerTwo")
-                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
-            }
+                { "pos", pos },
+                { "who_hit" , who_hit }
+            });
+
+            gameOverCanvas.SetActive(true);
+            lifeDisplay.SetActive(false);
+            Time.timeScale = 0;
         }
 
     }
-    public void Hit_p2()
-    {
-        if (!godMode_p2)
-        {
-            if (shieldPoint <= 0)
-                life -= 1;
-            else
-                shieldPoint -= 1;
 
-            audio_ouff.Play();
-            List<Transform> targets = GetComponent<Camera_Focus>().GetCameraTargets();
-            for (int i = 0; i < targets.Count; i++)
-            {
-                if (targets[i].name == "PlayerOne")
-                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
-                else if (targets[i].name == "PlayerTwo")
-                    targets[i].GetComponent<Player_Movement>().startBlinking = true;
-            }
+    public void Hit(string player, Vector3 pos, string who_hit)
+    {
+        AnalyticsEvent.Custom("Hit", new Dictionary<string, object>
+        {
+            { "player_hit", player },
+            { "pos", pos },
+            { "who_hit" , who_hit }
+        });
+
+        if (shieldPoint <= 0)
+            life -= 1;
+        else
+            shieldPoint -= 1;
+
+        audio_ouff.Play();
+        List<Transform> targets = GetComponent<Camera_Focus>().GetCameraTargets();
+        for (int i = 0; i < targets.Count; i++)
+        {
+            if (targets[i].name == "PlayerOne")
+                targets[i].GetComponent<Player_Movement>().startBlinking = true;
+            else if (targets[i].name == "PlayerTwo")
+                targets[i].GetComponent<Player_Movement>().startBlinking = true;
         }
 
+        Check_GameOver(pos, who_hit);
     }
 
     public void Quit()

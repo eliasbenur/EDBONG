@@ -80,7 +80,7 @@ public class IA_Cut : MonoBehaviour
                 {
                     if (attack)
                     {
-                        Camera.main.GetComponent<GameManager>().Hit_p1();
+                        Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.position, "IA Cut");
                     }
                     timer = 0;
                     anim_atack = false;

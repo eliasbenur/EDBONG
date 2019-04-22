@@ -19,6 +19,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     float timer;
     bool atack_in_range;
     bool anim_atack;
+    bool p1_inRange;
+    bool p2_inRange;
     Animator animator;
 
     //Variables we have to check to know if a monster can be cut, if so, then we trigger audioSource, animation
@@ -177,7 +179,19 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         if (atack_in_range && !dead)
                         {
                             //TODO: Verifier qui ce fait toucher
-                            Camera.main.GetComponent<GameManager>().Hit_p1();
+                            if (p1_inRange && !p2_inRange)
+                            {
+                                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
+                            }
+                            else if(p2_inRange && !p1_inRange)
+                            {
+                                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", allPlayers[1].transform.position, "Monster Choise - " + method.ToString());
+                            }
+                            else if(p1_inRange && p2_inRange)
+                            {
+                                Camera.main.GetComponent<GameManager>().Hit_verification("TwoOfThem", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
+                            }
+
                         }
                         timer = 0;
                         anim_atack = false;
@@ -432,6 +446,14 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
             atack_in_range = true;
             anim_atack = true;
+            if (other.gameObject.name == "PlayerOne")
+            {
+                p1_inRange = true;
+            }
+            else
+            {
+                p2_inRange = true;
+            }
             //allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
             //allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
         }
@@ -442,6 +464,14 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         if (collision.gameObject.tag == "player")
         {
             atack_in_range = false;
+            if (collision.gameObject.name == "PlayerOne")
+            {
+                p1_inRange = false;
+            }
+            else
+            {
+                p2_inRange = false;
+            }
         }
     }
 

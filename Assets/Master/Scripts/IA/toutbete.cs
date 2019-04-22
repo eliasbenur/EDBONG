@@ -87,7 +87,7 @@ public class toutbete : MonoBehaviour
                     {
                         if (attack)
                         {
-                            Camera.main.GetComponent<GameManager>().Hit_p1();
+                            Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.transform.position, "toutbete");
                         }
                         timer = 0;
                         anim_atack = false;
