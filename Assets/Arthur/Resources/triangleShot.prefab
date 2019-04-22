@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
-  enemySpeed: 500
+  enemySpeed: 350
   timer: 0
   timerTot: 0.85
 --- !u!1 &1941373340521435823

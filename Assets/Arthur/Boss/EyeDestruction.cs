@@ -238,8 +238,12 @@ public class EyeDestruction : MonoBehaviour
             boss.stop = false;
             boss.retour = false;
             boss.aller = true;
-            boss.canSpawn = true;
+            //boss.canSpawn = true;
             dead = true;
+            
+            boss.cameraMoving = true;
+            boss.returnCamera = false;
+            boss.CameraTestOneTime = false;
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;

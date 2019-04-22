@@ -5,7 +5,7 @@ using UnityEngine;
 public class triangle_Projectile : MonoBehaviour
 {
     public GameObject targetObject;
-    public float enemySpeed = 500;
+    public float enemySpeed = 300;
 
     public float timer, timerTot;
     bool confirmed;
@@ -63,7 +63,7 @@ public class triangle_Projectile : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.layer == 19)
+        if (collision.gameObject.layer == 11)
         {
             Destroy(this.gameObject);
         }
@@ -77,7 +77,7 @@ public class triangle_Projectile : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.layer == 19)
+        if (collision.gameObject.layer == 11)
         {
             Destroy(this.gameObject);
         }

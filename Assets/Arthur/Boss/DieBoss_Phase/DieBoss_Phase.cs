@@ -29,18 +29,6 @@ public class DieBoss_Phase : MonoBehaviour
 
         timer += Time.deltaTime;
         BehaviorCamera();
-        if(!checkedMonsters)
-        {
-            var check = GameObject.FindGameObjectsWithTag("Monster_Phase");
-            checkedMonsters = true;
-            if (check != null)
-            {
-                foreach (GameObject element in check)
-                {
-                    Destroy(element);
-                }
-            }
-        }
         if (timer > timerTotBeforeDead && timer < timerReturn)
         {
             GetComponent<Animator>().Play("Die");
@@ -84,7 +72,6 @@ public class DieBoss_Phase : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         if(cooldown > 0.1)
             cooldown *= 0.9f;
-        canSpawn = true;
         yield return null;
     }
 

@@ -27,12 +27,12 @@ public class Projectile_Gestion_Phase : MonoBehaviour
   
         }
 
-        if (collision.gameObject.layer == 19)
+        if (collision.gameObject.layer == 11)
         {
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.tag == "test")
+        if(collision.gameObject.layer == 10)
         {
             Destroy(this.gameObject);
         }

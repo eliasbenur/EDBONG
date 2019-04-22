@@ -37,6 +37,7 @@ public class Projectile_Gestion : MonoBehaviour
         if (collision.gameObject.layer == 11)
         {
             Instantiate(smoke, transform.position, Quaternion.identity);
+
             Destroy(this.gameObject);
         }
     }
