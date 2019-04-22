@@ -24,6 +24,11 @@ TagManager:
   - Item
   - door
   - hole
+  - Boss
+  - Eye
+  - test
+  - spawn
+  - Monster_Phase
   layers:
   - Default
   - TransparentFX

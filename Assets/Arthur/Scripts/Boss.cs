@@ -57,7 +57,6 @@ public class Boss : MonoBehaviour
     //Falling Eyes
     public GameObject eyeRightFalling;
     public GameObject eyeLeftFalling;
-    public GameObject eyeMidFalling;
 
     public Vector3 position;
     public float cooldownTrianglePhase;
@@ -72,15 +71,29 @@ public class Boss : MonoBehaviour
     public float angleToADD_Chaos, cooldown_Chaos;
     public int timeToDo_Chaos;
 
-    bool confirmed;
+    bool confirmed = true;
 
     GameObject targetObject;
 
     bool checkedMonster;
     public GameObject ennemyToSpawn;
 
+    public List<GameObject> EnnemiesSpawned;
+    public int limitOfMonsterSpawned;
+
+
+    public float smoothTime = 2f;
+    private Vector3 velocity;
+    public Camera_Focus camera;
+    public GameObject boss;
+    public bool cameraMoving;
+    public bool returnCamera;
+    public bool CameraTestOneTime;
+
     private void Awake()
     {
+        cameraMoving = true;
+        camera = Camera.main.GetComponent<Camera_Focus>();
         bossAnimation = GetComponent<Animator>();
         oldCooldownBetweenMonsters = cooldown_Between_Monsters;
 
@@ -104,8 +117,42 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!cameraMoving && !CameraTestOneTime)
+        {
+            var check = GameObject.FindGameObjectsWithTag("Monster_Phase");
+            if (check != null)
+            {
+                foreach (GameObject element in check)
+                {
+                    Destroy(element);
+                }
+            }
+            Camera.main.GetComponent<Camera_Focus>().enabled = false;
+            var desactivate = GameObject.FindGameObjectsWithTag("player");
+            for (int i = 0; i < desactivate.Length; i++)
+            {
+                desactivate[i].GetComponent<Player_Movement>().Stop_Moving();
+            }
+            camera.transform.position = Vector3.SmoothDamp(camera.transform.position, new Vector3(boss.transform.position.x, boss.transform.position.y, camera.transform.position.z), ref velocity, smoothTime);
+            cameraMoving = true;
+        }
+
+        if(returnCamera)
+        {
+            Camera.main.GetComponent<Camera_Focus>().enabled = true;
+            Camera.main.GetComponent<Camera_Focus>().update_cam();
+            var activate = GameObject.FindGameObjectsWithTag("player");
+            for (int i = 0; i < activate.Length; i++)
+            {
+                activate[i].GetComponent<Animator>().enabled = true;
+                activate[i].GetComponent<Player_Movement>().can_move = true;
+            }
+            CameraTestOneTime = true;    
+        }
+
         if (checkBeforeNewPhase)
         {
+            cameraMoving = false;
             var check = GameObject.FindGameObjectsWithTag("Monster_Phase");
 
             if (all_Childrens.Count == 3)
@@ -115,15 +162,17 @@ public class Boss : MonoBehaviour
                     alreadyPlay = true;
                     bossAnimation.Play("LooseEye_Phase1");
                 }
-
-
                 timerCondition += Time.deltaTime;
-                if (timerCondition > 1.2f)
+                if (timerCondition > 2.5f)
                 {
                     if (!GameObject.FindGameObjectWithTag("Eye") && !GameObject.FindGameObjectWithTag("Eye"))
                     {
                         Instantiate(eyeRightFalling, new Vector2(rightEye.position.x, rightEye.position.y - 6), Quaternion.identity);
-                    }
+                    }     
+                }
+                if(timerCondition > 3.5f)
+                {
+                    returnCamera = true;
                 }
             }
             else if (all_Childrens.Count == 2)
@@ -133,22 +182,24 @@ public class Boss : MonoBehaviour
                     alreadyPlay = true;
                     bossAnimation.Play("LooseEyes_Phase2");
                 }
-
-
                 timerCondition += Time.deltaTime;
-                if (timerCondition > 1.2f)
+                if (timerCondition > 2.5f)
                 {
                     if (!GameObject.FindGameObjectWithTag("Eye") && !GameObject.FindGameObjectWithTag("Eye"))
                     {
                         Instantiate(eyeLeftFalling, new Vector2(leftEye.position.x, leftEye.position.y - 6), Quaternion.identity);
                     }
                 }
+                if (timerCondition > 3.5f)
+                {
+                    returnCamera = true;
+                }
             }
 
             if (check.Length == 0)
             {
                 timerCondition2 += Time.deltaTime;
-                if (timerCondition2 > timerTotBeforeTransition / 2/* || !GameObject.FindGameObjectWithTag("Eye")*/)
+                if (timerCondition2 > timerTotBeforeTransition)
                 {
                     x = 0;
                     y = 0;
@@ -158,7 +209,7 @@ public class Boss : MonoBehaviour
                     aller = true;
                     i = 0;
                     a = 0;
-                    
+                    canSpawn = true;
                     cooldown_Between_Monsters = oldCooldownBetweenMonsters;
                     checkBeforeNewPhase = false;
                     Destroy(GameObject.FindGameObjectWithTag("Eye"));
@@ -169,65 +220,39 @@ public class Boss : MonoBehaviour
                         bossAnimation.Play("idle_start");
                     else if (all_Childrens.Count == 2)
                         bossAnimation.Play("Idle_Phase2");
+                    cameraMoving = true;
+                    returnCamera = false;
+                    CameraTestOneTime = false;
+                    confirmed = true;
                 }
             }
-
-            else
-            {
-                if (timerCondition > timerTotBeforeTransition)
-                {
-                    i = 0;
-                    a = 0;
-                    x = 0;
-                    y = 0;
-                    angle = 90;
-                    stop = false;
-                    retour = false;
-                    aller = true;
-                    foreach (GameObject element in check)
-                    {
-                        Destroy(element);
-                        timerCondition = 0;
-
-                        Destroy(GameObject.FindGameObjectWithTag("Eye"));
-                    }
-                    alreadyPlay = false;
-                    if (all_Childrens.Count == 3)
-                        bossAnimation.Play("idle_start");
-                    else if (all_Childrens.Count == 2)
-                        bossAnimation.Play("Idle_Phase2");
-                    canSpawn = true;
-                    cooldown_Between_Monsters = oldCooldownBetweenMonsters;
-                    checkBeforeNewPhase = false;
-                }
-            }
-
         }
 
-        if (canSpawn)
+        if (canSpawn && ennemiesList.Count < limitOfMonsterSpawned)
             Monster();
+        else
+        {
+            spawnCoroutine = Spawn_Close_Enemies();
+            StopCoroutine(spawnCoroutine);
+        }
 
         if (ennemiesList.Count == 0 && !checkBeforeNewPhase)
         {
             if (i < numberCycle)
             {
-                //Debug.Log(i);
                 timer += Time.deltaTime;
                 if (all_Childrens.Count == 3)
                 {
                     Phase1();
                 }
                 else if (all_Childrens.Count == 2)
-                    //Change the second Phase
                     Phase2();
                 else if (all_Childrens.Count == 1)
                 {
-                    //DIIIIIIIIIIEEEEEE
                     Phase3();
                     if (i > 1)
                     {
                         StopAllCoroutines();
-                        Destroy(this);
                         GetComponent<DieBoss_Phase>().enabled = true;
                     }
                 }
@@ -335,6 +360,7 @@ public class Boss : MonoBehaviour
             stop = false;
             retour = false;
             aller = true;
+            canSpawn = true;
         }
     }
 
@@ -343,12 +369,16 @@ public class Boss : MonoBehaviour
         spawnCoroutine = Spawn_Close_Enemies();
         StartCoroutine(spawnCoroutine);
     }
-    /// <summary>
-    /// ///////////////////////////////////////////////////////////////////////
-    /// </summary>
+
+
     void Phase1()
     {
         cooldown_Between_Monsters = oldCooldownBetweenMonsters;
+        if (!confirmed)
+        {
+            confirmed = true;
+            canSpawn = true;
+        }
         if (timer < timerAttack1)
         {
             L = true;
@@ -415,16 +445,15 @@ public class Boss : MonoBehaviour
             bossAnimation.SetBool("FireRightPhase1", false);
         }
     }
-    /// <summary>
-    /// ///////////////////////////////////////////////////////////////////////
-    /// </summary>
+
     void Phase2()
     {
+        cooldown_Between_Monsters = oldCooldownBetweenMonsters;
         if (!confirmed)
         {
             confirmed = true;
-            canShoot = true;
             canSpawn = true;
+            canShoot = true;
         }
         if (timer < timerAttack1)
         {
@@ -451,7 +480,6 @@ public class Boss : MonoBehaviour
             M = true;
             R = false;
             bossAnimation.SetBool("FireLeftPhase2", false);
-            //Change the phase here with the triangle shot
             if (canShoot && M)
             {
                 coroutineFire = Phase_Triangle_Shot();
@@ -466,16 +494,21 @@ public class Boss : MonoBehaviour
             timer = 0;
             i += 1;
             canShoot = true;
-            confirmed = false;
         }
     }
-    /// <summary>
-    /// ///////////////////////////////////////////////////////////////////////
-    /// </summary>
+
     void Phase3()
     {
         cooldown_Between_Monsters = 10000000;
         canSpawn = false;
+
+        if (!confirmed)
+        {
+            confirmed = true;
+            canShoot = true;
+
+            projectLeftTriangle = 6;
+        }
 
         if (!checkedMonster)
         {
@@ -488,15 +521,7 @@ public class Boss : MonoBehaviour
                     Destroy(element);
                 }
             }
-        }
-
-        if (!confirmed)
-        {
-            confirmed = true;
-            canShoot = true;
-        }
-
-        cooldown_Between_Monsters = oldCooldownBetweenMonsters;
+        }     
         if (timer < timerAttack1)
         {
             L = false;
@@ -509,7 +534,7 @@ public class Boss : MonoBehaviour
             }
         }
 
-        if (timer > timerAttack1 && timer < timerAttack2)
+        if (timer > timerAttack1 && timer < timerAttack3)
         {
             if (canChaos)
             {
@@ -518,7 +543,7 @@ public class Boss : MonoBehaviour
             }
         }
 
-        if (timer > timerAttack2)
+        if (timer > timerAttack3)
         {
             L = false;
             M = false;
@@ -526,7 +551,6 @@ public class Boss : MonoBehaviour
             angle = 0;
             timer = 0;
             i += 1;
-            confirmed = false;
         }
     }
 
@@ -551,11 +575,11 @@ public class Boss : MonoBehaviour
         {
             var monster = Instantiate(ennemyToSpawn, spawnPosition[i].transform.position, Quaternion.identity);
             monster.tag = "Monster_Phase";
+            EnnemiesSpawned.Add(monster);
         }
         canSpawn = false;
         yield return new WaitForSeconds(cooldown_Between_Monsters);
         canSpawn = true;
-        yield return null;
     }
 
     IEnumerator FireCoroutineRight(float cooldown)
@@ -644,7 +668,6 @@ public class Boss : MonoBehaviour
             yield return new WaitForSeconds(cooldownTrianglePhase);
             canShoot = true;
         }
-        canShoot = false;
         canChaos = true;
     }
 
