@@ -50,7 +50,7 @@ public class Yamete : MonoBehaviour
     void Update()
     {
         if (hit)
-            Camera.main.GetComponent<GameManager>().Hit();
+            Camera.main.GetComponent<GameManager>().Hit_p1();
         if (/*transform.parent.GetComponent<Rooms>().stayedRoom &&*/ target == null)
         {
             foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))

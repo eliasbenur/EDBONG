@@ -13,7 +13,15 @@ public class LaserCollision : MonoBehaviour
     {
         if(collision.gameObject.tag == "player")
         {
-            Camera.main.GetComponent<GameManager>().Hit();
+            if (collision.name == "PlayerOne")
+            {
+                Camera.main.GetComponent<GameManager>().Hit_p1();
+            }
+            else
+            {
+                Camera.main.GetComponent<GameManager>().Hit_p2();
+            }
         }
+
     }
 }

@@ -176,10 +176,12 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     {
                         if (atack_in_range && !dead)
                         {
-                            Camera.main.GetComponent<GameManager>().Hit();
+                            //TODO: Verifier qui ce fait toucher
+                            Camera.main.GetComponent<GameManager>().Hit_p1();
                         }
                         timer = 0;
                         anim_atack = false;
+                        atack_in_range = false;
                         animator.SetBool("attack", false);
                         if(!dead)
                             enemySpeed = oldSpeed;
@@ -411,7 +413,14 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     void Follow()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
-
+        if ((target.transform.position - transform.position).x > 0)
+        {
+            transform.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            transform.GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     //When an enemy collide with a player, he stop moving to avoid some shakings 

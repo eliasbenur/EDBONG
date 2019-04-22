@@ -8,11 +8,23 @@ public class Projectile_Gestion_Phase : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            if(!Camera.main.GetComponent<GameManager>().godMode)
+            if (collision.name == "PlayerOne")
             {
-                Camera.main.GetComponent<GameManager>().Hit();
-                Destroy(this.gameObject);
-            }    
+                if (!Camera.main.GetComponent<GameManager>().godMode_p1)
+                {
+                    Camera.main.GetComponent<GameManager>().Hit_p1();
+                    Destroy(this.gameObject);
+                }
+            }
+            else
+            {
+                if (!Camera.main.GetComponent<GameManager>().godMode_p2)
+                {
+                    Camera.main.GetComponent<GameManager>().Hit_p2();
+                    Destroy(this.gameObject);
+                }
+            }
+  
         }
 
         if (collision.gameObject.layer == 11)

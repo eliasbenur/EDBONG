@@ -23,8 +23,23 @@ public class Projectile_IA_Fire : MonoBehaviour
     {
         if(collision.gameObject.tag == "player")
         {
-            Camera.main.GetComponent<GameManager>().Hit();
-            Destroy(this.gameObject);
+            if (collision.name == "PlayerOne")
+            {
+                if (!Camera.main.GetComponent<GameManager>().godMode_p1)
+                {
+                    Camera.main.GetComponent<GameManager>().Hit_p1();
+                    Destroy(this.gameObject);
+                }
+            }
+            else
+            {
+                if (!Camera.main.GetComponent<GameManager>().godMode_p2)
+                {
+                    Camera.main.GetComponent<GameManager>().Hit_p2();
+                    Destroy(this.gameObject);
+                }
+            }
         }
+
     }
 }
