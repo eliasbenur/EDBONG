@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class Room_Trigger : MonoBehaviour
 {
@@ -32,13 +34,24 @@ public class Room_Trigger : MonoBehaviour
                 Destroy(gameObject.transform.GetChild(0).gameObject);
             }else if (gameObject.transform.GetChild(0).tag == "door")
             {
-                for (int x = 0; x < gameObject.transform.childCount; x++)
+                if (gameObject.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>().enabled)
                 {
-                    //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[1].enabled = false;
-                    gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
-                    gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
-                    gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
+                    for (int x = 0; x < gameObject.transform.childCount; x++)
+                    {
+                        //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[1].enabled = false;
+                        gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
+                        gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
+                        gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
+                        Debug.Log("OPEN");
+                    }
+
+                    AnalyticsEvent.Custom("Room Completed", new Dictionary<string, object>
+                    {
+                        { "Scene", SceneManager.GetActiveScene().name },
+                        { "Room" , transform.name }
+                    });
                 }
+
             }
         }
     }

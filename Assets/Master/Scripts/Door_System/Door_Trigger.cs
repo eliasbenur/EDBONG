@@ -92,6 +92,10 @@ public class Door_Trigger : MonoBehaviour
                     { "Scene", SceneManager.GetActiveScene().name },
                     { "Room" , transform.parent.name }
                 });
+
+                Debug.Log(transform.parent.name);
+
+                auto_run_1time = true;
             }
         }
 

@@ -27,9 +27,9 @@ public class Floor_System : MonoBehaviour
         {
             AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene().name, new Dictionary<string, object>
             {
-                { "HP", 0 },
+                { "HP", Camera.main.GetComponent<GameManager>().life },
                 { "time_passed", Time.timeSinceLevelLoad },
-                { "num_hits" , 0 }
+                { "num_hits" , Camera.main.GetComponent<GameManager>().num_hits }
             });
             SceneManager.LoadScene(Scene_toLoad);
         }

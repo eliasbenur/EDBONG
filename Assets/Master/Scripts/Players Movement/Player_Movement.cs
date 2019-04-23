@@ -93,14 +93,14 @@ public class Player_Movement : MonoBehaviour {
         //Player Inputs
         set_Solo_Mode();
 
-        AnalyticsResult result = Analytics.CustomEvent("Test");
+        /*AnalyticsResult result = Analytics.CustomEvent("Test");
         // This should print "Ok" if the event was sent correctly.
         Debug.Log(result);
 
         AnalyticsEvent.LevelStart(1);
 
         AnalyticsEvent.Custom("Analytics Event");
-        Analytics.CustomEvent("Analytics X", transform.position);
+        Analytics.CustomEvent("Analytics X", transform.position);*/
 
         Physics2D.IgnoreLayerCollision(8, 18);
 
@@ -337,16 +337,41 @@ public class Player_Movement : MonoBehaviour {
     public void Move(float MoveX, float MoveY)
     {
         movement.Set(moveX, moveY);
-        movement.Normalize();
+
+        bool hole_coll = false;
+
+        //int layerMask = 1 << 21; 
+        if (!(dash_v > (dash_delay - dash_time)))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, movement.magnitude, 2097152); // 2 ^ 21
+            if (hit.collider != null)
+            {
+                movement = movement.normalized * hit.distance;
+                hole_coll = true;
+                Debug.Log(movement);
+            }
+            else
+            {
+                movement.Normalize();
+            }
+        }
+
+
+
 
         // OTHER ROPES
 
         if (dash_v > (dash_delay - dash_time))
         {
             ///////////////////
-            
+
             ///////////////////
-            movement = dash_direction;
+            ///
+            if (!hole_coll)
+            {
+                movement = dash_direction;
+            }
+
             animator.SetBool("dash", true);
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)

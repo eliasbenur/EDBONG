@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     public float oldValueTimerGod;
 
+    public int num_hits = 0;
+
     public void Awake()
     {
         oldValueTimerGod = timerTotGodMode_p1;
@@ -255,6 +257,8 @@ public class GameManager : MonoBehaviour
             { "pos", pos },
             { "who_hit" , who_hit }
         });
+
+        num_hits++;
 
         if (shieldPoint <= 0)
             life -= 1;
