@@ -78,10 +78,6 @@ public class Boss : MonoBehaviour
     bool checkedMonster;
     public GameObject ennemyToSpawn;
 
-    public List<GameObject> EnnemiesSpawned;
-    public int limitOfMonsterSpawned;
-
-
     public float smoothTime = 2f;
     private Vector3 velocity;
     public Camera_Focus camera;
@@ -222,13 +218,12 @@ public class Boss : MonoBehaviour
                         bossAnimation.Play("Idle_Phase2");
                     cameraMoving = true;
                     returnCamera = false;
-                    CameraTestOneTime = false;
-                    confirmed = true;
+                    CameraTestOneTime = false; 
                 }
             }
         }
 
-        if (canSpawn && ennemiesList.Count < limitOfMonsterSpawned)
+        if (canSpawn)
             Monster();
         else
         {
@@ -575,7 +570,6 @@ public class Boss : MonoBehaviour
         {
             var monster = Instantiate(ennemyToSpawn, spawnPosition[i].transform.position, Quaternion.identity);
             monster.tag = "Monster_Phase";
-            EnnemiesSpawned.Add(monster);
         }
         canSpawn = false;
         yield return new WaitForSeconds(cooldown_Between_Monsters);

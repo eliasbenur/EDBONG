@@ -429,7 +429,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 2.9594164}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -440,7 +440,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 62}
+  m_Size: {x: 100, y: 56.08117}
   m_EdgeRadius: 0
 --- !u!114 &6409077780514485865
 MonoBehaviour:
@@ -645,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6897441273297179906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.4, y: -1.3, z: -3.2460744}
+  m_LocalPosition: {x: -36, y: -1.3, z: -3.2460744}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 6897441273833837764}
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSpawn: 1
-  enemySpeed: 500
+  enemySpeed: 300
   target: {fileID: 0}
   all_Childrens:
   - {fileID: 9184823449246317989, guid: e28397cd127419f45bdfc9d2546c6555, type: 3}
@@ -918,11 +918,11 @@ MonoBehaviour:
   midEye: {fileID: 6897441273386763131}
   leftEye: {fileID: 6897441273653976379}
   rightEye: {fileID: 6897441274203916727}
-  projectLeft: 5
-  projectRight: 5
-  projectMid: 5
+  projectLeft: 2
+  projectRight: 2
+  projectMid: 2
   projectLeftTriangle: 10
-  cooldown_Between_Projectil: 1
+  cooldown_Between_Projectil: 2
   cooldown_Between_Monsters: 15
   cooldown_Between_Projectil_Triangle: 0.1
   L: 0
@@ -961,18 +961,23 @@ MonoBehaviour:
     type: 3}
   eyeLeftFalling: {fileID: 3376230946173897676, guid: 6ea108ca2d4ec1a4d812c77c34c4c09a,
     type: 3}
-  eyeMidFalling: {fileID: 7723239007108502372, guid: 7b421cfc8631f53489c3f5fb36e057a1,
-    type: 3}
   position: {x: 0, y: 0, z: 0}
   cooldownTrianglePhase: 2
-  enemyStart: 500
+  enemyStart: 300
   timeToDo: 3
   ennemySpeed_Chaos: 250
   angle_Chaos: 10
   projectileToSpawn_Chaos: 60
   angleToADD_Chaos: 10
-  cooldown_Chaos: 1.5
+  cooldown_Chaos: 2.5
   timeToDo_Chaos: 12
+  ennemyToSpawn: {fileID: 1342271887, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+  smoothTime: 2
+  camera: {fileID: 0}
+  boss: {fileID: 0}
+  cameraMoving: 0
+  returnCamera: 0
+  CameraTestOneTime: 0
 --- !u!58 &6897441273833837769
 CircleCollider2D:
   m_ObjectHideFlags: 0

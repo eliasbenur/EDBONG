@@ -44,6 +44,7 @@ public class DieBoss_Phase : MonoBehaviour
             {
                 desactivate[i].GetComponent<Animator>().enabled = true;
                 desactivate[i].GetComponent<Player_Movement>().enabled = true;
+                desactivate[i].GetComponent<Player_Movement>().can_move = true;
             }
             cinematicDie.Hide(0.001f);
             Destroy(this.gameObject);
