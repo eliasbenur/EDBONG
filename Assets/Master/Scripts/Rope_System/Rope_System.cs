@@ -80,7 +80,8 @@ public class Rope_System : MonoBehaviour {
             particle.gameObject.layer = 9;
 
             //TODO: Move Ignore Layer collision outside of loop
-            Physics2D.IgnoreLayerCollision(8, 9);//////////////////
+            Physics2D.IgnoreLayerCollision(19, 9);//////////////////
+            Physics2D.IgnoreLayerCollision(20, 9);
             Physics2D.IgnoreLayerCollision(9, 9);
 
             //RAYCAST TRIGER
@@ -90,11 +91,16 @@ public class Rope_System : MonoBehaviour {
             Points.Add(particle);
 
             //TODO: Delete
-            if (ParticleIndex == 0 || ParticleIndex == (NumPoints - 1)){
+            if (ParticleIndex == 0){
 
                 /*var collider = particle.gameObject.AddComponent<CircleCollider2D>();
                 collider.radius = 0.5f;*/
                 particle.p_free = false;
+                particle.gameObject.layer = 19;
+            }else if (ParticleIndex == (NumPoints - 1))
+            {
+                particle.p_free = false;
+                particle.gameObject.layer = 20;
             }
             else{
                 particle.p_free = true;

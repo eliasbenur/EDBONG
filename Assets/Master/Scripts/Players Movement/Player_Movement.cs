@@ -102,6 +102,8 @@ public class Player_Movement : MonoBehaviour {
         AnalyticsEvent.Custom("Analytics Event");
         Analytics.CustomEvent("Analytics X", transform.position);
 
+        Physics2D.IgnoreLayerCollision(8, 18);
+
 
     }
 
@@ -191,7 +193,8 @@ public class Player_Movement : MonoBehaviour {
                 {
                     dash_v = dash_delay;
                     dash_direction = new Vector2(moveX,moveY).normalized;
-                    rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+                    //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+                    Physics2D.IgnoreLayerCollision(19, 21);
                     camera_GameManager.timerGodMode_p1 = 1.5f;
                     camera_GameManager.godMode_p1 = true;
                 }
@@ -208,7 +211,8 @@ public class Player_Movement : MonoBehaviour {
                 {
                     dash_v = dash_delay;
                     dash_direction = new Vector2(moveX, moveY).normalized;
-                    rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
+                    // rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
+                    Physics2D.IgnoreLayerCollision(20, 21);
                     camera_GameManager.timerGodMode_p2 = 1.5f;
                     camera_GameManager.godMode_p2 = true;
                 }
@@ -229,11 +233,13 @@ public class Player_Movement : MonoBehaviour {
 
                 if (PlayerNum == Enum_PlayerNum.PlayerOne)
                 {
-                    rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+                    //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+                    Physics2D.IgnoreLayerCollision(19, 21);
                 }
                 else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
                 {
-                    rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
+                    //rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
+                    Physics2D.IgnoreLayerCollision(20, 21);
                 }
 
                 camera_GameManager.timerGodMode_p1 = 1.5f;
@@ -360,13 +366,14 @@ public class Player_Movement : MonoBehaviour {
         {
             animator.SetBool("dash", false);
 
-            if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled != true)
+            if (PlayerNum == Enum_PlayerNum.PlayerOne && Physics2D.GetIgnoreLayerCollision(19,21))
             {
-                rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = true;
+                Physics2D.IgnoreLayerCollision(19, 21, false);
+
             }
-            else if (PlayerNum == Enum_PlayerNum.PlayerTwo && rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled != true)
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo && Physics2D.GetIgnoreLayerCollision(20, 21))
             {
-                rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = true;
+                Physics2D.IgnoreLayerCollision(20, 21, false);
             }
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
@@ -396,6 +403,18 @@ public class Player_Movement : MonoBehaviour {
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
+        if (collision.gameObject.tag == "coll_hole")
+        {
+            if (dash_v > (dash_delay - dash_time))
+            {
+                //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>(), true);
+            }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

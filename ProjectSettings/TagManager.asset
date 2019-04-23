@@ -29,6 +29,7 @@ TagManager:
   - test
   - spawn
   - Monster_Phase
+  - coll_hole
   layers:
   - Default
   - TransparentFX
@@ -48,10 +49,10 @@ TagManager:
   - Door
   - Shadowcaster
   - 'Lighting '
-  - 
-  - 
-  - 
-  - 
+  - Monsters
+  - PlayerOne
+  - PlayerTwo
+  - Coll_Hole
   - 
   - 
   - 
