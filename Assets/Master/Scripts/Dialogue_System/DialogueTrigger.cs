@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-
     public Dialogue dialogue;
 
     public void TriggerDialogue()
@@ -14,6 +13,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Camera.main.GetComponent<GameManager>().lastCheckpointReached = transform.position;
+
         if (collision.tag == "player")
         {
             TriggerDialogue();
