@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 744847539}
   - component: {fileID: 744847541}
   - component: {fileID: 744847540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RotationChaosMode(2)
   m_TagString: test
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1184027762}
   - component: {fileID: 1184027764}
   - component: {fileID: 1184027763}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RotationChaosMode
   m_TagString: test
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1339136731}
   - component: {fileID: 1339136733}
   - component: {fileID: 1339136732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RotationChaosMode(3)
   m_TagString: test
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 2063600563}
   - component: {fileID: 2063600565}
   - component: {fileID: 2063600564}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RotationChaosMode(1)
   m_TagString: test
   m_Icon: {fileID: 0}
@@ -974,7 +974,6 @@ MonoBehaviour:
   ennemyToSpawn: {fileID: 1342271887, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
   smoothTime: 2
   camera: {fileID: 0}
-  boss: {fileID: 0}
   cameraMoving: 0
   returnCamera: 0
   CameraTestOneTime: 0
@@ -1037,6 +1036,7 @@ MonoBehaviour:
     type: 3}
   cooldown: 1
   cinematicDie: {fileID: 0}
+  endOfLevelTrap: {fileID: 0}
 --- !u!1 &6897441274203916724
 GameObject:
   m_ObjectHideFlags: 0

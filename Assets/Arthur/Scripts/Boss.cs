@@ -204,7 +204,7 @@ public class Boss : MonoBehaviour
                     aller = true;
                     i = 0;
                     a = 0;
-                    canSpawn = true;
+                    canSpawn = false;
                     cooldown_Between_Monsters = oldCooldownBetweenMonsters;
                     checkBeforeNewPhase = false;
                     Destroy(GameObject.FindGameObjectWithTag("Eye"));
@@ -217,7 +217,13 @@ public class Boss : MonoBehaviour
                         bossAnimation.Play("Idle_Phase2");
                     cameraMoving = true;
                     returnCamera = false;
-                    CameraTestOneTime = false; 
+                    CameraTestOneTime = false;
+                    confirmed = false;
+                }
+                else
+                {
+                    canSpawn = false;
+                    confirmed = false;
                 }
             }
         }
@@ -373,6 +379,7 @@ public class Boss : MonoBehaviour
     void Phase1()
     {
         cooldown_Between_Monsters = oldCooldownBetweenMonsters;
+        
         if (!confirmed)
         {
             confirmed = true;
@@ -448,6 +455,7 @@ public class Boss : MonoBehaviour
     void Phase2()
     {
         cooldown_Between_Monsters = oldCooldownBetweenMonsters;
+        Debug.Log(confirmed);
         if (!confirmed)
         {
             confirmed = true;

@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionDistance: 100
-  enemySpeed: 2
+  enemySpeed: 3
   timer_BeforeAttack: 0.9
   list_trig: []
   rope_system: {fileID: 0}
