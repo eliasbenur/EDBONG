@@ -319,6 +319,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
                 if (num_trig >= num_triggered)
                 {
+                    if(Player_dashing())
+                    {
+                        allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                        allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
+                        animator.SetBool("dead", true);
+                        gameObject.GetComponent<Collider2D>().enabled = false;
+                        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                        transform.localScale = new Vector3(1, 1, 1);
+                        StartCoroutine(Dead());
+                    }
                     if (!confirmed && method == MethodToKill.Surround)
                     {
                         Instantiate(shockwave, transform.position, Quaternion.identity);

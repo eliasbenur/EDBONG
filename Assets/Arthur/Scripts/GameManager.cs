@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
     public float oldValueTimerGod;
 
+    public Vector3 lastCheckpointReached;
+
     public void Awake()
     {
         oldValueTimerGod = timerTotGodMode_p1;
@@ -79,6 +81,8 @@ public class GameManager : MonoBehaviour
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+
+        lastCheckpointReached = Vector3.zero;
     }
 
     private void Update()

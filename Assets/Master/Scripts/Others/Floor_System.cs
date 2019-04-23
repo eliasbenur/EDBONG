@@ -6,20 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Floor_System : MonoBehaviour
 {
-
     public string Scene_toLoad;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
