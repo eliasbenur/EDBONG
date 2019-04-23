@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3771270767615704442}
   m_Layer: 0
   m_Name: ShotDistance_Chaos
-  m_TagString: Untagged
+  m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,4 +131,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4523103db0bb1764abe9b18df955e99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoke: {fileID: 2897626250879784010, guid: 4052df303cccc1347a3d9dc2da4db99e, type: 3}

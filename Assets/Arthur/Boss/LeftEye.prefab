@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 1023710452197488488}
   - component: {fileID: 4162796203885453717}
   - component: {fileID: 4832511609899499581}
+  - component: {fileID: 8731075184131306379}
   m_Layer: 0
   m_Name: LeftEye
   m_TagString: Eye
@@ -586,6 +587,25 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   boss: {fileID: 6897441273833837766, guid: 9817671dd00dffc4ebb83115026eb440, type: 3}
   method: 1
+--- !u!95 &8731075184131306379
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376230946173897676}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5775eb2ddf873ab4da0e53c513fe0231, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4196591349882171169
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,9 +18,13 @@ public class DieBoss_Phase : MonoBehaviour
 
     public CinematicBars cinematicDie;
 
+    public GameObject endOfLevelTrap;
+    GameManager desactivateGodMode;
+
     private void Awake()
     {
         camera = Camera.main.gameObject;
+        desactivateGodMode = Camera.main.GetComponent<GameManager>();
     }
 
     private void FixedUpdate()
@@ -47,6 +51,13 @@ public class DieBoss_Phase : MonoBehaviour
                 desactivate[i].GetComponent<Player_Movement>().can_move = true;
             }
             cinematicDie.Hide(0.001f);
+            endOfLevelTrap.SetActive(true);
+            desactivateGodMode.timerTotGodMode_p1 = desactivateGodMode.oldValueTimerGod;
+            desactivateGodMode.timerTotGodMode_p2 = desactivateGodMode.oldValueTimerGod;
+            desactivateGodMode.godMode_p1 = false;
+            desactivateGodMode.godMode_p2 = false;
+            desactivateGodMode.timerGodMode_p1 = 0;
+            desactivateGodMode.timerGodMode_p2 = 0;
             Destroy(this.gameObject);
         }
     }

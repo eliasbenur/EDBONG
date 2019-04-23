@@ -34,4 +34,9 @@ public class Floor_System : MonoBehaviour
             SceneManager.LoadScene(Scene_toLoad);
         }
     }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("LD1");
+    }
 }

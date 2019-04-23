@@ -81,7 +81,6 @@ public class Boss : MonoBehaviour
     public float smoothTime = 2f;
     private Vector3 velocity;
     public Camera_Focus camera;
-    public GameObject boss;
     public bool cameraMoving;
     public bool returnCamera;
     public bool CameraTestOneTime;
@@ -129,7 +128,7 @@ public class Boss : MonoBehaviour
             {
                 desactivate[i].GetComponent<Player_Movement>().Stop_Moving();
             }
-            camera.transform.position = Vector3.SmoothDamp(camera.transform.position, new Vector3(boss.transform.position.x, boss.transform.position.y, camera.transform.position.z), ref velocity, smoothTime);
+            camera.transform.position = Vector3.SmoothDamp(camera.transform.position, new Vector3(transform.position.x, transform.position.y, camera.transform.position.z), ref velocity, smoothTime);
             cameraMoving = true;
         }
 
@@ -248,6 +247,11 @@ public class Boss : MonoBehaviour
                     if (i > 1)
                     {
                         StopAllCoroutines();
+                        var respawns = GameObject.FindGameObjectsWithTag("monster");
+                        foreach (GameObject respawn in respawns)
+                        {
+                            Destroy(respawn);
+                        }
                         GetComponent<DieBoss_Phase>().enabled = true;
                     }
                 }

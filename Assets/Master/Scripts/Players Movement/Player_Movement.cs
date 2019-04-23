@@ -129,6 +129,8 @@ public class Player_Movement : MonoBehaviour {
 
         if (camera_GameManager.godMode_p1 == false)
             camera_GameManager.timerTotGodMode_p1 = camera_GameManager.oldValueTimerGod;
+        if(camera_GameManager.godMode_p2 == false)
+            camera_GameManager.timerTotGodMode_p2 = camera_GameManager.oldValueTimerGod;
 
         if (testVibrationHitRope)
         {
@@ -207,8 +209,8 @@ public class Player_Movement : MonoBehaviour {
                     dash_v = dash_delay;
                     dash_direction = new Vector2(moveX, moveY).normalized;
                     rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
-                    camera_GameManager.timerGodMode_p1 = 1.5f;
-                    camera_GameManager.godMode_p1 = true;
+                    camera_GameManager.timerGodMode_p2 = 1.5f;
+                    camera_GameManager.godMode_p2 = true;
                 }
             }
         }
@@ -336,8 +338,7 @@ public class Player_Movement : MonoBehaviour {
         if (dash_v > (dash_delay - dash_time))
         {
             ///////////////////
-            camera_GameManager.timerTotGodMode_p1 = 0.2f;
-            camera_GameManager.godMode_p1 = true;
+            
             ///////////////////
             movement = dash_direction;
             animator.SetBool("dash", true);
@@ -345,10 +346,14 @@ public class Player_Movement : MonoBehaviour {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
                 rope_system.mov_P1 = movement * dash_power;
+                camera_GameManager.timerTotGodMode_p1 = 0.2f;
+                camera_GameManager.godMode_p1 = true;
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
                 rope_system.mov_P2 = movement * dash_power;
+                camera_GameManager.timerTotGodMode_p2 = 0.2f;
+                camera_GameManager.godMode_p2 = true;
             }
         }
         else
