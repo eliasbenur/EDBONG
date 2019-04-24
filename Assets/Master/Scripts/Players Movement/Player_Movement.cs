@@ -348,7 +348,6 @@ public class Player_Movement : MonoBehaviour {
             {
                 movement = movement.normalized * hit.distance;
                 hole_coll = true;
-                Debug.Log(movement);
             }
             else
             {

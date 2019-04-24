@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public GameObject shieldGameObject;
     private Slider shieldDisplay;
 
+
+
     //Items Shop
     public float regenLifeItem;
     public float maxLife;
@@ -84,6 +86,8 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
 
         lastCheckpointReached = Vector3.zero;
+
+        SoundManager.Initialize();
     }
 
     private void Update()
@@ -263,12 +267,14 @@ public class GameManager : MonoBehaviour
 
         num_hits++;
 
+        SoundManager.PlaySound(SoundManager.Sound.PlayerGetHit, pos);
+
         if (shieldPoint <= 0)
             life -= 1;
         else
             shieldPoint -= 1;
 
-        audio_ouff.Play();
+        //audio_ouff.Play();
         List<Transform> targets = GetComponent<Camera_Focus>().GetCameraTargets();
         for (int i = 0; i < targets.Count; i++)
         {

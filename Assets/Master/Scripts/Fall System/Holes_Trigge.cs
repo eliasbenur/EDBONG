@@ -62,9 +62,9 @@ public class Holes_Trigge : MonoBehaviour
                 playerone.GetComponent<Player_Movement>().can_move = true;
                 GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = true;
                 delay_tmp = 0;
-                playerone = null;
 
                 Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", playerone.transform.position, "Fall Damage");
+                playerone = null;
 
 
             }
@@ -105,9 +105,9 @@ public class Holes_Trigge : MonoBehaviour
                 playertwo.GetComponent<Player_Movement>().can_move = true;
                 GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = true;
                 delay_tmp_two = 0;
-                playertwo = null;
 
                 Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", playertwo.transform.position, "Fall Damage");
+                playertwo = null;
 
             }
         }
