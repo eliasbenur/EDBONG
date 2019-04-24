@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class DieBoss_Phase : MonoBehaviour
 {
@@ -58,6 +60,14 @@ public class DieBoss_Phase : MonoBehaviour
             desactivateGodMode.godMode_p2 = false;
             desactivateGodMode.timerGodMode_p1 = 0;
             desactivateGodMode.timerGodMode_p2 = 0;
+
+            AnalyticsEvent.Custom("Boss Completed", new Dictionary<string, object>
+                    {
+                        { "Scene", SceneManager.GetActiveScene().name },
+                        { "Room" , transform.name }
+                    });
+
+   
             Destroy(this.gameObject);
         }
     }

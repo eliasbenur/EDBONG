@@ -12,8 +12,11 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Camera.main.GetComponent<GameManager>().lastCheckpointReached = transform.position;
+    {      
+        PlayerPrefs.SetFloat("player_X", Camera.main.GetComponent<GameManager>().transform.position.x);
+        PlayerPrefs.SetFloat("player_Y", Camera.main.GetComponent<GameManager>().transform.position.y);
+        PlayerPrefs.SetFloat("player_Z", Camera.main.GetComponent<GameManager>().transform.position.z);
+
 
         if (collision.tag == "player")
         {
