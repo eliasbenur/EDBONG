@@ -40,8 +40,9 @@ public class Room_Trigger : MonoBehaviour
                     {
                         //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[1].enabled = false;
                         gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
-                        gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
-                        gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
+                        //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
+                        //gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
+                        gameObject.transform.GetChild(x).GetComponent<Animator>().SetBool("open", true);
                         Debug.Log("OPEN");
                     }
 

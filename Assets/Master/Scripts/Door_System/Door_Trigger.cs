@@ -46,12 +46,13 @@ public class Door_Trigger : MonoBehaviour
         if (autoruning)
         {
             autoruning = false;
-            autoruning = false;
             //coll.enabled = true;
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = true;
             playerone.GetComponent<Player_Movement>().can_move = true;
             playertwo.GetComponent<Player_Movement>().can_move = true;
-            GetComponent<SpriteRenderer>().sprite = door_closed;
+            //GetComponent<SpriteRenderer>().sprite = door_closed;
+            GetComponent<Animator>().SetBool("open", false);
+
         }
     }
 
@@ -79,7 +80,8 @@ public class Door_Trigger : MonoBehaviour
                 mov_p1 = (autorun_position - (Vector2)playerone.transform.position).normalized;
                 mov_p2 = (autorun_position - (Vector2)playertwo.transform.position).normalized;
                 //coll.enabled = false;
-                gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                //gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                StartCoroutine("Delay_Door");
                 playerone.GetComponent<Player_Movement>().can_move = false;
                 playertwo.GetComponent<Player_Movement>().can_move = false;
                 colli_gestion();
@@ -95,10 +97,19 @@ public class Door_Trigger : MonoBehaviour
 
                 Debug.Log(transform.parent.name);
 
+                GetComponent<Animator>().SetBool("open", true);
+
                 auto_run_1time = true;
             }
         }
 
+    }
+
+    IEnumerator Delay_Door()
+    {
+        yield return new WaitForSeconds(1);
+        gameObject.transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        Debug.Log("LOL");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -120,7 +131,6 @@ public class Door_Trigger : MonoBehaviour
             {
                 Physics2D.IgnoreCollision(rps[x].GetComponent<CircleCollider2D>(), gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>());
             }
-
         }
     }
 
