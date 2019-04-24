@@ -54,10 +54,12 @@ public class GameManager : MonoBehaviour
     public float oldValueTimerGod;
 
     public int num_hits = 0;
-    public Vector3 lastCheckpointReached;
+
+    public float player_X;
+    public float player_Y;
 
     public void Awake()
-    {
+    {     
         oldValueTimerGod = timerTotGodMode_p1;
 
         listItemDisplay.AddRange(GameObject.FindGameObjectsWithTag("Item"));
@@ -83,7 +85,38 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
-        lastCheckpointReached = Vector3.zero;
+        player_X = 0;
+        player_Y = 0;
+    }
+
+    public void Start()
+    {
+        Debug.Log("player X" + PlayerPrefs.GetFloat("player_X", Camera.main.GetComponent<GameManager>().player_X));
+        Debug.Log("player Y" + PlayerPrefs.GetFloat("player_Y", Camera.main.GetComponent<GameManager>().player_Y));
+
+        if (PlayerPrefs.GetFloat("player_X", Camera.main.GetComponent<GameManager>().player_X) != 0 && PlayerPrefs.GetFloat("player_Y", Camera.main.GetComponent<GameManager>().player_Y) != 0)
+        {
+            Debug.Log("Old checkpoint found");
+            /////Player 1 TP/////
+            if (checkPlayer != null && checkPlayer2!=null)
+            {
+                int Nump = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
+                Rope_System rope = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+
+                rope.Points[0].transform.position = new Vector3(PlayerPrefs.GetFloat("player_X", Camera.main.GetComponent<GameManager>().player_X), PlayerPrefs.GetFloat("player_Y", Camera.main.GetComponent<GameManager>().player_Y), 0);
+                rope.Points[Nump - 1].transform.position = new Vector3(PlayerPrefs.GetFloat("player_X", Camera.main.GetComponent<GameManager>().player_X), PlayerPrefs.GetFloat("player_Y", Camera.main.GetComponent<GameManager>().player_Y), 0);
+
+                Vector3 Delta = rope.Points[Nump - 1].transform.position - rope.Points[0].transform.position;
+                for (int ParticleIndex = 0; ParticleIndex < Nump; ParticleIndex++)
+                {
+                    float Alpha = (float)ParticleIndex / (float)(Nump - 1);
+                    Vector3 InitializePosition = rope.Points[0].transform.position + (Alpha * Delta);
+                    rope.Points[ParticleIndex].transform.position = InitializePosition;
+                }
+            }
+            else
+                Debug.Log("Please Check : Player 1 or Player2 missing");
+        }
     }
 
     private void Update()
