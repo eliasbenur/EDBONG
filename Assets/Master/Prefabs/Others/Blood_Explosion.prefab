@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7167917739809399994}
   - component: {fileID: 7167917739809399995}
   - component: {fileID: 7167917739809399992}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Blood_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4700,7 +4700,7 @@ ParticleSystem:
 --- !u!199 &7167917739809399992
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

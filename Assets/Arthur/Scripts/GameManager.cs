@@ -93,13 +93,8 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("player X" + PlayerPrefs.GetFloat("player_X", Camera.main.GetComponent<GameManager>().player_X));
-        Debug.Log("player Y" + PlayerPrefs.GetFloat("player_Y", Camera.main.GetComponent<GameManager>().player_Y));
-
         if (PlayerPrefs.GetFloat("player_X", Camera.main.GetComponent<GameManager>().player_X) != 0 && PlayerPrefs.GetFloat("player_Y", Camera.main.GetComponent<GameManager>().player_Y) != 0)
         {
-            Debug.Log("Old checkpoint found");
-            /////Player 1 TP/////
             if (checkPlayer != null && checkPlayer2!=null)
             {
                 int Nump = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
@@ -117,7 +112,7 @@ public class GameManager : MonoBehaviour
                 }
             }
             else
-                Debug.Log("Please Check : Player 1 or Player2 missing");
+                Debug.Log("Please Check : Player 1 or Player 2 missing");
         }
     }
 

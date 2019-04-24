@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2713523317082273298}
   - component: {fileID: 71328796410832438}
   - component: {fileID: 3771270767615704442}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: ShotDistance_Chaos
   m_TagString: monster
   m_Icon: {fileID: 0}

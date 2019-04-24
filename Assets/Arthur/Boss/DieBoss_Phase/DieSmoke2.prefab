@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6794014986875780596}
   - component: {fileID: 8007028503569754950}
   - component: {fileID: 3737324818043592304}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: DieSmoke2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
