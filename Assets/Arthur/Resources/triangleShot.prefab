@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5734133795235726161}
   - component: {fileID: 870500988540300648}
   - component: {fileID: 2561903601067248108}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 6706744013382204236}
   - component: {fileID: 2551968645407430121}
   - component: {fileID: 3155876101625021011}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: triangleShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 6645793666345187100}
   - component: {fileID: 9137655746745673953}
   - component: {fileID: 5849484298746973031}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 4263418403474020103}
   - component: {fileID: 4577977685167384947}
   - component: {fileID: 381330598427745348}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 2428930493055746837}
   - component: {fileID: 7381365309354077234}
   - component: {fileID: 5346483565299715385}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 8072653638514609419}
   - component: {fileID: 8072653638514609418}
   - component: {fileID: 7515269788810877961}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 3166962576938382248}
   - component: {fileID: 6791327172527985714}
   - component: {fileID: 5277436873460074176}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 3375068436038391398}
   - component: {fileID: 9146525329907862968}
   - component: {fileID: 8294089938956538628}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: circle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

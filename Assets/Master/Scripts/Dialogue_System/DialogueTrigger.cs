@@ -15,7 +15,6 @@ public class DialogueTrigger : MonoBehaviour
     {      
         PlayerPrefs.SetFloat("player_X", Camera.main.GetComponent<GameManager>().transform.position.x);
         PlayerPrefs.SetFloat("player_Y", Camera.main.GetComponent<GameManager>().transform.position.y);
-        PlayerPrefs.SetFloat("player_Z", Camera.main.GetComponent<GameManager>().transform.position.z);
 
 
         if (collision.tag == "player")
