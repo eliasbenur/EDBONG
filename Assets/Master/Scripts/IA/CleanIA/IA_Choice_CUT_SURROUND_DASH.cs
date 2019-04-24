@@ -496,10 +496,11 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
             GetComponent<SpriteRenderer>().material = flash_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
-            if (!hit_lasser.isPlaying)
+            /*if (!hit_lasser.isPlaying)
             {
                 hit_lasser.Play();
-            }
+            }*/
+            SoundManager.PlaySound(SoundManager.Sound.PlayerSlicing, transform.position);
             enemySpeed = 0;
 
             yield return new WaitForSeconds(0.2f);

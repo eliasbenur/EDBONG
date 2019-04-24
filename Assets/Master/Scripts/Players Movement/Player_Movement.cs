@@ -297,11 +297,12 @@ public class Player_Movement : MonoBehaviour {
         //Audio
         if (moveX != 0 || moveY != 0)
         {
-            running_audio.UnPause();
+            //running_audio.UnPause();
+            //SoundManager.PlaySound(SoundManager.Sound.PlayerFTS);
         }
         else
         {
-            running_audio.Pause();
+            //running_audio.Pause();
         }
 
         //UI

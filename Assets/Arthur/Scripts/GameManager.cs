@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     public float timerTotGodMode_p2;
     public bool godMode_p2;
 
-    public AudioSource audio_ouff;
-
     public float life;
     public float shieldPoint;
 
@@ -88,6 +86,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
 
         SoundManager.Initialize();
+
         player_X = 0;
         player_Y = 0;
     }

@@ -12,7 +12,8 @@ public static class SoundManager
         PlayerFalling,
         PlayerDash,
         SpydieNoise,
-        SpydieMeleAtack
+        SpydieMeleAtack,
+        PlayerSlicing
     }
 
     private static Dictionary<Sound, float> soundTimerDictionary;
@@ -32,7 +33,6 @@ public static class SoundManager
             AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
             audioSource.clip = GetAudioClip(sound);
             audioSource.volume = GetAudioVolume(sound);
-            Debug.Log(GetAudioVolume(sound));
             audioSource.Play();
         }
     }
@@ -57,7 +57,7 @@ public static class SoundManager
                 if (soundTimerDictionary.ContainsKey(sound))
                 {
                     float lastTimePlayed = soundTimerDictionary[sound];
-                    float playerMoveTimerMax = .05f; //DELAY
+                    float playerMoveTimerMax = .5f; //DELAY
                     if(lastTimePlayed + playerMoveTimerMax < Time.time)
                     {
                         soundTimerDictionary[sound] = Time.time;
@@ -91,7 +91,6 @@ public static class SoundManager
     {
         foreach (SoundAssets.SoundAudioClip soundAudioClip in SoundAssets.i.soundAudioClipArray)
         {
-            Debug.Log(soundAudioClip.volume);
             if (soundAudioClip.sound == sound)
             {
                 return soundAudioClip.volume;
