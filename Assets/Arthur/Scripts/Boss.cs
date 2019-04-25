@@ -258,7 +258,15 @@ public class Boss : MonoBehaviour
                         {
                             Destroy(respawn);
                         }
-                        GetComponent<DieBoss_Phase>().enabled = true;
+                        //GetComponent<DieBoss_Phase>().enabled = true;
+                        var desactivate = GameObject.FindGameObjectsWithTag("player");
+                        for (int i = 0; i < desactivate.Length; i++)
+                        {
+                            desactivate[i].GetComponent<Player_Movement>().Stop_Moving();
+                        }
+                        GetComponent<DieBoss_KillHit>().enabled = true;
+                        Destroy(this);
+                        
                     }
                 }
             }

@@ -32,6 +32,11 @@ public class DieBoss_Phase : MonoBehaviour
     private void FixedUpdate()
     {
         cinematicDie.Show(200, 0.8f);
+        var player = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
+        var player2 = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
+        player.Stop_Moving();
+        player2.Stop_Moving();
+
 
         timer += Time.deltaTime;
         BehaviorCamera();
@@ -53,6 +58,9 @@ public class DieBoss_Phase : MonoBehaviour
                 desactivate[i].GetComponent<Player_Movement>().can_move = true;
             }
             cinematicDie.Hide(0.001f);
+            player.can_move = true;
+            player2.can_move = true;
+
             endOfLevelTrap.SetActive(true);
             desactivateGodMode.timerTotGodMode_p1 = desactivateGodMode.oldValueTimerGod;
             desactivateGodMode.timerTotGodMode_p2 = desactivateGodMode.oldValueTimerGod;
