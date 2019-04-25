@@ -561,7 +561,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             audio_explosion.Play();           
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             yield return new WaitForSeconds(0.25f);
-            if (gameObject.tag == "Monster" || gameObject.tag == "Monster_Phase")
+            if (gameObject.tag == "monster" || gameObject.tag == "Monster_Phase")
                 Destroy(gameObject);
             else
             {

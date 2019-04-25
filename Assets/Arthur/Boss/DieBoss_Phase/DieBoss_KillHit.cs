@@ -60,7 +60,10 @@ public class DieBoss_KillHit : MonoBehaviour
             shakeSprite();
             GetComponent<SpriteRenderer>().material = flash_sprite;
             if (transform.localScale.x >= limitScale_Boss)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime * 2, transform.position.z);
                 transform.localScale = new Vector3(transform.localScale.x - Time.deltaTime * scale_Speed, transform.localScale.y - Time.deltaTime * scale_Speed, transform.localScale.z);
+            }
             else
             {
                 GetComponent<SpriteRenderer>().material = default_sprite;
@@ -69,7 +72,7 @@ public class DieBoss_KillHit : MonoBehaviour
                 colliderBoss.enabled = true;
                 ropeCollisions.SetActive(true);
                 ropeCollisions.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enabled = true;
-                
+
                 camera.GetComponent<Camera_Focus>().enabled = true;
                 canvas.SetActive(true);
                 var desactivate = GameObject.FindGameObjectsWithTag("player");

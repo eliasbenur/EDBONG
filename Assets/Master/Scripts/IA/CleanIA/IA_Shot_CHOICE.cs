@@ -453,6 +453,7 @@ public class IA_Shot_CHOICE : MonoBehaviour
         if (!dead)
         {
             dead = true;
+            enemySpeed = 0;
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
@@ -468,7 +469,6 @@ public class IA_Shot_CHOICE : MonoBehaviour
             {
                 hit_lasser.Play();
             }
-            enemySpeed = 0;
             yield return new WaitForSeconds(0.2f);
             GetComponent<SpriteRenderer>().material = default_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
