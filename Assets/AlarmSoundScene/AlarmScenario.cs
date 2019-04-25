@@ -11,6 +11,9 @@ public class AlarmScenario : MonoBehaviour
     bool canSpeak;
     public float cooldown;
     IEnumerator audioAlarm;
+    public bool alarm_activated = false;
+
+    public List<GameObject> alarm_list;
 
     public void Awake()
     {
@@ -62,8 +65,30 @@ public class AlarmScenario : MonoBehaviour
     IEnumerator System_Failure()
     {
         SoundManager.PlaySound(SoundManager.Sound.VoiceAlarm);
+        Active_alamrs();
+        Debug.Log(alarm_activated);
         canSpeak = false;
         yield return new WaitForSeconds(cooldown);
         canSpeak = true;
+    }
+
+    public void Active_alamrs()
+    {
+        if (!alarm_activated)
+        {
+            alarm_activated = true;
+            foreach(GameObject alarm_ in alarm_list)
+            {
+                alarm_.transform.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void Desactive_alamrs()
+    {
+        foreach (GameObject alarm_ in alarm_list)
+        {
+            alarm_.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 }

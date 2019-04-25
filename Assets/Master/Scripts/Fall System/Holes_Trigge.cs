@@ -58,7 +58,7 @@ public class Holes_Trigge : MonoBehaviour
                     rope.Points[ParticleIndex].transform.position = InitializePosition;
 
                 }
-                playerone.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+                playerone.transform.localScale = new Vector3(1 ,1 , 1);
                 playerone.GetComponent<Player_Movement>().can_move = true;
                 GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = true;
                 delay_tmp = 0;
@@ -101,7 +101,7 @@ public class Holes_Trigge : MonoBehaviour
                     rope.Points[ParticleIndex].transform.position = InitializePosition;
 
                 }
-                playertwo.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+                playertwo.transform.localScale = new Vector3(1.2f, 1.2f, 1);
                 playertwo.GetComponent<Player_Movement>().can_move = true;
                 GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = true;
                 delay_tmp_two = 0;

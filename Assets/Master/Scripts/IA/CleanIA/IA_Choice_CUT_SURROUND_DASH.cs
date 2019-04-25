@@ -314,7 +314,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
                                 //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = true;
-                                child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+                                child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                             }
                             confirmed = false;
                             break;

@@ -36,6 +36,7 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
         {
             audio.volume -= Time.deltaTime * 0.65f;
             stopAlarm.GetComponent<AlarmScenario>().StopAllCoroutines();
+            GameObject.Find("Room_7_Alarm").GetComponent<AlarmScenario>().Desactive_alamrs();
             if (audio.volume == 0)
             {
                 lerpAudioBoss = true;

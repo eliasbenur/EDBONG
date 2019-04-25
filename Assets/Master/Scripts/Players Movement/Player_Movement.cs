@@ -238,11 +238,13 @@ public class Player_Movement : MonoBehaviour {
                 {
                     //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(19, 21);
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
                 else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
                 {
                     //rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(20, 21);
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
 
                 camera_GameManager.timerGodMode_p1 = 1.5f;

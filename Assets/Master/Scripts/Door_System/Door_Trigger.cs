@@ -96,8 +96,6 @@ public class Door_Trigger : MonoBehaviour
                     { "Room" , transform.parent.name }
                 });
 
-                Debug.Log(transform.parent.name);
-
                 GetComponent<Animator>().SetBool("open", true);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
                 auto_run_1time = true;

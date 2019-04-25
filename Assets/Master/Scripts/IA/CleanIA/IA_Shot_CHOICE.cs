@@ -169,7 +169,6 @@ public class IA_Shot_CHOICE : MonoBehaviour
                 {
                     if (canShoot)
                     {
-                        Debug.Log(GetDistance(target));
                         if (GetDistance(target) > 4)
                         {
                             coroutineFire = FireCoroutine(cooldown);
@@ -285,7 +284,7 @@ public class IA_Shot_CHOICE : MonoBehaviour
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
                                 //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = true;
-                                child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
+                                child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                             }
                             confirmed = false;
                             break;
@@ -473,7 +472,7 @@ public class IA_Shot_CHOICE : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             GetComponent<SpriteRenderer>().material = default_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(1f);
             audio_explosion.Play();
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             Destroy(gameObject);
