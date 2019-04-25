@@ -427,7 +427,7 @@ MonoBehaviour:
     type: 3}
   cut_delay: 0.28
   spawn_delay: 1.5
-  projectileToFire: 6
+  projectileToFire: 1
   detectionDistance: 200
   detectionDistance_minimalBeforeLeave: 8
   distanceShoot: 400
