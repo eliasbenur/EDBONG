@@ -117,7 +117,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         }
 
         spawn_delay = 1;
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        //gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     // Update is called once per frame
@@ -135,16 +135,21 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 {
                     delay_flash = 0.4f;
                 }
-                GetComponent<SpriteRenderer>().material = default_sprite;
+                if(GetComponent<SpriteRenderer>() != null)
+                    GetComponent<SpriteRenderer>().material = default_sprite;
             }
             else
             {
-                GetComponent<SpriteRenderer>().material = flash_sprite;
+                if (GetComponent<SpriteRenderer>() != null)
+                    GetComponent<SpriteRenderer>().material = flash_sprite;
             }
             if (spawn_delay <= 0)
             {
-                GetComponent<SpriteRenderer>().material = default_sprite;
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                if (GetComponent<SpriteRenderer>() != null)
+                {
+                    GetComponent<SpriteRenderer>().material = default_sprite;
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                }
             }
         }
         else
@@ -167,11 +172,13 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 if (GetDistance(target) < detectionDistance)
                 {
                     Follow();
-                    animator.SetBool("running", true);
+                    if(animator != null)
+                        animator.SetBool("running", true);
                 }
                 else
                 {
-                    animator.SetBool("running", false);
+                    if(animator != null)
+                        animator.SetBool("running", false);
                 }
                 if (anim_atack)
                 {
@@ -327,9 +334,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     {
                         allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                        animator.SetBool("dead", true);
-                        gameObject.GetComponent<Collider2D>().enabled = false;
-                        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                        if(animator != null)
+                            animator.SetBool("dead", true);
+                        if (gameObject.GetComponent<Collider2D>() != null)
+                            gameObject.GetComponent<Collider2D>().enabled = false;
+                        else
+                            gameObject.GetComponentInParent<CapsuleCollider2D>().enabled = false;
+                        if (GetComponent<Rigidbody2D>() != null)
+                            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                        else
+                            GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                         transform.localScale = new Vector3(1, 1, 1);
                         StartCoroutine(Dead());
                     }
@@ -404,7 +418,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         }
         if (idle_anim_time <= 0)
         {
-            Debug.Log("Hey");
             SoundManager.PlaySound(SoundManager.Sound.SpydieNoise, transform.position);
             idle_anim_time = Random.Range(5.0f, 10.0f);
         }
@@ -513,8 +526,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
-            GetComponent<SpriteRenderer>().material = flash_sprite;
-            GetComponent<SpriteRenderer>().color = Color.white;
+            if (GetComponent<SpriteRenderer>() != null)
+            {
+                GetComponent<SpriteRenderer>().material = flash_sprite;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                GetComponentInParent<SpriteRenderer>().material = flash_sprite;
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+            }
             /*if (!hit_lasser.isPlaying)
             {
                 hit_lasser.Play();
@@ -524,15 +545,32 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);
 
-            GetComponent<SpriteRenderer>().material = default_sprite;
-            GetComponent<SpriteRenderer>().color = Color.white;
+            if (GetComponent<SpriteRenderer>() != null)
+            {
+                GetComponent<SpriteRenderer>().material = default_sprite;
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                GetComponentInParent<SpriteRenderer>().material = default_sprite;
+                GetComponentInParent<SpriteRenderer>().color = Color.white;
+            }
 
             yield return new WaitForSeconds(0.2f);
 
             audio_explosion.Play();           
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             yield return new WaitForSeconds(0.25f);
-            Destroy(gameObject);
+            if (gameObject.tag == "Monster" || gameObject.tag == "Monster_Phase")
+                Destroy(gameObject);
+            else
+            {
+                if (transform.parent.gameObject.tag == "Boss")
+                {
+                    Destroy(transform.parent.gameObject);
+                }
+            }
+                
         }
     }
 }
