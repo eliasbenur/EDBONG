@@ -103,6 +103,7 @@ public class Player_Movement : MonoBehaviour {
         Analytics.CustomEvent("Analytics X", transform.position);*/
 
         Physics2D.IgnoreLayerCollision(8, 18);
+        Physics2D.IgnoreLayerCollision(19, 20);
 
 
     }

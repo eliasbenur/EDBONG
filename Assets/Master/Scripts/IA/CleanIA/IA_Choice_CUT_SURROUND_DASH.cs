@@ -397,19 +397,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
     void Noise()
     {
-        if (idle_anim_time == -1)
-        {
-            idle_anim_time = Random.Range(10.0f, 30.0f);
-        }
 
         if (idle_anim_time > 0)
         {
             idle_anim_time -= Time.fixedDeltaTime;
         }
-        else if (idle_anim_time > -1 && idle_anim_time <= 0)
+        if (idle_anim_time <= 0)
         {
+            Debug.Log("Hey");
             SoundManager.PlaySound(SoundManager.Sound.SpydieNoise, transform.position);
-            idle_anim_time = -1;
+            idle_anim_time = Random.Range(5.0f, 10.0f);
         }
     }
 
