@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Room_Trigger : MonoBehaviour
 {
-
     private bool players_inside;
-    private int NumPlayer_inside = 0;
+    public int NumPlayer_inside = 0;
     public List<GameObject> enemy_list;
     private int num_doors = 0;
 

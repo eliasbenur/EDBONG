@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 5434449346232900870}
   - component: {fileID: 5005755396300071282}
   - component: {fileID: 7545393572757235520}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Monster_sourround_shot
   m_TagString: monster
   m_Icon: {fileID: 0}

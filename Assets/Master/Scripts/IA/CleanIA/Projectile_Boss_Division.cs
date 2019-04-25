@@ -46,11 +46,12 @@ public class Projectile_Boss_Division : MonoBehaviour
 
     IEnumerator FireCoroutine_Boss()
     {
+        SoundManager.PlaySound(SoundManager.Sound.BossExplode, transform.position);
         for (int i = 0; i < projectileToSpawn; i++)
         {
             angle += angleToADD;
             Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-            var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), transform.position + direction, Quaternion.identity) as GameObject;
+            var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), transform.position + direction, Quaternion.identity) as GameObject;       
             var directionVect = instanceAddForce.transform.position - transform.position;
             instanceAddForce.GetComponent<Rigidbody2D>().AddForce(directionVect.normalized * ennemySpeed);
             //A projectile explode in a number of determined projectile in an angle all around him

@@ -357,7 +357,7 @@ MonoBehaviour:
   detectionDistance: 300
   enemySpeed: 2
   oldSpeed: 0
-  timer_BeforeExplosion: 1.5
+  timer_BeforeExplosion: 3.2
   projectileToSpawn: 11
   angleToADD: 40
   speedProjectile: 400

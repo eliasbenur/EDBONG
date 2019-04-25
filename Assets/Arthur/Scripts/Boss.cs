@@ -282,6 +282,7 @@ public class Boss : MonoBehaviour
     {
         bossAnimation.SetBool("FireLeftPhase1", false);
         bossAnimation.SetBool("FireRightPhase1", false);
+        SoundManager.PlaySound(SoundManager.Sound.BossLaser, transform.position);
 
 
         if (!line.gameObject.GetComponent<PolygonCollider2D>())
@@ -608,6 +609,7 @@ public class Boss : MonoBehaviour
             GetComponent<CircleCollider2D>().radius = circle;
 
             var instanceAddForce = Instantiate(Resources.Load("Projectile_Boss"), new Vector2(rightEye.transform.position.x, rightEye.transform.position.y), Quaternion.identity) as GameObject;
+            SoundManager.PlaySound(SoundManager.Sound.BossShoot, transform.position);
             instanceAddForce.GetComponent<Rigidbody2D>().AddForce((targetObject.transform.position - rightEye.position).normalized * enemySpeed);
             //We wait a short time, to let the previous element go more forward before spawing an other one 
             canShoot = false;
@@ -639,6 +641,7 @@ public class Boss : MonoBehaviour
             GetComponent<CircleCollider2D>().radius = circle;
 
             var instanceAddForce = Instantiate(Resources.Load("Projectile_Boss"), new Vector2(leftEye.transform.position.x, leftEye.transform.position.y), Quaternion.identity) as GameObject;
+            SoundManager.PlaySound(SoundManager.Sound.BossShoot, transform.position);
             instanceAddForce.GetComponent<Rigidbody2D>().AddForce((targetObject.transform.position - leftEye.position).normalized * enemySpeed);
             //We wait a short time, to let the previous element go more forward before spawing an other one 
             canShoot = false;

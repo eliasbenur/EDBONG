@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1601383165}
   - component: {fileID: 1601383164}
   - component: {fileID: 1601383166}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: LaserBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,6 +462,10 @@ MonoBehaviour:
   offsetCamera: 14
   canvas: {fileID: 0}
   cinematic: {fileID: 0}
+  bossMusic: {fileID: 8300000, guid: 1acf8225a84606c4c83dfdb0ee511e2f, type: 3}
+  stopAlarm: {fileID: 0}
+  MaxVolumeBoss: 0.2
+  miniMap: {fileID: 0}
 --- !u!114 &6409077780514485866
 MonoBehaviour:
   m_ObjectHideFlags: 0
