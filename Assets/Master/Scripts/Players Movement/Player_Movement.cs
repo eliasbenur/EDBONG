@@ -197,6 +197,7 @@ public class Player_Movement : MonoBehaviour {
                     Physics2D.IgnoreLayerCollision(19, 21);
                     camera_GameManager.timerGodMode_p1 = 1.5f;
                     camera_GameManager.godMode_p1 = true;
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
@@ -215,6 +216,7 @@ public class Player_Movement : MonoBehaviour {
                     Physics2D.IgnoreLayerCollision(20, 21);
                     camera_GameManager.timerGodMode_p2 = 1.5f;
                     camera_GameManager.godMode_p2 = true;
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
             }
         }

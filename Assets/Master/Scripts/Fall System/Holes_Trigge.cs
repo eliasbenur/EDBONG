@@ -135,6 +135,8 @@ public class Holes_Trigge : MonoBehaviour
                 playerone.GetComponent<Player_Movement>().moveX = 0;
                 playerone.GetComponent<Player_Movement>().moveY = 0;
                 GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().Stop_Moving();
+                Debug.Log("aaaaaa");
+                SoundManager.PlaySound(SoundManager.Sound.PlayerFalling);
             }
             else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && pm.dash_v < (pm.dash_delay - pm.dash_time))
             {
@@ -143,6 +145,7 @@ public class Holes_Trigge : MonoBehaviour
                 playertwo.GetComponent<Player_Movement>().moveX = 0;
                 playertwo.GetComponent<Player_Movement>().moveY = 0;
                 GameObject.Find("PlayerOne").GetComponent<Player_Movement>().Stop_Moving();
+                SoundManager.PlaySound(SoundManager.Sound.PlayerFalling);
             }
         }
 

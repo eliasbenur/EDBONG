@@ -52,6 +52,7 @@ public class Door_Trigger : MonoBehaviour
             playertwo.GetComponent<Player_Movement>().can_move = true;
             //GetComponent<SpriteRenderer>().sprite = door_closed;
             GetComponent<Animator>().SetBool("open", false);
+            SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
 
         }
     }
@@ -98,7 +99,7 @@ public class Door_Trigger : MonoBehaviour
                 Debug.Log(transform.parent.name);
 
                 GetComponent<Animator>().SetBool("open", true);
-
+                SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
                 auto_run_1time = true;
             }
         }
@@ -109,7 +110,6 @@ public class Door_Trigger : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         gameObject.transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        Debug.Log("LOL");
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 {
@@ -39,8 +41,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     public Material default_sprite;
     public Material flash_sprite;
 
-
-
     //Camera Shake Effect
     // Transform of the GameObject you want to shake
     public Transform cameraTransform;
@@ -67,6 +67,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         Dash = 3,
     }
     public MethodToKill method;
+    public float idle_anim_time;
 
 
     private void Awake()
@@ -122,6 +123,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Noise();
+
         if (spawn_delay >= 0)
         {
             spawn_delay -= Time.deltaTime;
@@ -176,8 +179,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     animator.SetBool("attack", true);
                     if (timer > timer_BeforeAttack)
                     {
+                        SoundManager.PlaySound(SoundManager.Sound.SpydieMeleAtack, transform.position);
                         if (atack_in_range && !dead)
-                        {
+                        {                        
                             //TODO: Verifier qui ce fait toucher
                             if (p1_inRange && !p2_inRange)
                             {
@@ -389,6 +393,24 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             }
         }
 
+    }
+
+    void Noise()
+    {
+        if (idle_anim_time == -1)
+        {
+            idle_anim_time = Random.Range(10.0f, 30.0f);
+        }
+
+        if (idle_anim_time > 0)
+        {
+            idle_anim_time -= Time.fixedDeltaTime;
+        }
+        else if (idle_anim_time > -1 && idle_anim_time <= 0)
+        {
+            SoundManager.PlaySound(SoundManager.Sound.SpydieNoise, transform.position);
+            idle_anim_time = -1;
+        }
     }
 
     void CameraShake()
