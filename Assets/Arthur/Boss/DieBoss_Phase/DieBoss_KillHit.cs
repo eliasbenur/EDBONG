@@ -53,6 +53,9 @@ public class DieBoss_KillHit : MonoBehaviour
         }*/
 
         BehaviorCamera();
+        if(GameObject.Find("LaserBeam").GetComponent<PolygonCollider2D>() != null)
+            GameObject.Find("LaserBeam").GetComponent<PolygonCollider2D>().enabled = false;
+
         if (camera.transform.position.y >= transform.position.y + offset)
         {
             startPosX = transform.position.x;
@@ -88,6 +91,9 @@ public class DieBoss_KillHit : MonoBehaviour
                 desactivateGodMode.godMode_p2 = false;
                 desactivateGodMode.timerGodMode_p1 = 0;
                 desactivateGodMode.timerGodMode_p2 = 0;
+                CapsuleCollider2D collider = gameObject.AddComponent<CapsuleCollider2D>();
+                collider.size = new Vector2(10, 10);
+                collider.offset = new Vector2(0.1334858f, -1.468382f);
                 cinematicDie.Hide(0.001f);
                 AnalyticsEvent.Custom("Boss Completed", new Dictionary<string, object>
                     {

@@ -339,7 +339,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         if (gameObject.GetComponent<Collider2D>() != null)
                             gameObject.GetComponent<Collider2D>().enabled = false;
                         else
+                        {
                             gameObject.GetComponentInParent<CapsuleCollider2D>().enabled = false;
+                        }
                         if (GetComponent<Rigidbody2D>() != null)
                             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                         else
