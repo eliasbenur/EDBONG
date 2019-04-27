@@ -135,21 +135,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 {
                     delay_flash = 0.4f;
                 }
-                if(GetComponent<SpriteRenderer>() != null)
-                    GetComponent<SpriteRenderer>().material = default_sprite;
+                GetComponent<SpriteRenderer>().material = default_sprite;
             }
             else
             {
-                if (GetComponent<SpriteRenderer>() != null)
-                    GetComponent<SpriteRenderer>().material = flash_sprite;
+                GetComponent<SpriteRenderer>().material = flash_sprite;
             }
             if (spawn_delay <= 0)
             {
-                if (GetComponent<SpriteRenderer>() != null)
-                {
-                    GetComponent<SpriteRenderer>().material = default_sprite;
-                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                }
+                GetComponent<SpriteRenderer>().material = default_sprite;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
         }
         else
@@ -336,16 +331,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         if(animator != null)
                             animator.SetBool("dead", true);
-                        if (gameObject.GetComponent<Collider2D>() != null)
-                            gameObject.GetComponent<Collider2D>().enabled = false;
-                        else
-                        {
-                            gameObject.GetComponentInParent<CapsuleCollider2D>().enabled = false;
-                        }
-                        if (GetComponent<Rigidbody2D>() != null)
-                            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                        else
-                            GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                        gameObject.GetComponent<Collider2D>().enabled = false;
+                        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                         transform.localScale = new Vector3(1, 1, 1);
                         StartCoroutine(Dead());
                     }
@@ -528,52 +515,22 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
-            if (GetComponent<SpriteRenderer>() != null)
-            {
-                GetComponent<SpriteRenderer>().material = flash_sprite;
-                GetComponent<SpriteRenderer>().color = Color.white;
-            }
-            else
-            {
-                GetComponentInParent<SpriteRenderer>().material = flash_sprite;
-                GetComponentInParent<SpriteRenderer>().color = Color.white;
-            }
-            /*if (!hit_lasser.isPlaying)
-            {
-                hit_lasser.Play();
-            }*/
+
+            GetComponent<SpriteRenderer>().material = flash_sprite;
+            GetComponent<SpriteRenderer>().color = Color.white;
             SoundManager.PlaySound(SoundManager.Sound.PlayerSlicing, transform.position);
             enemySpeed = 0;
 
             yield return new WaitForSeconds(0.2f);
-
-            if (GetComponent<SpriteRenderer>() != null)
-            {
-                GetComponent<SpriteRenderer>().material = default_sprite;
-                GetComponent<SpriteRenderer>().color = Color.white;
-            }
-            else
-            {
-                GetComponentInParent<SpriteRenderer>().material = default_sprite;
-                GetComponentInParent<SpriteRenderer>().color = Color.white;
-            }
+            GetComponent<SpriteRenderer>().material = default_sprite;
+            GetComponent<SpriteRenderer>().color = Color.white;
 
             yield return new WaitForSeconds(0.2f);
 
             audio_explosion.Play();           
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             yield return new WaitForSeconds(0.25f);
-            if (gameObject.tag == "monster" || gameObject.tag == "Monster_Phase")
-                Destroy(gameObject);
-            else
-            {
-                if (transform.parent.gameObject.tag == "Boss")
-                {
-                    GameObject.Find("EndofLevel").GetComponent<Floor_System>().EndScreen();
-                    Destroy(transform.parent.gameObject);
-                }
-            }
-                
+            Destroy(gameObject);      
         }
     }
 }

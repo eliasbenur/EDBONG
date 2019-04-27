@@ -160,7 +160,6 @@ public class Player_Movement : MonoBehaviour {
             shakeDuration = 0.3f;
             SpriteBlinkingEffect();
             CameraShake();
-            checkLifePlayers.godMode_p1 = true;
         }
         if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
         {
@@ -239,16 +238,19 @@ public class Player_Movement : MonoBehaviour {
                     //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(19, 21);
                     SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
+
+                    camera_GameManager.timerGodMode_p1 = 1.5f;
+                    camera_GameManager.godMode_p1 = true;
                 }
                 else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
                 {
                     //rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(20, 21);
                     SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
-                }
 
-                camera_GameManager.timerGodMode_p1 = 1.5f;
-                camera_GameManager.godMode_p1 = true;
+                    camera_GameManager.timerGodMode_p2 = 1.5f;
+                    camera_GameManager.godMode_p2 = true;
+                }             
             }
         }
 

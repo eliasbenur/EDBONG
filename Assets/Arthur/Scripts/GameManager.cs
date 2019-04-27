@@ -58,6 +58,14 @@ public class GameManager : MonoBehaviour
     public float player_X;
     public float player_Y;
 
+
+    //Test render Camera MiniMap
+    public Camera miniMapRendererCamera;
+    public float  smoothTime;
+    public Vector3 velocity;
+    public GameObject petit1, petit2;
+    public GameObject grand;
+
     public void Awake()
     {     
         oldValueTimerGod = timerTotGodMode_p1;
@@ -118,6 +126,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //miniMapRendererCamera.transform.position = Vector3.SmoothDamp(miniMapRendererCamera.transform.position, new Vector3(miniMapRendererCamera.transform.position.x, miniMapRendererCamera.transform.position.y, -200),ref velocity, smoothTime);
+        /*var h = petit1.GetComponent<RectTransform>().rect.height;
+        h = Mathf.Lerp(h, 1920,0.045f);
+        var w = petit1.GetComponent<RectTransform>().rect.width;
+        h = Mathf.Lerp(h, 1080, 0.045f);
+        petit1.GetComponent<RectTransform>().sizeDelta = new Vector2(h, w);
+
+        h = petit2.GetComponent<RectTransform>().rect.height;
+        h = Mathf.Lerp(h, 1920, 0.045f);
+        w = petit2.GetComponent<RectTransform>().rect.width;
+        h = Mathf.Lerp(h, 1080, 0.045f);
+        petit2.GetComponent<RectTransform>().sizeDelta = new Vector2(h, w);
+
+        var hg = grand.GetComponent<RectTransform>().rect.height;
+        hg = Mathf.Lerp(h, 1910, 0.045f);
+        var wg = grand.GetComponent<RectTransform>().rect.width;
+        wg = Mathf.Lerp(h, 1070, 0.045f);
+        petit1.GetComponent<RectTransform>().sizeDelta = new Vector2(hg, wg);*/
+
+
         if (shieldPoint == 0)
         {
             shieldGameObject.SetActive(false);
@@ -243,25 +271,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
     public void Hit_verification(string player, Vector3 pos, string who_hit)
     {
         if (player == "PlayerOne" && !godMode_p1)
         {
             Hit(player, pos, who_hit);
+            godMode_p1 = true;
         }
         else if (player == "PlayerTwo" && !godMode_p2)
         {
             Hit(player, pos, who_hit);
+            godMode_p2 = true;
         }
-        else if (player == "PlayerUndefined" && !(godMode_p1 && godMode_p1))
+        else if (player == "PlayerUndefined" && !(godMode_p1 && godMode_p2))
         {
             Hit(player, pos, who_hit);
+            godMode_p1 = true;
+            godMode_p2 = true;
         }
         else if (player == "TwoOfThem" && !(godMode_p1 && godMode_p1))
         {
             Hit(player, pos, who_hit);
+            godMode_p1 = true;
+            godMode_p2 = true;
         }
     }
 

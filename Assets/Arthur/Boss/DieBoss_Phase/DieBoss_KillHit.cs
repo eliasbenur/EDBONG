@@ -46,12 +46,6 @@ public class DieBoss_KillHit : MonoBehaviour
 
     private void Update()
     {
-        /*if (timer > timerTotBeforeDead && timer < timerReturn)
-        {
-            GetComponent<Animator>().Play("Die");
-            StartCoroutine(Smoke_Dead());
-        }*/
-
         BehaviorCamera();
         if(GameObject.Find("LaserBeam").GetComponent<PolygonCollider2D>() != null)
             GameObject.Find("LaserBeam").GetComponent<PolygonCollider2D>().enabled = false;
@@ -74,7 +68,9 @@ public class DieBoss_KillHit : MonoBehaviour
                 colliderBoss.size = new Vector2(10, 10);
                 colliderBoss.enabled = true;
                 ropeCollisions.SetActive(true);
-                ropeCollisions.GetComponent<IA_Choice_CUT_SURROUND_DASH>().enabled = true;
+
+                //Change here
+                ropeCollisions.GetComponent<KillBoss_RopeDetection>().enabled = true;
 
                 camera.GetComponent<Camera_Focus>().enabled = true;
                 canvas.SetActive(true);
@@ -91,9 +87,14 @@ public class DieBoss_KillHit : MonoBehaviour
                 desactivateGodMode.godMode_p2 = false;
                 desactivateGodMode.timerGodMode_p1 = 0;
                 desactivateGodMode.timerGodMode_p2 = 0;
+                foreach(Collider2D c in GetComponents<Collider2D>())
+                {
+                    c.enabled = false;
+                }
                 CapsuleCollider2D collider = gameObject.AddComponent<CapsuleCollider2D>();
                 collider.size = new Vector2(10, 10);
                 collider.offset = new Vector2(0.1334858f, -1.468382f);
+                collider.direction = CapsuleDirection2D.Horizontal;
                 cinematicDie.Hide(0.001f);
                 AnalyticsEvent.Custom("Boss Completed", new Dictionary<string, object>
                     {
