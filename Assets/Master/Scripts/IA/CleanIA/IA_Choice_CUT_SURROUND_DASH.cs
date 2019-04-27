@@ -569,6 +569,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             {
                 if (transform.parent.gameObject.tag == "Boss")
                 {
+                    GameObject.Find("EndofLevel").GetComponent<Floor_System>().EndScreen();
                     Destroy(transform.parent.gameObject);
                 }
             }
