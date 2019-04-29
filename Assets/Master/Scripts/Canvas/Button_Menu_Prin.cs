@@ -24,6 +24,8 @@ public class Button_Menu_Prin : MonoBehaviour
 
     public void NewGame_Button()
     {
+        PlayerPrefs.SetFloat("player_X",0);
+        PlayerPrefs.SetFloat("player_Y", 0);
         SceneManager.LoadScene("LD1", LoadSceneMode.Single);
     }
 

@@ -201,7 +201,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (KeyPressed && Input.GetKeyDown(KeyCode.R)/* || Input.GetKey(KeyCode.Joystick2Button0)*/&& money >= int.Parse(checkPlayer.collisionItems.GetComponentInChildren<Text>().text.Substring(0, 2)))
+        if (KeyPressed && (Input.GetKeyDown(KeyCode.R) || checkPlayer.rew_player.GetButtonDown("Items") || checkPlayer.rew_player.GetButtonDown("Items_p1") || checkPlayer.rew_player.GetButtonDown("Items_p2"))/* || Input.GetKey(KeyCode.Joystick2Button0)*/&& money >= int.Parse(checkPlayer.collisionItems.GetComponentInChildren<Text>().text.Substring(0, 2)))
         {
             for (int i = 0; i < listItemDisplay.Count; i++)
             {
