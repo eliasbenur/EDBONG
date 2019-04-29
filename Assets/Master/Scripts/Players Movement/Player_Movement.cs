@@ -349,9 +349,26 @@ public class Player_Movement : MonoBehaviour {
         bool hole_coll = false;
 
         //int layerMask = 1 << 21; 
+        int layerMask = 32768; // 15
+        int layerMask2 = 2097152; //21
+        int layermasr_f = layerMask | layerMask2;
+
         if (!(dash_v > (dash_delay - dash_time)))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, movement.magnitude, 2097152); // 2 ^ 21
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, movement.magnitude, layermasr_f); // 2 ^ 21
+            if (hit.collider != null)
+            {
+                movement = movement.normalized * hit.distance;
+                hole_coll = true;
+            }
+            else
+            {
+                movement.Normalize();
+            }
+        }
+        else
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, movement.magnitude, 32768); // 2 ^ 21
             if (hit.collider != null)
             {
                 movement = movement.normalized * hit.distance;
