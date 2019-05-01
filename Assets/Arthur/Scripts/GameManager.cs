@@ -122,6 +122,9 @@ public class GameManager : MonoBehaviour
             else
                 Debug.Log("Please Check : Player 1 or Player 2 missing");
         }
+
+        //MUSIC
+        AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
     }
 
     private void Update()
