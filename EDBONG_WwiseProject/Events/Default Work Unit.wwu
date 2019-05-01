@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Monster1" ID="{29A9BFA1-DF76-4C39-A0F1-3A916D2567BA}" ShortID="809090625">
+				<Folder Name="Monsters" ID="{29A9BFA1-DF76-4C39-A0F1-3A916D2567BA}" ShortID="809090625">
 					<ChildrenList>
 						<Event Name="play_monster1hit" ID="{5976C10F-0E17-4064-ACA5-894B205A5C25}">
 							<ChildrenList>
@@ -56,6 +56,20 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Idle" ID="{95790DB6-DD01-40BA-A8F6-4336E118D255}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="play_kamikazeboom" ID="{BF67EB40-B6A7-4C21-BF5E-39116F675DC7}">
+							<ChildrenList>
+								<Action Name="" ID="{1C8D041D-6FAD-4597-B27A-D9B915F9A1DD}" ShortID="865164355">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Kamikaze_boom" ID="{FF3CC97B-7040-4338-A70F-E67E363D11E9}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -174,6 +188,84 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="AMB" ID="{C7EA3EF3-E666-45DA-97DF-64F4EBC7AAD6}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="Environement" ID="{B0A3FAFE-6073-43E5-BE0E-2E87B9EF79F3}" ShortID="398360054">
+					<ChildrenList>
+						<Event Name="play_dooropen" ID="{7F4EDC6C-F50C-448C-9A8A-F35FBB3073EC}">
+							<ChildrenList>
+								<Action Name="" ID="{83AD42DC-5F45-41C7-A58C-C3A1710ABEC5}" ShortID="884782422">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Door_open" ID="{4F037C6E-941A-405A-AB42-B7684132C18D}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Boss" ID="{35C5D8DE-01D6-44E6-B54B-B3E60959499A}" ShortID="412636173">
+					<ChildrenList>
+						<Event Name="play_boss_shoots" ID="{FF1106CC-64BC-4604-8CDA-1C8F313892F4}">
+							<ChildrenList>
+								<Action Name="" ID="{FF7EF75C-F173-413C-B83A-24730A9CF930}" ShortID="808868486">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Boss_shoot" ID="{92E75659-57B4-45BE-8C1E-F6A55CDB20CB}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="play_boss_explodes" ID="{077F4CD6-B476-46B4-AF86-CB508C3A9104}">
+							<ChildrenList>
+								<Action Name="" ID="{0A3E1B88-B0BB-441B-9BA6-B9F35F7F588F}" ShortID="486498147">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Boss_explodes" ID="{6CE967D3-3561-431E-8495-E2DD347D2109}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="play_boss_laser" ID="{B21E52FD-BCEF-492F-BC69-0A25817248F8}">
+							<ChildrenList>
+								<Action Name="" ID="{BB6EC5E0-E3AB-48E2-AA16-7E64643B5879}" ShortID="868469819">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Boss_laser" ID="{EA8BA28E-C4F7-4559-AEC5-F203A5042B4D}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="play_roundstart" ID="{46CF0C3E-4F04-40C8-A5B6-99583175BCCB}">
+					<ChildrenList>
+						<Action Name="" ID="{2F88368F-BFDF-4BC3-9477-79CE0733EE4C}" ShortID="437639966">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Start_round" ID="{1ABC5C6F-9FEA-40E0-8F45-1F7C029F4938}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

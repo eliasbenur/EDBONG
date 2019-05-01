@@ -22,22 +22,103 @@
 			<Path>soundbank.bnk</Path>
 			<IncludedEvents>
 				<Event Id="2959533290" Name="play_amb" ObjectPath="\Events\Default Work Unit\play_amb"/>
+				<Event Id="3933460974" Name="play_boss_explodes" ObjectPath="\Events\Default Work Unit\Boss\play_boss_explodes"/>
+				<Event Id="4089227161" Name="play_boss_laser" ObjectPath="\Events\Default Work Unit\Boss\play_boss_laser"/>
+				<Event Id="3759794692" Name="play_boss_shoots" ObjectPath="\Events\Default Work Unit\Boss\play_boss_shoots"/>
 				<Event Id="2211787386" Name="play_dash" ObjectPath="\Events\Default Work Unit\Players\play_dash"/>
 				<Event Id="1172822028" Name="play_death" ObjectPath="\Events\Default Work Unit\Players\play_death"/>
 				<Event Id="913957623" Name="play_falling" ObjectPath="\Events\Default Work Unit\Players\play_falling"/>
 				<Event Id="3079036743" Name="play_ftps" ObjectPath="\Events\Default Work Unit\Players\play_ftps"/>
-				<Event Id="1185501697" Name="play_monster1attack" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1attack"/>
-				<Event Id="407094821" Name="play_monster1death" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1death"/>
-				<Event Id="640663108" Name="play_monster1hit" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1hit"/>
-				<Event Id="4031663771" Name="play_monster1idle" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1idle"/>
+				<Event Id="280677486" Name="play_kamikazeboom" ObjectPath="\Events\Default Work Unit\Monsters\play_kamikazeboom"/>
+				<Event Id="1185501697" Name="play_monster1attack" ObjectPath="\Events\Default Work Unit\Monsters\play_monster1attack"/>
+				<Event Id="407094821" Name="play_monster1death" ObjectPath="\Events\Default Work Unit\Monsters\play_monster1death"/>
+				<Event Id="640663108" Name="play_monster1hit" ObjectPath="\Events\Default Work Unit\Monsters\play_monster1hit"/>
+				<Event Id="4031663771" Name="play_monster1idle" ObjectPath="\Events\Default Work Unit\Monsters\play_monster1idle"/>
 				<Event Id="2932040671" Name="play_music" ObjectPath="\Events\Default Work Unit\play_music"/>
 				<Event Id="514211712" Name="play_playerhit" ObjectPath="\Events\Default Work Unit\Players\play_playerhit"/>
+				<Event Id="882063626" Name="play_roundstart" ObjectPath="\Events\Default Work Unit\play_roundstart"/>
 				<Event Id="92473496" Name="plays_slicing" ObjectPath="\Events\Default Work Unit\Players\plays_slicing"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="1878025" Language="SFX">
+					<ShortName>splat_explosion.wav</ShortName>
+					<Path>SFX\splat_explosion_56D34C19.wem</Path>
+				</File>
+				<File Id="54327893" Language="SFX">
+					<ShortName>FOL_Footstep_Concrete_02.wav</ShortName>
+					<Path>SFX\FOL_Footstep_Concrete_02_56D34C19.wem</Path>
+				</File>
+				<File Id="70865525" Language="SFX">
+					<ShortName>Alliance-AssaultRifle_05-Single_Shot-04.wav</ShortName>
+					<Path>SFX\Alliance-AssaultRifle_05-Single_Shot-04_56D34C19.wem</Path>
+				</File>
+				<File Id="130677026" Language="SFX">
+					<ShortName>Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1).wav</ShortName>
+					<Path>SFX\Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1)_56D34C19.wem</Path>
+				</File>
+				<File Id="161359185" Language="SFX">
+					<ShortName>sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net).wav</ShortName>
+					<Path>SFX\sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net)_56D34C19.wem</Path>
+				</File>
+				<File Id="258512402" Language="SFX">
+					<ShortName>AMB_Weather_Wind_Low.wav</ShortName>
+					<Path>SFX\AMB_Weather_Wind_Low_8956FC97.wem</Path>
+				</File>
+				<File Id="404576773" Language="SFX">
+					<ShortName>FOL_Footstep_Concrete_03.wav</ShortName>
+					<Path>SFX\FOL_Footstep_Concrete_03_56D34C19.wem</Path>
+				</File>
+				<File Id="451047477" Language="SFX">
+					<ShortName>Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut.net).wav</ShortName>
+					<Path>SFX\Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut.net)_56D34C19.wem</Path>
+				</File>
+				<File Id="499209581" Language="SFX">
+					<ShortName>Sonic Dash SFX (mp3cut.net).wav</ShortName>
+					<Path>SFX\Sonic Dash SFX (mp3cut.net)_56D34C19.wem</Path>
+				</File>
+				<File Id="527416673" Language="SFX">
+					<ShortName>Seq_2.1_whoosh_1_96_HK1.wav</ShortName>
+					<Path>SFX\Seq_2.1_whoosh_1_96_HK1_56D34C19.wem</Path>
+				</File>
 				<File Id="557964465" Language="SFX">
 					<ShortName>trigger.wav</ShortName>
 					<Path>SFX\trigger_8956FC97.wem</Path>
+				</File>
+				<File Id="599197124" Language="SFX">
+					<ShortName>ouffff.wav</ShortName>
+					<Path>SFX\ouffff_56D34C19.wem</Path>
+				</File>
+				<File Id="617562004" Language="SFX">
+					<ShortName>Monster Sound Effects (mp3cut.net).wav</ShortName>
+					<Path>SFX\Monster Sound Effects (mp3cut.net)_56D34C19.wem</Path>
+				</File>
+				<File Id="703544647" Language="SFX">
+					<ShortName>Minecraft Creeper Sound sSSSsss BOOM! (mp3cut.net).wav</ShortName>
+					<Path>SFX\Minecraft Creeper Sound sSSSsss BOOM! (mp3cut.net)_56D34C19.wem</Path>
+				</File>
+				<File Id="753250494" Language="SFX">
+					<ShortName>FOL_Footstep_Concrete_05.wav</ShortName>
+					<Path>SFX\FOL_Footstep_Concrete_05_56D34C19.wem</Path>
+				</File>
+				<File Id="799178344" Language="SFX">
+					<ShortName>FOL_Footstep_Concrete_01.wav</ShortName>
+					<Path>SFX\FOL_Footstep_Concrete_01_56D34C19.wem</Path>
+				</File>
+				<File Id="843011161" Language="SFX">
+					<ShortName>FOL_Footstep_Concrete_04.wav</ShortName>
+					<Path>SFX\FOL_Footstep_Concrete_04_56D34C19.wem</Path>
+				</File>
+				<File Id="879611909" Language="SFX">
+					<ShortName>splat.wav</ShortName>
+					<Path>SFX\splat_56D34C19.wem</Path>
+				</File>
+				<File Id="1013536737" Language="SFX">
+					<ShortName>laser-scifi.wav</ShortName>
+					<Path>SFX\laser-scifi_56D34C19.wem</Path>
+				</File>
+				<File Id="1016223438" Language="SFX">
+					<ShortName>round_start.wav</ShortName>
+					<Path>SFX\round_start_56D34C19.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

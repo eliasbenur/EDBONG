@@ -14,16 +14,21 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_AMB = 2959533290U;
+        static const AkUniqueID PLAY_BOSS_EXPLODES = 3933460974U;
+        static const AkUniqueID PLAY_BOSS_LASER = 4089227161U;
+        static const AkUniqueID PLAY_BOSS_SHOOTS = 3759794692U;
         static const AkUniqueID PLAY_DASH = 2211787386U;
         static const AkUniqueID PLAY_DEATH = 1172822028U;
         static const AkUniqueID PLAY_FALLING = 913957623U;
         static const AkUniqueID PLAY_FTPS = 3079036743U;
+        static const AkUniqueID PLAY_KAMIKAZEBOOM = 280677486U;
         static const AkUniqueID PLAY_MONSTER1ATTACK = 1185501697U;
         static const AkUniqueID PLAY_MONSTER1DEATH = 407094821U;
         static const AkUniqueID PLAY_MONSTER1HIT = 640663108U;
         static const AkUniqueID PLAY_MONSTER1IDLE = 4031663771U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAY_PLAYERHIT = 514211712U;
+        static const AkUniqueID PLAY_ROUNDSTART = 882063626U;
         static const AkUniqueID PLAYS_SLICING = 92473496U;
     } // namespace EVENTS
 

@@ -1,17 +1,41 @@
 Event	ID	Name			Wwise Object Path	Notes
 	92473496	plays_slicing			\Default Work Unit\Players\plays_slicing	
-	407094821	play_monster1death			\Default Work Unit\Monster1\play_monster1death	
+	280677486	play_kamikazeboom			\Default Work Unit\Monsters\play_kamikazeboom	
+	407094821	play_monster1death			\Default Work Unit\Monsters\play_monster1death	
 	514211712	play_playerhit			\Default Work Unit\Players\play_playerhit	
-	640663108	play_monster1hit			\Default Work Unit\Monster1\play_monster1hit	
+	640663108	play_monster1hit			\Default Work Unit\Monsters\play_monster1hit	
+	882063626	play_roundstart			\Default Work Unit\play_roundstart	
 	913957623	play_falling			\Default Work Unit\Players\play_falling	
 	1172822028	play_death			\Default Work Unit\Players\play_death	
-	1185501697	play_monster1attack			\Default Work Unit\Monster1\play_monster1attack	
+	1185501697	play_monster1attack			\Default Work Unit\Monsters\play_monster1attack	
 	2211787386	play_dash			\Default Work Unit\Players\play_dash	
 	2932040671	play_music			\Default Work Unit\play_music	
 	2959533290	play_amb			\Default Work Unit\play_amb	
 	3079036743	play_ftps			\Default Work Unit\Players\play_ftps	
-	4031663771	play_monster1idle			\Default Work Unit\Monster1\play_monster1idle	
+	3759794692	play_boss_shoots			\Default Work Unit\Boss\play_boss_shoots	
+	3933460974	play_boss_explodes			\Default Work Unit\Boss\play_boss_explodes	
+	4031663771	play_monster1idle			\Default Work Unit\Monsters\play_monster1idle	
+	4089227161	play_boss_laser			\Default Work Unit\Boss\play_boss_laser	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	1878025	splat_explosion	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\splat_explosion_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\splat_explosion		276544
+	54327893	FOL_Footstep_Concrete_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\FOL_Footstep_Concrete_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_02		52032
+	70865525	Alliance-AssaultRifle_05-Single_Shot-04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Alliance-AssaultRifle_05-Single_Shot-04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\BOSS\Boss_shoot\Alliance-AssaultRifle_05-Single_Shot-04		244800
+	130677026	Generic Sci-Fi Laser Sound Effects II (mp3cut_net) (1)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\BOSS\Boss_laser\Generic Sci-Fi Laser Sound Effects II (mp3cut_net) (1)		194104
+	161359185	sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\BOSS\Boss_explodes\sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut_net)		307264
+	258512402	AMB_Weather_Wind_Low	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\AMB_Weather_Wind_Low_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\AMB\AMB_Weather_Wind_Low		1920064
+	404576773	FOL_Footstep_Concrete_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\FOL_Footstep_Concrete_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_03		55360
+	451047477	Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Falling\Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut_net)		335224
+	499209581	Sonic Dash SFX (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Sonic Dash SFX (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Dash\Sonic Dash SFX (mp3cut_net)		135232
+	527416673	Seq_2_1_whoosh_1_96_HK1	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Seq_2.1_whoosh_1_96_HK1_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\melee_attack\Seq_2_1_whoosh_1_96_HK1		35428
 	557964465	trigger	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\trigger_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\MUSIC\trigger\trigger		35600180
+	599197124	ouffff	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\ouffff_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\ouffff		133696
+	617562004	Monster Sound Effects (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Monster Sound Effects (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\Idle\Monster Sound Effects (mp3cut_net)		384064
+	703544647	Minecraft Creeper Sound sSSSsss BOOM! (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\Minecraft Creeper Sound sSSSsss BOOM! (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\Kamikaze_boom\Minecraft Creeper Sound sSSSsss BOOM! (mp3cut_net)		811504
+	753250494	FOL_Footstep_Concrete_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\FOL_Footstep_Concrete_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_05		55360
+	799178344	FOL_Footstep_Concrete_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\FOL_Footstep_Concrete_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_01		49728
+	843011161	FOL_Footstep_Concrete_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\FOL_Footstep_Concrete_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_04		52544
+	879611909	splat	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\splat_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\splat		147520
+	1013536737	laser-scifi	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\laser-scifi_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\laser-scifi		217152
+	1016223438	round_start	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\round_start_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Start_round\round_start		888896
 
