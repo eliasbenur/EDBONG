@@ -12,3 +12,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	3079036743	play_ftps			\Default Work Unit\Players\play_ftps	
 	4031663771	play_monster1idle			\Default Work Unit\Monster1\play_monster1idle	
 
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	557964465	trigger	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\SFX\trigger_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\MUSIC\trigger\trigger		35600180
+

@@ -34,6 +34,12 @@
 				<Event Id="514211712" Name="play_playerhit" ObjectPath="\Events\Default Work Unit\Players\play_playerhit"/>
 				<Event Id="92473496" Name="plays_slicing" ObjectPath="\Events\Default Work Unit\Players\plays_slicing"/>
 			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="557964465" Language="SFX">
+					<ShortName>trigger.wav</ShortName>
+					<Path>SFX\trigger_8956FC97.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
