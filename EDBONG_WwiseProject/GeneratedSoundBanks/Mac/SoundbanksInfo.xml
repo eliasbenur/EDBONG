@@ -80,6 +80,10 @@
 					<ShortName>Seq_2.1_whoosh_1_96_HK1.wav</ShortName>
 					<Path>SFX\Seq_2.1_whoosh_1_96_HK1_56D34C19.wem</Path>
 				</File>
+				<File Id="555765648" Language="SFX">
+					<ShortName>GA_SFX_PlayerKilled_01.wav</ShortName>
+					<Path>SFX\GA_SFX_PlayerKilled_01_56D34C19.wem</Path>
+				</File>
 				<File Id="557964465" Language="SFX">
 					<ShortName>trigger.wav</ShortName>
 					<Path>SFX\trigger_8956FC97.wem</Path>
