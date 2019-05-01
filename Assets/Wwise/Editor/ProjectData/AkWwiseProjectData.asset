@@ -12,14 +12,240 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606cc14b8bfd3784f8b9caa840edf638, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: fd2e98c401ff8f478034cf148a6c18ad
+    GuidInternal: 
+    m_lastTime: -8586449067035797217
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: ea1d68a25b758044bd6cc15ed373394e
+    GuidInternal: 
+    m_lastTime: -8586449067036126107
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: f39033920e557e46b5d62c45bef2fc45
+    GuidInternal: 
+    m_lastTime: -8586449058471003456
+    List:
+    - name: soundbank
+      guid: edddbfcb70c7ec4297ca1bedb1bb5f34
+      id: 1661994096
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: soundbank
+        ObjectType: 7
+      Path: Default Work Unit\soundbank
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 39f9f61c9c620a428f1af313fb9693bb
+    GuidInternal: 
+    m_lastTime: -8586449058727167705
+    List:
+    - name: play_amb
+      guid: 1313ad39e311c7429f0597cf528d0eb9
+      id: 2959533290
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: play_amb
+        ObjectType: 3
+      Path: Default Work Unit\play_amb
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_dash
+      guid: 484702a7afb78d45becead5a6fb97440
+      id: 2211787386
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: play_dash
+        ObjectType: 3
+      Path: Default Work Unit\Players\play_dash
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_death
+      guid: 2caeecbe439222428d973b83a5da0dfc
+      id: 1172822028
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: play_death
+        ObjectType: 3
+      Path: Default Work Unit\Players\play_death
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_falling
+      guid: 3297f032599a544798706cefdadf0ed9
+      id: 913957623
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: play_falling
+        ObjectType: 3
+      Path: Default Work Unit\Players\play_falling
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_ftps
+      guid: cc4c8cfb73e1ea4fafa5617631b854d7
+      id: 3079036743
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: play_ftps
+        ObjectType: 3
+      Path: Default Work Unit\Players\play_ftps
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_monster1attack
+      guid: a0f274a38f64cc458ab89a049aea8dd3
+      id: 1185501697
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Monster1
+        ObjectType: 4
+      - ElementName: play_monster1attack
+        ObjectType: 3
+      Path: Default Work Unit\Monster1\play_monster1attack
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_monster1death
+      guid: ef4babe32fe4544290ed44c577ba3846
+      id: 407094821
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Monster1
+        ObjectType: 4
+      - ElementName: play_monster1death
+        ObjectType: 3
+      Path: Default Work Unit\Monster1\play_monster1death
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_monster1hit
+      guid: 0fc17659170e6440aca5894b205a5c25
+      id: 640663108
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Monster1
+        ObjectType: 4
+      - ElementName: play_monster1hit
+        ObjectType: 3
+      Path: Default Work Unit\Monster1\play_monster1hit
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_monster1idle
+      guid: 639b843ffbbe294b86ac94b9a9eac994
+      id: 4031663771
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Monster1
+        ObjectType: 4
+      - ElementName: play_monster1idle
+        ObjectType: 3
+      Path: Default Work Unit\Monster1\play_monster1idle
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_music
+      guid: 421aa1ce9319be46a172a57a19a43f2e
+      id: 2932040671
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: play_music
+        ObjectType: 3
+      Path: Default Work Unit\play_music
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_playerhit
+      guid: bef953aa366de64780bea65b4e96966c
+      id: 514211712
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: play_playerhit
+        ObjectType: 3
+      Path: Default Work Unit\Players\play_playerhit
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: plays_slicing
+      guid: 99c37593c39ac14fa0b819dae715d155
+      id: 92473496
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: plays_slicing
+        ObjectType: 3
+      Path: Default Work Unit\Players\plays_slicing
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: c3f36b0f90e8dc4fa969ed6cc019e177
+    GuidInternal: 
+    m_lastTime: -8586449067036195925
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 720bdf42931f694abe366a5620a43237
+    GuidInternal: 
+    m_lastTime: -8586449067035827129
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 6483aed064cfef419247fb931bdf3d2e
+    GuidInternal: 
+    m_lastTime: -8586449067036255755
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 301936caf285c24d9418a9410c931d5f
+    GuidInternal: 
+    m_lastTime: -8586449067036385408
+    List: []
+  ExpandedItems:
+  - /EDBONG_WwiseProject
+  - /EDBONG_WwiseProject/Events
+  - /EDBONG_WwiseProject/Events/Default Work Unit
+  - /EDBONG_WwiseProject/Events/Default Work Unit/Monster1
+  - /EDBONG_WwiseProject/Events/Default Work Unit/Players
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
