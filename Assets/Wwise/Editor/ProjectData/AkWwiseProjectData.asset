@@ -17,21 +17,21 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: fd2e98c401ff8f478034cf148a6c18ad
     GuidInternal: 
-    m_lastTime: -8586449067035797217
+    m_lastTime: -8586449063433074236
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: ea1d68a25b758044bd6cc15ed373394e
     GuidInternal: 
-    m_lastTime: -8586449067036126107
+    m_lastTime: -8586449063433384058
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: f39033920e557e46b5d62c45bef2fc45
     GuidInternal: 
-    m_lastTime: -8586449058471003456
+    m_lastTime: -8586449030258163607
     List:
     - name: soundbank
       guid: edddbfcb70c7ec4297ca1bedb1bb5f34
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 39f9f61c9c620a428f1af313fb9693bb
     GuidInternal: 
-    m_lastTime: -8586449058727167705
+    m_lastTime: -8586449030272145617
     List:
     - name: play_amb
       guid: 1313ad39e311c7429f0597cf528d0eb9
@@ -58,6 +58,48 @@ MonoBehaviour:
       - ElementName: play_amb
         ObjectType: 3
       Path: Default Work Unit\play_amb
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_boss_explodes
+      guid: d64c7f0776b4b446af86cb508c3a9104
+      id: 3933460974
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Boss
+        ObjectType: 4
+      - ElementName: play_boss_explodes
+        ObjectType: 3
+      Path: Default Work Unit\Boss\play_boss_explodes
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_boss_laser
+      guid: fd521eb2efbc2f49bc690a25817248f8
+      id: 4089227161
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Boss
+        ObjectType: 4
+      - ElementName: play_boss_laser
+        ObjectType: 3
+      Path: Default Work Unit\Boss\play_boss_laser
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_boss_shoots
+      guid: cc0611ffbc6404468cda1c8f313892f4
+      id: 3759794692
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Boss
+        ObjectType: 4
+      - ElementName: play_boss_shoots
+        ObjectType: 3
+      Path: Default Work Unit\Boss\play_boss_shoots
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -89,6 +131,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: play_dooropen
+      guid: 6cdc4e7f0cf58c449a8af35fbb3073ec
+      id: 3197300806
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Environement
+        ObjectType: 4
+      - ElementName: play_dooropen
+        ObjectType: 3
+      Path: Default Work Unit\Environement\play_dooropen
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: play_falling
       guid: 3297f032599a544798706cefdadf0ed9
       id: 913957623
@@ -117,17 +173,31 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: play_kamikazeboom
+      guid: 40eb67bfa7b6214cbf5e39116f675dc7
+      id: 280677486
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Monsters
+        ObjectType: 4
+      - ElementName: play_kamikazeboom
+        ObjectType: 3
+      Path: Default Work Unit\Monsters\play_kamikazeboom
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: play_monster1attack
       guid: a0f274a38f64cc458ab89a049aea8dd3
       id: 1185501697
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Monster1
+      - ElementName: Monsters
         ObjectType: 4
       - ElementName: play_monster1attack
         ObjectType: 3
-      Path: Default Work Unit\Monster1\play_monster1attack
+      Path: Default Work Unit\Monsters\play_monster1attack
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -137,11 +207,11 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Monster1
+      - ElementName: Monsters
         ObjectType: 4
       - ElementName: play_monster1death
         ObjectType: 3
-      Path: Default Work Unit\Monster1\play_monster1death
+      Path: Default Work Unit\Monsters\play_monster1death
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -151,11 +221,11 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Monster1
+      - ElementName: Monsters
         ObjectType: 4
       - ElementName: play_monster1hit
         ObjectType: 3
-      Path: Default Work Unit\Monster1\play_monster1hit
+      Path: Default Work Unit\Monsters\play_monster1hit
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -165,11 +235,11 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Monster1
+      - ElementName: Monsters
         ObjectType: 4
       - ElementName: play_monster1idle
         ObjectType: 3
-      Path: Default Work Unit\Monster1\play_monster1idle
+      Path: Default Work Unit\Monsters\play_monster1idle
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -199,6 +269,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: play_roundstart
+      guid: 3e0ccf46044fc840a5b699583175bccb
+      id: 882063626
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: play_roundstart
+        ObjectType: 3
+      Path: Default Work Unit\play_roundstart
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: plays_slicing
       guid: 99c37593c39ac14fa0b819dae715d155
       id: 92473496
@@ -218,34 +300,33 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: c3f36b0f90e8dc4fa969ed6cc019e177
     GuidInternal: 
-    m_lastTime: -8586449067036195925
+    m_lastTime: -8586449063433424029
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 720bdf42931f694abe366a5620a43237
     GuidInternal: 
-    m_lastTime: -8586449067035827129
+    m_lastTime: -8586449063433154184
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 6483aed064cfef419247fb931bdf3d2e
     GuidInternal: 
-    m_lastTime: -8586449067036255755
+    m_lastTime: -8586449063433134191
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 301936caf285c24d9418a9410c931d5f
     GuidInternal: 
-    m_lastTime: -8586449067036385408
+    m_lastTime: -8586449063433114216
     List: []
   ExpandedItems:
   - /EDBONG_WwiseProject
   - /EDBONG_WwiseProject/Events
   - /EDBONG_WwiseProject/Events/Default Work Unit
-  - /EDBONG_WwiseProject/Events/Default Work Unit/Monster1
   - /EDBONG_WwiseProject/Events/Default Work Unit/Players
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

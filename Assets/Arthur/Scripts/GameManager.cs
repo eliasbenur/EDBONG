@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         }
 
         //MUSIC
-        AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
+        //AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
     }
 
     private void Update()
@@ -329,6 +329,8 @@ public class GameManager : MonoBehaviour
         num_hits++;
 
         SoundManager.PlaySound(SoundManager.Sound.PlayerGetHit, pos);
+
+        AkSoundEngine.PostEvent("play_playerhit", Camera.main.gameObject);
 
         if (shieldPoint <= 0)
             life -= 1;
