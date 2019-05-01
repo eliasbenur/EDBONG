@@ -1,0 +1,14 @@
+Event	ID	Name			Wwise Object Path	Notes
+	92473496	plays_slicing			\Default Work Unit\Players\plays_slicing	
+	407094821	play_monster1death			\Default Work Unit\Monster1\play_monster1death	
+	514211712	play_playerhit			\Default Work Unit\Players\play_playerhit	
+	640663108	play_monster1hit			\Default Work Unit\Monster1\play_monster1hit	
+	913957623	play_falling			\Default Work Unit\Players\play_falling	
+	1172822028	play_death			\Default Work Unit\Players\play_death	
+	1185501697	play_monster1attack			\Default Work Unit\Monster1\play_monster1attack	
+	2211787386	play_dash			\Default Work Unit\Players\play_dash	
+	2932040671	play_music			\Default Work Unit\play_music	
+	2959533290	play_amb			\Default Work Unit\play_amb	
+	3079036743	play_ftps			\Default Work Unit\Players\play_ftps	
+	4031663771	play_monster1idle			\Default Work Unit\Monster1\play_monster1idle	
+

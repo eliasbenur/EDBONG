@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{923390F3-550E-467E-B5D6-2C45BEF2FC45}" SchemaVersion="89">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{923390F3-550E-467E-B5D6-2C45BEF2FC45}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{923390F3-550E-467E-B5D6-2C45BEF2FC45}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="soundbank" ID="{CBBFDDED-C770-42EC-97CA-1BEDB1BB5F34}">
+					<ObjectInclusionList>
+						<ObjectRef Name="play_monster1hit" ID="{5976C10F-0E17-4064-ACA5-894B205A5C25}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_death" ID="{BEECAE2C-9243-4222-8D97-3B83A5DA0DFC}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_monster1death" ID="{E3AB4BEF-E42F-4254-90ED-44C577BA3846}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_amb" ID="{39AD1313-11E3-42C7-9F05-97CF528D0EB9}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_dash" ID="{A7024748-B7AF-458D-BECE-AD5A6FB97440}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_monster1attack" ID="{A374F2A0-648F-45CC-8AB8-9A049AEA8DD3}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Players" ID="{823C0E79-7E4C-4640-ACA9-C86D21248D1B}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_music" ID="{CEA11A42-1993-46BE-A172-A57A19A43F2E}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_falling" ID="{32F09732-9A59-4754-9870-6CEFDADF0ED9}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_playerhit" ID="{AA53F9BE-6D36-47E6-80BE-A65B4E96966C}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_monster1idle" ID="{3F849B63-BEFB-4B29-86AC-94B9A9EAC994}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Monster1" ID="{29A9BFA1-DF76-4C39-A0F1-3A916D2567BA}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="plays_slicing" ID="{9375C399-9AC3-4FC1-A0B8-19DAE715D155}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_ftps" ID="{FB8C4CCC-E173-4FEA-AFA5-617631B854D7}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

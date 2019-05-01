@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{88F76CAF-AF8B-4744-84C7-9634332A2347}" SchemaVersion="89">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{88F76CAF-AF8B-4744-84C7-9634332A2347}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{88F76CAF-AF8B-4744-84C7-9634332A2347}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="PLAYERS" ID="{5BF26A6F-FE57-4AAE-B2E7-06E81E84874C}" ShortID="779794646">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="FTPS" ID="{C68AB20E-DEFC-41A0-8431-C8EAA0223A55}" ShortID="638030861">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Hit" ID="{9F7249BE-9052-45B3-B8B1-7D7DC39937D9}" ShortID="184566944">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Falling" ID="{ADF3A7BB-B03A-4E6C-9FA1-D1624AE0F778}" ShortID="562587746">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Dash" ID="{5BE2A466-DCF9-434E-A871-D589720F1580}" ShortID="672004021">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Slicing" ID="{27645CE0-2B3C-4030-86A0-CCA79A582AFD}" ShortID="335091804">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Death" ID="{CD05D769-E67E-4390-AFE7-6B1497894E28}" ShortID="652261247">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="MONSTERS" ID="{1E058064-226F-4C77-B6A5-2CECE56E8599}" ShortID="1007869906">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<BlendContainer Name="Idle" ID="{95790DB6-DD01-40BA-A8F6-4336E118D255}" ShortID="577368644">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</BlendContainer>
+						<RandomSequenceContainer Name="melee_attack" ID="{6EDFBBA2-D22F-43B1-9AE6-71AAE5B98EC7}" ShortID="441746303">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="death_scream" ID="{7E0C625A-45F0-41EF-8CCA-3F1C84442762}" ShortID="79208289">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="hit" ID="{18A5C4CB-DCDA-4B4C-9072-61A73CB32100}" ShortID="262613654">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
+				<BlendContainer Name="AMB" ID="{C7EA3EF3-E666-45DA-97DF-64F4EBC7AAD6}" ShortID="553710220">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+						</Reference>
+					</ReferenceList>
+				</BlendContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

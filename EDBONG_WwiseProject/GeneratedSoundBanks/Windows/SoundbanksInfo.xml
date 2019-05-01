@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1661994096" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\soundbank</ObjectPath>
+			<ShortName>soundbank</ShortName>
+			<Path>soundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2959533290" Name="play_amb" ObjectPath="\Events\Default Work Unit\play_amb"/>
+				<Event Id="2211787386" Name="play_dash" ObjectPath="\Events\Default Work Unit\Players\play_dash"/>
+				<Event Id="1172822028" Name="play_death" ObjectPath="\Events\Default Work Unit\Players\play_death"/>
+				<Event Id="913957623" Name="play_falling" ObjectPath="\Events\Default Work Unit\Players\play_falling"/>
+				<Event Id="3079036743" Name="play_ftps" ObjectPath="\Events\Default Work Unit\Players\play_ftps"/>
+				<Event Id="1185501697" Name="play_monster1attack" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1attack"/>
+				<Event Id="407094821" Name="play_monster1death" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1death"/>
+				<Event Id="640663108" Name="play_monster1hit" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1hit"/>
+				<Event Id="4031663771" Name="play_monster1idle" ObjectPath="\Events\Default Work Unit\Monster1\play_monster1idle"/>
+				<Event Id="2932040671" Name="play_music" ObjectPath="\Events\Default Work Unit\play_music"/>
+				<Event Id="514211712" Name="play_playerhit" ObjectPath="\Events\Default Work Unit\Players\play_playerhit"/>
+				<Event Id="92473496" Name="plays_slicing" ObjectPath="\Events\Default Work Unit\Players\plays_slicing"/>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
