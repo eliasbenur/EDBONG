@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         }
 
         //MUSIC
-        //AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
+        //AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
     }
 
     private void Update()

@@ -23,7 +23,7 @@ public class Room_Trigger : MonoBehaviour
     }
 
 
-    private void Update()
+    private void Update() 
     {
         if (gameObject.transform.childCount > 0 + num_doors)
         {
@@ -42,7 +42,6 @@ public class Room_Trigger : MonoBehaviour
                         //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
                         //gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
                         gameObject.transform.GetChild(x).GetComponent<Animator>().SetBool("open", true);
-                        Debug.Log("OPEN");
                     }
 
                     AnalyticsEvent.Custom("Room Completed", new Dictionary<string, object>
