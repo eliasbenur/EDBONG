@@ -66,7 +66,6 @@ public class AlarmScenario : MonoBehaviour
     {
         SoundManager.PlaySound(SoundManager.Sound.VoiceAlarm);
         Active_alamrs();
-        Debug.Log(alarm_activated);
         canSpeak = false;
         yield return new WaitForSeconds(cooldown);
         canSpeak = true;
