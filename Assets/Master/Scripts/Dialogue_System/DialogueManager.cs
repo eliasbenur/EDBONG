@@ -41,6 +41,7 @@ public class DialogueManager : MonoBehaviour{
         }
     }
 
+    /*Load all the data */
     public void StartDialogue(Dialogue dialogue)
     {
 
@@ -71,6 +72,7 @@ public class DialogueManager : MonoBehaviour{
         DisplayNextSentence();
     }
 
+    /* Set Up of the Dialogue */
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
@@ -90,6 +92,7 @@ public class DialogueManager : MonoBehaviour{
         StartCoroutine(TypeSentence(sentence));
     }
 
+    /* Delay of the sentences appearing */
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -103,8 +106,8 @@ public class DialogueManager : MonoBehaviour{
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = true;
-        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = true;
+        p1.Allow_Moving();
+        p2.Allow_Moving();
     }
 
 

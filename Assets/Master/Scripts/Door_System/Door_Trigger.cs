@@ -6,34 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class Door_Trigger : MonoBehaviour
 {
-
     private BoxCollider2D triger_coll;
-    private BoxCollider2D coll;
     private Vector2 autorun_position;
-
-    private GameObject playerone, playertwo;
+    private Player_Movement playerone, playertwo;
 
     private int NumPlayer_inside = 0;
-    public bool autoruning;
+    private bool autoruning;
     private Vector2 mov_p1, mov_p2;
     private int Num_points;
 
     public Sprite door_opened;
     public Sprite door_closed;
 
-    public bool auto_run_1time;
+    private bool auto_run_1time;
 
-    // Start is called before the first frame update
     void Start()
     {
         triger_coll = gameObject.GetComponents<BoxCollider2D>()[0];
-        //coll = gameObject.GetComponents<BoxCollider2D>()[1];
         autorun_position = gameObject.transform.GetChild(0).transform.position;
+        playerone = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
+        playertwo = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
         Num_points = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (autoruning)
         {
@@ -46,25 +42,29 @@ public class Door_Trigger : MonoBehaviour
         if (autoruning)
         {
             autoruning = false;
-            //coll.enabled = true;
             gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = true;
-            playerone.GetComponent<Player_Movement>().can_move = true;
-            playertwo.GetComponent<Player_Movement>().can_move = true;
-            //GetComponent<SpriteRenderer>().sprite = door_closed;
+            playerone.Allow_Moving();
+            playertwo.Allow_Moving();
             GetComponent<Animator>().SetBool("open", false);
             SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
-
         }
     }
 
-    void Player_AutoRun()
+    public void Set_auto_run_1time(bool val)
     {
-        playerone.GetComponent<Player_Movement>().moveX = mov_p1.x * Time.fixedDeltaTime;
-        playerone.GetComponent<Player_Movement>().moveY = mov_p1.y * Time.fixedDeltaTime;
-        playertwo.GetComponent<Player_Movement>().moveX = mov_p2.x * Time.fixedDeltaTime;
-        playertwo.GetComponent<Player_Movement>().moveY = mov_p2.y * Time.fixedDeltaTime;
+        auto_run_1time = val;
     }
 
+    /* Auto movement to a point */
+    void Player_AutoRun()
+    {
+        playerone.moveX = mov_p1.x * Time.fixedDeltaTime;
+        playerone.moveY = mov_p1.y * Time.fixedDeltaTime;
+        playertwo.moveX = mov_p2.x * Time.fixedDeltaTime;
+        playertwo.moveY = mov_p2.y * Time.fixedDeltaTime;
+    }
+
+    /* When the 2 players are colliding the door, the door opens and the players start autoruning */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!auto_run_1time)
@@ -76,18 +76,13 @@ public class Door_Trigger : MonoBehaviour
 
             if (NumPlayer_inside == 2)
             {
-                playerone = GameObject.Find("PlayerOne");
-                playertwo = GameObject.Find("PlayerTwo");
                 mov_p1 = (autorun_position - (Vector2)playerone.transform.position).normalized;
                 mov_p2 = (autorun_position - (Vector2)playertwo.transform.position).normalized;
-                //coll.enabled = false;
-                //gameObject.transform.GetChild(1).gameObject.SetActive(false);
                 StartCoroutine("Delay_Door");
-                playerone.GetComponent<Player_Movement>().can_move = false;
-                playertwo.GetComponent<Player_Movement>().can_move = false;
-                colli_gestion();
+                playerone.Stop_Moving();
+                playerone.can_move = false;
+                playertwo.can_move = false;
                 GetComponent<SpriteRenderer>().sprite = door_opened;
-                //Physics2D.IgnoreLayerCollision(9, 15);
                 autoruning = true;
 
                 AnalyticsEvent.Custom("Room Reached", new Dictionary<string, object>
@@ -101,7 +96,6 @@ public class Door_Trigger : MonoBehaviour
                 auto_run_1time = true;
             }
         }
-
     }
 
     IEnumerator Delay_Door()
@@ -117,29 +111,4 @@ public class Door_Trigger : MonoBehaviour
             NumPlayer_inside--;
         }
     }
-
-    void colli_gestion()
-    {
-        string point_p1 = "Point_0";
-        string point_p2 = "Point_" + (Num_points - 1);
-        List<Rope_Point> rps = GameObject.Find("Rope_System").GetComponent<Rope_System>().Points;
-        for (int x = 0; x < Num_points; x++)
-        {
-            if (rps[x].gameObject.name != point_p1 && rps[x].gameObject.name != point_p2)
-            {
-                Physics2D.IgnoreCollision(rps[x].GetComponent<CircleCollider2D>(), gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>());
-            }
-        }
-    }
-
-    /*private void OnCollisionStay2D(Collision2D collision)
-    {
-        string point_p1 = "Point_0";
-        string point_p2 = "Point_" + (Num_points - 1);
-        
-        if (collision.gameObject.name != point_p1 && collision.gameObject.name != point_p2)
-        {
-            Physics2D.IgnoreCollision(collision.collider, coll);
-        }
-    }*/
 }

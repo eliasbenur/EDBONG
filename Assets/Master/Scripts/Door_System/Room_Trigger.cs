@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class Room_Trigger : MonoBehaviour
 {
     private bool players_inside;
-    public int NumPlayer_inside = 0;
-    public List<GameObject> enemy_list;
+    private int NumPlayer_inside = 0;
     private int num_doors = 0;
+    private bool is_active = false;
 
     public void Awake()
     {
@@ -22,42 +22,44 @@ public class Room_Trigger : MonoBehaviour
         }
     }
 
-
     private void Update() 
     {
-        if (gameObject.transform.childCount > 0 + num_doors)
+        if (is_active)
         {
-            if (gameObject.transform.GetChild(0).gameObject.transform.childCount == 0)
+            if (gameObject.transform.childCount > 0 + num_doors)
             {
-                NextRound();
-                Destroy(gameObject.transform.GetChild(0).gameObject);
-            }else if (gameObject.transform.GetChild(0).tag == "door")
-            {
-                if (gameObject.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>().enabled)
+                // If the are no more enemies, the next round starts
+                if (gameObject.transform.GetChild(0).gameObject.transform.childCount == 0)
                 {
-                    for (int x = 0; x < gameObject.transform.childCount; x++)
-                    {
-                        //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[1].enabled = false;
-                        gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
-                        //gameObject.transform.GetChild(x).GetComponents<BoxCollider2D>()[0].enabled = false;
-                        //gameObject.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().door_opened;
-                        gameObject.transform.GetChild(x).GetComponent<Animator>().SetBool("open", true);
-                    }
-
-                    AnalyticsEvent.Custom("Room Completed", new Dictionary<string, object>
-                    {
-                        { "Scene", SceneManager.GetActiveScene().name },
-                        { "Room" , transform.name }
-                    });
+                    NextRound();
+                    Destroy(gameObject.transform.GetChild(0).gameObject);
                 }
+                //If there are no more rounds, the doors opens
+                else if (gameObject.transform.GetChild(0).tag == "door")
+                {
+                    is_active = false;
 
+                    if (gameObject.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>().enabled)
+                    {
+                        for (int x = 0; x < gameObject.transform.childCount; x++)
+                        {
+                            gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
+                            gameObject.transform.GetChild(x).GetComponent<Animator>().SetBool("open", true);
+                        }
+
+                        AnalyticsEvent.Custom("Room Completed", new Dictionary<string, object>{
+                            { "Scene", SceneManager.GetActiveScene().name },
+                            { "Room" , transform.name }
+                        });
+                    }
+                }
             }
         }
+
     }
 
     private void FirstRound()
     {
-        
         for (int x = 0; x < gameObject.transform.GetChild(0).gameObject.transform.childCount; x++)
         {
             gameObject.transform.GetChild(0).transform.GetChild(x).gameObject.SetActive(true);
@@ -67,23 +69,13 @@ public class Room_Trigger : MonoBehaviour
 
     private void NextRound()
     {
-        if (gameObject.transform.childCount > 1 + num_doors)
+        for (int x = 0; x < gameObject.transform.GetChild(1).gameObject.transform.childCount; x++)
         {
-            for (int x = 0; x < gameObject.transform.GetChild(1).gameObject.transform.childCount; x++)
-            {
-                gameObject.transform.GetChild(1).transform.GetChild(x).gameObject.SetActive(true);
-            }
-        }
-        else{
-            Debug.Log("NO Enemyes");
-            Destroy(gameObject.transform.GetChild(0).gameObject);
-            for (int x = 0; x < gameObject.transform.childCount; x++)
-            {
-                Debug.Log(gameObject.transform.GetChild(0).name);
-            }
+            gameObject.transform.GetChild(1).transform.GetChild(x).gameObject.SetActive(true);
         }
     }
 
+    //When the 2 players enter in the room, the rounds starts
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "player")
@@ -92,18 +84,17 @@ public class Room_Trigger : MonoBehaviour
 
             if (NumPlayer_inside == 2)
             {
+                is_active = true;
                 FirstRound();
                 for (int x = 0; x < gameObject.transform.childCount; x++)
                 {
                     if (gameObject.transform.GetChild(x).tag == "door")
                     {
-                        gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().auto_run_1time = true;
+                        gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().Set_auto_run_1time(true);
                     }
                 }
             }
         }
-
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)

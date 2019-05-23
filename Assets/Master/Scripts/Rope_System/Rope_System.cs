@@ -44,6 +44,12 @@ public class Rope_System : MonoBehaviour {
     void Start()
     {
 
+        //TODO: Move Ignore Layer collision outside of loop
+        Physics2D.IgnoreLayerCollision(19, 9);
+        Physics2D.IgnoreLayerCollision(20, 9);
+        Physics2D.IgnoreLayerCollision(9, 9);
+        Physics2D.IgnoreLayerCollision(9, 15);
+
         state_surround = false;
 
         Points.Clear();
@@ -78,11 +84,6 @@ public class Rope_System : MonoBehaviour {
             particle.name = "Point_" + ParticleIndex.ToString();
 
             particle.gameObject.layer = 9;
-
-            //TODO: Move Ignore Layer collision outside of loop
-            Physics2D.IgnoreLayerCollision(19, 9);//////////////////
-            Physics2D.IgnoreLayerCollision(20, 9);
-            Physics2D.IgnoreLayerCollision(9, 9);
 
             //RAYCAST TRIGER
             //Transform pref_tri = Instantiate(PrefabRay_Trig, newTransform.position, Quaternion.identity) as Transform;

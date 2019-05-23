@@ -4,72 +4,57 @@ using UnityEngine;
 
 public class Holes_Trigge : MonoBehaviour
 {
-    public GameObject playerone;
-    public GameObject playertwo;
+    private Player_Movement playerone;
+    private Player_Movement playertwo;
+    private bool playerone_falling;
+    private bool playertwo_falling;
 
     public float scale_speed;
 
-    private float delay;
+    public float delay;
     private float delay_tmp;
-
-    private float delay_two;
     private float delay_tmp_two;
+    private Rope_System rope;
 
     private void Start()
     {
         delay = 0.2f;
         delay_tmp = delay;
-
-        delay_two = 0.2f;
         delay_tmp_two = delay;
+        rope = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+        playerone = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
+        playertwo = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
     }
 
     private void Update()
     {
-        if (playerone != null)
+        if (playerone_falling)
         {
+            // If the players is falling we scale the sprite to make a falling effect
             if (playerone.transform.localScale.x > 0)
             {
                 playerone.transform.localScale = new Vector3(playerone.transform.localScale.x - Time.deltaTime * scale_speed, playerone.transform.localScale.y - Time.deltaTime * scale_speed, playerone.transform.localScale.z);
             }
+            //When the scaling ends we reset the position of the player and the chain
             else
             {
-                Vector3 pos_torespawn = gameObject.transform.GetChild(0).transform.position;
-                float dist = (gameObject.transform.GetChild(0).transform.position - playerone.transform.position).magnitude;
-                for (int x = 1; x < gameObject.transform.childCount ; x++)
-                {
-                    if ((gameObject.transform.GetChild(x).transform.position - playerone.transform.position).magnitude < dist)
-                    {
-                        pos_torespawn = gameObject.transform.GetChild(x).transform.position;
-                        dist = (gameObject.transform.GetChild(x).transform.position - playerone.transform.position).magnitude;
-                    }
-                }
-                int Nump = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
-                Rope_System rope = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+                Vector3 pos_torespawn = Find_bestRespawnPoint(playerone);
+
+                int Nump = rope.NumPoints;
                 rope.Points[0].transform.position = pos_torespawn;
-                Vector3 Delta = rope.Points[Nump -1].transform.position - rope.Points[0].transform.position;
 
-                for (int ParticleIndex = 0; ParticleIndex < Nump; ParticleIndex++)
-                {
+                Reset_Chain();
 
-                    float Alpha = (float)ParticleIndex / (float)(Nump - 1);
-                    Vector3 InitializePosition = rope.Points[0].transform.position + (Alpha * Delta);
-
-                    rope.Points[ParticleIndex].transform.position = InitializePosition;
-
-                }
                 playerone.transform.localScale = new Vector3(1 ,1 , 1);
-                playerone.GetComponent<Player_Movement>().can_move = true;
-                GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = true;
+                playertwo.Allow_Moving();
+                playerone.Allow_Moving();
                 delay_tmp = 0;
 
                 Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", playerone.transform.position, "Fall Damage");
-                playerone = null;
-
-
+                playerone_falling = false;
             }
         }
-        if (playertwo != null)
+        if (playertwo_falling)
         {
             if (playertwo.transform.localScale.x > 0)
             {
@@ -77,37 +62,20 @@ public class Holes_Trigge : MonoBehaviour
             }
             else
             {
-                Vector3 pos_torespawn = gameObject.transform.GetChild(0).transform.position;
-                float dist = (gameObject.transform.GetChild(0).transform.position - playertwo.transform.position).magnitude;
-                for (int x = 1; x < gameObject.transform.childCount; x++)
-                {
-                    if ((gameObject.transform.GetChild(x).transform.position - playertwo.transform.position).magnitude < dist)
-                    {
-                        pos_torespawn = gameObject.transform.GetChild(x).transform.position;
-                        dist = (gameObject.transform.GetChild(x).transform.position - playertwo.transform.position).magnitude;
-                    }
-                }
-                int Nump = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
-                Rope_System rope = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+                Vector3 pos_torespawn = Find_bestRespawnPoint(playertwo);
+
+                int Nump = rope.NumPoints;
                 rope.Points[Nump - 1].transform.position = pos_torespawn;
-                Vector3 Delta = rope.Points[Nump - 1].transform.position - rope.Points[0].transform.position;
 
-                for (int ParticleIndex = 0; ParticleIndex < Nump; ParticleIndex++)
-                {
+                Reset_Chain();
 
-                    float Alpha = (float)ParticleIndex / (float)(Nump - 1);
-                    Vector3 InitializePosition = rope.Points[0].transform.position + (Alpha * Delta);
-
-                    rope.Points[ParticleIndex].transform.position = InitializePosition;
-
-                }
                 playertwo.transform.localScale = new Vector3(1.2f, 1.2f, 1);
-                playertwo.GetComponent<Player_Movement>().can_move = true;
-                GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = true;
+                playertwo.Allow_Moving();
+                playerone.Allow_Moving();
                 delay_tmp_two = 0;
 
                 Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", playertwo.transform.position, "Fall Damage");
-                playertwo = null;
+                playertwo_falling = false;
 
             }
         }
@@ -117,9 +85,38 @@ public class Holes_Trigge : MonoBehaviour
             delay_tmp += Time.deltaTime;
         }
 
-        if (delay_tmp_two < delay_two)
+        if (delay_tmp_two < delay)
         {
             delay_tmp_two += Time.deltaTime;
+        }
+    }
+
+    public Vector3 Find_bestRespawnPoint(Player_Movement player)
+    {
+        Vector3 pos_torespawn = gameObject.transform.GetChild(0).transform.position;
+        float dist = (gameObject.transform.GetChild(0).transform.position - player.transform.position).magnitude;
+        for (int x = 1; x < gameObject.transform.childCount; x++)
+        {
+            if ((gameObject.transform.GetChild(x).transform.position - player.transform.position).magnitude < dist)
+            {
+                pos_torespawn = gameObject.transform.GetChild(x).transform.position;
+                dist = (gameObject.transform.GetChild(x).transform.position - player.transform.position).magnitude;
+            }
+        }
+        return pos_torespawn;
+    }
+
+    // Resets the position of the chain 
+    public void Reset_Chain()
+    {
+        int Nump = rope.NumPoints;
+        Vector3 Delta = rope.Points[Nump - 1].transform.position - rope.Points[0].transform.position;
+
+        for (int ParticleIndex = 0; ParticleIndex < Nump; ParticleIndex++)
+        {
+            float Alpha = (float)ParticleIndex / (float)(Nump - 1);
+            Vector3 InitializePosition = rope.Points[0].transform.position + (Alpha * Delta);
+            rope.Points[ParticleIndex].transform.position = InitializePosition;
         }
     }
 
@@ -130,39 +127,17 @@ public class Holes_Trigge : MonoBehaviour
             Player_Movement pm = collision.gameObject.GetComponent<Player_Movement>();
             if (collision.name == "PlayerOne" && delay_tmp >= delay && pm.dash_v < (pm.dash_delay - pm.dash_time))
             {
-                playerone = collision.gameObject;
-                playerone.GetComponent<Player_Movement>().can_move = false;
-                playerone.GetComponent<Player_Movement>().moveX = 0;
-                playerone.GetComponent<Player_Movement>().moveY = 0;
-                GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().Stop_Moving();
-                Debug.Log("aaaaaa");
-                SoundManager.PlaySound(SoundManager.Sound.PlayerFalling);
+                playerone_falling = true;
+                playerone.Stop_Moving();
+                playertwo.Stop_Moving();
             }
             else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && pm.dash_v < (pm.dash_delay - pm.dash_time))
             {
-                playertwo = collision.gameObject;
-                playertwo.GetComponent<Player_Movement>().can_move = false;
-                playertwo.GetComponent<Player_Movement>().moveX = 0;
-                playertwo.GetComponent<Player_Movement>().moveY = 0;
-                GameObject.Find("PlayerOne").GetComponent<Player_Movement>().Stop_Moving();
-                SoundManager.PlaySound(SoundManager.Sound.PlayerFalling);
+                playertwo_falling = true;
+                playerone.Stop_Moving();
+                playertwo.Stop_Moving();
             }
         }
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        /*if (collision.tag == "player")
-        {
-            if (collision.name == "PlayerOne")
-            {
-                playerone = null;
-            }
-            else if (collision.name == "PlayerTwo")
-            {
-                playertwo = null;
-            }
-        }*/
     }
 }

@@ -55,7 +55,7 @@ public class AlarmScenario : MonoBehaviour
                 {
                     if (gameObject.transform.GetChild(x).tag == "door")
                     {
-                        gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().auto_run_1time = true;
+                        gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().Set_auto_run_1time(true);
                     }
                 }
             }
