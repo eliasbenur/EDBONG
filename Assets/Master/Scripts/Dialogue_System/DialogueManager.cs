@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour{
 
     private void Update()
     {
+        /* Next Dialogue When Dash Button is Used */
         if (p1.rew_player.GetButtonDown("Dash") || p2.rew_player.GetButtonDown("Dash"))
         {
             if (sentences.Count != 0)
@@ -44,8 +45,6 @@ public class DialogueManager : MonoBehaviour{
     {
 
         animator.SetBool("IsOpen", true);
-
-        //nameText.text = dialogue.name;
 
         sentences.Clear();
         names.Clear();
@@ -66,12 +65,8 @@ public class DialogueManager : MonoBehaviour{
             sprites.Enqueue(sentence);
         }
 
-        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().can_move = false;
-        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().can_move = false;
-        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().moveX = 0;
-        GameObject.Find("PlayerOne").GetComponent<Player_Movement>().moveY = 0;
-        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().moveX = 0;
-        GameObject.Find("PlayerTwo").GetComponent<Player_Movement>().moveY = 0;
+        p1.Stop_Moving();
+        p2.Stop_Moving();
 
         DisplayNextSentence();
     }
@@ -91,7 +86,6 @@ public class DialogueManager : MonoBehaviour{
         nameText.text = name;
 
         string sentence = sentences.Dequeue();
-        //dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }

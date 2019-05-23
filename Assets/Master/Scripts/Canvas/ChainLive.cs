@@ -13,15 +13,10 @@ public class ChainLive : MonoBehaviour
     void Start()
     {
         gm = Camera.main.GetComponent<GameManager>();
-        /*for (int x = 0; x < transform.childCount; x++)
-        {
-            chains_ui.Add(transform.GetChild(x).gameObject);
-        }*/
     }
-
-    // Update is called once per frame
     void Update()
     {
+        //If the points life have changed, update the UI
         if (livepoints != gm.life)
         {
             livepoints = gm.life;
@@ -29,6 +24,7 @@ public class ChainLive : MonoBehaviour
         }
     }
 
+    /* Update the Live Bar*/
     void UpdateChainLive()
     {
         int x = 1;

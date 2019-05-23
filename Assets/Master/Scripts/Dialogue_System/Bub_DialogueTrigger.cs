@@ -16,7 +16,6 @@ public class Bub_DialogueTrigger : MonoBehaviour
         if (collision.tag == "player")
         {
             TriggerDialogue();
-            //Destroy(gameObject);
             gameObject.SetActive(false);
         }
 

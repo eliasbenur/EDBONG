@@ -5,17 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Button_Menu_Prin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Quit()
     {
@@ -27,10 +16,5 @@ public class Button_Menu_Prin : MonoBehaviour
         PlayerPrefs.SetFloat("player_X",0);
         PlayerPrefs.SetFloat("player_Y", 0);
         SceneManager.LoadScene("LD1", LoadSceneMode.Single);
-    }
-
-    public void Proto_Button()
-    {
-        SceneManager.LoadScene("Proto", LoadSceneMode.Single);
-    }
+    } 
 }

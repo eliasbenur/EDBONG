@@ -13,9 +13,8 @@ public class Bub_DialogueManager : MonoBehaviour
     public GameObject prefab_bubbles;
     private GameObject refObj_bubbles;
     private Vector3 position_to;
-    //public Animator animator;
+    private RectTransform RectT_canvas;
 
-    // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
@@ -23,28 +22,31 @@ public class Bub_DialogueManager : MonoBehaviour
         scales_x = new Queue<float>();
         scales_y = new Queue<float>();
         font_sizes = new Queue<int>();
+        RectT_canvas = GameObject.Find("Canvas").GetComponent<RectTransform>();
     }
 
     private void Update()
     {
+        Update_Position();
+    }
+
+    /*Update the position in the Canvas*/
+    public void Update_Position()
+    {
         if (refObj_bubbles != null)
         {
-            RectTransform RTns = GameObject.Find("Canvas").GetComponent<RectTransform>();
-
             Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(position_to);
             Vector2 WorldObject_ScreenPosition = new Vector2(
-            ((ViewportPosition.x * RTns.sizeDelta.x) - (RTns.sizeDelta.x * 0.5f) + 60),
-            ((ViewportPosition.y * RTns.sizeDelta.y) - (RTns.sizeDelta.y * 0.5f) - 15));
+            ((ViewportPosition.x * RectT_canvas.sizeDelta.x) - (RectT_canvas.sizeDelta.x * 0.5f) + 60),
+            ((ViewportPosition.y * RectT_canvas.sizeDelta.y) - (RectT_canvas.sizeDelta.y * 0.5f) - 15));
 
             refObj_bubbles.GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
         }
     }
 
+    /*Load all the data */
     public void StartDialogue(Bub_Dialogue dialogue, Vector3 position)
     {
-
-        //animator.SetBool("IsOpen", true);
-
         sentences.Clear();
         delays.Clear();
         scales_x.Clear();
@@ -81,19 +83,17 @@ public class Bub_DialogueManager : MonoBehaviour
         refObj_bubbles = Instantiate(prefab_bubbles, Vector3.zero, Quaternion.identity);
         refObj_bubbles.transform.SetParent(GameObject.Find("Canvas").transform);
 
-        RectTransform RTns = GameObject.Find("Canvas").GetComponent<RectTransform>();
-
         Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(position_to);
         Vector2 WorldObject_ScreenPosition = new Vector2(
-        ((ViewportPosition.x * RTns.sizeDelta.x) - (RTns.sizeDelta.x * 0.5f) + 60),
-        ((ViewportPosition.y * RTns.sizeDelta.y) - (RTns.sizeDelta.y * 0.5f) - 15));
+        ((ViewportPosition.x * RectT_canvas.sizeDelta.x) - (RectT_canvas.sizeDelta.x * 0.5f) + 60),
+        ((ViewportPosition.y * RectT_canvas.sizeDelta.y) - (RectT_canvas.sizeDelta.y * 0.5f) - 15));
 
         refObj_bubbles.GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
-
 
         DisplayNextSentence();
     }
 
+    /* Set Up of the Dialogue */
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
@@ -108,11 +108,11 @@ public class Bub_DialogueManager : MonoBehaviour
         refObj_bubbles.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(x_widht - 20, y_height - 70);
 
         string sentence = sentences.Dequeue();
-        //refObj_bubbles.transform.GetChild(0).GetComponent<Text>().text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
-
+    
+    /* Delay of the sentences appearing */
     IEnumerator TypeSentence(string sentence)
     {
         refObj_bubbles.transform.GetChild(0).GetComponent<Text>().text = "";
