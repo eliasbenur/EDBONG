@@ -52,8 +52,6 @@ public class Player_Movement : MonoBehaviour {
     public float dampingSpeed;
     public Vector3 initialPosition;
 
-    GameManager checkLifePlayers;
-
     //Controller Vibration
     public PlayerIndex playerIndex;
     GamePadState prevState;
@@ -71,7 +69,7 @@ public class Player_Movement : MonoBehaviour {
     public float dampingSpeed_RopeHit;
 
 
-    public GameManager camera_GameManager;
+    public God_Mode god_ModeAction;
 
     public Collider2D collisionItems;
 
@@ -80,8 +78,7 @@ public class Player_Movement : MonoBehaviour {
     private void Awake()
     {
         cameraTransform = Camera.main.GetComponent<Transform>();
-        checkLifePlayers = Camera.main.GetComponent<GameManager>();
-        camera_GameManager = Camera.main.GetComponent<GameManager>();
+        god_ModeAction = GetComponent<God_Mode>();
         collisionItems = GetComponent<Collider2D>();
     }
 
@@ -130,10 +127,10 @@ public class Player_Movement : MonoBehaviour {
     private void Update()
     {
 
-        if (camera_GameManager.godMode_p1 == false)
-            camera_GameManager.timerTotGodMode_p1 = camera_GameManager.oldValueTimerGod;
-        if(camera_GameManager.godMode_p2 == false)
-            camera_GameManager.timerTotGodMode_p2 = camera_GameManager.oldValueTimerGod;
+        if (god_ModeAction.godMode == false)
+            god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
+        if(god_ModeAction.godMode == false)
+            god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
 
         if (testVibrationHitRope)
         {
@@ -195,8 +192,8 @@ public class Player_Movement : MonoBehaviour {
                     dash_direction = new Vector2(moveX,moveY).normalized;
                     //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(19, 21);
-                    camera_GameManager.timerGodMode_p1 = 1.5f;
-                    camera_GameManager.godMode_p1 = true;
+                    god_ModeAction.timerGodMode = 1.5f;
+                    god_ModeAction.godMode = true;
                     SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
             }
@@ -214,8 +211,8 @@ public class Player_Movement : MonoBehaviour {
                     dash_direction = new Vector2(moveX, moveY).normalized;
                     // rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(20, 21);
-                    camera_GameManager.timerGodMode_p2 = 1.5f;
-                    camera_GameManager.godMode_p2 = true;
+                    god_ModeAction.timerGodMode = 1.5f;
+                    god_ModeAction.godMode = true;
                     SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
             }
@@ -239,8 +236,8 @@ public class Player_Movement : MonoBehaviour {
                     Physics2D.IgnoreLayerCollision(19, 21);
                     SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
 
-                    camera_GameManager.timerGodMode_p1 = 1.5f;
-                    camera_GameManager.godMode_p1 = true;
+                    god_ModeAction.timerGodMode = 1.5f;
+                    god_ModeAction.godMode = true;
                 }
                 else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
                 {
@@ -248,8 +245,8 @@ public class Player_Movement : MonoBehaviour {
                     Physics2D.IgnoreLayerCollision(20, 21);
                     SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
 
-                    camera_GameManager.timerGodMode_p2 = 1.5f;
-                    camera_GameManager.godMode_p2 = true;
+                    god_ModeAction.timerGodMode = 1.5f;
+                    god_ModeAction.godMode = true;
                 }             
             }
         }
@@ -401,14 +398,14 @@ public class Player_Movement : MonoBehaviour {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
                 rope_system.mov_P1 = movement * dash_power;
-                camera_GameManager.timerTotGodMode_p1 = 0.2f;
-                camera_GameManager.godMode_p1 = true;
+                god_ModeAction.timerTotGodMode = 0.2f;
+                god_ModeAction.godMode = true;
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
                 rope_system.mov_P2 = movement * dash_power;
-                camera_GameManager.timerTotGodMode_p2 = 0.2f;
-                camera_GameManager.godMode_p2 = true;
+                god_ModeAction.timerTotGodMode = 0.2f;
+                god_ModeAction.godMode = true;
             }
         }
         else
@@ -438,13 +435,13 @@ public class Player_Movement : MonoBehaviour {
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Item")
-        {
-            camera_GameManager.KeyPressed = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Item")
+    //    {
+    //        god_ModeAction.KeyPressed = false;
+    //    }
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -473,17 +470,11 @@ public class Player_Movement : MonoBehaviour {
             //checkLifePlayers.Hit();
         }
 
-        if (collision.tag == "Coin")
-        {
-            camera_GameManager.money++;
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.tag == "Item")
-        {
-            camera_GameManager.KeyPressed = true;
-            collisionItems = collision;
-        }
+        //if (collision.tag == "Item")
+        //{
+        //    god_ModeAction.KeyPressed = true;
+        //    collisionItems = collision;
+        //}
 
     }
 
@@ -525,7 +516,7 @@ public class Player_Movement : MonoBehaviour {
         else
         {
             cameraTransform.localPosition = initialPosition;
-            checkLifePlayers.godMode_p1 = false;
+            god_ModeAction.godMode = false;
         }
     }
 
@@ -539,7 +530,7 @@ public class Player_Movement : MonoBehaviour {
         else
         {
             cameraTransform.localPosition = initialPosition;
-            checkLifePlayers.godMode_p1 = false;
+            god_ModeAction.godMode = false;
         }
     }
 
@@ -550,6 +541,10 @@ public class Player_Movement : MonoBehaviour {
         moveY = 0;
     }
 
+    public void Allow_Moving()
+    {
+        can_move = true;
+    }
 
 
     public void Vibrate_Control(float leftMotor, float rightMotor)

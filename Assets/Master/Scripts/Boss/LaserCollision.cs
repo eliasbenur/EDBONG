@@ -15,11 +15,11 @@ public class LaserCollision : MonoBehaviour
         {
             if (collision.name == "PlayerOne")
             {
-                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Laser");
+                Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Laser");
             }
             else
             {
-                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Laser");
+                Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Laser");
             }
         }
 

@@ -19,7 +19,7 @@ namespace Prime31
 			{
 				if( _material == null )
 				{
-					_material = new Material( shader );
+					_material = new Material(shader);
 					_material.hideFlags = HideFlags.HideAndDontSave;
 				}
 

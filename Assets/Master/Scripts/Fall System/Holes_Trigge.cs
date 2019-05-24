@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Holes_Trigge : MonoBehaviour
 {
@@ -16,6 +14,8 @@ public class Holes_Trigge : MonoBehaviour
     private float delay_tmp_two;
     private Rope_System rope;
 
+    public God_Mode godMode_Hole1, godMode_Hole2;
+
     private void Start()
     {
         delay = 0.2f;
@@ -24,6 +24,9 @@ public class Holes_Trigge : MonoBehaviour
         rope = GameObject.Find("Rope_System").GetComponent<Rope_System>();
         playerone = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
         playertwo = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
+
+        godMode_Hole1 = GameObject.Find("PlayerOne").GetComponent<God_Mode>();
+        godMode_Hole2 = GameObject.Find("PlayerTwo").GetComponent<God_Mode>();
     }
 
     private void Update()
@@ -50,7 +53,7 @@ public class Holes_Trigge : MonoBehaviour
                 playerone.Allow_Moving();
                 delay_tmp = 0;
 
-                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", playerone.transform.position, "Fall Damage");
+                godMode_Hole1.Hit_verification("PlayerOne", playerone.transform.position, "Fall Damage");
                 playerone_falling = false;
             }
         }
@@ -74,7 +77,7 @@ public class Holes_Trigge : MonoBehaviour
                 playerone.Allow_Moving();
                 delay_tmp_two = 0;
 
-                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", playertwo.transform.position, "Fall Damage");
+                godMode_Hole2.Hit_verification("PlayerTwo", playertwo.transform.position, "Fall Damage");
                 playertwo_falling = false;
 
             }

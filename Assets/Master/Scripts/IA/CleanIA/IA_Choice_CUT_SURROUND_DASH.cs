@@ -183,21 +183,22 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     {
                         SoundManager.PlaySound(SoundManager.Sound.SpydieMeleAtack, transform.position);
                         if (atack_in_range && !dead)
-                        {                        
-                            //TODO: Verifier qui ce fait toucher
-                            if (p1_inRange && !p2_inRange)
+                        {
+                            foreach (var player in allPlayers)
                             {
-                                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
+                                if(player.name == "PlayerOne" && p1_inRange && !p2_inRange)
+                                {
+                                    player.GetComponent<God_Mode>().Hit_verification("PlayerOne", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
+                                }
+                                else if (player.name == "PlayerTwo" && p2_inRange && !p1_inRange)
+                                {
+                                    player.GetComponent<God_Mode>().Hit_verification("PlayerTwo", allPlayers[1].transform.position, "Monster Choise - " + method.ToString());
+                                }
+                                else if (p1_inRange && p2_inRange)
+                                {
+                                    player.GetComponent<God_Mode>().Hit_verification("TwoOfThem", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
+                                }
                             }
-                            else if(p2_inRange && !p1_inRange)
-                            {
-                                Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", allPlayers[1].transform.position, "Monster Choise - " + method.ToString());
-                            }
-                            else if(p1_inRange && p2_inRange)
-                            {
-                                Camera.main.GetComponent<GameManager>().Hit_verification("TwoOfThem", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
-                            }
-
                         }
                         timer = 0;
                         anim_atack = false;

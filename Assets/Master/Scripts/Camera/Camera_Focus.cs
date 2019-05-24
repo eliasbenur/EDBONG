@@ -15,6 +15,8 @@ public class Camera_Focus : MonoBehaviour{
 
     // Velocity that is moving the camera with SmoothDamp
     private Vector3 velocity;
+
+    
     #endregion
 
 
@@ -22,7 +24,7 @@ public class Camera_Focus : MonoBehaviour{
         camera = GetComponent<Camera>();
         Transform ply = GameObject.Find("PlayerOne").transform;
         targets.Add(ply);
-        ply = GameObject.Find("PlayerTwo").transform;
+        ply = GameObject.Find("PlayerTwo").transform;   
         targets.Add(ply);
     }
 

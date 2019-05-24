@@ -124,13 +124,13 @@ public class Change_Prop : MonoBehaviour
     public void setHealth()
     {
         game_manager.life = slider_health.value;
-        game_manager.maxLife = slider_health.value;
+        game_manager.max_Life = slider_health.value;
         slider_health_ui.maxValue = slider_health.value;
     }
 
     public void resetHealth()
     {
-        game_manager.life = game_manager.maxLife;
+        game_manager.life = game_manager.max_Life;
     }
 
     public void change_speedp1()

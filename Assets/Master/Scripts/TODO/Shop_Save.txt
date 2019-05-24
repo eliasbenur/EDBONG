@@ -1,0 +1,133 @@
+    //public int money;
+
+    [SerializeField]
+    /*public List<GameObject> listItemDisplay;
+    public bool KeyPressed;*/
+
+
+    //Items Shop
+    /*public float regenLifeItem;
+    
+    public AudioSource shopGuy;
+    public AudioClip healSound, shieldSound, speedBoost;
+
+    public float regenShieldItem;
+    public float speedUp;*/
+
+/*private float player_X;
+    private float player_Y;*/
+
+
+        /*player_X = 0;
+        player_Y = 0;*/
+
+/*if (PlayerPrefs.GetFloat("player_X", player_X) != 0 && PlayerPrefs.GetFloat("player_Y", player_Y) != 0)
+        {
+            if (checkPlayer != null && checkPlayer2!=null)
+            {                
+                Rope_System rope = GameObject.Find("Rope_System").GetComponent<Rope_System>();
+                int Nump = rope.NumPoints;
+
+                rope.Points[0].transform.position = new Vector3(PlayerPrefs.GetFloat("player_X", player_X), PlayerPrefs.GetFloat("player_Y", player_Y), 0);
+                rope.Points[Nump - 1].transform.position = new Vector3(PlayerPrefs.GetFloat("player_X", player_X), PlayerPrefs.GetFloat("player_Y", player_Y), 0);
+
+                Vector3 Delta = rope.Points[Nump - 1].transform.position - rope.Points[0].transform.position;
+                for (int ParticleIndex = 0; ParticleIndex < Nump; ParticleIndex++)
+                {
+                    float Alpha = (float)ParticleIndex / (float)(Nump - 1);
+                    Vector3 InitializePosition = rope.Points[0].transform.position + (Alpha * Delta);
+                    rope.Points[ParticleIndex].transform.position = InitializePosition;
+                }
+            }
+            else
+                Debug.Log("Please Check : Player 1 or Player 2 missing");
+        }*/
+
+/*CHANGE TO A NEW SCRIPT
+         * 
+         * private string priceItem;
+         * 
+         * listItemDisplay.AddRange(GameObject.FindGameObjectsWithTag("Item"));
+        for (int i = 0; i < listItemDisplay.Count; i++)
+        {
+            //Substring(0,2) in case we have items with a price of two numbers
+            priceItem = listItemDisplay[i].GetComponentInChildren<Text>().text.Substring(0, 2);
+        }
+         * 
+        for (int i = 0; i < listItemDisplay.Count; i++)
+        {      
+            if (int.Parse(priceItem) > money)
+                listItemDisplay[i].GetComponentInChildren<Text>().color = Color.red;
+            else
+                listItemDisplay[i].GetComponentInChildren<Text>().color = Color.white;
+        }
+        */
+
+/*if (KeyPressed && (Input.GetKeyDown(KeyCode.R) || checkPlayer.rew_player.GetButtonDown("Items") || checkPlayer.rew_player.GetButtonDown("Items_p1") || checkPlayer.rew_player.GetButtonDown("Items_p2")) || Input.GetKey(KeyCode.Joystick2Button0)&& money >= int.Parse(checkPlayer.collisionItems.GetComponentInChildren<Text>().text.Substring(0, 2)))
+        {
+            for (int i = 0; i < listItemDisplay.Count; i++)
+            {
+                if (listItemDisplay[i] == checkPlayer.collisionItems.gameObject)
+                {
+                    switch (checkPlayer.collisionItems.gameObject.name)
+                    {
+                        case "HealthObject":
+                            Debug.Log("Health Potion buy");
+
+                            life += regenLifeItem;
+                            if (life > maxLife)
+                                life = maxLife;
+
+                            money -= int.Parse(checkPlayer.collisionItems.GetComponentInChildren<Text>().text.Substring(0, 2));
+
+                            shopGuy.clip = healSound;
+                            shopGuy.Play();
+
+                            KeyPressed = false;
+
+                            listItemDisplay.RemoveAt(i);
+                            Destroy(checkPlayer.collisionItems.gameObject);
+
+                            break;
+
+                        case "ShieldObject":
+                            Debug.Log("Shield Potion buy");
+
+                            shieldPoint += regenShieldItem;
+                            if (shieldPoint > shieldDisplay.maxValue)
+                                shieldPoint = shieldDisplay.maxValue;
+
+                            money -= int.Parse(checkPlayer.collisionItems.GetComponentInChildren<Text>().text.Substring(0, 2));
+
+                            shopGuy.clip = shieldSound;
+                            shopGuy.Play();
+
+                            listItemDisplay.RemoveAt(i);
+                            Destroy(checkPlayer.collisionItems.gameObject);
+
+                            break;
+
+                        case "SpeedBoost":
+                            Debug.Log("Speed Potion buy");
+
+                            var players = GameObject.FindGameObjectsWithTag("player");
+                            if (players != null)
+                            {
+                                foreach (GameObject player in players)
+                                {
+                                    player.GetComponent<Player_Movement>().speed = speedUp;
+                                }
+                            }
+
+                            money -= int.Parse(checkPlayer.collisionItems.GetComponentInChildren<Text>().text.Substring(0, 2));
+
+                            shopGuy.clip = speedBoost;
+                            shopGuy.Play();
+
+                            listItemDisplay.RemoveAt(i);
+                            Destroy(checkPlayer.collisionItems.gameObject);
+                            break;
+                    }
+                }
+            }
+        }*/

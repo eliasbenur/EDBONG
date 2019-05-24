@@ -10,17 +10,17 @@ public class Projectile_Gestion_Phase : MonoBehaviour
         {
             if (collision.name == "PlayerOne")
             {
-                if (!Camera.main.GetComponent<GameManager>().godMode_p1)
+                if (!collision.GetComponent<God_Mode>().godMode)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Projectile Gestion Phase");
+                    Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Projectile Gestion Phase");
                     Destroy(this.gameObject);
                 }
             }
             else
             {
-                if (!Camera.main.GetComponent<GameManager>().godMode_p2)
+                if (!collision.GetComponent<God_Mode>().godMode)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Projectile Gestion Phase");
+                    Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Projectile Gestion Phase");
                     Destroy(this.gameObject);
                 }
             }

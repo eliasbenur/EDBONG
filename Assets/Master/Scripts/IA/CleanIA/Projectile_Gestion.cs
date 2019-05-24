@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile_Gestion : MonoBehaviour
@@ -18,17 +16,17 @@ public class Projectile_Gestion : MonoBehaviour
         {
             if (collision.name == "PlayerOne")
             {
-                if (!Camera.main.GetComponent<GameManager>().godMode_p1)
+                if (!collision.gameObject.GetComponent<God_Mode>().godMode)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Projectile Gestion");
+                    collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Projectile Gestion");
                     Destroy(this.gameObject);
                 }
             }
             else
             {
-                if (!Camera.main.GetComponent<GameManager>().godMode_p2)
+                if (!collision.gameObject.GetComponent<God_Mode>().godMode)
                 {
-                    Camera.main.GetComponent<GameManager>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Projectile Gestion");
+                    collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Projectile Gestion");
                     Destroy(this.gameObject);
                 }
             }

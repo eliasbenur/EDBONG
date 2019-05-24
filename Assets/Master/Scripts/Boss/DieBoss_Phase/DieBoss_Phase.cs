@@ -21,12 +21,16 @@ public class DieBoss_Phase : MonoBehaviour
     public CinematicBars cinematicDie;
 
     public GameObject endOfLevelTrap;
-    GameManager desactivateGodMode;
+    God_Mode desactivateGodMode;
+
+    List<Transform> targets;
 
     private void Awake()
     {
         camera = Camera.main.gameObject;
-        desactivateGodMode = Camera.main.GetComponent<GameManager>();
+        desactivateGodMode = Camera.main.GetComponent<God_Mode>();
+
+        targets = GetComponent<Camera_Focus>().GetCameraTargets();
     }
 
     private void FixedUpdate()
@@ -62,12 +66,12 @@ public class DieBoss_Phase : MonoBehaviour
             player2.can_move = true;
 
             endOfLevelTrap.SetActive(true);
-            desactivateGodMode.timerTotGodMode_p1 = desactivateGodMode.oldValueTimerGod;
-            desactivateGodMode.timerTotGodMode_p2 = desactivateGodMode.oldValueTimerGod;
-            desactivateGodMode.godMode_p1 = false;
-            desactivateGodMode.godMode_p2 = false;
-            desactivateGodMode.timerGodMode_p1 = 0;
-            desactivateGodMode.timerGodMode_p2 = 0;
+            for (int i = 0; i < targets.Count; i++)
+            {
+                targets[i].GetComponent<God_Mode>().timerTotGodMode = targets[i].GetComponent<God_Mode>().oldValueTimerGod;
+                targets[i].GetComponent<God_Mode>().godMode = false;
+                targets[i].GetComponent<God_Mode>().timerGodMode = 0;
+            }
 
             AnalyticsEvent.Custom("Boss Completed", new Dictionary<string, object>
                     {

@@ -50,7 +50,7 @@ public class Yamete : MonoBehaviour
     void Update()
     {
         if (hit)
-            Camera.main.GetComponent<GameManager>().Hit_verification("PlayerUndefined", transform.position, "Yamate");
+            Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerUndefined", transform.position, "Yamate");
         if (/*transform.parent.GetComponent<Rooms>().stayedRoom &&*/ target == null)
         {
             foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))
