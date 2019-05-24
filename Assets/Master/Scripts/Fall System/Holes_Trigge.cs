@@ -33,54 +33,11 @@ public class Holes_Trigge : MonoBehaviour
     {
         if (playerone_falling)
         {
-            // If the players is falling we scale the sprite to make a falling effect
-            if (playerone.transform.localScale.x > 0)
-            {
-                playerone.transform.localScale = new Vector3(playerone.transform.localScale.x - Time.deltaTime * scale_speed, playerone.transform.localScale.y - Time.deltaTime * scale_speed, playerone.transform.localScale.z);
-            }
-            //When the scaling ends we reset the position of the player and the chain
-            else
-            {
-                Vector3 pos_torespawn = Find_bestRespawnPoint(playerone);
-
-                int Nump = rope.NumPoints;
-                rope.Points[0].transform.position = pos_torespawn;
-
-                Reset_Chain();
-
-                playerone.transform.localScale = new Vector3(1 ,1 , 1);
-                playertwo.Allow_Moving();
-                playerone.Allow_Moving();
-                delay_tmp = 0;
-
-                godMode_Hole1.Hit_verification("PlayerOne", playerone.transform.position, "Fall Damage");
-                playerone_falling = false;
-            }
+            Falling(playerone);
         }
         if (playertwo_falling)
         {
-            if (playertwo.transform.localScale.x > 0)
-            {
-                playertwo.transform.localScale = new Vector3(playertwo.transform.localScale.x - Time.deltaTime * scale_speed, playertwo.transform.localScale.y - Time.deltaTime * scale_speed, playertwo.transform.localScale.z);
-            }
-            else
-            {
-                Vector3 pos_torespawn = Find_bestRespawnPoint(playertwo);
-
-                int Nump = rope.NumPoints;
-                rope.Points[Nump - 1].transform.position = pos_torespawn;
-
-                Reset_Chain();
-
-                playertwo.transform.localScale = new Vector3(1.2f, 1.2f, 1);
-                playertwo.Allow_Moving();
-                playerone.Allow_Moving();
-                delay_tmp_two = 0;
-
-                godMode_Hole2.Hit_verification("PlayerTwo", playertwo.transform.position, "Fall Damage");
-                playertwo_falling = false;
-
-            }
+            Falling(playertwo);
         }
 
         if (delay_tmp < delay)
@@ -91,6 +48,42 @@ public class Holes_Trigge : MonoBehaviour
         if (delay_tmp_two < delay)
         {
             delay_tmp_two += Time.deltaTime;
+        }
+    }
+
+    public void Falling(Player_Movement player)
+    {
+        if (player.transform.localScale.x > 0)
+        {
+            player.transform.localScale = new Vector3(player.transform.localScale.x - Time.deltaTime * scale_speed, player.transform.localScale.y - Time.deltaTime * scale_speed, player.transform.localScale.z);
+        }
+        else
+        {
+            Vector3 pos_torespawn = Find_bestRespawnPoint(player);
+
+            int Nump = rope.NumPoints;
+            if (player.name == "PlayerOne")
+            {
+                rope.Points[0].transform.position = pos_torespawn;
+                player.transform.localScale = new Vector3(1, 1, 1);
+                godMode_Hole2.Hit_verification("PlayerOne", player.transform.position, "Fall Damage");
+                playerone_falling = false;
+                delay_tmp = 0;
+            }
+            else
+            {
+                rope.Points[Nump - 1].transform.position = pos_torespawn;
+                player.transform.localScale = new Vector3(1.2f, 1.2f, 1);
+                godMode_Hole2.Hit_verification("PlayerTwo", player.transform.position, "Fall Damage");
+                playertwo_falling = false;
+                delay_tmp_two = 0;
+            }
+
+
+            Reset_Chain();
+            playerone.Allow_Moving();
+            playertwo.Allow_Moving();
+
         }
     }
 
@@ -131,16 +124,20 @@ public class Holes_Trigge : MonoBehaviour
             if (collision.name == "PlayerOne" && delay_tmp >= delay && pm.dash_v < (pm.dash_delay - pm.dash_time))
             {
                 playerone_falling = true;
-                playerone.Stop_Moving();
-                playertwo.Stop_Moving();
+                Stop_Players();
             }
             else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && pm.dash_v < (pm.dash_delay - pm.dash_time))
             {
                 playertwo_falling = true;
-                playerone.Stop_Moving();
-                playertwo.Stop_Moving();
+                Stop_Players();
             }
         }
 
+    }
+
+    public void Stop_Players()
+    {
+        playerone.Stop_Moving();
+        playertwo.Stop_Moving();
     }
 }
