@@ -158,13 +158,13 @@ public class Player_Movement : MonoBehaviour {
             SpriteBlinkingEffect();
             CameraShake();
         }
-        if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.Points.Count > 0)
+        if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.get_points().Count > 0)
         {
-            transform.position = rope_system.Points[0].transform.position;
+            transform.position = rope_system.get_points()[0].transform.position;
         }
-        else if(PlayerNum == Enum_PlayerNum.PlayerTwo && rope_system.Points.Count > 0)
+        else if(PlayerNum == Enum_PlayerNum.PlayerTwo && rope_system.get_points().Count > 0)
         {
-            transform.position = rope_system.Points[rope_system.NumPoints - 1].transform.position;
+            transform.position = rope_system.get_points()[rope_system.NumPoints - 1].transform.position;
         }
 
 
@@ -397,13 +397,13 @@ public class Player_Movement : MonoBehaviour {
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rope_system.mov_P1 = movement * dash_power;
+                rope_system.set_mov_P1(movement * dash_power);
                 god_ModeAction.timerTotGodMode = 0.2f;
                 god_ModeAction.godMode = true;
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                rope_system.mov_P2 = movement * dash_power;
+                rope_system.set_mov_P2(movement * dash_power);
                 god_ModeAction.timerTotGodMode = 0.2f;
                 god_ModeAction.godMode = true;
             }
@@ -424,11 +424,11 @@ public class Player_Movement : MonoBehaviour {
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rope_system.mov_P1 = movement * speed;
+                rope_system.set_mov_P1(movement * speed);
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                rope_system.mov_P2 = movement * speed;
+                rope_system.set_mov_P2(movement * speed);
             }
         }
 

@@ -16,8 +16,8 @@ public class AI_tp : MonoBehaviour{
     {
         curr_delay_tp = delay_tp;
         targets.Clear();
-        targets.Add(rope_system.Points[0].transform);
-        targets.Add(rope_system.Points[rope_system.NumPoints - 1].transform);
+        targets.Add(rope_system.get_points()[0].transform);
+        targets.Add(rope_system.get_points()[rope_system.NumPoints - 1].transform);
     }
 
     // Update is called once per frame

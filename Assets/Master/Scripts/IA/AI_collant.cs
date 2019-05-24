@@ -112,7 +112,7 @@ public class AI_collant : MonoBehaviour
             {
                 allPlayers.Add(Obj);
             }
-            target = rope_system.Points[rope_system.NumPoints / 2].gameObject;
+            target = rope_system.get_points()[rope_system.NumPoints / 2].gameObject;
         }
 
 

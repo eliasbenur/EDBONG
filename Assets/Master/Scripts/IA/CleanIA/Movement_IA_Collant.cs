@@ -46,9 +46,9 @@ public class Movement_IA_Collant : MonoBehaviour
             {
                 init_IA.allPlayers.Add(Obj);
             }
-            if (init_IA.rope_system.Points.Count > 0)
+            if (init_IA.rope_system.get_points().Count > 0)
             {
-                init_IA.target = init_IA.rope_system.Points[init_IA.rope_system.NumPoints / 2].gameObject;
+                init_IA.target = init_IA.rope_system.get_points()[init_IA.rope_system.NumPoints / 2].gameObject;
             }
         }
     }

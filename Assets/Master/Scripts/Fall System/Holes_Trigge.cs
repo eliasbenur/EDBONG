@@ -64,26 +64,22 @@ public class Holes_Trigge : MonoBehaviour
             int Nump = rope.NumPoints;
             if (player.name == "PlayerOne")
             {
-                rope.Points[0].transform.position = pos_torespawn;
+                rope.get_points()[0].transform.position = pos_torespawn;
                 player.transform.localScale = new Vector3(1, 1, 1);
                 godMode_Hole2.Hit_verification("PlayerOne", player.transform.position, "Fall Damage");
                 playerone_falling = false;
                 delay_tmp = 0;
             }
-            else
-            {
-                rope.Points[Nump - 1].transform.position = pos_torespawn;
+            else{
+                rope.get_points()[Nump - 1].transform.position = pos_torespawn;
                 player.transform.localScale = new Vector3(1.2f, 1.2f, 1);
                 godMode_Hole2.Hit_verification("PlayerTwo", player.transform.position, "Fall Damage");
                 playertwo_falling = false;
                 delay_tmp_two = 0;
             }
-
-
             Reset_Chain();
             playerone.Allow_Moving();
             playertwo.Allow_Moving();
-
         }
     }
 
@@ -106,13 +102,13 @@ public class Holes_Trigge : MonoBehaviour
     public void Reset_Chain()
     {
         int Nump = rope.NumPoints;
-        Vector3 Delta = rope.Points[Nump - 1].transform.position - rope.Points[0].transform.position;
+        Vector3 Delta = rope.get_points()[Nump - 1].transform.position - rope.get_points()[0].transform.position;
 
         for (int ParticleIndex = 0; ParticleIndex < Nump; ParticleIndex++)
         {
             float Alpha = (float)ParticleIndex / (float)(Nump - 1);
-            Vector3 InitializePosition = rope.Points[0].transform.position + (Alpha * Delta);
-            rope.Points[ParticleIndex].transform.position = InitializePosition;
+            Vector3 InitializePosition = rope.get_points()[0].transform.position + (Alpha * Delta);
+            rope.get_points()[ParticleIndex].transform.position = InitializePosition;
         }
     }
 
@@ -132,7 +128,6 @@ public class Holes_Trigge : MonoBehaviour
                 Stop_Players();
             }
         }
-
     }
 
     public void Stop_Players()

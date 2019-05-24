@@ -54,7 +54,7 @@ public class Change_Prop : MonoBehaviour
                 {
                     Rope_Point particle = Instantiate(rope_system.PrefabPoint, Vector3.zero, Quaternion.identity);
 
-                    Vector3 InitializePosition = rope_system.Points[rope_system.NumPoints - 1].transform.position;
+                    Vector3 InitializePosition = rope_system.get_points()[rope_system.NumPoints - 1].transform.position;
 
                     particle.transform.position = InitializePosition;
                     particle.transform.parent = rope_system.transform;
@@ -68,25 +68,23 @@ public class Change_Prop : MonoBehaviour
                         particle.GetComponent<SpriteRenderer>().enabled = false;
                     }
 
-                    rope_system.Points.Add(particle);
+                    rope_system.get_points().Add(particle);
 
                 }
-                rope_system.Points[rope_system.NumPoints - 1].p_free = false;
-                rope_system.Points[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;
+                rope_system.get_points()[rope_system.NumPoints - 1].p_free = false;
+                rope_system.get_points()[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;
                 rope_system.NumPoints = rope_system.NumPoints + dif_NumPoint;
-                rope_system._lineRenderer.positionCount = rope_system.NumPoints;
             }
             else
             {
                 for (int x = 0; x < -dif_NumPoint; x++)
                 {
-                    Rope_Point rp = rope_system.Points[rope_system.NumPoints - 1 - x];
-                    rope_system.Points.RemoveAt(rope_system.NumPoints - 1 - x);
+                    Rope_Point rp = rope_system.get_points()[rope_system.NumPoints - 1 - x];
+                    rope_system.get_points().RemoveAt(rope_system.NumPoints - 1 - x);
                     Destroy(rp.gameObject);
                 }
-                rope_system.Points[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;
+                rope_system.get_points()[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;
                 rope_system.NumPoints = rope_system.NumPoints + dif_NumPoint;
-                rope_system._lineRenderer.positionCount = rope_system.NumPoints;
 
             }
         }
