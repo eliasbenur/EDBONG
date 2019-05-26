@@ -27,7 +27,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-12</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -678,7 +678,7 @@
 										<ActiveSource Name="laser-scifi" ID="{7737008F-A15F-4CE3-BCCC-EE55DDFA118B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="EB_player_slicing_01" ID="{B6AC6A9C-765D-4B40-BE6E-0FB1837FBC0A}" ShortID="979542226">
+								<Sound Name="EB_player_slicing_01" ID="{9A5E140E-0F25-45DA-B99A-3E6EBE54FC38}" ShortID="248065042">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -688,16 +688,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="EB_player_slicing_01" ID="{0EF501FB-95EC-403C-A3A3-D760B21793E6}" ShortID="376317063">
+										<AudioFileSource Name="EB_player_slicing_01" ID="{7EFDEFCD-CF48-4B79-AC10-0E8AC8BDC29C}" ShortID="89220087">
 											<Language>SFX</Language>
 											<AudioFile>EB_player_slicing_01.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="EB_player_slicing_01" ID="{0EF501FB-95EC-403C-A3A3-D760B21793E6}" Platform="Linked"/>
+										<ActiveSource Name="EB_player_slicing_01" ID="{7EFDEFCD-CF48-4B79-AC10-0E8AC8BDC29C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="EB_player_slicing_02" ID="{4AFC39BE-4844-4402-99B8-C7A20D81ACEF}" ShortID="552137082">
+								<Sound Name="EB_player_slicing_02" ID="{12554E16-AFDC-416C-A3D8-8F87490DF48F}" ShortID="697044058">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -707,16 +707,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="EB_player_slicing_02" ID="{C0AF56A6-BAE1-49A6-BAD2-3E58E93634CA}" ShortID="424089786">
+										<AudioFileSource Name="EB_player_slicing_02" ID="{7F1D5444-EDDD-4A08-85DE-DFB929DDD051}" ShortID="983116499">
 											<Language>SFX</Language>
 											<AudioFile>EB_player_slicing_02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="EB_player_slicing_02" ID="{C0AF56A6-BAE1-49A6-BAD2-3E58E93634CA}" Platform="Linked"/>
+										<ActiveSource Name="EB_player_slicing_02" ID="{7F1D5444-EDDD-4A08-85DE-DFB929DDD051}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="EB_player_slicing_03" ID="{869C08C4-8349-402B-9882-C9204F91BFF3}" ShortID="288366406">
+								<Sound Name="EB_player_slicing_03" ID="{BC93D5E0-7AED-4FFB-AEFD-D1DB30B07814}" ShortID="447987461">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -726,16 +726,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="EB_player_slicing_03" ID="{B044A99A-AC18-421D-8E0E-A2F7418F01ED}" ShortID="433220496">
+										<AudioFileSource Name="EB_player_slicing_03" ID="{E1A81668-ECC7-41BF-A9EE-9998FF966A33}" ShortID="312904115">
 											<Language>SFX</Language>
 											<AudioFile>EB_player_slicing_03.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="EB_player_slicing_03" ID="{B044A99A-AC18-421D-8E0E-A2F7418F01ED}" Platform="Linked"/>
+										<ActiveSource Name="EB_player_slicing_03" ID="{E1A81668-ECC7-41BF-A9EE-9998FF966A33}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="EB_player_slicing_04" ID="{884CD1E1-33F1-4649-A7AD-DE52AFE36B73}" ShortID="538046876">
+								<Sound Name="EB_player_slicing_04" ID="{845FC22D-C170-4CC9-B2EA-0E8BB62F48AB}" ShortID="287602074">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -745,16 +745,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="EB_player_slicing_04" ID="{25E65D50-F552-4857-A1E5-F7DCF002C3D9}" ShortID="577775418">
+										<AudioFileSource Name="EB_player_slicing_04" ID="{4424E776-20E5-4223-9C54-12F90D03AF14}" ShortID="856481027">
 											<Language>SFX</Language>
 											<AudioFile>EB_player_slicing_04.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="EB_player_slicing_04" ID="{25E65D50-F552-4857-A1E5-F7DCF002C3D9}" Platform="Linked"/>
+										<ActiveSource Name="EB_player_slicing_04" ID="{4424E776-20E5-4223-9C54-12F90D03AF14}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="EB_player_slicing_05" ID="{4EC19F12-C0C7-45EE-8C50-F1FFBFEBCFE6}" ShortID="858169245">
+								<Sound Name="EB_player_slicing_05" ID="{083A7383-C5BA-4EFA-B7B4-8B85184986BA}" ShortID="1002578903">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -764,16 +764,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="EB_player_slicing_05" ID="{9F3007F3-37CC-4C6C-B369-C84646CC63F5}" ShortID="186270941">
+										<AudioFileSource Name="EB_player_slicing_05" ID="{69770543-5952-4EDF-B153-9EF4AEA216F4}" ShortID="1017636730">
 											<Language>SFX</Language>
 											<AudioFile>EB_player_slicing_05.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="EB_player_slicing_05" ID="{9F3007F3-37CC-4C6C-B369-C84646CC63F5}" Platform="Linked"/>
+										<ActiveSource Name="EB_player_slicing_05" ID="{69770543-5952-4EDF-B153-9EF4AEA216F4}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="EB_player_slicing_06" ID="{0A995797-F92D-4B64-98D6-AEED4AE5B2DE}" ShortID="255587945">
+								<Sound Name="EB_player_slicing_06" ID="{B5AE5943-A3BC-4B8F-96B0-63B361E68550}" ShortID="897831676">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -783,13 +783,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="EB_player_slicing_06" ID="{CBB7A850-9BF9-4115-AF07-49F936424327}" ShortID="821667725">
+										<AudioFileSource Name="EB_player_slicing_06" ID="{89F7BE32-4135-4CB3-B69D-432C69E19804}" ShortID="4731459">
 											<Language>SFX</Language>
 											<AudioFile>EB_player_slicing_06.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="EB_player_slicing_06" ID="{CBB7A850-9BF9-4115-AF07-49F936424327}" Platform="Linked"/>
+										<ActiveSource Name="EB_player_slicing_06" ID="{89F7BE32-4135-4CB3-B69D-432C69E19804}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -1031,6 +1031,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="splat_explosion" ID="{09DC2916-5244-4DFB-A60C-7BB466E7C927}" ShortID="795356823">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1049,6 +1056,101 @@
 										<ActiveSource Name="splat_explosion" ID="{C03D23DD-785A-496A-9115-844E34B2EE4A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="EB_monster1_death_01" ID="{6739DC8F-B385-4DA4-9E1C-DE04B5447340}" ShortID="607782804">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_death_01" ID="{27273A28-3825-47E5-A9A3-850A25F14BCB}" ShortID="207905519">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_death_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_death_01" ID="{27273A28-3825-47E5-A9A3-850A25F14BCB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_death_02" ID="{A5D8D9DD-A453-40DE-BB2C-DB12E1A8A552}" ShortID="1073314220">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_death_02" ID="{4E0ACA65-9820-461F-B639-D5F00BF2B84F}" ShortID="965563644">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_death_02.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_death_02" ID="{4E0ACA65-9820-461F-B639-D5F00BF2B84F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_death_03" ID="{F3F137A1-1BB8-43CF-9E0B-064011A9A0F7}" ShortID="716677202">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_death_03" ID="{F1F52989-95F0-42EA-B4A2-06CA47A6BE9D}" ShortID="1035963716">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_death_03.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_death_03" ID="{F1F52989-95F0-42EA-B4A2-06CA47A6BE9D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_death_04" ID="{85AF6B14-1407-4B57-9796-14B2DAFE456A}" ShortID="90811579">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_death_04" ID="{EC38CB7D-7149-4445-BC60-2964B3B60107}" ShortID="89174243">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_death_04.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_death_04" ID="{EC38CB7D-7149-4445-BC60-2964B3B60107}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_death_05" ID="{63EC26F8-E149-4D2C-B45B-8379D59E1994}" ShortID="19442178">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_death_05" ID="{68171408-9C64-44DD-82D7-59316C570ABF}" ShortID="368587850">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_death_05.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_death_05" ID="{68171408-9C64-44DD-82D7-59316C570ABF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="hit" ID="{18A5C4CB-DCDA-4B4C-9072-61A73CB32100}" ShortID="262613654">
@@ -1062,6 +1164,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="splat" ID="{7BC5298B-706A-4E88-9669-1CEEAB5FA58F}" ShortID="854659036">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1078,6 +1187,120 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="splat" ID="{8BAC0F04-13A2-4B39-9071-80D51504A1D1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_hit_01" ID="{0337A8BE-1F9F-49C3-9FE8-9AD583D0667F}" ShortID="656489793">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_hit_01" ID="{D44936F2-7C5C-4F49-827E-96105F540165}" ShortID="751748435">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_hit_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_hit_01" ID="{D44936F2-7C5C-4F49-827E-96105F540165}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_hit_02" ID="{DBD0B894-7B00-4038-B347-C727F3741F1B}" ShortID="977526531">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_hit_02" ID="{5FE0E78D-B984-4B4F-ACCC-C6E070D17121}" ShortID="135618264">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_hit_02.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_hit_02" ID="{5FE0E78D-B984-4B4F-ACCC-C6E070D17121}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_hit_03" ID="{3F3D562E-203C-4921-A292-FEDC32197D05}" ShortID="642485798">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_hit_03" ID="{8A186814-F56B-4769-8E3D-EF6A347D1DF0}" ShortID="1007279713">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_hit_03.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_hit_03" ID="{8A186814-F56B-4769-8E3D-EF6A347D1DF0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_hit_04" ID="{D2C560C4-8BB4-47FC-814D-43D782F4E00A}" ShortID="866463360">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_hit_04" ID="{12744A0D-369C-40A9-A17C-D5624C08508E}" ShortID="411740424">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_hit_04.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_hit_04" ID="{12744A0D-369C-40A9-A17C-D5624C08508E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_hit_05" ID="{C03C63CD-442F-409E-8BFD-5FA4290815C1}" ShortID="243841888">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_hit_05" ID="{5B873CF4-763C-4D7C-BF11-57F2DB4DAB93}" ShortID="1053136389">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_hit_05.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_hit_05" ID="{5B873CF4-763C-4D7C-BF11-57F2DB4DAB93}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_hit_06" ID="{3CDD6888-7C32-4AAA-B933-980957CB444F}" ShortID="1008146177">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_hit_06" ID="{1B9B02F8-4848-4EF0-8895-DCF1BBFEBD9E}" ShortID="888674079">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_hit_06.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_hit_06" ID="{1B9B02F8-4848-4EF0-8895-DCF1BBFEBD9E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -1119,7 +1342,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

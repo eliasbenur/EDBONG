@@ -40,89 +40,205 @@
 				<Event Id="92473496" Name="plays_slicing" ObjectPath="\Events\Default Work Unit\Players\plays_slicing"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="1878025" Language="SFX">
-					<ShortName>splat_explosion.wav</ShortName>
-					<Path>SFX\splat_explosion_56D34C19.wem</Path>
+				<File Id="4731459" Language="SFX">
+					<ShortName>EB_player_slicing_06.wav</ShortName>
+					<Path>SFX\EB_player_slicing_06_56D34C19.wem</Path>
 				</File>
-				<File Id="54327893" Language="SFX">
-					<ShortName>FOL_Footstep_Concrete_02.wav</ShortName>
-					<Path>SFX\FOL_Footstep_Concrete_02_56D34C19.wem</Path>
+				<File Id="24529412" Language="SFX">
+					<ShortName>EB_player_hit_02.wav</ShortName>
+					<Path>SFX\EB_player_hit_02_56D34C19.wem</Path>
 				</File>
 				<File Id="70865525" Language="SFX">
 					<ShortName>Alliance-AssaultRifle_05-Single_Shot-04.wav</ShortName>
 					<Path>SFX\Alliance-AssaultRifle_05-Single_Shot-04_56D34C19.wem</Path>
 				</File>
+				<File Id="89174243" Language="SFX">
+					<ShortName>EB_monster1_death_04.wav</ShortName>
+					<Path>SFX\EB_monster1_death_04_56D34C19.wem</Path>
+				</File>
+				<File Id="89220087" Language="SFX">
+					<ShortName>EB_player_slicing_01.wav</ShortName>
+					<Path>SFX\EB_player_slicing_01_56D34C19.wem</Path>
+				</File>
+				<File Id="97680926" Language="SFX">
+					<ShortName>EB_player_death_02.wav</ShortName>
+					<Path>SFX\EB_player_death_02_56D34C19.wem</Path>
+				</File>
+				<File Id="126443107" Language="SFX">
+					<ShortName>EB_player_dash_01.wav</ShortName>
+					<Path>SFX\EB_player_dash_01_56D34C19.wem</Path>
+				</File>
 				<File Id="130677026" Language="SFX">
 					<ShortName>Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1).wav</ShortName>
 					<Path>SFX\Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1)_56D34C19.wem</Path>
+				</File>
+				<File Id="135618264" Language="SFX">
+					<ShortName>EB_monster1_hit_02.wav</ShortName>
+					<Path>SFX\EB_monster1_hit_02_56D34C19.wem</Path>
+				</File>
+				<File Id="140457963" Language="SFX">
+					<ShortName>EB_player_ftps_04.wav</ShortName>
+					<Path>SFX\EB_player_ftps_04_56D34C19.wem</Path>
 				</File>
 				<File Id="161359185" Language="SFX">
 					<ShortName>sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net).wav</ShortName>
 					<Path>SFX\sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net)_56D34C19.wem</Path>
 				</File>
+				<File Id="196012375" Language="SFX">
+					<ShortName>EB_player_dash_03.wav</ShortName>
+					<Path>SFX\EB_player_dash_03_56D34C19.wem</Path>
+				</File>
+				<File Id="207905519" Language="SFX">
+					<ShortName>EB_monster1_death_01.wav</ShortName>
+					<Path>SFX\EB_monster1_death_01_56D34C19.wem</Path>
+				</File>
+				<File Id="252548041" Language="SFX">
+					<ShortName>EB_player_hit_01.wav</ShortName>
+					<Path>SFX\EB_player_hit_01_56D34C19.wem</Path>
+				</File>
 				<File Id="258512402" Language="SFX">
 					<ShortName>AMB_Weather_Wind_Low.wav</ShortName>
 					<Path>SFX\AMB_Weather_Wind_Low_8956FC97.wem</Path>
 				</File>
-				<File Id="404576773" Language="SFX">
-					<ShortName>FOL_Footstep_Concrete_03.wav</ShortName>
-					<Path>SFX\FOL_Footstep_Concrete_03_56D34C19.wem</Path>
+				<File Id="277560277" Language="SFX">
+					<ShortName>EB_player_death_06.wav</ShortName>
+					<Path>SFX\EB_player_death_06_56D34C19.wem</Path>
 				</File>
-				<File Id="451047477" Language="SFX">
-					<ShortName>Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut.net).wav</ShortName>
-					<Path>SFX\Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut.net)_56D34C19.wem</Path>
+				<File Id="303879458" Language="SFX">
+					<ShortName>EB_player_death_05.wav</ShortName>
+					<Path>SFX\EB_player_death_05_56D34C19.wem</Path>
 				</File>
-				<File Id="499209581" Language="SFX">
-					<ShortName>Sonic Dash SFX (mp3cut.net).wav</ShortName>
-					<Path>SFX\Sonic Dash SFX (mp3cut.net)_56D34C19.wem</Path>
+				<File Id="312904115" Language="SFX">
+					<ShortName>EB_player_slicing_03.wav</ShortName>
+					<Path>SFX\EB_player_slicing_03_56D34C19.wem</Path>
+				</File>
+				<File Id="321215364" Language="SFX">
+					<ShortName>EB_player_ftps_02.wav</ShortName>
+					<Path>SFX\EB_player_ftps_02_56D34C19.wem</Path>
+				</File>
+				<File Id="368587850" Language="SFX">
+					<ShortName>EB_monster1_death_05.wav</ShortName>
+					<Path>SFX\EB_monster1_death_05_56D34C19.wem</Path>
+				</File>
+				<File Id="375526323" Language="SFX">
+					<ShortName>EB_player_fall_02.wav</ShortName>
+					<Path>SFX\EB_player_fall_02_56D34C19.wem</Path>
+				</File>
+				<File Id="381514749" Language="SFX">
+					<ShortName>EB_player_fall_03.wav</ShortName>
+					<Path>SFX\EB_player_fall_03_56D34C19.wem</Path>
+				</File>
+				<File Id="411740424" Language="SFX">
+					<ShortName>EB_monster1_hit_04.wav</ShortName>
+					<Path>SFX\EB_monster1_hit_04_56D34C19.wem</Path>
+				</File>
+				<File Id="429915531" Language="SFX">
+					<ShortName>EB_player_hit_03.wav</ShortName>
+					<Path>SFX\EB_player_hit_03_56D34C19.wem</Path>
 				</File>
 				<File Id="527416673" Language="SFX">
 					<ShortName>Seq_2.1_whoosh_1_96_HK1.wav</ShortName>
 					<Path>SFX\Seq_2.1_whoosh_1_96_HK1_56D34C19.wem</Path>
 				</File>
-				<File Id="555765648" Language="SFX">
-					<ShortName>GA_SFX_PlayerKilled_01.wav</ShortName>
-					<Path>SFX\GA_SFX_PlayerKilled_01_56D34C19.wem</Path>
+				<File Id="546542001" Language="SFX">
+					<ShortName>EB_player_ftps_03.wav</ShortName>
+					<Path>SFX\EB_player_ftps_03_56D34C19.wem</Path>
 				</File>
 				<File Id="557964465" Language="SFX">
 					<ShortName>trigger.wav</ShortName>
 					<Path>SFX\trigger_8956FC97.wem</Path>
 				</File>
-				<File Id="599197124" Language="SFX">
-					<ShortName>ouffff.wav</ShortName>
-					<Path>SFX\ouffff_56D34C19.wem</Path>
+				<File Id="588581219" Language="SFX">
+					<ShortName>EB_player_ftps_06.wav</ShortName>
+					<Path>SFX\EB_player_ftps_06_56D34C19.wem</Path>
+				</File>
+				<File Id="590153431" Language="SFX">
+					<ShortName>EB_player_hit_05.wav</ShortName>
+					<Path>SFX\EB_player_hit_05_56D34C19.wem</Path>
+				</File>
+				<File Id="594040581" Language="SFX">
+					<ShortName>EB_player_hit_04.wav</ShortName>
+					<Path>SFX\EB_player_hit_04_56D34C19.wem</Path>
 				</File>
 				<File Id="617562004" Language="SFX">
 					<ShortName>Monster Sound Effects (mp3cut.net).wav</ShortName>
 					<Path>SFX\Monster Sound Effects (mp3cut.net)_56D34C19.wem</Path>
 				</File>
+				<File Id="633764864" Language="SFX">
+					<ShortName>EB_player_fall_01.wav</ShortName>
+					<Path>SFX\EB_player_fall_01_56D34C19.wem</Path>
+				</File>
+				<File Id="687109863" Language="SFX">
+					<ShortName>EB_player_death_04.wav</ShortName>
+					<Path>SFX\EB_player_death_04_56D34C19.wem</Path>
+				</File>
 				<File Id="703544647" Language="SFX">
 					<ShortName>Minecraft Creeper Sound sSSSsss BOOM! (mp3cut.net).wav</ShortName>
 					<Path>SFX\Minecraft Creeper Sound sSSSsss BOOM! (mp3cut.net)_56D34C19.wem</Path>
 				</File>
-				<File Id="753250494" Language="SFX">
-					<ShortName>FOL_Footstep_Concrete_05.wav</ShortName>
-					<Path>SFX\FOL_Footstep_Concrete_05_56D34C19.wem</Path>
+				<File Id="751748435" Language="SFX">
+					<ShortName>EB_monster1_hit_01.wav</ShortName>
+					<Path>SFX\EB_monster1_hit_01_56D34C19.wem</Path>
 				</File>
-				<File Id="799178344" Language="SFX">
-					<ShortName>FOL_Footstep_Concrete_01.wav</ShortName>
-					<Path>SFX\FOL_Footstep_Concrete_01_56D34C19.wem</Path>
+				<File Id="772701871" Language="SFX">
+					<ShortName>EB_player_dash_02.wav</ShortName>
+					<Path>SFX\EB_player_dash_02_56D34C19.wem</Path>
 				</File>
-				<File Id="843011161" Language="SFX">
-					<ShortName>FOL_Footstep_Concrete_04.wav</ShortName>
-					<Path>SFX\FOL_Footstep_Concrete_04_56D34C19.wem</Path>
+				<File Id="805253192" Language="SFX">
+					<ShortName>EB_player_ftps_05.wav</ShortName>
+					<Path>SFX\EB_player_ftps_05_56D34C19.wem</Path>
 				</File>
-				<File Id="879611909" Language="SFX">
-					<ShortName>splat.wav</ShortName>
-					<Path>SFX\splat_56D34C19.wem</Path>
+				<File Id="836359660" Language="SFX">
+					<ShortName>EB_player_death_01.wav</ShortName>
+					<Path>SFX\EB_player_death_01_56D34C19.wem</Path>
 				</File>
-				<File Id="1013536737" Language="SFX">
-					<ShortName>laser-scifi.wav</ShortName>
-					<Path>SFX\laser-scifi_56D34C19.wem</Path>
+				<File Id="856481027" Language="SFX">
+					<ShortName>EB_player_slicing_04.wav</ShortName>
+					<Path>SFX\EB_player_slicing_04_56D34C19.wem</Path>
+				</File>
+				<File Id="867876921" Language="SFX">
+					<ShortName>EB_player_fall_04.wav</ShortName>
+					<Path>SFX\EB_player_fall_04_56D34C19.wem</Path>
+				</File>
+				<File Id="888674079" Language="SFX">
+					<ShortName>EB_monster1_hit_06.wav</ShortName>
+					<Path>SFX\EB_monster1_hit_06_56D34C19.wem</Path>
+				</File>
+				<File Id="908760187" Language="SFX">
+					<ShortName>EB_player_death_03.wav</ShortName>
+					<Path>SFX\EB_player_death_03_56D34C19.wem</Path>
+				</File>
+				<File Id="965563644" Language="SFX">
+					<ShortName>EB_monster1_death_02.wav</ShortName>
+					<Path>SFX\EB_monster1_death_02_56D34C19.wem</Path>
+				</File>
+				<File Id="983116499" Language="SFX">
+					<ShortName>EB_player_slicing_02.wav</ShortName>
+					<Path>SFX\EB_player_slicing_02_56D34C19.wem</Path>
+				</File>
+				<File Id="1007279713" Language="SFX">
+					<ShortName>EB_monster1_hit_03.wav</ShortName>
+					<Path>SFX\EB_monster1_hit_03_56D34C19.wem</Path>
 				</File>
 				<File Id="1016223438" Language="SFX">
 					<ShortName>round_start.wav</ShortName>
 					<Path>SFX\round_start_56D34C19.wem</Path>
+				</File>
+				<File Id="1017636730" Language="SFX">
+					<ShortName>EB_player_slicing_05.wav</ShortName>
+					<Path>SFX\EB_player_slicing_05_56D34C19.wem</Path>
+				</File>
+				<File Id="1035963716" Language="SFX">
+					<ShortName>EB_monster1_death_03.wav</ShortName>
+					<Path>SFX\EB_monster1_death_03_56D34C19.wem</Path>
+				</File>
+				<File Id="1046335686" Language="SFX">
+					<ShortName>EB_player_ftps_01.wav</ShortName>
+					<Path>SFX\EB_player_ftps_01_56D34C19.wem</Path>
+				</File>
+				<File Id="1053136389" Language="SFX">
+					<ShortName>EB_monster1_hit_05.wav</ShortName>
+					<Path>SFX\EB_monster1_hit_05_56D34C19.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

@@ -18,25 +18,54 @@ Event	ID	Name			Wwise Object Path	Notes
 	4089227161	play_boss_laser			\Default Work Unit\Boss\play_boss_laser	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	1878025	splat_explosion	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\splat_explosion_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\splat_explosion		276544
-	54327893	FOL_Footstep_Concrete_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\FOL_Footstep_Concrete_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_02		52032
+	4731459	EB_player_slicing_06	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_slicing_06_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\EB_player_slicing_06		267940
+	24529412	EB_player_hit_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_hit_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\EB_player_hit_02		105460
 	70865525	Alliance-AssaultRifle_05-Single_Shot-04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Alliance-AssaultRifle_05-Single_Shot-04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\BOSS\Boss_shoot\Alliance-AssaultRifle_05-Single_Shot-04		244800
+	89174243	EB_monster1_death_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_death_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\EB_monster1_death_04		184896
+	89220087	EB_player_slicing_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_slicing_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\EB_player_slicing_01		167790
+	97680926	EB_player_death_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_death_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\EB_player_death_02		220228
+	126443107	EB_player_dash_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_dash_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Dash\EB_player_dash_01		77888
 	130677026	Generic Sci-Fi Laser Sound Effects II (mp3cut_net) (1)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\BOSS\Boss_laser\Generic Sci-Fi Laser Sound Effects II (mp3cut_net) (1)		194104
+	135618264	EB_monster1_hit_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_hit_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\EB_monster1_hit_02		81152
+	140457963	EB_player_ftps_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_ftps_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\EB_player_ftps_04		38372
 	161359185	sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\BOSS\Boss_explodes\sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut_net)		307264
+	196012375	EB_player_dash_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_dash_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Dash\EB_player_dash_03		66944
+	207905519	EB_monster1_death_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_death_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\EB_monster1_death_01		145892
+	252548041	EB_player_hit_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_hit_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\EB_player_hit_01		105804
 	258512402	AMB_Weather_Wind_Low	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\AMB_Weather_Wind_Low_8956FC97.wem		\Actor-Mixer Hierarchy\Default Work Unit\AMB\AMB_Weather_Wind_Low		1920064
-	404576773	FOL_Footstep_Concrete_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\FOL_Footstep_Concrete_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_03		55360
-	451047477	Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Falling\Super Mario 64 Sound Effect_ Mario Falling Scream (Slow edition) (mp3cut_net)		335224
-	499209581	Sonic Dash SFX (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Sonic Dash SFX (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Dash\Sonic Dash SFX (mp3cut_net)		135232
+	277560277	EB_player_death_06	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_death_06_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\EB_player_death_06		99366
+	303879458	EB_player_death_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_death_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\EB_player_death_05		107584
+	312904115	EB_player_slicing_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_slicing_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\EB_player_slicing_03		253296
+	321215364	EB_player_ftps_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_ftps_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\EB_player_ftps_02		33764
+	368587850	EB_monster1_death_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_death_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\EB_monster1_death_05		96300
+	375526323	EB_player_fall_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_fall_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Falling\EB_player_fall_02		419138
+	381514749	EB_player_fall_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_fall_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Falling\EB_player_fall_03		419138
+	411740424	EB_monster1_hit_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_hit_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\EB_monster1_hit_04		118792
+	429915531	EB_player_hit_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_hit_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\EB_player_hit_03		93644
 	527416673	Seq_2_1_whoosh_1_96_HK1	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Seq_2.1_whoosh_1_96_HK1_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\melee_attack\Seq_2_1_whoosh_1_96_HK1		35428
-	555765648	GA_SFX_PlayerKilled_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\GA_SFX_PlayerKilled_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\GA_SFX_PlayerKilled_01		105350
+	546542001	EB_player_ftps_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_ftps_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\EB_player_ftps_03		39332
 	557964465	trigger	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\trigger_8956FC97.wem		\Interactive Music Hierarchy\Default Work Unit\MUSIC\trigger\trigger		35600180
-	599197124	ouffff	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\ouffff_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\ouffff		133696
+	588581219	EB_player_ftps_06	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_ftps_06_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\EB_player_ftps_06		49748
+	590153431	EB_player_hit_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_hit_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\EB_player_hit_05		87788
+	594040581	EB_player_hit_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_hit_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Hit\EB_player_hit_04		116460
 	617562004	Monster Sound Effects (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Monster Sound Effects (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\Idle\Monster Sound Effects (mp3cut_net)		384064
+	633764864	EB_player_fall_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_fall_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Falling\EB_player_fall_01		419138
+	687109863	EB_player_death_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_death_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\EB_player_death_04		180824
 	703544647	Minecraft Creeper Sound sSSSsss BOOM! (mp3cut_net)	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\Minecraft Creeper Sound sSSSsss BOOM! (mp3cut.net)_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\Kamikaze_boom\Minecraft Creeper Sound sSSSsss BOOM! (mp3cut_net)		811504
-	753250494	FOL_Footstep_Concrete_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\FOL_Footstep_Concrete_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_05		55360
-	799178344	FOL_Footstep_Concrete_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\FOL_Footstep_Concrete_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_01		49728
-	843011161	FOL_Footstep_Concrete_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\FOL_Footstep_Concrete_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\FOL_Footstep_Concrete_04		52544
-	879611909	splat	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\splat_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\splat		147520
-	1013536737	laser-scifi	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\laser-scifi_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\laser-scifi		217152
+	751748435	EB_monster1_hit_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_hit_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\EB_monster1_hit_01		83656
+	772701871	EB_player_dash_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_dash_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Dash\EB_player_dash_02		77376
+	805253192	EB_player_ftps_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_ftps_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\EB_player_ftps_05		35412
+	836359660	EB_player_death_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_death_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\EB_player_death_01		107110
+	856481027	EB_player_slicing_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_slicing_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\EB_player_slicing_04		207424
+	867876921	EB_player_fall_04	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_fall_04_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Falling\EB_player_fall_04		419138
+	888674079	EB_monster1_hit_06	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_hit_06_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\EB_monster1_hit_06		85056
+	908760187	EB_player_death_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_death_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Death\EB_player_death_03		118848
+	965563644	EB_monster1_death_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_death_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\EB_monster1_death_02		134308
+	983116499	EB_player_slicing_02	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_slicing_02_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\EB_player_slicing_02		160228
+	1007279713	EB_monster1_hit_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_hit_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\EB_monster1_hit_03		78016
 	1016223438	round_start	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\round_start_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Start_round\round_start		888896
+	1017636730	EB_player_slicing_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_slicing_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\Slicing\EB_player_slicing_05		181548
+	1035963716	EB_monster1_death_03	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_death_03_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\death_scream\EB_monster1_death_03		199044
+	1046335686	EB_player_ftps_01	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_player_ftps_01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\PLAYERS\FTPS\EB_player_ftps_01		37444
+	1053136389	EB_monster1_hit_05	F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Mac\SFX\EB_monster1_hit_05_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\MONSTERS\hit\EB_monster1_hit_05		118848
 
