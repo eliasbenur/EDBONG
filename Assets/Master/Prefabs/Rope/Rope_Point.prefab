@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 114159639320414646}
   - component: {fileID: 304870342385484162}
   - component: {fileID: 1343564816677976114}
+  - component: {fileID: 8286629223256129792}
   m_Layer: 0
   m_Name: Rope_Point
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c99e27d07df0f4681a06b2560c9cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_free: 0
   coll_state: 0
   new_pos_p1: {x: 0, y: 0, z: 0}
   new_pos_p2: {x: 0, y: 0, z: 0}
@@ -117,9 +117,25 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!58 &8286629223256129792
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798760860605266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15

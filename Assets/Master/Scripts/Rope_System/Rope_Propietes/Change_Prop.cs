@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Change_Prop : MonoBehaviour
@@ -71,8 +69,6 @@ public class Change_Prop : MonoBehaviour
                     rope_system.get_points().Add(particle);
 
                 }
-                rope_system.get_points()[rope_system.NumPoints - 1].p_free = false;
-                rope_system.get_points()[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;
                 rope_system.NumPoints = rope_system.NumPoints + dif_NumPoint;
             }
             else
@@ -83,7 +79,6 @@ public class Change_Prop : MonoBehaviour
                     rope_system.get_points().RemoveAt(rope_system.NumPoints - 1 - x);
                     Destroy(rp.gameObject);
                 }
-                rope_system.get_points()[rope_system.NumPoints - 1 + dif_NumPoint].p_free = true;
                 rope_system.NumPoints = rope_system.NumPoints + dif_NumPoint;
 
             }

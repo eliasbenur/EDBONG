@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Rope_System_Elast : MonoBehaviour {
@@ -90,15 +88,6 @@ public class Rope_System_Elast : MonoBehaviour {
             Physics2D.IgnoreLayerCollision(9, 9);
 
             Points.Add(particle);
-
-            //TODO: Delete
-            if (ParticleIndex == 0 || ParticleIndex == (NumPoints - 1))
-            {
-                particle.p_free = false;
-            }
-            else{
-                particle.p_free = true;
-            }
 
             if (ParticleIndex%2 == 0)
             {

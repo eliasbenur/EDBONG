@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Rope_System : MonoBehaviour {
@@ -103,11 +102,8 @@ public class Rope_System : MonoBehaviour {
 
     public void PreformSubstep(Vector3 P1_mov, Vector3 P2_mov)
     {
-        //if (P1_mov != Vector3.zero || P2_mov != Vector3.zero)
-       // {
-            DistMaxConstraints(P1_mov, P2_mov);
-            Update_LineRender();
-        //}
+        Chain_PhysicsUpdate(P1_mov, P2_mov);
+        VisualRotation_Points();
     }
 
     public List<Rope_Point> get_points()
@@ -115,10 +111,10 @@ public class Rope_System : MonoBehaviour {
         return Points;
     }
 
-    private void DistMaxConstraints(Vector3 P1_mov, Vector3 P2_mov)
+    private void Chain_PhysicsUpdate(Vector3 P1_mov, Vector3 P2_mov)
     {
         // IF with the MovePositions some points are + far from MaxLenght (for collisions,etc..) we use transform position instead to correct their position
-        Coll_RollB(NumPoints/2);
+        CentredForce(NumPoints/2);
 
         Points[0].new_pos_p1 = P1_mov;
 
@@ -130,10 +126,8 @@ public class Rope_System : MonoBehaviour {
             DistMaxP1();
             DistMaxP2();
 
-            DistMaxCalcul(0);
+            DistMaxCalcul();
         }
-
-        Extrems_Correction();
 
         //Moving the points
         for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++)
@@ -149,6 +143,7 @@ public class Rope_System : MonoBehaviour {
 
     }
 
+    /* From the Positions of the Player1 we calculate the amount of movement to move every point to keep them togeher */
     private void DistMaxP1()
     {
         bool stop = false;
@@ -180,6 +175,7 @@ public class Rope_System : MonoBehaviour {
         }
     }
 
+    /* From the Positions of the Player2 we calculate the amount of movement to move every point to keep them togeher */
     private void DistMaxP2()
     {
         bool stop = false;
@@ -189,9 +185,7 @@ public class Rope_System : MonoBehaviour {
 
             Rope_Point ParticleA = Points[PointIndex];
             Rope_Point ParticleB = Points[PointIndex - 1];
-
             Vector3 Delta = (ParticleA.transform.position + ParticleA.new_pos_p2 + ParticleA.new_pos) - (ParticleB.transform.position + ParticleB.new_pos);
-
             float CurrentDistance = Delta.magnitude;
 
             if (CurrentDistance > MaxLenght_xPoint)
@@ -215,7 +209,7 @@ public class Rope_System : MonoBehaviour {
         }
     }
 
-    private void DistMaxCalcul(int curr_it)
+    private void DistMaxCalcul()
     {
 
         for (int PointIndex = 0; PointIndex < NumPoints; PointIndex++) {
@@ -228,9 +222,13 @@ public class Rope_System : MonoBehaviour {
         }
     }
 
-    private void Coll_RollB(int Index_coll)
+    //We apply a force from the center of the chain ("to inside") to keep the points together
+    //If the chain is colliding an enemie the center is changed to this one
+    private void CentredForce(int Index_coll)
     {
         int new_indew = Index_coll;
+
+        //We search if a point is colliding with an enemie, if yes, we change de index coll to use after
         List<Rope_Point> lisr_p = new List<Rope_Point>();
         for (int PointIndex = 0; PointIndex < NumPoints - 1; PointIndex++)
         {
@@ -290,34 +288,9 @@ public class Rope_System : MonoBehaviour {
                 }
             }
         }
-
     }
 
-
-    private void Extrems_Correction()
-    {
-        Vector3 Delta = (Points[1].transform.position + Points[1].new_pos) - (Points[0].transform.position + Points[0].new_pos);
-        float CurrentDistance = Delta.magnitude;
-
-        if (CurrentDistance > MaxLenght_xPoint)
-        {
-            Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-            //TODO: Find Rigidbody2D using property or fonction
-            Points[0].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[0].transform.position +  (Vector2)P_B);
-        }
-
-        Delta = (Points[NumPoints - 2].transform.position + Points[NumPoints - 2].new_pos)- (Points[NumPoints - 1].transform.position + Points[NumPoints - 1].new_pos);
-        CurrentDistance = Delta.magnitude;
-
-        if (CurrentDistance > MaxLenght_xPoint)
-        {
-            Vector3 P_B = (CurrentDistance - MaxLenght_xPoint) * Delta.normalized;
-            //TODO: Find Rigidbody2D using property or fonction
-            Points[NumPoints - 1].GetComponent<Rigidbody2D>().MovePosition((Vector2)Points[NumPoints - 1].transform.position + (Vector2)P_B);
-        }
-    }
-
-    private void Update_LineRender()
+    private void VisualRotation_Points()
     {
         for (int SegmentIndex = 0; SegmentIndex < NumPoints - 1; SegmentIndex++)
         {
@@ -328,8 +301,6 @@ public class Rope_System : MonoBehaviour {
                 Points[SegmentIndex].transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
             }
         }
-
-
     }
 
 
