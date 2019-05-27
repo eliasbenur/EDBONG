@@ -151,8 +151,8 @@ public class AI_collant : MonoBehaviour
             attack = true;
             anim_atack = true;
             //animator.SetBool("attack", true);
-            allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
-            allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
+            allPlayers[0].GetComponent<JoysticVibration_Manager>().alreadyVibrated = false;
+            allPlayers[1].GetComponent<JoysticVibration_Manager>().alreadyVibrated = false;
 
         }
 
@@ -211,8 +211,8 @@ public class AI_collant : MonoBehaviour
     {
         if (allPlayers.Count > 0)
         {
-            if (allPlayers[0].GetComponent<Player_Movement>().dash_v > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
-                || allPlayers[1].GetComponent<Player_Movement>().dash_v > (allPlayers[1].GetComponent<Player_Movement>().dash_delay - allPlayers[1].GetComponent<Player_Movement>().dash_time))
+            if (allPlayers[0].GetComponent<Player_Movement>().dash_tmp > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
+                || allPlayers[1].GetComponent<Player_Movement>().dash_tmp > (allPlayers[1].GetComponent<Player_Movement>().dash_delay - allPlayers[1].GetComponent<Player_Movement>().dash_time))
             {
                 return true;
             }

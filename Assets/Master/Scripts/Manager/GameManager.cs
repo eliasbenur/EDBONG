@@ -37,9 +37,6 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i< targets.Count; i++)
             players_Movement.Add(targets[i].GetComponent<Player_Movement>());
-
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
         SoundManager.Initialize();
 
         Time.timeScale = 1;
@@ -48,7 +45,6 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         Application.targetFrameRate = 300;
-        QualitySettings.vSyncCount = -1;
 
         //MUSIC
         //AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);

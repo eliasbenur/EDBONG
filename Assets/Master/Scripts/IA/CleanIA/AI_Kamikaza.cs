@@ -102,7 +102,7 @@ public class AI_Kamikaza : MonoBehaviour
         //If players are surrounding him and are moving then he exploded
         if (num_trig >= 3)
         {
-            if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0)
+            if (allPlayers[0].GetComponent<Player_Movement>().movementX != 0 || allPlayers[0].GetComponent<Player_Movement>().movementY != 0)
             {
                 timerCut += Time.deltaTime;
                 if (timerCut > timerCut_TOT)

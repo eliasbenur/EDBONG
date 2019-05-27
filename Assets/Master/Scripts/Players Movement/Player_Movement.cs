@@ -5,17 +5,25 @@ using Rewired;
 
 public class Player_Movement : MonoBehaviour {
 
-    public float speed, moveX, moveY;
-    public Vector2 movement;
-    public string horizontal, vertical;
-    public string horizontal_clavier, vertical_clavier;
-    public bool clavier_active;
+    public float speed, movementX, movementY;
+    private Vector2 movement;
+    public bool can_move = true;
+    private bool auto_movement;
+
+    public Rope_System rope_system;
+    private God_Mode god_ModeAction;
+    private JoysticVibration_Manager joysticVibrationMan;
+    private Camere_Shake_Manager camera_ShakeMan;
+    private Blinking_Effect blinking_Effect;
 
     //DASH
     public float dash_power;
+    // the time that the dash takes
     public float dash_time;
-    public float dash_v;
+    // delay between 2 dashes
     public float dash_delay;
+    public float dash_tmp = 0;
+    //Direction of the Dash
     private Vector2 dash_direction;
     public Image dash_bar;
 
@@ -25,81 +33,33 @@ public class Player_Movement : MonoBehaviour {
     public Enum_PlayerNum PlayerNum;
     public Player rew_player;
 
-    public bool auto_movement;
+    //Animation
+    private Animator animator;
+    private float idle_anim_time;
 
-    public Animator animator;
-    public float idle_anim_time;
-
-    public Rope_System rope_system;
-
-    public AudioSource running_audio;
-
-    //Blincking Effect
-    public float spriteBlinkingTimer = 0.0f;
-    public float spriteBlinkingMiniDuration = 0.1f;
-    public float spriteBlinkingTotalTimer = 0.0f;
-    public float spriteBlinkingTotalDuration = 1.0f;
-    public bool startBlinking = false;
-
-    //Camera Shake Effect
-    // Transform of the GameObject you want to shake
-    public Transform cameraTransform;
-    public float shakeDuration;
-    public float shakeMagnitude;
-    public float dampingSpeed;
-    public Vector3 initialPosition;
-
-    //Controller Vibration
-    public PlayerIndex playerIndex;
-    GamePadState prevState;
+    //Vibrations + Shake + Blinkning
     public bool testVibrationHitRope;
     public float timerRope;
-
-    public bool alreadyVibrated;
-
     public float timerTot_RopeHitVibrate;
-    public float leftMotor_RopeHit, rightMotor_RopeHit;
-    public float leftMotor_EnnemyHit, rightMotor_EnnemyHit;
-
-    public float shakeDuration_RopeHit;
-    public float shakeMagnitude_RopeHit;
-    public float dampingSpeed_RopeHit;
+    public bool startBlinking = false;
 
 
-    public God_Mode god_ModeAction;
-
-    public Collider2D collisionItems;
-
-    public bool can_move = true;
 
     private void Awake()
     {
-        cameraTransform = Camera.main.GetComponent<Transform>();
         god_ModeAction = GetComponent<God_Mode>();
-        collisionItems = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        joysticVibrationMan = GetComponent<JoysticVibration_Manager>();
+        camera_ShakeMan = Camera.main.GetComponent<Camere_Shake_Manager>();
+        blinking_Effect = GetComponent<Blinking_Effect>();
     }
 
     private void Start()
     {
-        dash_v = 0;
         idle_anim_time = -1;
 
         //Player Inputs
         set_Solo_Mode();
-
-        /*AnalyticsResult result = Analytics.CustomEvent("Test");
-        // This should print "Ok" if the event was sent correctly.
-        Debug.Log(result);
-
-        AnalyticsEvent.LevelStart(1);
-
-        AnalyticsEvent.Custom("Analytics Event");
-        Analytics.CustomEvent("Analytics X", transform.position);*/
-
-        Physics2D.IgnoreLayerCollision(8, 18);
-        Physics2D.IgnoreLayerCollision(19, 20);
-
-
     }
 
     public void set_Solo_Mode()
@@ -126,32 +86,33 @@ public class Player_Movement : MonoBehaviour {
         if (god_ModeAction.godMode == false)
             god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
 
+
+        ///////// A CLEAN ////////////////
         if (testVibrationHitRope)
         {
-            Vibrate_Control(leftMotor_RopeHit, rightMotor_RopeHit);
-            initialPosition = Camera.main.transform.position;
-            CameraShake_RopeHit();
-            shakeDuration_RopeHit = 0.2f;
+            joysticVibrationMan.Vibrate_Control_Kill();
+            camera_ShakeMan.start_Shake_Kill(0.2f);
             timerRope += Time.deltaTime;
             if (timerRope > timerTot_RopeHitVibrate)
             {
                 testVibrationHitRope = false;
-                timerRope = 0;
+                god_ModeAction.godMode = false;
+                timerRope = 0;  
             }
         }
 
-        if (!testVibrationHitRope || alreadyVibrated)
-            Vibrate_Control(0, 0);
+        if (!testVibrationHitRope || joysticVibrationMan.alreadyVibrated)
+            joysticVibrationMan.Vibrate_Control(0, 0);
 
         if (startBlinking)
         {
-            alreadyVibrated = false;
-            Vibrate_Control(leftMotor_EnnemyHit, rightMotor_EnnemyHit);
-            initialPosition = Camera.main.transform.position;
-            shakeDuration = 0.3f;
-            SpriteBlinkingEffect();
-            CameraShake();
+            joysticVibrationMan.alreadyVibrated = false;
+            joysticVibrationMan.Vibrate_Control_Hit();
+            camera_ShakeMan.start_Shake_Hit(0.3f);
+            blinking_Effect.SpriteBlinkingEffect();
         }
+        /////////////////////////
+
         if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.get_points().Count > 0)
         {
             transform.position = rope_system.get_points()[0].transform.position;
@@ -162,13 +123,13 @@ public class Player_Movement : MonoBehaviour {
         }
 
 
-        if (dash_v > 0)
+        if (dash_tmp > 0)
         {
-            dash_v -= Time.fixedDeltaTime;
+            dash_tmp -= Time.fixedDeltaTime;
         }
         else
         {
-            dash_v = 0;
+            dash_tmp = 0;
         }
 
         if (modo_solo)
@@ -177,13 +138,13 @@ public class Player_Movement : MonoBehaviour {
             {
                 if (can_move)
                 {
-                    moveX = rew_player.GetAxis("MoveHorizontal_p1");
-                    moveY = rew_player.GetAxis("MoveVertical_p1");
+                    movementX = rew_player.GetAxis("MoveHorizontal_p1");
+                    movementY = rew_player.GetAxis("MoveVertical_p1");
                 }
-                if (rew_player.GetButtonDown("Dash_p1") && dash_v <= 0 && new Vector2(moveX,moveY) != Vector2.zero)
+                if (rew_player.GetButtonDown("Dash_p1") && dash_tmp <= 0 && new Vector2(movementX,movementY) != Vector2.zero)
                 {
-                    dash_v = dash_delay;
-                    dash_direction = new Vector2(moveX,moveY).normalized;
+                    dash_tmp = dash_delay;
+                    dash_direction = new Vector2(movementX,movementY).normalized;
                     //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(19, 21);
                     god_ModeAction.timerGodMode = 1.5f;
@@ -195,14 +156,14 @@ public class Player_Movement : MonoBehaviour {
             {
                 if (can_move)
                 {
-                    moveX = rew_player.GetAxis("MoveHorizontal_p2");
-                    moveY = rew_player.GetAxis("MoveVertical_p2");
+                    movementX = rew_player.GetAxis("MoveHorizontal_p2");
+                    movementY = rew_player.GetAxis("MoveVertical_p2");
                 }
 
-                if (rew_player.GetButtonDown("Dash_p2") && dash_v <= 0 && new Vector2(moveX, moveY) != Vector2.zero)
+                if (rew_player.GetButtonDown("Dash_p2") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
                 {
-                    dash_v = dash_delay;
-                    dash_direction = new Vector2(moveX, moveY).normalized;
+                    dash_tmp = dash_delay;
+                    dash_direction = new Vector2(movementX, movementY).normalized;
                     // rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(20, 21);
                     god_ModeAction.timerGodMode = 1.5f;
@@ -215,14 +176,14 @@ public class Player_Movement : MonoBehaviour {
         {
             if (can_move)
             {
-                moveX = rew_player.GetAxis("MoveHorizontal");
-                moveY = rew_player.GetAxis("MoveVertical");
+                movementX = rew_player.GetAxis("MoveHorizontal");
+                movementY = rew_player.GetAxis("MoveVertical");
             }
 
-            if (rew_player.GetButtonDown("Dash") && dash_v <= 0 && new Vector2(moveX, moveY) != Vector2.zero)
+            if (rew_player.GetButtonDown("Dash") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
             {
-                dash_v = dash_delay;
-                dash_direction = new Vector2(moveX, moveY).normalized;
+                dash_tmp = dash_delay;
+                dash_direction = new Vector2(movementX, movementY).normalized;
 
                 if (PlayerNum == Enum_PlayerNum.PlayerOne)
                 {
@@ -245,24 +206,24 @@ public class Player_Movement : MonoBehaviour {
             }
         }
 
-        if (moveX > 0)
+        if (movementX > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if (moveX < 0)
+        else if (movementX < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         //Runing Animation
-        if (moveX == 0 && moveY == 0)
+        if (movementX == 0 && movementY == 0)
         {
             animator.SetInteger("input_x", 0);
             animator.SetInteger("input_y", 0);
         }
-        else if (Mathf.Abs(moveX) > Mathf.Abs(moveY))
+        else if (Mathf.Abs(movementX) > Mathf.Abs(movementY))
         {
-            if (moveX > 0)
+            if (movementX > 0)
             {
                 animator.SetInteger("input_x", 1);
                 animator.SetInteger("input_y", 0);
@@ -275,7 +236,7 @@ public class Player_Movement : MonoBehaviour {
 
         }else
         {
-            if (moveY > 0)
+            if (movementY > 0)
             {
                 animator.SetInteger("input_x", 0);
                 animator.SetInteger("input_y", 1);
@@ -290,10 +251,10 @@ public class Player_Movement : MonoBehaviour {
         // If Player dont move, play idle anim
         idle_anim();
 
-        Move(moveX, moveY);
+        Move(movementX, movementY);
 
         //Audio
-        if (moveX != 0 || moveY != 0)
+        if (movementX != 0 || movementY != 0)
         {
             //running_audio.UnPause();
             //SoundManager.PlaySound(SoundManager.Sound.PlayerFTS);
@@ -305,7 +266,7 @@ public class Player_Movement : MonoBehaviour {
 
         //UI
         dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20, 35, 0);
-        dash_bar.fillAmount = dash_v / dash_delay;
+        dash_bar.fillAmount = dash_tmp / dash_delay;
 
 
 
@@ -313,11 +274,11 @@ public class Player_Movement : MonoBehaviour {
 
     void idle_anim()
     {
-        if (moveX == 0 && moveY == 0 && idle_anim_time == -1)
+        if (movementX == 0 && movementY == 0 && idle_anim_time == -1)
         {
             idle_anim_time = Random.Range(10.0f, 30.0f);
             animator.SetBool("idle_right_bool", false);
-        }else if (moveX != 0 || moveY != 0 )
+        }else if (movementX != 0 || movementY != 0 )
         {
             idle_anim_time = -1;
         }
@@ -335,7 +296,7 @@ public class Player_Movement : MonoBehaviour {
 
     public void Move(float MoveX, float MoveY)
     {
-        movement.Set(moveX, moveY);
+        movement.Set(movementX, movementY);
 
         bool hole_coll = false;
 
@@ -344,7 +305,7 @@ public class Player_Movement : MonoBehaviour {
         int layerMask2 = 2097152; //21
         int layermasr_f = layerMask | layerMask2;
 
-        if (!(dash_v > (dash_delay - dash_time)))
+        if (!(dash_tmp > (dash_delay - dash_time)))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, movement.magnitude, layermasr_f); // 2 ^ 21
             if (hit.collider != null)
@@ -376,7 +337,7 @@ public class Player_Movement : MonoBehaviour {
 
         // OTHER ROPES
 
-        if (dash_v > (dash_delay - dash_time))
+        if (dash_tmp > (dash_delay - dash_time))
         {
             ///////////////////
 
@@ -429,13 +390,6 @@ public class Player_Movement : MonoBehaviour {
 
     }
 
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "Item")
-    //    {
-    //        god_ModeAction.KeyPressed = false;
-    //    }
-    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -445,94 +399,19 @@ public class Player_Movement : MonoBehaviour {
         }
         if (collision.gameObject.tag == "coll_hole")
         {
-            if (dash_v > (dash_delay - dash_time))
+            if (dash_tmp > (dash_delay - dash_time))
             {
                 //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>(), true);
             }
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Trap")
-        {
-            //checkLifePlayers.Hit();
-        }
-
-        //if (collision.tag == "Item")
-        //{
-        //    god_ModeAction.KeyPressed = true;
-        //    collisionItems = collision;
-        //}
-
-    }
-
-    private void SpriteBlinkingEffect()
-    {
-        spriteBlinkingTotalTimer += Time.deltaTime;
-        if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
-        {
-            startBlinking = false;
-            alreadyVibrated = true;
-            spriteBlinkingTotalTimer = 0.0f;
-            //this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to your sprite
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255,255,255,255);
-            return;
-        }
-
-        spriteBlinkingTimer += Time.deltaTime;
-        if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
-        {
-            spriteBlinkingTimer = 0.0f;
-            if (this.gameObject.GetComponent<SpriteRenderer>().color == new Color(255, 255, 255, 255))
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
-            }
-            else
-            {
-                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-            }
-        }
-    }
-
-    void CameraShake()
-    {
-        if (shakeDuration > 0)
-        {
-            cameraTransform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
-            shakeDuration -= Time.deltaTime * dampingSpeed;
-        }
-        else
-        {
-            cameraTransform.localPosition = initialPosition;
-            god_ModeAction.godMode = false;
-        }
-    }
-
-    void CameraShake_RopeHit()
-    {
-        if (shakeDuration_RopeHit > 0)
-        {
-            cameraTransform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude_RopeHit;
-            shakeDuration_RopeHit -= Time.deltaTime * dampingSpeed_RopeHit;
-        }
-        else
-        {
-            cameraTransform.localPosition = initialPosition;
-            god_ModeAction.godMode = false;
-        }
-    }
 
     public void Stop_Moving()
     {
         can_move = false;
-        moveX = 0;
-        moveY = 0;
+        movementX = 0;
+        movementY = 0;
     }
 
     public void Allow_Moving()
@@ -541,10 +420,7 @@ public class Player_Movement : MonoBehaviour {
     }
 
 
-    public void Vibrate_Control(float leftMotor, float rightMotor)
-    {
-        GamePad.SetVibration(playerIndex, leftMotor, rightMotor);
-    }
+
 
     private Vector2 PixelPerfectClamp(Vector2 moveVector, float pixelsPerUnit)
     {

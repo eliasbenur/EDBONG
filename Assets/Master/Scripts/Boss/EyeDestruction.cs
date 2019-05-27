@@ -97,7 +97,7 @@ public class EyeDestruction : MonoBehaviour
         {
             if (num_trig >= num_triggered)
             {
-                if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+                if (allPlayers[0].GetComponent<Player_Movement>().movementX != 0 || allPlayers[0].GetComponent<Player_Movement>().movementY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
                 {
                     timerCut += Time.deltaTime;
                     if (timerCut > timerCut_TOT)
@@ -146,7 +146,7 @@ public class EyeDestruction : MonoBehaviour
             //If the ennemy is beatable just with a dash finish move
             if (num_trig >= num_triggered && Player_dashing())
             {
-                if (allPlayers[0].GetComponent<Player_Movement>().moveX != 0 || allPlayers[0].GetComponent<Player_Movement>().moveY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+                if (allPlayers[0].GetComponent<Player_Movement>().movementX != 0 || allPlayers[0].GetComponent<Player_Movement>().movementY != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
                 {
                     timerCut += Time.deltaTime;
                     if (timerCut > timerCut_TOT)
@@ -179,8 +179,8 @@ public class EyeDestruction : MonoBehaviour
 
     public bool Player_dashing()
     {
-        if (allPlayers[0].GetComponent<Player_Movement>().dash_v > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
-            || allPlayers[1].GetComponent<Player_Movement>().dash_v > (allPlayers[1].GetComponent<Player_Movement>().dash_delay - allPlayers[1].GetComponent<Player_Movement>().dash_time))
+        if (allPlayers[0].GetComponent<Player_Movement>().dash_tmp > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
+            || allPlayers[1].GetComponent<Player_Movement>().dash_tmp > (allPlayers[1].GetComponent<Player_Movement>().dash_delay - allPlayers[1].GetComponent<Player_Movement>().dash_time))
         {
             return true;
         }
@@ -213,8 +213,8 @@ public class EyeDestruction : MonoBehaviour
     {
         if (other.gameObject.tag == "player")
         {
-            allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
-            allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
+            allPlayers[0].GetComponent<JoysticVibration_Manager>().alreadyVibrated = false;
+            allPlayers[1].GetComponent<JoysticVibration_Manager>().alreadyVibrated = false;
         }
     }
 

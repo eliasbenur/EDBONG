@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2688556095755458900}
   - component: {fileID: 2688556095755458904}
   - component: {fileID: 2688556095755458902}
+  - component: {fileID: 1961432416586514093}
   - component: {fileID: 2688556095755458905}
   - component: {fileID: 2688556095755458907}
   - component: {fileID: 2688556095755458909}
@@ -205,9 +206,9 @@ MonoBehaviour:
   life: 0
   shieldPoint: 0
   gameOverCanvas: {fileID: 0}
-  lifeDisplay: {fileID: 0}
   shieldGameObject: {fileID: 0}
   players: []
+  players_Movement: []
 --- !u!114 &2688556095755458902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2688556095755458908}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0508d2fd6e6c409dab881d0ed203bb8, type: 3}
   m_Name: 
@@ -223,6 +224,27 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: f2ba84988f2cacb4db185df3230a7c56, type: 3}
   spriteLightRT: {fileID: 0}
   intensity: 0
+--- !u!114 &1961432416586514093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688556095755458908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220cd49a3d1b589409e3b3be36dd494a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPosition: {x: 0, y: 0, z: 0}
+  shakeDuration_RopeHit: 0.2
+  cameraTransform: {fileID: 0}
+  shakeMagnitude_RopeHit: 0.2
+  dampingSpeed_RopeHit: 0.25
+  god_Mode: {fileID: 0}
+  shakeDuration: 0.3
+  shakeMagnitude: 0.1
+  dampingSpeed: 0.1
 --- !u!82 &2688556095755458905
 AudioSource:
   m_ObjectHideFlags: 0
@@ -332,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
+  endScreen: {fileID: 0}
 --- !u!114 &2688556095755458909
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class Detection_dash_Distance : MonoBehaviour
     {
         if (checkPlayers.allPlayers.Count > 0)
         {
-            if (checkPlayers.allPlayers[0].GetComponent<Player_Movement>().dash_v > (checkPlayers.allPlayers[0].GetComponent<Player_Movement>().dash_delay - checkPlayers.allPlayers[0].GetComponent<Player_Movement>().dash_time)
-                || checkPlayers.allPlayers[1].GetComponent<Player_Movement>().dash_v > (checkPlayers.allPlayers[1].GetComponent<Player_Movement>().dash_delay - checkPlayers.allPlayers[1].GetComponent<Player_Movement>().dash_time))
+            if (checkPlayers.allPlayers[0].GetComponent<Player_Movement>().dash_tmp > (checkPlayers.allPlayers[0].GetComponent<Player_Movement>().dash_delay - checkPlayers.allPlayers[0].GetComponent<Player_Movement>().dash_time)
+                || checkPlayers.allPlayers[1].GetComponent<Player_Movement>().dash_tmp > (checkPlayers.allPlayers[1].GetComponent<Player_Movement>().dash_delay - checkPlayers.allPlayers[1].GetComponent<Player_Movement>().dash_time))
             {
                 return true;
             }
