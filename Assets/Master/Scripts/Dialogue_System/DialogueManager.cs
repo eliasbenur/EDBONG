@@ -44,7 +44,6 @@ public class DialogueManager : MonoBehaviour{
     /*Load all the data */
     public void StartDialogue(Dialogue dialogue)
     {
-
         animator.SetBool("IsOpen", true);
 
         sentences.Clear();

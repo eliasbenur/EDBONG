@@ -52,16 +52,13 @@ public class God_Mode : MonoBehaviour
                 godMode = true;
             }
             else if (player == "PlayerUndefined" || player == "TwoOfThem")
-            {        
-                for(int j =0;j < hit_check.players.Count;j++)
+            {
+                if (!hit_check.players[0].godMode && !hit_check.players[1].godMode)
                 {
-                    if (!hit_check.players[j].godMode)
-                        hit_check.players[j].godMode = true;
-                    else
-                        break;
-                }
-                hit_check.Hit(player, pos, who_hit);
-                blinking_Player.startBlinking = true;
+                    hit_check.players[0].godMode = true;
+                    hit_check.players[1].godMode = true;
+                    hit_check.Hit(player, pos, who_hit);
+                }        
             }
         }
     }

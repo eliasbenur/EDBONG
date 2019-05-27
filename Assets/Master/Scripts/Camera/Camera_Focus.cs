@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera_Focus : MonoBehaviour{
@@ -14,9 +13,7 @@ public class Camera_Focus : MonoBehaviour{
     private List<Transform> targets = new List<Transform>();
 
     // Velocity that is moving the camera with SmoothDamp
-    private Vector3 velocity;
-
-    
+    private Vector3 velocity;  
     #endregion
 
 
@@ -29,13 +26,12 @@ public class Camera_Focus : MonoBehaviour{
     }
 
     private void Update(){
-        update_cam();
+        Update_cam();
     }
 
     /* Updates the position of the Camera, with SmoothDamp */
-    public void update_cam(){
+    public void Update_cam(){
         Vector3 centerPoint = GetCenterPoint();
-
         Vector3 newPosition = centerPoint + offset;
         camera.transform.position = Vector3.SmoothDamp(camera.transform.position, newPosition, ref velocity, smoothTime);
     }

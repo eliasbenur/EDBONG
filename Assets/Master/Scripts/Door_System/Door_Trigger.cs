@@ -8,7 +8,7 @@ public class Door_Trigger : MonoBehaviour
 {
     private BoxCollider2D triger_coll;
     private Vector2 autorun_position;
-    private Player_Movement playerone, playertwo;
+    public Player_Movement playerone, playertwo;
 
     private int NumPlayer_inside = 0;
     private bool autoruning;
@@ -20,21 +20,33 @@ public class Door_Trigger : MonoBehaviour
 
     private bool auto_run_1time;
 
+    private GameManager playersList;
+    private Animator animator;
+
+    private void Awake()
+    {
+        playersList = Camera.main.GetComponent<GameManager>();
+        animator = GetComponent<Animator>();
+    } 
+
     void Start()
     {
         triger_coll = gameObject.GetComponents<BoxCollider2D>()[0];
         autorun_position = gameObject.transform.GetChild(0).transform.position;
-        playerone = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
-        playertwo = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
+        for(int i=0; i < playersList.players_Movement.Count; i++)
+        {
+            if (playersList.players_Movement[i].name == "PlayerOne")
+                playerone = playersList.players_Movement[i];
+            else
+                playertwo = playersList.players_Movement[i];
+        }
         Num_points = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
     }
 
     void Update()
     {
         if (autoruning)
-        {
             Player_AutoRun();
-        }
     }
 
     public void Stop_AutoRuning()
@@ -45,7 +57,7 @@ public class Door_Trigger : MonoBehaviour
             gameObject.transform.GetChild(1).GetComponent<BoxCollider2D>().enabled = true;
             playerone.Allow_Moving();
             playertwo.Allow_Moving();
-            GetComponent<Animator>().SetBool("open", false);
+            animator.SetBool("open", false);
             SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
         }
     }
@@ -80,8 +92,8 @@ public class Door_Trigger : MonoBehaviour
                 mov_p2 = (autorun_position - (Vector2)playertwo.transform.position).normalized;
                 StartCoroutine("Delay_Door");
                 playerone.Stop_Moving();
-                playerone.can_move = false;
-                playertwo.can_move = false;
+                for (int i = 0; i < playersList.players_Movement.Count; i++)
+                    playersList.players_Movement[i].can_move = false;
                 GetComponent<SpriteRenderer>().sprite = door_opened;
                 autoruning = true;
 
@@ -91,7 +103,7 @@ public class Door_Trigger : MonoBehaviour
                     { "Room" , transform.parent.name }
                 });
 
-                GetComponent<Animator>().SetBool("open", true);
+                animator.SetBool("open", true);
                 SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
                 auto_run_1time = true;
             }

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ChainLive : MonoBehaviour
 {
-
     private float livepoints;
     GameManager gm;
     public List<GameObject> chains_ui;
@@ -14,6 +12,7 @@ public class ChainLive : MonoBehaviour
     {
         gm = Camera.main.GetComponent<GameManager>();
     }
+
     void Update()
     {
         //If the points life have changed, update the UI
@@ -31,13 +30,9 @@ public class ChainLive : MonoBehaviour
         foreach(GameObject go in chains_ui)
         {
             if (x <= livepoints)
-            {
                 go.SetActive(true);
-            }
             else
-            {
                 go.SetActive(false);
-            }
             x++;
         }
     }

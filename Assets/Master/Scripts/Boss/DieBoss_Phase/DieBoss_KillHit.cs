@@ -5,31 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class DieBoss_KillHit : MonoBehaviour
 {
-    public float timer, timerTotBeforeDead, timerReturn;
+    //Camera Behavior
     public float smoothTime = 2f;
+    public new Camera_Focus camera;
     private Vector3 velocity;
-    public Camera_Focus camera;
+    public float offset;
+
+    public float timer, timerTotBeforeDead, timerReturn;
+     
     public GameObject canvas;
-    public float cooldown;
     public CinematicBars cinematicDie;
+
+    //Effect on the boss
     public float scale_Speed;
     public float limitScale_Boss;
     public Material default_sprite;
-    public Material flash_sprite;
-    public float offset;
-    public float speed = 1.0f; //how fast it shakes
-    public float amount = 1.0f; //how much it shakes
+    public Material flash_sprite;    
+    public float speed; //how fast it shakes
+    public float amount; //how much it shakes
     float startPosX, startPosY;
     private CapsuleCollider2D colliderBoss;
+
     public GameObject ropeCollisions;
     List<Transform> targets;
 
     private void Awake()
     {
-        camera = Camera.main.GetComponent<Camera_Focus>();
-        
+        camera = Camera.main.GetComponent<Camera_Focus>();      
         default_sprite = GetComponent<SpriteRenderer>().material;
-
         colliderBoss = GetComponent<CapsuleCollider2D>();
         targets = Camera.main.GetComponent<Camera_Focus>().GetCameraTargets();
     }
@@ -85,13 +88,19 @@ public class DieBoss_KillHit : MonoBehaviour
                 CapsuleCollider2D collider = gameObject.AddComponent<CapsuleCollider2D>();
                 collider.size = new Vector2(10, 10);
                 collider.offset = new Vector2(0.1334858f, -1.468382f);
-                collider.direction = CapsuleDirection2D.Horizontal;
+                if (collider.direction == CapsuleDirection2D.Vertical)
+                    collider.direction = CapsuleDirection2D.Horizontal;
+                else
+                    collider.direction = CapsuleDirection2D.Vertical;
+
                 cinematicDie.Hide(0.001f);
+
                 AnalyticsEvent.Custom("Boss Completed", new Dictionary<string, object>
                     {
                         { "Scene", SceneManager.GetActiveScene().name },
                         { "Room" , transform.name }
                     });
+
                 Destroy(this);
             }
         }           
@@ -100,7 +109,6 @@ public class DieBoss_KillHit : MonoBehaviour
     void ShakeSprite()
     {
         var newX = startPosX + Mathf.Sin(Time.time * speed) * amount;
-        //var newY = startPosY + Mathf.Sin(Time.time * speed) * amount;
         transform.position = new Vector3(newX, startPosY, 0);
     }
 

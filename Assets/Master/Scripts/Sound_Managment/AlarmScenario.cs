@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class AlarmScenario : MonoBehaviour
 {
+    #region Properties
     private int NumPlayer_inside = 0;
     public AudioClip Alarm;
     bool audioReady;
-    AudioSource audio;
+    new AudioSource audio;
     bool canSpeak;
     public float cooldown;
     IEnumerator audioAlarm;
     public bool alarm_activated = false;
 
     public List<GameObject> alarm_list;
+    #endregion
 
     public void Awake()
     {
@@ -54,9 +56,7 @@ public class AlarmScenario : MonoBehaviour
                 for (int x = 0; x < gameObject.transform.childCount; x++)
                 {
                     if (gameObject.transform.GetChild(x).tag == "door")
-                    {
                         gameObject.transform.GetChild(x).GetComponent<Door_Trigger>().Set_auto_run_1time(true);
-                    }
                 }
             }
         }
@@ -77,17 +77,13 @@ public class AlarmScenario : MonoBehaviour
         {
             alarm_activated = true;
             foreach(GameObject alarm_ in alarm_list)
-            {
                 alarm_.transform.GetChild(0).gameObject.SetActive(true);
-            }
         }
     }
 
     public void Desactive_alamrs()
     {
         foreach (GameObject alarm_ in alarm_list)
-        {
             alarm_.transform.GetChild(0).gameObject.SetActive(false);
-        }
     }
 }

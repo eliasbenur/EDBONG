@@ -1,26 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LaserCollision : MonoBehaviour
 {
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "player")
         {
             if (collision.name == "PlayerOne")
             {
-                Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Laser");
+                if (!collision.gameObject.GetComponent<God_Mode>().godMode)
+                {
+                    collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Laser");
+                }
             }
             else
             {
-                Camera.main.GetComponent<God_Mode>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Laser");
-            }
+                if (!collision.gameObject.GetComponent<God_Mode>().godMode)
+                {
+                    collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Laser");
+                }
+            }     
         }
 
     }

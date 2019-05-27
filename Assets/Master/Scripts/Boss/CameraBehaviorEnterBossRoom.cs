@@ -1,74 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraBehaviorEnterBossRoom : MonoBehaviour
 {
+    #region Properties
     bool detected;
     public float smoothTime = 2f;
     private Vector3 velocity;
     public GameObject Boss;
     public float timer, timerTot;
-    public Camera camera;
 
     public float offsetCamera;
-
     public GameObject canvas;
-
     public CinematicBars cinematic;
-    public AudioClip bossMusic;
-    AudioSource audio;
-    bool audioReady, lerpAudioBoss, alreadyPlaying;
-    public GameObject stopAlarm;
-    public float MaxVolumeBoss;
     public GameObject miniMap;
 
+    private new Camera_Focus camera;
+    private StartCombatBossGestion combatBoss;
+    #endregion
     private void Awake()
     {
-        audio = Camera.main.GetComponent<AudioSource>();
-        camera = Camera.main;
+        camera = Camera.main.GetComponent<Camera_Focus>();
+        combatBoss = GetComponent<StartCombatBossGestion>();
         offsetCamera = 14;
     }
 
     private void FixedUpdate()
     {
-        if(audioReady)
-        {
-            audio.volume -= Time.deltaTime * 0.65f;
-            stopAlarm.GetComponent<AlarmScenario>().StopAllCoroutines();
-            GameObject.Find("Room_7_Alarm").GetComponent<AlarmScenario>().Desactive_alamrs();
-            if (audio.volume == 0)
-            {
-                lerpAudioBoss = true;
-                audioReady = false;
-            }
-        }
-
-        if(lerpAudioBoss)
-        {
-            audio.clip = bossMusic;
-            if(!alreadyPlaying)
-            {
-                audio.Play();
-                alreadyPlaying = true;
-            }
-            
-            audio.volume += Time.deltaTime * 0.15f;
-            if (audio.volume >= MaxVolumeBoss)
-                lerpAudioBoss = false;
-        }
-
         if(detected)
         {
             miniMap.SetActive(false);
             cinematic.Show(200, 0.8f);
             canvas.SetActive(false);
-            camera.GetComponent<Camera_Focus>().enabled = false;
+            camera.enabled = false;
             var desactivate = GameObject.FindGameObjectsWithTag("player");
             for (int i = 0; i < desactivate.Length; i++)
             {
-                //desactivate[i].GetComponent<Animator>().enabled = false;              
-                //desactivate[i].GetComponent<Player_Movement>().enabled = false;
                 desactivate[i].GetComponent<Player_Movement>().Stop_Moving();
             }
             camera.transform.position = Vector3.SmoothDamp(Camera.main.transform.position,new Vector3(Boss.transform.position.x, Boss.transform.position.y - offsetCamera,camera.transform.position.z), ref velocity, smoothTime);
@@ -81,7 +47,7 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
                 {
                     if(Boss.GetComponent<Collider2D>().GetType() == typeof(CapsuleCollider2D)) Boss.GetComponent<Collider2D>().enabled = true;
                 }
-                GetComponent<StartCombatBossGestion>().enabled = true;
+                combatBoss.enabled = true;
                 Boss.GetComponent<Animator>().enabled = true;
                 Destroy(this);
             }
@@ -94,7 +60,6 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
         if(collision.gameObject.tag == "player" && !detected)
         {
             detected = true;
-            audioReady = true;
             GetComponent<Collider2D>().enabled = false;        
         }
     }

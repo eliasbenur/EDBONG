@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class End_AutoRun : MonoBehaviour
 {
@@ -14,13 +12,9 @@ public class End_AutoRun : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "player")
-        {
             num_player_inside++;
-        }
 
         if (num_player_inside == 2)
-        {
             Stop_Runing();
-        }
     }
 }

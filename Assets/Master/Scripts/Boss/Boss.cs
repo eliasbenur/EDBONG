@@ -135,7 +135,7 @@ public class Boss : MonoBehaviour
         if(returnCamera)
         {
             Camera.main.GetComponent<Camera_Focus>().enabled = true;
-            Camera.main.GetComponent<Camera_Focus>().update_cam();
+            Camera.main.GetComponent<Camera_Focus>().Update_cam();
             var activate = GameObject.FindGameObjectsWithTag("player");
             for (int i = 0; i < activate.Length; i++)
             {

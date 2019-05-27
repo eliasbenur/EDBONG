@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float shieldPoint;
     //Control of the life/ shield
     public GameObject gameOverCanvas;
-    private Slider displayLife;
-    public GameObject lifeDisplay;
+
     public GameObject shieldGameObject;
     private Slider shieldDisplay;
 
     List<Transform> targets;
     public List<God_Mode> players;
+    public List<Player_Movement> players_Movement;
     #endregion
 
     public void Awake()
@@ -30,15 +30,13 @@ public class GameManager : MonoBehaviour
 
         //Display UI
         shieldDisplay = GameObject.Find("SliderShield").GetComponent<Slider>();   
-        displayLife = GameObject.Find("SliderHealth").GetComponent<Slider>();
-        displayLife.maxValue = life;
-        lifeDisplay.SetActive(true);
 
         targets = GetComponent<Camera_Focus>().GetCameraTargets();
         for(int i = 0; i< targets.Count;i++)
-        {
             players.Add(targets[i].GetComponent<God_Mode>());
-        }
+
+        for(int i = 0; i< targets.Count; i++)
+            players_Movement.Add(targets[i].GetComponent<Player_Movement>());
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
@@ -48,7 +46,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void Start()
-    {       
+    {
+        Application.targetFrameRate = 300;
+        QualitySettings.vSyncCount = -1;
+
         //MUSIC
         //AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
     }
@@ -61,8 +62,7 @@ public class GameManager : MonoBehaviour
         {
             shieldGameObject.SetActive(true);
             shieldDisplay.value = shieldPoint;
-        }
-        displayLife.value = life;            
+        }       
     }
 
     public void Check_GameOver(Vector3 pos, string who_hit)
@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
                 { "who_hit" , who_hit }
             });
             gameOverCanvas.SetActive(true);
-            lifeDisplay.SetActive(false);
             Time.timeScale = 0;
         }
     }
@@ -100,6 +99,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             if(player == players[i].name)
+                players[i].blinking_Player.startBlinking = true;
+            else if(player == "PlayerUndefined" || player == "TwoOfThem")
                 players[i].blinking_Player.startBlinking = true;
         } 
         Check_GameOver(pos, who_hit);

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -13,15 +11,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {      
-        PlayerPrefs.SetFloat("player_X", Camera.main.GetComponent<GameManager>().transform.position.x);
-        PlayerPrefs.SetFloat("player_Y", Camera.main.GetComponent<GameManager>().transform.position.y);
-
-
         if (collision.tag == "player")
         {
             TriggerDialogue();
             Destroy(gameObject); 
         }
     }
-
 }

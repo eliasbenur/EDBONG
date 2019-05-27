@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using XInputDotNetPure;
 using Rewired;
-using UnityEngine.Analytics;
 
 public class Player_Movement : MonoBehaviour {
 
@@ -126,10 +123,7 @@ public class Player_Movement : MonoBehaviour {
 
     private void Update()
     {
-
         if (god_ModeAction.godMode == false)
-            god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
-        if(god_ModeAction.godMode == false)
             god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
 
         if (testVibrationHitRope)

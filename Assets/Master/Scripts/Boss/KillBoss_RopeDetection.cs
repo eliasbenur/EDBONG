@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class KillBoss_RopeDetection : MonoBehaviour
 {
@@ -350,7 +352,13 @@ public class KillBoss_RopeDetection : MonoBehaviour
         }
         else
         {
-            GameObject.Find("EndofLevel").GetComponent<Floor_System>().EndScreen();
+            AnalyticsEvent.LevelComplete(SceneManager.GetActiveScene().name, new Dictionary<string, object>
+            {
+                { "HP", Camera.main.GetComponent<GameManager>().life },
+                { "time_passed", Time.timeSinceLevelLoad },
+                { "num_hits" , Camera.main.GetComponent<GameManager>().num_hits }
+            });
+            Camera.main.GetComponent<Menu_Manager>().EndScreen();
             Destroy(transform.parent.gameObject);          
         }
         yield return null;
