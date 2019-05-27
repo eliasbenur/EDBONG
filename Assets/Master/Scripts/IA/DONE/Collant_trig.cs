@@ -1,11 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collant_trig : MonoBehaviour{
 
-    float delay;
-    float cur_delay;
+    #region Properties
+    private float delay;
+    private float cur_delay;
+
+    private Detection_dash_Distance dash_Check;
+    private Movement_IA_Collant check_point;
+    private new CircleCollider2D collider;
+    #endregion
+
+    private void Awake()
+    {
+        dash_Check = transform.parent.GetComponent<Detection_dash_Distance>();
+        check_point = transform.parent.GetComponent<Movement_IA_Collant>();
+        collider = transform.parent.GetComponent<CircleCollider2D>();
+    }
 
     private void Start()
     {
@@ -15,15 +26,11 @@ public class Collant_trig : MonoBehaviour{
 
     private void Update()
     {
-        if (transform.parent.GetComponent<Detection_dash_Distance>().Player_dashing() && cur_delay >= delay)
-        {
-            cur_delay = 0;
-        }
+        if (dash_Check.Player_dashing() && cur_delay >= delay)        
+            cur_delay = 0;        
 
-        if (cur_delay < delay)
-        {
+        if (cur_delay < delay)        
             cur_delay += Time.deltaTime;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,28 +42,24 @@ public class Collant_trig : MonoBehaviour{
             {
                 //Then we takes off, and in delay's value, he would not be able to stick again
                 collision.gameObject.GetComponent<Rope_Point>().enemie_coll = true;
-                if (transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll == null)
+                if (check_point.point_to_coll == null)
                 {
-                    transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll = collision.gameObject;
-                    transform.parent.GetComponent<CircleCollider2D>().isTrigger = true;
+                    check_point.point_to_coll = collision.gameObject;
+                    collider.isTrigger = true;
                 }
             }
         }
         else
         {
-            transform.parent.GetComponent<Movement_IA_Collant>().point_to_coll = null;
-            transform.parent.GetComponent<CircleCollider2D>().isTrigger = false;
+            check_point.point_to_coll = null;
+            collider.isTrigger = false;
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 9)
-        {
             collision.gameObject.GetComponent<Rope_Point>().enemie_coll = false;
-            //transform.parent.GetComponent<AI_collant>().point_to_coll = null;
-        }
     }
 }
 

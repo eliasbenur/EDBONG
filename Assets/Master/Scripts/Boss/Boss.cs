@@ -80,7 +80,7 @@ public class Boss : MonoBehaviour
 
     public float smoothTime = 2f;
     private Vector3 velocity;
-    public Camera_Focus camera;
+    public new Camera_Focus camera;
     public bool cameraMoving;
     public bool returnCamera;
     public bool CameraTestOneTime;

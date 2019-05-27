@@ -9,26 +9,23 @@ public class DieBoss_Phase : MonoBehaviour
     public float timer, timerTotBeforeDead, timerReturn;
     public float smoothTime = 2f;
     private Vector3 velocity;
-    public GameObject camera;
+    public new GameObject camera;
     public GameObject canvas;
 
     bool checkedMonsters;
 
     public GameObject dieSmoke1, dieSmoke2;
-    bool canSpawn;
     public float cooldown;
 
     public CinematicBars cinematicDie;
 
     public GameObject endOfLevelTrap;
-    God_Mode desactivateGodMode;
 
     List<Transform> targets;
 
     private void Awake()
     {
         camera = Camera.main.gameObject;
-        desactivateGodMode = Camera.main.GetComponent<God_Mode>();
 
         targets = GetComponent<Camera_Focus>().GetCameraTargets();
     }
@@ -102,7 +99,6 @@ public class DieBoss_Phase : MonoBehaviour
                 smoke.transform.localScale = new Vector2(size, size);
                 break;
         }
-        canSpawn = false;
         yield return new WaitForSeconds(cooldown);
         if(cooldown > 0.1)
             cooldown *= 0.9f;

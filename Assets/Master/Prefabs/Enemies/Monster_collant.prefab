@@ -410,10 +410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionDistance: 200
   enemySpeed: 2
-  delay_Action: 1
   point_to_coll: {fileID: 0}
-  init_IA: {fileID: 2793199525298077276}
-  checkDistance: {fileID: 9145546348866974943}
+  rope_system: {fileID: 0}
 --- !u!114 &2793199525298077276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,3 +439,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca824478d2f56574db97ea128f3ae40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []

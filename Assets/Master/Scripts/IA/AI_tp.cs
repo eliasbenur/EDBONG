@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AI_tp : MonoBehaviour{
 
+    #region Properties
+
     public float delay_tp;
     float curr_delay_tp;
-
     public List<Transform> targets;
-
     public Rope_System rope_system;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()

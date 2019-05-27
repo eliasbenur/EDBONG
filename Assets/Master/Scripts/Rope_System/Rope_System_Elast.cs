@@ -18,9 +18,6 @@ public class Rope_System_Elast : MonoBehaviour {
     public int Iterations;
     public LineRenderer _lineRenderer;
 
-    private float TimeRemainder = 0f;
-    private float SubstepTime = 0.02f;
-
     public Transform CableStart;
     public Transform CableEnd;
 
@@ -38,7 +35,7 @@ public class Rope_System_Elast : MonoBehaviour {
     public Sprite chainB;
 
 
-
+      
 
     [System.Serializable] public struct coll_pos
     {

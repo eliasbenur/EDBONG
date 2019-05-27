@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Initialisation_Rope : MonoBehaviour
 {
+    #region Properties
     //List of all players on the scene
-    public List<GameObject> allPlayers = new List<GameObject>();
+    [HideInInspector] public List<GameObject> allPlayers = new List<GameObject>();
     //Actual target of the monster
-    public GameObject target;
-    public Rope_System rope_system;
+    [HideInInspector] public GameObject target;
+    [HideInInspector] public Rope_System rope_system;
+    #endregion
 
     // Use this for initialization
     void Start()
