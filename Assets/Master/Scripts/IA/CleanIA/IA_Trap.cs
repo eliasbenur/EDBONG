@@ -84,8 +84,8 @@ public class IA_Trap : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
-            allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
+            allPlayers[0].GetComponent<JoysticVibration_Manager>().alreadyVibrated = false;
+            allPlayers[1].GetComponent<JoysticVibration_Manager>().alreadyVibrated = false;
         }
     }
 
