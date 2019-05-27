@@ -163,6 +163,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="play_buy_item" ID="{A50EBFD2-9E22-44AA-89C1-270CCB63D5C1}">
+							<ChildrenList>
+								<Action Name="" ID="{C5D507E7-8E84-4278-97DB-92F4AD3F89AC}" ShortID="251565531">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="buy_item" ID="{3C45107B-5754-4C87-B136-14C7A7B4CB33}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="play_music" ID="{CEA11A42-1993-46BE-A172-A57A19A43F2E}">
@@ -243,13 +257,37 @@
 						</Event>
 						<Event Name="play_boss_laser" ID="{B21E52FD-BCEF-492F-BC69-0A25817248F8}">
 							<ChildrenList>
-								<Action Name="" ID="{BB6EC5E0-E3AB-48E2-AA16-7E64643B5879}" ShortID="868469819">
+								<Action Name="" ID="{4AC31574-0B5E-4FF0-BEB9-3F3B9F15508E}" ShortID="555467356">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Boss_laser" ID="{EA8BA28E-C4F7-4559-AEC5-F203A5042B4D}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+											<ObjectRef Name="Boss_laser_start" ID="{741E88E5-9AB9-49BD-923E-F56CDA21ED64}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="play_boss_laser_stop" ID="{773BD482-B8EE-4AA6-8670-154BDCB8A9BE}">
+							<ChildrenList>
+								<Action Name="" ID="{14C715AF-5E16-48F0-A68B-8BD016ECACE3}" ShortID="292546387">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Boss_laser_stop" ID="{EA8BA28E-C4F7-4559-AEC5-F203A5042B4D}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F497B203-6DB3-4075-90EE-82A14BC8E5CB}" ShortID="30279320">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Boss_laser_start" ID="{741E88E5-9AB9-49BD-923E-F56CDA21ED64}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

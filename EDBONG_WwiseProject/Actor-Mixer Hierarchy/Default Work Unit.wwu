@@ -946,6 +946,44 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="buy_item" ID="{3C45107B-5754-4C87-B136-14C7A7B4CB33}" ShortID="875022692">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="EB_item_buy_01" ID="{963BDB1E-146B-4098-9112-69651B459F07}" ShortID="308456059">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_item_buy_01" ID="{37108FFE-A058-41A0-B7A7-B24484BBC8BB}" ShortID="520948362">
+											<Language>SFX</Language>
+											<AudioFile>EB_item_buy_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_item_buy_01" ID="{37108FFE-A058-41A0-B7A7-B24484BBC8BB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="MONSTERS" ID="{1E058064-226F-4C77-B6A5-2CECE56E8599}" ShortID="1007869906">
@@ -1334,6 +1372,139 @@
 										<ActiveSource Name="Minecraft Creeper Sound sSSSsss BOOM! (mp3cut_net)" ID="{78CCC909-17C2-42C5-AEBE-E346C5487C3C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="EB_monster1_kamikaze_01" ID="{B4A03209-4D58-4704-98C0-D23646C0890B}" ShortID="589717601">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_01" ID="{B56A7C3C-D195-4CFB-BE39-D5BE8E8B102D}" ShortID="973660132">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_01" ID="{B56A7C3C-D195-4CFB-BE39-D5BE8E8B102D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_kamikaze_02" ID="{6B983FF5-A9B9-470C-9E98-12265BFB1063}" ShortID="349703215">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_02" ID="{40C553F1-629C-4B5D-86C4-2A569E0E9E96}" ShortID="430343526">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_02.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_02" ID="{40C553F1-629C-4B5D-86C4-2A569E0E9E96}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_kamikaze_03" ID="{B97E1578-AEEA-4767-933C-57840AB7EE08}" ShortID="725855952">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_03" ID="{A0E7BD97-3FC8-4420-8847-6DB3132BFA47}" ShortID="155279632">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_03.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_03" ID="{A0E7BD97-3FC8-4420-8847-6DB3132BFA47}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_kamikaze_04" ID="{395CE92C-AF2D-4512-A7BC-54697428F278}" ShortID="650892452">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_04" ID="{46DCDB09-F937-4244-95F4-66CC43C35E9D}" ShortID="240780353">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_04.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_04" ID="{46DCDB09-F937-4244-95F4-66CC43C35E9D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_kamikaze_05" ID="{4D7F2739-E32D-49B1-BE79-036C21EE53D6}" ShortID="604635461">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_05" ID="{F19A12DC-6E41-496B-97C2-21D6BB18A813}" ShortID="441464758">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_05.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_05" ID="{F19A12DC-6E41-496B-97C2-21D6BB18A813}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_kamikaze_06" ID="{A57C4713-E146-4408-BBD0-15E747C97231}" ShortID="959943029">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_06" ID="{AC01BAD1-541D-44AF-A2FE-6F1CFD319E89}" ShortID="1053058052">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_06.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_06" ID="{AC01BAD1-541D-44AF-A2FE-6F1CFD319E89}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_monster1_kamikaze_07" ID="{DFFC3453-5513-44BA-BFC7-DBD2746CF7BA}" ShortID="495918014">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_monster1_kamikaze_07" ID="{0C8E7B40-38CF-48F8-87BD-67DCA061C243}" ShortID="461623412">
+											<Language>SFX</Language>
+											<AudioFile>EB_monster1_kamikaze_07.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_monster1_kamikaze_07" ID="{0C8E7B40-38CF-48F8-87BD-67DCA061C243}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
@@ -1357,6 +1528,11 @@
 					<ChildrenList>
 						<Sound Name="AMB_Weather_Wind_Low" ID="{D52C37AB-0158-4EF1-AC79-CF23C9F5411D}" ShortID="1055019573">
 							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -1380,6 +1556,28 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="AMB_Weather_Wind_Low" ID="{3F05BE0A-D695-43CB-BB81-4D764B557AA3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="EB_amb_lp_01" ID="{7DBC7494-582E-4BF6-9ECE-454D81F0CE2B}" ShortID="1017320434">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="EB_amb_lp_01" ID="{16331BBA-398F-486E-A769-D6759806464F}" ShortID="797985785">
+									<Language>SFX</Language>
+									<AudioFile>EB_amb_lp_01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="EB_amb_lp_01" ID="{16331BBA-398F-486E-A769-D6759806464F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -1431,6 +1629,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Futuristic door 2 (mp3cut_net)" ID="{6F9C9FCE-C778-46C9-A856-1D464B972ABA}" ShortID="849445927">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1447,6 +1652,25 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Futuristic door 2 (mp3cut_net)" ID="{B9F1ECAB-E68B-48CC-99D5-66DA5868BDE5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_environment_door_01" ID="{98DCB5F7-E6A7-4F51-8BF6-2971E127FEBE}" ShortID="301917681">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_environment_door_01" ID="{B0156B50-4B1D-458A-B89E-BCDB02DA4585}" ShortID="607923619">
+											<Language>SFX</Language>
+											<AudioFile>EB_environment_door_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_environment_door_01" ID="{B0156B50-4B1D-458A-B89E-BCDB02DA4585}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -1525,7 +1749,7 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Boss_laser" ID="{EA8BA28E-C4F7-4559-AEC5-F203A5042B4D}" ShortID="5797840">
+						<RandomSequenceContainer Name="Boss_laser_stop" ID="{EA8BA28E-C4F7-4559-AEC5-F203A5042B4D}" ShortID="5797840">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1536,6 +1760,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Generic Sci-Fi Laser Sound Effects II (mp3cut_net) (1)" ID="{6380A447-715D-4A27-9C7E-9A5D3D0F16F8}" ShortID="978525930">
+									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1554,8 +1785,85 @@
 										<ActiveSource Name="Generic Sci-Fi Laser Sound Effects II (mp3cut_net) (1)" ID="{69AFE66A-2C94-4954-AE82-C3684712611B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="EB_boss_laser_end_01" ID="{800C8B92-75E4-49F7-9689-D611FBEB44A1}" ShortID="583439829">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_boss_laser_end_01" ID="{7F54C586-B7E3-463F-AEE0-87B763639CAA}" ShortID="383073143">
+											<Language>SFX</Language>
+											<AudioFile>EB_boss_laser_end_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_boss_laser_end_01" ID="{7F54C586-B7E3-463F-AEE0-87B763639CAA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<BlendContainer Name="Boss_laser_start" ID="{741E88E5-9AB9-49BD-923E-F56CDA21ED64}" ShortID="102913242">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="EB_boss_laser_lp_01" ID="{5D3BC314-9795-45E2-98E7-BB829A43EF77}" ShortID="611391271">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ValueList>
+												<Value>0.7</Value>
+											</ValueList>
+										</Property>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_boss_laser_lp_01" ID="{7F955D03-C1E6-46A3-BDAC-0BA9EF81C856}" ShortID="404836823">
+											<Language>SFX</Language>
+											<AudioFile>EB_boss_laser_lp_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_boss_laser_lp_01" ID="{7F955D03-C1E6-46A3-BDAC-0BA9EF81C856}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="EB_boss_laser_start_01" ID="{5DF44E13-83B8-406D-9EA9-F6BE6B876AE0}" ShortID="769401782">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EB_boss_laser_start_01" ID="{883250E5-65B9-4913-9D81-04AD3548A171}" ShortID="619757663">
+											<Language>SFX</Language>
+											<AudioFile>EB_boss_laser_start_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EB_boss_laser_start_01" ID="{883250E5-65B9-4913-9D81-04AD3548A171}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</BlendContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<RandomSequenceContainer Name="Start_round" ID="{1ABC5C6F-9FEA-40E0-8F45-1F7C029F4938}" ShortID="64793224">

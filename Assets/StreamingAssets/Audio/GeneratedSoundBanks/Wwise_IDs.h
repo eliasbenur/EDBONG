@@ -16,7 +16,9 @@ namespace AK
         static const AkUniqueID PLAY_AMB = 2959533290U;
         static const AkUniqueID PLAY_BOSS_EXPLODES = 3933460974U;
         static const AkUniqueID PLAY_BOSS_LASER = 4089227161U;
+        static const AkUniqueID PLAY_BOSS_LASER_STOP = 2527798636U;
         static const AkUniqueID PLAY_BOSS_SHOOTS = 3759794692U;
+        static const AkUniqueID PLAY_BUY_ITEM = 2318727908U;
         static const AkUniqueID PLAY_DASH = 2211787386U;
         static const AkUniqueID PLAY_DEATH = 1172822028U;
         static const AkUniqueID PLAY_FALLING = 913957623U;

@@ -24,7 +24,9 @@
 				<Event Id="2959533290" Name="play_amb" ObjectPath="\Events\Default Work Unit\play_amb"/>
 				<Event Id="3933460974" Name="play_boss_explodes" ObjectPath="\Events\Default Work Unit\Boss\play_boss_explodes"/>
 				<Event Id="4089227161" Name="play_boss_laser" ObjectPath="\Events\Default Work Unit\Boss\play_boss_laser"/>
+				<Event Id="2527798636" Name="play_boss_laser_stop" ObjectPath="\Events\Default Work Unit\Boss\play_boss_laser_stop"/>
 				<Event Id="3759794692" Name="play_boss_shoots" ObjectPath="\Events\Default Work Unit\Boss\play_boss_shoots"/>
+				<Event Id="2318727908" Name="play_buy_item" ObjectPath="\Events\Default Work Unit\Players\play_buy_item"/>
 				<Event Id="2211787386" Name="play_dash" ObjectPath="\Events\Default Work Unit\Players\play_dash"/>
 				<Event Id="1172822028" Name="play_death" ObjectPath="\Events\Default Work Unit\Players\play_death"/>
 				<Event Id="913957623" Name="play_falling" ObjectPath="\Events\Default Work Unit\Players\play_falling"/>
@@ -68,10 +70,6 @@
 					<ShortName>EB_player_dash_01.wav</ShortName>
 					<Path>SFX\EB_player_dash_01_56D34C19.wem</Path>
 				</File>
-				<File Id="130677026" Language="SFX">
-					<ShortName>Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1).wav</ShortName>
-					<Path>SFX\Generic Sci-Fi Laser Sound Effects II (mp3cut.net) (1)_56D34C19.wem</Path>
-				</File>
 				<File Id="135618264" Language="SFX">
 					<ShortName>EB_monster1_hit_02.wav</ShortName>
 					<Path>SFX\EB_monster1_hit_02_56D34C19.wem</Path>
@@ -79,6 +77,10 @@
 				<File Id="140457963" Language="SFX">
 					<ShortName>EB_player_ftps_04.wav</ShortName>
 					<Path>SFX\EB_player_ftps_04_56D34C19.wem</Path>
+				</File>
+				<File Id="155279632" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_03.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_03_56D34C19.wem</Path>
 				</File>
 				<File Id="161359185" Language="SFX">
 					<ShortName>sci-fi metal impact, steel bulkhead hit, low 01 (mp3cut.net).wav</ShortName>
@@ -92,13 +94,13 @@
 					<ShortName>EB_monster1_death_01.wav</ShortName>
 					<Path>SFX\EB_monster1_death_01_56D34C19.wem</Path>
 				</File>
+				<File Id="240780353" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_04.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_04_56D34C19.wem</Path>
+				</File>
 				<File Id="252548041" Language="SFX">
 					<ShortName>EB_player_hit_01.wav</ShortName>
 					<Path>SFX\EB_player_hit_01_56D34C19.wem</Path>
-				</File>
-				<File Id="258512402" Language="SFX">
-					<ShortName>AMB_Weather_Wind_Low.wav</ShortName>
-					<Path>SFX\AMB_Weather_Wind_Low_8956FC97.wem</Path>
 				</File>
 				<File Id="277560277" Language="SFX">
 					<ShortName>EB_player_death_06.wav</ShortName>
@@ -128,6 +130,14 @@
 					<ShortName>EB_player_fall_03.wav</ShortName>
 					<Path>SFX\EB_player_fall_03_56D34C19.wem</Path>
 				</File>
+				<File Id="383073143" Language="SFX">
+					<ShortName>EB_boss_laser_end_01.wav</ShortName>
+					<Path>SFX\EB_boss_laser_end_01_56D34C19.wem</Path>
+				</File>
+				<File Id="404836823" Language="SFX">
+					<ShortName>EB_boss_laser_lp_01.wav</ShortName>
+					<Path>SFX\EB_boss_laser_lp_01_8956FC97.wem</Path>
+				</File>
 				<File Id="411740424" Language="SFX">
 					<ShortName>EB_monster1_hit_04.wav</ShortName>
 					<Path>SFX\EB_monster1_hit_04_56D34C19.wem</Path>
@@ -135,6 +145,22 @@
 				<File Id="429915531" Language="SFX">
 					<ShortName>EB_player_hit_03.wav</ShortName>
 					<Path>SFX\EB_player_hit_03_56D34C19.wem</Path>
+				</File>
+				<File Id="430343526" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_02.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_02_56D34C19.wem</Path>
+				</File>
+				<File Id="441464758" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_05.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_05_56D34C19.wem</Path>
+				</File>
+				<File Id="461623412" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_07.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_07_56D34C19.wem</Path>
+				</File>
+				<File Id="520948362" Language="SFX">
+					<ShortName>EB_item_buy_01.wav</ShortName>
+					<Path>SFX\EB_item_buy_01_56D34C19.wem</Path>
 				</File>
 				<File Id="527416673" Language="SFX">
 					<ShortName>Seq_2.1_whoosh_1_96_HK1.wav</ShortName>
@@ -164,6 +190,10 @@
 					<ShortName>Monster Sound Effects (mp3cut.net).wav</ShortName>
 					<Path>SFX\Monster Sound Effects (mp3cut.net)_56D34C19.wem</Path>
 				</File>
+				<File Id="619757663" Language="SFX">
+					<ShortName>EB_boss_laser_start_01.wav</ShortName>
+					<Path>SFX\EB_boss_laser_start_01_56D34C19.wem</Path>
+				</File>
 				<File Id="633764864" Language="SFX">
 					<ShortName>EB_player_fall_01.wav</ShortName>
 					<Path>SFX\EB_player_fall_01_56D34C19.wem</Path>
@@ -183,6 +213,10 @@
 				<File Id="772701871" Language="SFX">
 					<ShortName>EB_player_dash_02.wav</ShortName>
 					<Path>SFX\EB_player_dash_02_56D34C19.wem</Path>
+				</File>
+				<File Id="797985785" Language="SFX">
+					<ShortName>EB_amb_lp_01.wav</ShortName>
+					<Path>SFX\EB_amb_lp_01_8956FC97.wem</Path>
 				</File>
 				<File Id="805253192" Language="SFX">
 					<ShortName>EB_player_ftps_05.wav</ShortName>
@@ -212,6 +246,10 @@
 					<ShortName>EB_monster1_death_02.wav</ShortName>
 					<Path>SFX\EB_monster1_death_02_56D34C19.wem</Path>
 				</File>
+				<File Id="973660132" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_01.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_01_56D34C19.wem</Path>
+				</File>
 				<File Id="983116499" Language="SFX">
 					<ShortName>EB_player_slicing_02.wav</ShortName>
 					<Path>SFX\EB_player_slicing_02_56D34C19.wem</Path>
@@ -235,6 +273,10 @@
 				<File Id="1046335686" Language="SFX">
 					<ShortName>EB_player_ftps_01.wav</ShortName>
 					<Path>SFX\EB_player_ftps_01_56D34C19.wem</Path>
+				</File>
+				<File Id="1053058052" Language="SFX">
+					<ShortName>EB_monster1_kamikaze_06.wav</ShortName>
+					<Path>SFX\EB_monster1_kamikaze_06_56D34C19.wem</Path>
 				</File>
 				<File Id="1053136389" Language="SFX">
 					<ShortName>EB_monster1_hit_05.wav</ShortName>
