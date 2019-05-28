@@ -5,9 +5,10 @@ using Rewired;
 
 public class Player_Movement : MonoBehaviour {
 
-    public float speed, movementX, movementY;
+    public float speed;
+    private float movementX, movementY;
     private Vector2 movement;
-    public bool can_move = true;
+    private bool can_move = true;
     private bool auto_movement;
 
     public Rope_System rope_system;
@@ -417,6 +418,38 @@ public class Player_Movement : MonoBehaviour {
     public void Allow_Moving()
     {
         can_move = true;
+    }
+
+    public float get_MovementX()
+    {
+        return movementX;
+    }
+
+    public float get_MovementY()
+    {
+        return movementY;
+    }
+
+    public void set_MovementX(float movement_x)
+    {
+        movementX = movement_x;
+    }
+
+    public void set_MovementY(float movement_y)
+    {
+        movementY = movement_y;
+    }
+
+    public bool Is_Moving()
+    {
+        if (movementX != 0 || movementY != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

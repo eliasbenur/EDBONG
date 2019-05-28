@@ -70,10 +70,10 @@ public class Door_Trigger : MonoBehaviour
     /* Auto movement to a point */
     void Player_AutoRun()
     {
-        playerone.movementX = mov_p1.x * Time.fixedDeltaTime;
-        playerone.movementY = mov_p1.y * Time.fixedDeltaTime;
-        playertwo.movementX = mov_p2.x * Time.fixedDeltaTime;
-        playertwo.movementY = mov_p2.y * Time.fixedDeltaTime;
+        playerone.set_MovementX(mov_p1.x * Time.fixedDeltaTime);
+        playerone.set_MovementY(mov_p1.y * Time.fixedDeltaTime);
+        playertwo.set_MovementX(mov_p2.x * Time.fixedDeltaTime);
+        playertwo.set_MovementY(mov_p2.y * Time.fixedDeltaTime);
     }
 
     /* When the 2 players are colliding the door, the door opens and the players start autoruning */
