@@ -31,7 +31,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: f39033920e557e46b5d62c45bef2fc45
     GuidInternal: 
-    m_lastTime: -8586430094502955097
+    m_lastTime: -8586426478250109711
     List:
     - name: soundbank
       guid: edddbfcb70c7ec4297ca1bedb1bb5f34
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 39f9f61c9c620a428f1af313fb9693bb
     GuidInternal: 
-    m_lastTime: -8586430094519626684
+    m_lastTime: -8586426478259934044
     List:
     - name: play_amb
       guid: 1313ad39e311c7429f0597cf528d0eb9
@@ -89,6 +89,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: play_boss_laser_stop
+      guid: 82d43b77eeb8a64a8670154bdcb8a9be
+      id: 2527798636
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Boss
+        ObjectType: 4
+      - ElementName: play_boss_laser_stop
+        ObjectType: 3
+      Path: Default Work Unit\Boss\play_boss_laser_stop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: play_boss_shoots
       guid: cc0611ffbc6404468cda1c8f313892f4
       id: 3759794692
@@ -100,6 +114,20 @@ MonoBehaviour:
       - ElementName: play_boss_shoots
         ObjectType: 3
       Path: Default Work Unit\Boss\play_boss_shoots
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: play_buy_item
+      guid: d2bf0ea5229eaa4489c1270ccb63d5c1
+      id: 2318727908
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Players
+        ObjectType: 4
+      - ElementName: play_buy_item
+        ObjectType: 3
+      Path: Default Work Unit\Players\play_buy_item
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -327,7 +355,6 @@ MonoBehaviour:
   - /EDBONG_WwiseProject
   - /EDBONG_WwiseProject/Events
   - /EDBONG_WwiseProject/Events/Default Work Unit
-  - /EDBONG_WwiseProject/Events/Default Work Unit/Boss
   - /EDBONG_WwiseProject/Events/Default Work Unit/Players
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

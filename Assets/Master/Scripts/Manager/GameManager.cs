@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 300;
 
         //MUSIC
-        //AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
+        //AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
     }
 
     private void Update()
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             { "pos", pos },
             { "who_hit" , who_hit }
         });
-        num_hits++;     
+        num_hits++;
 
         AkSoundEngine.PostEvent("play_playerhit", Camera.main.gameObject);
 

@@ -45,8 +45,6 @@ public class Player_Movement : MonoBehaviour {
     public float timerTot_RopeHitVibrate;
     public bool startBlinking = false;
 
-
-
     private void Awake()
     {
         god_ModeAction = GetComponent<God_Mode>();
@@ -157,6 +155,8 @@ public class Player_Movement : MonoBehaviour {
         {
             dash_tmp = 0;
         }
+
+        Debug.Log(gameObject.name + ": "+  dash_tmp);
 
         //Geting the direction of the movement and detecting if the player started a dash
         if (modo_solo)

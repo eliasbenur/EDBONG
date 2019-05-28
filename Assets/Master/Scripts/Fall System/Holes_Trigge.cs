@@ -117,14 +117,16 @@ public class Holes_Trigge : MonoBehaviour
         if (collision.tag == "player")
         {
             Player_Movement pm = collision.gameObject.GetComponent<Player_Movement>();
-            if (collision.name == "PlayerOne" && delay_tmp >= delay && !pm.Dashing())
+            if (collision.name == "PlayerOne" && delay_tmp >= delay && !pm.Dashing() && !playerone_falling)
             {
                 playerone_falling = true;
+                AkSoundEngine.PostEvent("play_falling", Camera.main.gameObject);
                 Stop_Players();
             }
-            else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && !pm.Dashing())
+            else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && !pm.Dashing() && !playertwo_falling)
             {
                 playertwo_falling = true;
+                AkSoundEngine.PostEvent("play_falling", Camera.main.gameObject);
                 Stop_Players();
             }
         }
