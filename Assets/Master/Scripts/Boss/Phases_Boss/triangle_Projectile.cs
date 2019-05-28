@@ -1,19 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class triangle_Projectile : MonoBehaviour
 {
-    public GameObject targetObject;
+    #region Properties
+    [HideInInspector] public GameObject targetObject;
     public float enemySpeed = 300;
 
-    public float timer, timerTot;
+    public float timerTot;
+    private float timer;
     bool confirmed;
+    private GameObject p1, p2;
+    private Rigidbody2D rb_projectile;
+    private List<God_Mode> players;
+    #endregion
 
     private void Awake()
     {
-        timerTot = 0.85f;
+        p1 = GameObject.Find("PlayerOne");
+        p2 = GameObject.Find("PlayerTwo");
+        rb_projectile.GetComponent<Rigidbody2D>();
+        players = Camera.main.GetComponent<GameManager>().players;
     }
+    
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -24,15 +34,15 @@ public class triangle_Projectile : MonoBehaviour
             switch (target)
             {
                 case 1:
-                    targetObject = GameObject.Find("PlayerOne");
+                    targetObject = p1;
                 break;
 
                 case 2:
-                    targetObject = GameObject.Find("PlayerTwo");
+                    targetObject = p2;
                 break;
             }
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GetComponent<Rigidbody2D>().AddForce((targetObject.transform.position - transform.position).normalized * enemySpeed);
+            rb_projectile.velocity = Vector2.zero;
+            rb_projectile.AddForce((targetObject.transform.position - transform.position).normalized * enemySpeed);
 
             var rotationUpdate = targetObject.transform.position - transform.position;
 
@@ -43,29 +53,22 @@ public class triangle_Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "player")
+        if(collision.gameObject.name == "PlayerOne")
         {
-            if (collision.gameObject.name == "PlayerOne")
+            for(int i =0; i < players.Count; i++)
             {
-                if (!collision.gameObject.GetComponent<God_Mode>().godMode)
-                {
-                    collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerOne", collision.transform.position, "Boss - Triangle Projectile");
-                    Destroy(this.gameObject);
-                }
-            }
-            else
-            {
-                if (!collision.gameObject.GetComponent<God_Mode>().godMode)
-                {
-                    collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerTwo", collision.transform.position, "Boss - Triangle Projectile");
-                    Destroy(this.gameObject);
-                }
+                if (players[i].name == collision.gameObject.name && !players[i].godMode)
+                    players[i].Hit_verification("PlayerOne", collision.transform.position, "triangle_Projectile");
+
             }
         }
-
-        if (collision.gameObject.layer == 11)
+        else
         {
-            Destroy(this.gameObject);
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].name == collision.gameObject.name && !players[i].godMode)
+                    players[i].Hit_verification("PlayerTwo", collision.transform.position, "triangle_Projectile");
+            }
         }
     }
 
