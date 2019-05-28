@@ -322,7 +322,7 @@ public class IA_Shot_CHOICE : MonoBehaviour
             else
             {
                 //If the ennemy is beatable just with a dash finish move
-                if (num_trig >= num_triggered && Player_dashing())
+                if (num_trig >= num_triggered && Players_dashing())
                 {
                     if (allPlayers[0].GetComponent<Player_Movement>().get_MovementX() != 0 || allPlayers[0].GetComponent<Player_Movement>().get_MovementY() != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
                     {
@@ -358,10 +358,10 @@ public class IA_Shot_CHOICE : MonoBehaviour
         }
     }
 
-    public bool Player_dashing()
+    public bool Players_dashing()
     {
-        if (allPlayers[0].GetComponent<Player_Movement>().dash_tmp > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
-            || allPlayers[1].GetComponent<Player_Movement>().dash_tmp > (allPlayers[1].GetComponent<Player_Movement>().dash_delay - allPlayers[1].GetComponent<Player_Movement>().dash_time))
+        if (allPlayers[0].GetComponent<Player_Movement>().Dashing()
+            || allPlayers[1].GetComponent<Player_Movement>().Dashing())
         {
             return true;
         }

@@ -89,7 +89,7 @@ public class Door_Trigger : MonoBehaviour
                 StartCoroutine("Delay_Door");
                 playerone.Stop_Moving();
                 for (int i = 0; i < playersList.players_Movement.Count; i++)
-                    playersList.players_Movement[i].can_move = false;
+                    playersList.players_Movement[i].Stop_Moving();
                 GetComponent<SpriteRenderer>().sprite = door_opened;
                 autoruning = true;
 

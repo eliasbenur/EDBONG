@@ -117,12 +117,12 @@ public class Holes_Trigge : MonoBehaviour
         if (collision.tag == "player")
         {
             Player_Movement pm = collision.gameObject.GetComponent<Player_Movement>();
-            if (collision.name == "PlayerOne" && delay_tmp >= delay && pm.dash_tmp < (pm.dash_delay - pm.dash_time))
+            if (collision.name == "PlayerOne" && delay_tmp >= delay && !pm.Dashing())
             {
                 playerone_falling = true;
                 Stop_Players();
             }
-            else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && pm.dash_tmp < (pm.dash_delay - pm.dash_time))
+            else if (collision.name == "PlayerTwo" && delay_tmp_two >= delay && !pm.Dashing())
             {
                 playertwo_falling = true;
                 Stop_Players();

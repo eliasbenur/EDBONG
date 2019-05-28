@@ -90,7 +90,7 @@ public class DieBoss_KillHit : MonoBehaviour
                 {
                     players[i].GetComponent<Animator>().enabled = true;
                     players[i].enabled = true;
-                    players[i].can_move = true;
+                    players[i].Allow_Moving();
                 }
 
                 for (int i = 0; i < players_gm.Count; i++)

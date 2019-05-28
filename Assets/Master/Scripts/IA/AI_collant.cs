@@ -207,12 +207,12 @@ public class AI_collant : MonoBehaviour
         }
     }
 
-    public bool Player_dashing()
+    public bool Players_dashing()
     {
         if (allPlayers.Count > 0)
         {
-            if (allPlayers[0].GetComponent<Player_Movement>().dash_tmp > (allPlayers[0].GetComponent<Player_Movement>().dash_delay - allPlayers[0].GetComponent<Player_Movement>().dash_time)
-                || allPlayers[1].GetComponent<Player_Movement>().dash_tmp > (allPlayers[1].GetComponent<Player_Movement>().dash_delay - allPlayers[1].GetComponent<Player_Movement>().dash_time))
+            if (allPlayers[0].GetComponent<Player_Movement>().Dashing()
+                || allPlayers[1].GetComponent<Player_Movement>().Dashing())
             {
                 return true;
             }

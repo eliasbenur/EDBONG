@@ -23,7 +23,7 @@ public class Detection_dash_Distance : MonoBehaviour
     public bool Player_dashing()
     {
         if (checkPlayers.allPlayers.Count > 0)
-            return (players[0].dash_tmp > (players[0].dash_delay - players[0].dash_time) || players[1].dash_tmp > (players[1].dash_time));
+            return (players[0].Dashing() || players[1].Dashing());
         else
             return false;
     }

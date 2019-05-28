@@ -23,7 +23,7 @@ public class Player_Movement : MonoBehaviour {
     public float dash_time;
     // delay between 2 dashes
     public float dash_delay;
-    public float dash_tmp = 0;
+    private float dash_tmp = 0;
     //Direction of the Dash
     private Vector2 dash_direction;
     public Image dash_bar;
@@ -53,6 +53,18 @@ public class Player_Movement : MonoBehaviour {
         joysticVibrationMan = GetComponent<JoysticVibration_Manager>();
         camera_ShakeMan = Camera.main.GetComponent<Camere_Shake_Manager>();
         blinking_Effect = GetComponent<Blinking_Effect>();
+    }
+
+    public bool Dashing()
+    {
+        if (dash_tmp > (dash_delay - dash_time))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void Start()
