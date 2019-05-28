@@ -6,6 +6,7 @@ public class Projectile_Gestion : MonoBehaviour
     #region Properties
     public GameObject smoke;
     private List<God_Mode> players;
+    public bool smoke_Spawn;
     #endregion
 
     private void Awake()
@@ -35,7 +36,13 @@ public class Projectile_Gestion : MonoBehaviour
 
         if (collision.gameObject.layer == 11)
         {
-            Instantiate(smoke, transform.position, Quaternion.identity);
+            if(smoke_Spawn)
+                Instantiate(smoke, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.layer == 10)
+        {
             Destroy(this.gameObject);
         }
     }

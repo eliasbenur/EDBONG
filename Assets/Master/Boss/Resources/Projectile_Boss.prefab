@@ -117,12 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0daf9f62186ad1b4d9711fa9f73a21ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  division: 1
   ennemySpeed: 300
   angle: 0
   projectileToSpawn: 6
   angleToADD: 45
   shockWave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
+    type: 3}
+  shotDistance: {fileID: 1668156174679218597, guid: a6901a8eba9e02e499b6b5078ac0bda0,
     type: 3}
 --- !u!58 &6164151016653538732
 CircleCollider2D:
