@@ -13,10 +13,7 @@ public class IA_Shot_CHOICE : MonoBehaviour
     float oldSpeed;
 
     //Time before the monster is enable to attack, time + animation
-    float timer_BeforeAttack;
     float timer;
-    bool attack;
-    bool anim_atack;
     Animator animator;
 
     //Variables we have to check to know if a monster can be cut, if so, then we trigger audioSource, animation
@@ -77,7 +74,6 @@ public class IA_Shot_CHOICE : MonoBehaviour
         cameraTransform = Camera.main.GetComponent<Transform>();
         oldSpeed = enemySpeed;
         animator = GetComponent<Animator>();
-        timer_BeforeAttack = 0.5f;
         //We find the Rope System, the target will be the center of the cain
         if (rope_system == null)
         {
@@ -429,21 +425,13 @@ public class IA_Shot_CHOICE : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "player")
-        {
             enemySpeed = 0;
-            //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
-            attack = true;
-            anim_atack = true;
-            //allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
-            //allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "player")
         {
-            attack = false;
             enemySpeed = oldSpeed;
         }
     }

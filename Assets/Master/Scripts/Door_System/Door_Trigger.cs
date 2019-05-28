@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Door_Trigger : MonoBehaviour
 {
-    private BoxCollider2D triger_coll;
     private Vector2 autorun_position;
     public Player_Movement playerone, playertwo;
 
     private int NumPlayer_inside = 0;
     private bool autoruning;
     private Vector2 mov_p1, mov_p2;
-    private int Num_points;
 
     public Sprite door_opened;
     public Sprite door_closed;
@@ -31,7 +29,6 @@ public class Door_Trigger : MonoBehaviour
 
     void Start()
     {
-        triger_coll = gameObject.GetComponents<BoxCollider2D>()[0];
         autorun_position = gameObject.transform.GetChild(0).transform.position;
         for(int i=0; i < playersList.players_Movement.Count; i++)
         {
@@ -40,7 +37,6 @@ public class Door_Trigger : MonoBehaviour
             else
                 playertwo = playersList.players_Movement[i];
         }
-        Num_points = GameObject.Find("Rope_System").GetComponent<Rope_System>().NumPoints;
     }
 
     void Update()

@@ -53,7 +53,7 @@ TagManager:
   - PlayerOne
   - PlayerTwo
   - Coll_Hole
-  - 
+  - Clean_Collision_Ignore_Rope
   - 
   - 
   - 

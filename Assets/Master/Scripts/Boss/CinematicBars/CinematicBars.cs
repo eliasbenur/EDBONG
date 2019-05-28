@@ -3,10 +3,12 @@ using UnityEngine.UI;
 
 public class CinematicBars : MonoBehaviour
 {
+    #region Properties
     private RectTransform topBar, bottomBar;
     private float targetSize;
     private float changeSizeAmount;
     private bool isActive;
+    #endregion
 
     private void Awake()
     {

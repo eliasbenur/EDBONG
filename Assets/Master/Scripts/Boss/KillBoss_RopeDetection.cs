@@ -39,7 +39,6 @@ public class KillBoss_RopeDetection : MonoBehaviour
     public float cut_delay;
 
     public GameObject dieSmoke1, dieSmoke2;
-    bool canSpawn = true;
     public float cooldown;
 
     public enum MethodToKill
@@ -344,7 +343,6 @@ public class KillBoss_RopeDetection : MonoBehaviour
                 smoke.transform.localScale = new Vector2(size, size);
                 break;
         }
-        canSpawn = false;
         yield return new WaitForSeconds(cooldown);
         if (cooldown > 0.1)
         {
