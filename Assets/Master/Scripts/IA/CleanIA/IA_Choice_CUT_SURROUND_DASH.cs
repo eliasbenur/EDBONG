@@ -181,7 +181,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     animator.SetBool("attack", true);
                     if (timer > timer_BeforeAttack)
                     {
-                        SoundManager.PlaySound(SoundManager.Sound.SpydieMeleAtack, transform.position);
                         if (atack_in_range && !dead)
                         {
                             foreach (var player in allPlayers)
@@ -408,7 +407,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         }
         if (idle_anim_time <= 0)
         {
-            SoundManager.PlaySound(SoundManager.Sound.SpydieNoise, transform.position);
             idle_anim_time = Random.Range(5.0f, 10.0f);
         }
     }
@@ -519,7 +517,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
             GetComponent<SpriteRenderer>().material = flash_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
-            SoundManager.PlaySound(SoundManager.Sound.PlayerSlicing, transform.position);
             enemySpeed = 0;
 
             yield return new WaitForSeconds(0.2f);

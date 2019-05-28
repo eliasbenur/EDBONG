@@ -310,7 +310,6 @@ public class KillBoss_RopeDetection : MonoBehaviour
             {
                 hit_lasser.Play();
             }
-            SoundManager.PlaySound(SoundManager.Sound.PlayerSlicing, transform.position);
 
             yield return new WaitForSeconds(0.2f);
             GetComponentInParent<SpriteRenderer>().material = default_sprite;

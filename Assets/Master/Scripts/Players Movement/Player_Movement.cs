@@ -105,7 +105,7 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //Reset God Mode timer
         if (god_ModeAction.godMode == false)
@@ -298,7 +298,7 @@ public class Player_Movement : MonoBehaviour {
     {
         movement.Set(movementX, movementY);
 
-        check_MovementLimits();
+        //check_MovementLimits();
 
 
         if (Dashing())
@@ -314,11 +314,11 @@ public class Player_Movement : MonoBehaviour {
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rope_system.set_mov_P1(movement * dash_power);
+                rope_system.set_mov_P1(movement * dash_power * Time.fixedDeltaTime);
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                rope_system.set_mov_P2(movement * dash_power);
+                rope_system.set_mov_P2(movement * dash_power * Time.fixedDeltaTime);
             }
         }
         else
@@ -327,7 +327,7 @@ public class Player_Movement : MonoBehaviour {
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rope_system.set_mov_P1(movement * speed);
+                rope_system.set_mov_P1(movement * speed * Time.fixedDeltaTime);
                 //Reactive the collision betwen the Holes and the player when is not dashing
                 if (Physics2D.GetIgnoreLayerCollision(19, 21))
                 {
@@ -336,7 +336,7 @@ public class Player_Movement : MonoBehaviour {
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                rope_system.set_mov_P2(movement * speed);
+                rope_system.set_mov_P2(movement * speed * Time.fixedDeltaTime);
                 //Reactive the collision betwen the Holes and the player when is not dashing
                 if (Physics2D.GetIgnoreLayerCollision(20, 21))
                 {

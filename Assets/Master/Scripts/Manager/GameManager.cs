@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i< targets.Count; i++)
             players_Movement.Add(targets[i].GetComponent<Player_Movement>());
-        SoundManager.Initialize();
 
         Time.timeScale = 1;
     }
