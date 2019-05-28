@@ -10,6 +10,7 @@ public class Player_Movement : MonoBehaviour {
     private Vector2 movement;
     private bool can_move = true;
     private bool auto_movement;
+    private bool hole_coll;
 
     public Rope_System rope_system;
     private God_Mode god_ModeAction;
@@ -75,6 +76,16 @@ public class Player_Movement : MonoBehaviour {
         set_Solo_Mode();
     }
 
+    public void Start_Dash()
+    {
+        //Dash vars
+        dash_tmp = dash_delay;
+        dash_direction = new Vector2(movementX, movementY).normalized;
+        // God Mode ini
+        god_ModeAction.timerGodMode = 1.5f;
+        god_ModeAction.godMode = true;
+    }
+
     public void set_Solo_Mode()
     {
         if (modo_solo)
@@ -96,11 +107,12 @@ public class Player_Movement : MonoBehaviour {
 
     private void Update()
     {
+        //Reset God Mode timer
         if (god_ModeAction.godMode == false)
             god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
 
 
-        ///////// A CLEAN ////////////////
+        ///////// HIT SYSTEM - A CLEAN ////////////////
         if (testVibrationHitRope)
         {
             joysticVibrationMan.Vibrate_Control_Kill();
@@ -126,6 +138,7 @@ public class Player_Movement : MonoBehaviour {
         }
         /////////////////////////
 
+        //Set the position of the Sprite to the extrems of the chains
         if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.get_points().Count > 0)
         {
             transform.position = rope_system.get_points()[0].transform.position;
@@ -135,7 +148,7 @@ public class Player_Movement : MonoBehaviour {
             transform.position = rope_system.get_points()[rope_system.NumPoints - 1].transform.position;
         }
 
-
+        // Dash timer
         if (dash_tmp > 0)
         {
             dash_tmp -= Time.fixedDeltaTime;
@@ -145,6 +158,7 @@ public class Player_Movement : MonoBehaviour {
             dash_tmp = 0;
         }
 
+        //Geting the direction of the movement and detecting if the player started a dash
         if (modo_solo)
         {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
@@ -156,13 +170,8 @@ public class Player_Movement : MonoBehaviour {
                 }
                 if (rew_player.GetButtonDown("Dash_p1") && dash_tmp <= 0 && new Vector2(movementX,movementY) != Vector2.zero)
                 {
-                    dash_tmp = dash_delay;
-                    dash_direction = new Vector2(movementX,movementY).normalized;
-                    //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+                    Start_Dash();
                     Physics2D.IgnoreLayerCollision(19, 21);
-                    god_ModeAction.timerGodMode = 1.5f;
-                    god_ModeAction.godMode = true;
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
@@ -175,13 +184,9 @@ public class Player_Movement : MonoBehaviour {
 
                 if (rew_player.GetButtonDown("Dash_p2") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
                 {
-                    dash_tmp = dash_delay;
-                    dash_direction = new Vector2(movementX, movementY).normalized;
-                    // rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
+                    Start_Dash();
+                    //To cros the "Holes"
                     Physics2D.IgnoreLayerCollision(20, 21);
-                    god_ModeAction.timerGodMode = 1.5f;
-                    god_ModeAction.godMode = true;
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
                 }
             }
         }
@@ -195,30 +200,20 @@ public class Player_Movement : MonoBehaviour {
 
             if (rew_player.GetButtonDown("Dash") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
             {
-                dash_tmp = dash_delay;
-                dash_direction = new Vector2(movementX, movementY).normalized;
-
+                Start_Dash();
                 if (PlayerNum == Enum_PlayerNum.PlayerOne)
                 {
-                    //rope_system.transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(19, 21);
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
-
-                    god_ModeAction.timerGodMode = 1.5f;
-                    god_ModeAction.godMode = true;
                 }
                 else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
                 {
-                    //rope_system.transform.GetChild(rope_system.transform.childCount - 1).GetComponent<CircleCollider2D>().enabled = false;
                     Physics2D.IgnoreLayerCollision(20, 21);
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerDash);
-
-                    god_ModeAction.timerGodMode = 1.5f;
-                    god_ModeAction.godMode = true;
-                }             
+                }
+                
             }
         }
 
+        //Sprite Fliping
         if (movementX > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -228,6 +223,21 @@ public class Player_Movement : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
 
+        Set_inputs_Animation();
+
+        // If Player dont move, play idle anim
+        idle_anim();
+
+        //UI Dash
+        dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20, 35, 0);
+        dash_bar.fillAmount = dash_tmp / dash_delay;
+
+        Move(movementX, movementY);
+    }
+
+    /* Setting what animation is going to play, depending of the inputs of the players*/
+    void Set_inputs_Animation()
+    {
         //Runing Animation
         if (movementX == 0 && movementY == 0)
         {
@@ -239,52 +249,29 @@ public class Player_Movement : MonoBehaviour {
             if (movementX > 0)
             {
                 animator.SetInteger("input_x", 1);
-                animator.SetInteger("input_y", 0);
             }
             else
             {
                 animator.SetInteger("input_x", -1);
-                animator.SetInteger("input_y", 0);
             }
+            animator.SetInteger("input_y", 0);
 
-        }else
+        }
+        else
         {
             if (movementY > 0)
             {
-                animator.SetInteger("input_x", 0);
                 animator.SetInteger("input_y", 1);
             }
             else
             {
-                animator.SetInteger("input_x", 0);
                 animator.SetInteger("input_y", -1);
             }
+            animator.SetInteger("input_x", 0);
         }
-
-        // If Player dont move, play idle anim
-        idle_anim();
-
-        Move(movementX, movementY);
-
-        //Audio
-        if (movementX != 0 || movementY != 0)
-        {
-            //running_audio.UnPause();
-            //SoundManager.PlaySound(SoundManager.Sound.PlayerFTS);
-        }
-        else
-        {
-            //running_audio.Pause();
-        }
-
-        //UI
-        dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20, 35, 0);
-        dash_bar.fillAmount = dash_tmp / dash_delay;
-
-
-
     }
 
+    /*If the player stop moving, we start a idle timer that will play a speacil idel animation */
     void idle_anim()
     {
         if (movementX == 0 && movementY == 0 && idle_anim_time == -1)
@@ -311,13 +298,64 @@ public class Player_Movement : MonoBehaviour {
     {
         movement.Set(movementX, movementY);
 
-        bool hole_coll = false;
+        check_MovementLimits();
 
+
+        if (Dashing())
+        {
+            if (!hole_coll)
+            {
+                movement = dash_direction;
+            }
+
+            animator.SetBool("dash", true);
+            god_ModeAction.timerTotGodMode = 0.2f;
+            god_ModeAction.godMode = true;
+
+            if (PlayerNum == Enum_PlayerNum.PlayerOne)
+            {
+                rope_system.set_mov_P1(movement * dash_power);
+            }
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
+            {
+                rope_system.set_mov_P2(movement * dash_power);
+            }
+        }
+        else
+        {
+            animator.SetBool("dash", false);
+
+            if (PlayerNum == Enum_PlayerNum.PlayerOne)
+            {
+                rope_system.set_mov_P1(movement * speed);
+                //Reactive the collision betwen the Holes and the player when is not dashing
+                if (Physics2D.GetIgnoreLayerCollision(19, 21))
+                {
+                    Physics2D.IgnoreLayerCollision(19, 21, false);
+                }
+            }
+            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
+            {
+                rope_system.set_mov_P2(movement * speed);
+                //Reactive the collision betwen the Holes and the player when is not dashing
+                if (Physics2D.GetIgnoreLayerCollision(20, 21))
+                {
+                    Physics2D.IgnoreLayerCollision(20, 21, false);
+                }
+            }
+        }
+    }
+
+    public void check_MovementLimits()
+    {
         //int layerMask = 1 << 21; 
-        int layerMask = 32768; // 15
-        int layerMask2 = 2097152; //21
+        int layerMask = 32768; // 15 - Door
+        int layerMask2 = 2097152; //21 - Coll_Hole
         int layermasr_f = layerMask | layerMask2;
 
+        hole_coll = false;
+
+        /* blocks the player movement versus the doors ( and the holes if they are not dashing) to prevent that the players cros the colliders*/
         if (!(dash_tmp > (dash_delay - dash_time)))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, movement.normalized, movement.magnitude, layermasr_f); // 2 ^ 21
@@ -342,79 +380,6 @@ public class Player_Movement : MonoBehaviour {
             else
             {
                 movement.Normalize();
-            }
-        }
-
-
-
-
-        // OTHER ROPES
-
-        if (dash_tmp > (dash_delay - dash_time))
-        {
-            ///////////////////
-
-            ///////////////////
-            ///
-            if (!hole_coll)
-            {
-                movement = dash_direction;
-            }
-
-            animator.SetBool("dash", true);
-
-            if (PlayerNum == Enum_PlayerNum.PlayerOne)
-            {
-                rope_system.set_mov_P1(movement * dash_power);
-                god_ModeAction.timerTotGodMode = 0.2f;
-                god_ModeAction.godMode = true;
-            }
-            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
-            {
-                rope_system.set_mov_P2(movement * dash_power);
-                god_ModeAction.timerTotGodMode = 0.2f;
-                god_ModeAction.godMode = true;
-            }
-        }
-        else
-        {
-            animator.SetBool("dash", false);
-
-            if (PlayerNum == Enum_PlayerNum.PlayerOne && Physics2D.GetIgnoreLayerCollision(19,21))
-            {
-                Physics2D.IgnoreLayerCollision(19, 21, false);
-
-            }
-            else if (PlayerNum == Enum_PlayerNum.PlayerTwo && Physics2D.GetIgnoreLayerCollision(20, 21))
-            {
-                Physics2D.IgnoreLayerCollision(20, 21, false);
-            }
-
-            if (PlayerNum == Enum_PlayerNum.PlayerOne)
-            {
-                rope_system.set_mov_P1(movement * speed);
-            }
-            else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
-            {
-                rope_system.set_mov_P2(movement * speed);
-            }
-        }
-
-
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "player")
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-        }
-        if (collision.gameObject.tag == "coll_hole")
-        {
-            if (dash_tmp > (dash_delay - dash_time))
-            {
-                //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>(), true);
             }
         }
     }
@@ -464,15 +429,4 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-
-
-
-    private Vector2 PixelPerfectClamp(Vector2 moveVector, float pixelsPerUnit)
-    {
-        Vector2 vectorInPixels = new Vector2(
-            Mathf.RoundToInt(moveVector.x * pixelsPerUnit),
-            Mathf.RoundToInt(moveVector.y * pixelsPerUnit));
-
-        return vectorInPixels / pixelsPerUnit;
-    }
 }
