@@ -16,7 +16,7 @@ public class Projectile_Gestion_Phase : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }
-            else
+            else 
             {
                 if (!collision.gameObject.GetComponent<God_Mode>().godMode)
                 {

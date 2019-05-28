@@ -56,7 +56,7 @@ public class Menu_Manager : MonoBehaviour
     IEnumerator Example()
     {
         yield return new WaitForSeconds(2);
-        endScreen.gameObject.SetActive(true);
+        endScreen.gameObject.SetActive(true); 
         yield return new WaitForSeconds(10);
         SceneManager.LoadScene("Menu_Principal");
     }
