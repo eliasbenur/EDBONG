@@ -65,10 +65,10 @@ public class Door_Trigger : MonoBehaviour
     /* Auto movement to a point */
     void Player_AutoRun()
     {
-        playerone.set_MovementX(mov_p1.x * Time.fixedDeltaTime);
-        playerone.set_MovementY(mov_p1.y * Time.fixedDeltaTime);
-        playertwo.set_MovementX(mov_p2.x * Time.fixedDeltaTime);
-        playertwo.set_MovementY(mov_p2.y * Time.fixedDeltaTime);
+        playerone.set_MovementX(mov_p1.x);
+        playerone.set_MovementY(mov_p1.y);
+        playertwo.set_MovementX(mov_p2.x);
+        playertwo.set_MovementY(mov_p2.y);
     }
 
     /* When the 2 players are colliding the door, the door opens and the players start autoruning */
@@ -97,6 +97,8 @@ public class Door_Trigger : MonoBehaviour
                     { "Scene", SceneManager.GetActiveScene().name },
                     { "Room" , transform.parent.name }
                 });
+
+                //AkSoundEngine.PostEvent("play_dooropen", Camera.main.gameObject);
 
                 animator.SetBool("open", true);
                 auto_run_1time = true;

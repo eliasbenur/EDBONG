@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]public float max_Life;
     [HideInInspector]public int num_hits = 0;  
 
-    [HideInInspector] public float life;
+    public float life;
     [HideInInspector] public float shieldPoint;
     //Control of the life/ shield
     public GameObject gameOverCanvas;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 300;
 
         //MUSIC
-        //AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
+        AkSoundEngine.PostEvent("play_amb", Camera.main.gameObject);
     }
 
     private void Update()
@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
                 { "pos", pos },
                 { "who_hit" , who_hit }
             });
+            AkSoundEngine.PostEvent("play_death", Camera.main.gameObject);
             gameOverCanvas.SetActive(true);
             Time.timeScale = 0;
         }

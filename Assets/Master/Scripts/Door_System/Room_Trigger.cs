@@ -51,6 +51,8 @@ public class Room_Trigger : MonoBehaviour
                             { "Scene", SceneManager.GetActiveScene().name },
                             { "Room" , transform.name }
                         });
+
+                        //AkSoundEngine.PostEvent("play_dooropen", Camera.main.gameObject);
                     }
                 }
             }

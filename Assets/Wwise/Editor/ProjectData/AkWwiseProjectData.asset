@@ -355,6 +355,9 @@ MonoBehaviour:
   - /EDBONG_WwiseProject
   - /EDBONG_WwiseProject/Events
   - /EDBONG_WwiseProject/Events/Default Work Unit
+  - /EDBONG_WwiseProject/Events/Default Work Unit/Boss
+  - /EDBONG_WwiseProject/Events/Default Work Unit/Environement
+  - /EDBONG_WwiseProject/Events/Default Work Unit/Monsters
   - /EDBONG_WwiseProject/Events/Default Work Unit/Players
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
