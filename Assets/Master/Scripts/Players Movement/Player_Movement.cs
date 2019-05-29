@@ -45,8 +45,6 @@ public class Player_Movement : MonoBehaviour {
     public float timerTot_RopeHitVibrate;
     public bool startBlinking = false;
 
-
-
     private void Awake()
     {
         god_ModeAction = GetComponent<God_Mode>();
@@ -84,6 +82,8 @@ public class Player_Movement : MonoBehaviour {
         // God Mode ini
         god_ModeAction.timerGodMode = 1.5f;
         god_ModeAction.godMode = true;
+
+        AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
     }
 
     public void set_Solo_Mode()
@@ -197,9 +197,9 @@ public class Player_Movement : MonoBehaviour {
                 movementX = rew_player.GetAxis("MoveHorizontal");
                 movementY = rew_player.GetAxis("MoveVertical");
             }
-
             if (rew_player.GetButtonDown("Dash") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
             {
+                Debug.Log("DASH!");
                 Start_Dash();
                 if (PlayerNum == Enum_PlayerNum.PlayerOne)
                 {
@@ -298,7 +298,7 @@ public class Player_Movement : MonoBehaviour {
     {
         movement.Set(movementX, movementY);
 
-        check_MovementLimits();
+        //check_MovementLimits();
 
 
         if (Dashing())

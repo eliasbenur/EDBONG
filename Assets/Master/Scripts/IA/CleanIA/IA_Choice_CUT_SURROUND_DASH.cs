@@ -189,7 +189,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 {
                     if (GetDistance(target) < distanceShoot)
                     {
-                        if (canShoot)
+                        //if (canShoot)
+                        if (atack_in_range && !dead)
                         {
                             if (GetDistance(target) > 4)
                             {
@@ -486,7 +487,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
 
             GetComponent<SpriteRenderer>().color = Color.white;
-            SoundManager.PlaySound(SoundManager.Sound.PlayerSlicing, transform.position);
             enemySpeed = 0;
 
             yield return new WaitForSeconds(0.2f);

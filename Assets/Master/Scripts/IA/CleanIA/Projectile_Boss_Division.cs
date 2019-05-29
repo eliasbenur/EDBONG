@@ -47,7 +47,6 @@ public class Projectile_Boss_Division : MonoBehaviour
 
     IEnumerator FireCoroutine_Boss()
     {
-        SoundManager.PlaySound(SoundManager.Sound.BossExplode, transform.position);
         for (int i = 0; i < projectileToSpawn; i++)
         {
             angle += angleToADD;

@@ -54,7 +54,6 @@ public class Door_Trigger : MonoBehaviour
             playerone.Allow_Moving();
             playertwo.Allow_Moving();
             animator.SetBool("open", false);
-            SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
         }
     }
 
@@ -100,7 +99,6 @@ public class Door_Trigger : MonoBehaviour
                 });
 
                 animator.SetBool("open", true);
-                SoundManager.PlaySound(SoundManager.Sound.DoorOpening_Closing, transform.position);
                 auto_run_1time = true;
             }
         }

@@ -64,7 +64,6 @@ public class AlarmScenario : MonoBehaviour
 
     IEnumerator System_Failure()
     {
-        SoundManager.PlaySound(SoundManager.Sound.VoiceAlarm);
         Active_alamrs();
         canSpeak = false;
         yield return new WaitForSeconds(cooldown);

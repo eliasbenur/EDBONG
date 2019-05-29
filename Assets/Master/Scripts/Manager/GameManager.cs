@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i< targets.Count; i++)
             players_Movement.Add(targets[i].GetComponent<Player_Movement>());
-        SoundManager.Initialize();
 
         Time.timeScale = 1;
     }
@@ -47,7 +46,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 300;
 
         //MUSIC
-        //AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
+        //AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
     }
 
     private void Update()
@@ -83,7 +82,7 @@ public class GameManager : MonoBehaviour
             { "pos", pos },
             { "who_hit" , who_hit }
         });
-        num_hits++;     
+        num_hits++;
 
         AkSoundEngine.PostEvent("play_playerhit", Camera.main.gameObject);
 

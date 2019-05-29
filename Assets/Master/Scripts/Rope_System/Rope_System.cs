@@ -85,7 +85,7 @@ public class Rope_System : MonoBehaviour {
         TimeRemainder += Time.fixedDeltaTime;
         while (TimeRemainder > SubstepTime)
         {
-            PreformSubstep(mov_P1, mov_P2);
+            PreformSubstep(mov_P1 * Time.fixedDeltaTime, mov_P2 * Time.fixedDeltaTime);
             TimeRemainder -= SubstepTime;
         }
     }

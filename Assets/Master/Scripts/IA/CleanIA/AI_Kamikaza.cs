@@ -110,7 +110,6 @@ public class AI_Kamikaza : MonoBehaviour
                     allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
                     allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                     GetComponent<CircleCollider2D>().enabled = false;
-                    SoundManager.PlaySound(SoundManager.Sound.Kamikaze, transform.position);
                     StartCoroutine(Wait_EXPLOSIONN());
                 }
             }
