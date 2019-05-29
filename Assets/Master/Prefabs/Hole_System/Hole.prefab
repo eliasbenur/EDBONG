@@ -200,9 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418bd1e02f3999942821b3d5e2fe3ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerone: {fileID: 0}
-  playertwo: {fileID: 0}
-  scale_speed: 1
+  scale_speed: 0.5
+  delay: 0
+  godMode_Hole1: {fileID: 0}
+  godMode_Hole2: {fileID: 0}
 --- !u!1 &5886427393130802752
 GameObject:
   m_ObjectHideFlags: 0

@@ -82,6 +82,8 @@ public class Player_Movement : MonoBehaviour {
         // God Mode ini
         god_ModeAction.timerGodMode = 1.5f;
         god_ModeAction.godMode = true;
+
+        AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
     }
 
     public void set_Solo_Mode()
@@ -103,7 +105,7 @@ public class Player_Movement : MonoBehaviour {
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         //Reset God Mode timer
         if (god_ModeAction.godMode == false)
@@ -156,8 +158,6 @@ public class Player_Movement : MonoBehaviour {
             dash_tmp = 0;
         }
 
-        Debug.Log(gameObject.name + ": "+  dash_tmp);
-
         //Geting the direction of the movement and detecting if the player started a dash
         if (modo_solo)
         {
@@ -197,9 +197,9 @@ public class Player_Movement : MonoBehaviour {
                 movementX = rew_player.GetAxis("MoveHorizontal");
                 movementY = rew_player.GetAxis("MoveVertical");
             }
-
             if (rew_player.GetButtonDown("Dash") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
             {
+                Debug.Log("DASH!");
                 Start_Dash();
                 if (PlayerNum == Enum_PlayerNum.PlayerOne)
                 {
@@ -314,11 +314,11 @@ public class Player_Movement : MonoBehaviour {
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rope_system.set_mov_P1(movement * dash_power * Time.fixedDeltaTime);
+                rope_system.set_mov_P1(movement * dash_power);
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                rope_system.set_mov_P2(movement * dash_power * Time.fixedDeltaTime);
+                rope_system.set_mov_P2(movement * dash_power);
             }
         }
         else
@@ -327,7 +327,7 @@ public class Player_Movement : MonoBehaviour {
 
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rope_system.set_mov_P1(movement * speed * Time.fixedDeltaTime);
+                rope_system.set_mov_P1(movement * speed);
                 //Reactive the collision betwen the Holes and the player when is not dashing
                 if (Physics2D.GetIgnoreLayerCollision(19, 21))
                 {
@@ -336,7 +336,7 @@ public class Player_Movement : MonoBehaviour {
             }
             else if (PlayerNum == Enum_PlayerNum.PlayerTwo)
             {
-                rope_system.set_mov_P2(movement * speed * Time.fixedDeltaTime);
+                rope_system.set_mov_P2(movement * speed);
                 //Reactive the collision betwen the Holes and the player when is not dashing
                 if (Physics2D.GetIgnoreLayerCollision(20, 21))
                 {
