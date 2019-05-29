@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 363910200}
   - component: {fileID: 1342271892}
   - component: {fileID: 1342271891}
+  - component: {fileID: 6329023308707869045}
   - component: {fileID: 1342271889}
   - component: {fileID: 1342271888}
   - component: {fileID: 8745295092571111122}
   - component: {fileID: 8000970703477746070}
-  - component: {fileID: 2241928197874238137}
+  - component: {fileID: 4055971220240965562}
   m_Layer: 18
   m_Name: Monster2
   m_TagString: monster
@@ -113,6 +114,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6329023308707869045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342271887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880bca65f1b62a34ab5856bcd106a1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDistance: 100
+  timer_BeforeAttack: 0.9
+  detectionDistance_minimalBeforeLeave: 8
+  distanceShoot: 40
+  projectileToFire: 1
+  cooldown: 3
+  cooldown_betweenNextProejctile: 1.8
+  speedProjectile: 9
+  cut_delay: 0.28
+  blink: {fileID: 0}
+  shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
+    type: 3}
+  list_trig: []
+  rope_system: {fileID: 0}
+  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
+    type: 3}
+  enemySpeed: 1.5
+  idle_anim_time: 0
+  projectileToSpawn: 11
+  timer_BeforeExplosion: 3.2
+  angleToADD: 40
+  methodToKill: 1
+  methodAttack: 1
+  methodToDie: 2
 --- !u!58 &1342271889
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -342,7 +379,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2241928197874238137
+--- !u!114 &4055971220240965562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,32 +388,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1342271887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32612e88dcf5d3743b3b3a968ae24b6d, type: 3}
+  m_Script: {fileID: 11500000, guid: ab6a837a91b30ff47a5618351d832d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionDistance: 300
-  enemySpeed: 2
-  oldSpeed: 0
-  timer_BeforeExplosion: 3.2
-  projectileToSpawn: 11
-  angleToADD: 40
-  speedProjectile: 400
-  cooldown: 2
-  cooldownToWait: 2
-  hit_lasser: {fileID: 8745295092571111122}
-  audio_explision: {fileID: 8000970703477746070}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
-  spriteBlinkingMiniDuration: 0.1
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.2
   spriteBlinkingTotalTimer: 0
-  spriteBlinkingTotalDuration: 4.85
-  startBlinking: 0
-  rope_system: {fileID: 0}
-  list_trig: []
-  rope_atachment: 0
-  timerCut: 0
-  timerCut_TOT: 0.28
-  num_trig: 0
+  spriteBlinkingTotalDuration: 1
+  spawn: 1
+  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
 --- !u!1 &265837583627681705
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &8501758459417510268
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -528,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &8062433237522606346
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -588,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &1728603302726044055
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -648,6 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &958943890564890733
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -708,6 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &7164036406002373775
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -768,6 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &8736158349606691979
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -828,6 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &5913282425534168892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -888,6 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &1060502702254019101
 CircleCollider2D:
   m_ObjectHideFlags: 0

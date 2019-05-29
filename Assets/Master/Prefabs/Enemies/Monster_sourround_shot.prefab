@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &195830279
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &252275673
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &750105461
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1012928626
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1342271887
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +315,6 @@ GameObject:
   m_Component:
   - component: {fileID: 363910200}
   - component: {fileID: 1342271892}
-  - component: {fileID: 1363175998042360321}
   - component: {fileID: 1342271891}
   - component: {fileID: 1342271888}
   - component: {fileID: 1705542851894081006}
@@ -318,6 +322,8 @@ GameObject:
   - component: {fileID: 5434449346232900870}
   - component: {fileID: 5005755396300071282}
   - component: {fileID: 7545393572757235520}
+  - component: {fileID: 8813255479828551198}
+  - component: {fileID: 5879944529420489149}
   m_Layer: 18
   m_Name: Monster_sourround_shot
   m_TagString: monster
@@ -396,45 +402,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1363175998042360321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342271887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bcffff8552064a46b8ac0a62123d3b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySpeed: 2
-  list_trig: []
-  rope_system: {fileID: 0}
-  hit_lasser: {fileID: 3757547648681589580}
-  audio_explosion: {fileID: 5434449346232900870}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
-  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
-  cameraTransform: {fileID: 0}
-  shakeDuration: 0
-  shakeMagnitude: 0
-  dampingSpeed: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  signConfirmed: {fileID: 5005755396300071282}
-  shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
-    type: 3}
-  cut_delay: 0.28
-  spawn_delay: 1.5
-  projectileToFire: 1
-  detectionDistance: 200
-  detectionDistance_minimalBeforeLeave: 8
-  distanceShoot: 400
-  cooldown: 3
-  cooldown_betweenNextProejctile: 1.8
-  speedProjectile: 9
-  method: 2
 --- !u!95 &1342271891
 Animator:
   serializedVersion: 3
@@ -795,6 +762,61 @@ CircleCollider2D:
   m_Offset: {x: 0.09922969, y: 0}
   serializedVersion: 2
   m_Radius: 1.0092298
+--- !u!114 &8813255479828551198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342271887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880bca65f1b62a34ab5856bcd106a1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDistance: 100
+  timer_BeforeAttack: 0.9
+  detectionDistance_minimalBeforeLeave: 8
+  distanceShoot: 40
+  projectileToFire: 1
+  cooldown: 3
+  cooldown_betweenNextProejctile: 1.8
+  speedProjectile: 9
+  cut_delay: 0.28
+  blink: {fileID: 0}
+  shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
+    type: 3}
+  list_trig: []
+  rope_system: {fileID: 0}
+  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
+    type: 3}
+  enemySpeed: 1
+  idle_anim_time: 0
+  projectileToSpawn: 11
+  timer_BeforeExplosion: 3.2
+  angleToADD: 40
+  methodToKill: 2
+  methodAttack: 2
+  methodToDie: 1
+--- !u!114 &5879944529420489149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342271887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6a837a91b30ff47a5618351d832d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.2
+  spriteBlinkingTotalTimer: 0
+  spriteBlinkingTotalDuration: 1
+  spawn: 1
+  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
 --- !u!1 &1667030455
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1874776073
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &2139434483
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1001 &615881519200965886
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357146354466136
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357146469205407
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357146621165871
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357147163113832
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357147190395916
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357147616745761
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,26 +802,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionDistance: 200
-  enemySpeed: 2
-  list_trig: []
-  rope_system: {fileID: 0}
-  hit_lasser: {fileID: 1270357147616745769}
-  audio_explosion: {fileID: 1270357147616745770}
-  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
-    type: 3}
-  default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
-  cameraTransform: {fileID: 0}
-  shakeDuration: 0
-  shakeMagnitude: 0
-  dampingSpeed: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  signConfirmed: {fileID: 2360145147702498251}
+  timer_BeforeAttack: 0
+  detectionDistance_minimalBeforeLeave: 0
+  distanceShoot: 0
+  projectileToFire: 0
+  cooldown: 0
+  cooldown_betweenNextProejctile: 0
+  speedProjectile: 0
+  cut_delay: 0
+  blink: {fileID: 0}
   shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
     type: 3}
-  cut_delay: 0
-  spawn_delay: 0
-  method: 2
+  list_trig: []
+  rope_system: {fileID: 0}
+  blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
+    type: 3}
+  enemySpeed: 2.28
+  idle_anim_time: 0
+  projectileToSpawn: 0
+  timer_BeforeExplosion: 0
+  angleToADD: 0
+  methodToKill: 1
+  methodAttack: 1
+  methodToDie: 1
 --- !u!70 &8710464728839764734
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -892,6 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1 &1270357148109913462
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!1001 &9217133014156659683
 PrefabInstance:
   m_ObjectHideFlags: 0

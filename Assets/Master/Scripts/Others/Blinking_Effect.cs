@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Blinking_Effect : MonoBehaviour
 {
 
     //Blincking Effect
-    public float spriteBlinkingTimer = 0.0f;
+    [HideInInspector] public float spriteBlinkingTimer = 0.0f;
     public float spriteBlinkingMiniDuration = 0.1f;
-    public float spriteBlinkingTotalTimer;
+    [HideInInspector] public float spriteBlinkingTotalTimer;
     public float spriteBlinkingTotalDuration;
 
     private Player_Movement player_Movement;
     private JoysticVibration_Manager joysticVibration_Manager;
+
+    [HideInInspector] public bool spawn = true;
+    public Material default_sprite;
+    public Material flash_sprite;
 
 
     // Start is called before the first frame update
@@ -22,23 +24,25 @@ public class Blinking_Effect : MonoBehaviour
         joysticVibration_Manager = GetComponent<JoysticVibration_Manager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void SpriteBlinkingEffect()
     {
         spriteBlinkingTotalTimer += Time.deltaTime;
         if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
         {
-            player_Movement.startBlinking = false;
-            joysticVibration_Manager.alreadyVibrated = true;
+            if (player_Movement != null)
+            {
+                player_Movement.startBlinking = false;
+                joysticVibration_Manager.alreadyVibrated = true;
+            }
+            else
+            {
+                spawn = false;
+            }
             spriteBlinkingTotalTimer = 0.0f;
             //this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to your sprite
             this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+            GetComponent<SpriteRenderer>().material = default_sprite;                 
             return;
         }
 
@@ -46,13 +50,15 @@ public class Blinking_Effect : MonoBehaviour
         if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
         {
             spriteBlinkingTimer = 0.0f;
-            if (this.gameObject.GetComponent<SpriteRenderer>().color == new Color(255, 255, 255, 255))
+            if (this.gameObject.GetComponent<SpriteRenderer>().color == new Color(255, 255, 255, 150))
             {
-                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);
+                GetComponent<SpriteRenderer>().material = default_sprite;
+                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);                
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+                GetComponent<SpriteRenderer>().material = flash_sprite;
+                this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 150);               
             }
         }
     }

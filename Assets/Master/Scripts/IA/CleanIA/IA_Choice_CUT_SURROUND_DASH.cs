@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,58 +6,70 @@ using Random = UnityEngine.Random;
 
 public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 {
+    #region PLAYERS
     //Detect all the players and decide for a target, which is the closer one
+    //PLAYERS
     List<GameObject> allPlayers = new List<GameObject>();
     GameObject target;
     public float detectionDistance;
+    Animator animator;
+    #endregion
 
-    //Old speed is used to get back the speed, after he was to the contact of the player
-    public float enemySpeed;
-    float oldSpeed;
-
+    #region AttackCutMonster
     //Time before the monster is enable to attack, time + animation
     public float timer_BeforeAttack;
     float timer;
-    bool atack_in_range;
-    bool anim_atack;
+    bool atack_in_range;   
     bool p1_inRange;
     bool p2_inRange;
-    Animator animator;
+    #endregion
 
-    //Variables we have to check to know if a monster can be cut, if so, then we trigger audioSource, animation
-    public List<encer_trig> list_trig;
-    public Rope_System rope_system;
-    public AudioSource hit_lasser;
-    public AudioSource audio_explosion;
-    public GameObject blood_explo;
-    bool dead;
+    #region AttackShootMonster
+    public float  detectionDistance_minimalBeforeLeave, distanceShoot;
+    bool canShoot = true;
+    IEnumerator coroutineFire;
+    public float projectileToFire;
+    public float cooldown, cooldown_betweenNextProejctile;
+    public float speedProjectile;
+    #endregion
+
+    #region CutMonster
+    //Variables we have to check to know if a monster can be cut, if so, then we trigger audioSource, animation   
     float timerCut;
     float timerCut_TOT;
+    public float cut_delay;
+    #endregion
 
+    #region Surround Monster
+    bool confirmed;
+    GameObject ropeSystemGetChild;
+    #endregion
+
+    #region SPAWN / General Behavior
+    public Blinking_Effect blink;
+    public GameObject shockwave;
     int num_trig = 0;
     float num_triggered;
+    public List<encer_trig> list_trig;
+    public Rope_System rope_system;
+    public GameObject blood_explo;
+    //Old speed is used to get back the speed, after he was to the contact of the player
+    public float enemySpeed;
+    float oldSpeed;
+    //Bool allow the monster to attack
+    bool anim_atack;
+    bool dead;
+    public float idle_anim_time;
+    #endregion
 
-    public Material default_sprite;
-    public Material flash_sprite;
+    #region Kamikaza
+    float angle;
+    public float projectileToSpawn;
+    public float timer_BeforeExplosion;
+    public float angleToADD;
+    #endregion
 
-    //Camera Shake Effect
-    // Transform of the GameObject you want to shake
-    public Transform cameraTransform;
-    public float shakeDuration;
-    public float shakeMagnitude;
-    public float dampingSpeed;
-    public Vector3 initialPosition;
-
-    public AudioSource signConfirmed;
-    public GameObject shockwave;
-    bool confirmed;
-
-    public float cut_delay;
-
-    //SPAWN 
-    public float spawn_delay;
-    float delay_flash;
-
+    private Camere_Shake_Manager shake;
 
     public enum MethodToKill
     {
@@ -66,36 +77,43 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         Surround = 2,
         Dash = 3,
     }
-    public MethodToKill method;
-    public float idle_anim_time;
-
+    public enum MethodAttack
+    {
+        Cac = 1,
+        DistanceShoot = 2,
+    }
+    public enum MethodToDie
+    {
+        Normal = 1,
+        Kamikaze =2,
+    }
+    public MethodToKill methodToKill;
+    public MethodAttack methodAttack;
+    public MethodToDie methodToDie;  
 
     private void Awake()
     {
-        cameraTransform = Camera.main.GetComponent<Transform>();
         oldSpeed = enemySpeed;
         animator = GetComponent<Animator>();
-        //We find the Rope System, the target will be the center of the cain
         if (rope_system == null)
-        {
             rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
-        }
+        blink = GetComponent<Blinking_Effect>();
+        ropeSystemGetChild = rope_system.gameObject;
     }
 
     // Use this for initialization
     void Start()
     {
+        if (methodToDie == MethodToDie.Kamikaze)
+            speedProjectile = 400;
         dead = false;
         foreach (Transform child in transform)
         {
             if (child.name != "CleanCollision")
-            {
                 list_trig.Add(child.GetComponent<encer_trig>());
-            }
         }
-
         //Method allows us to choose the type of monster we want to have
-        switch (method)
+        switch (methodToKill)
         {
             case MethodToKill.Cut:
                 num_triggered = 3;
@@ -108,16 +126,12 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 num_triggered = 8;
                 timerCut_TOT = 0.7f;
                 break;
-            //If we have forgotten to fill then by default it will be an ennemy to Cut
             default:
-                method = MethodToKill.Cut;
+                methodToKill = MethodToKill.Cut;
                 num_triggered = 3;
                 timerCut_TOT = 0.28f;
                 break;
         }
-
-        spawn_delay = 1;
-        //gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     // Update is called once per frame
@@ -125,31 +139,12 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         Noise();
 
-        if (spawn_delay >= 0)
+        if (blink.spawn)
         {
-            spawn_delay -= Time.deltaTime;
-            delay_flash -= Time.deltaTime;
-            if (delay_flash <= 0.2)
-            {
-                if (delay_flash <= 0)
-                {
-                    delay_flash = 0.4f;
-                }
-                GetComponent<SpriteRenderer>().material = default_sprite;
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().material = flash_sprite;
-            }
-            if (spawn_delay <= 0)
-            {
-                GetComponent<SpriteRenderer>().material = default_sprite;
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            }
+            blink.SpriteBlinkingEffect();
         }
         else
         {
-            initialPosition = Camera.main.transform.position;
             if (target != null)
             {
                 //If one player (who are not the actual target) is closer than the target, then the script change of target
@@ -164,60 +159,55 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                     }
                 }
                 //Condition to turn animations on
-                if (GetDistance(target) < detectionDistance)
+                if (methodAttack == MethodAttack.Cac)
                 {
-                    Follow();
-                    if(animator != null)
-                        animator.SetBool("running", true);
-                }
-                else
-                {
-                    if(animator != null)
-                        animator.SetBool("running", false);
-                }
-                if (anim_atack)
-                {
-                    timer += Time.deltaTime;
-                    animator.SetBool("attack", true);
-                    if (timer > timer_BeforeAttack)
-                    {
-                        SoundManager.PlaySound(SoundManager.Sound.SpydieMeleAtack, transform.position);
-                        if (atack_in_range && !dead)
-                        {
-                            foreach (var player in allPlayers)
-                            {
-                                if(player.name == "PlayerOne" && p1_inRange && !p2_inRange)
-                                {
-                                    player.GetComponent<God_Mode>().Hit_verification("PlayerOne", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
-                                }
-                                else if (player.name == "PlayerTwo" && p2_inRange && !p1_inRange)
-                                {
-                                    player.GetComponent<God_Mode>().Hit_verification("PlayerTwo", allPlayers[1].transform.position, "Monster Choise - " + method.ToString());
-                                }
-                                else if (p1_inRange && p2_inRange)
-                                {
-                                    player.GetComponent<God_Mode>().Hit_verification("TwoOfThem", allPlayers[0].transform.position, "Monster Choise - " + method.ToString());
-                                }
-                            }
-                        }
+                    if (anim_atack && methodToDie != MethodToDie.Kamikaze)
+                        AttackCac();
+                    else
                         timer = 0;
-                        anim_atack = false;
-                        atack_in_range = false;
-                        animator.SetBool("attack", false);
-                        if(!dead)
-                            enemySpeed = oldSpeed;
+                    transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+
+                    if (GetDistance(target) < detectionDistance)
+                    {
+                        Follow();
+                        if (methodToDie != MethodToDie.Kamikaze)
+                        {
+                            if (animator != null)
+                                animator.SetBool("running", true);
+                        }
+                    }
+                    else
+                    {
+                        if (methodToDie != MethodToDie.Kamikaze)
+                        {
+                            if (animator != null)
+                                animator.SetBool("running", false);
+                        }
                     }
                 }
-                else
+                else if(methodAttack == MethodAttack.DistanceShoot)
                 {
-                    timer = 0;
-                }
-
-                //Look at the Target
-                //transform.LookAt(target.transform.position);
-                //transform.Rotate(new Vector2(0, 90));
-                //Since the LookAt method is a 3D method, we have to add a 90° rotation to be effective
-                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+                    if (GetDistance(target) < distanceShoot)
+                    {
+                        if (canShoot)
+                        {
+                            if (GetDistance(target) > 4)
+                            {
+                                coroutineFire = FireCoroutine(cooldown);
+                                StartCoroutine(coroutineFire);
+                            }
+                        }
+                    }
+                    //But if he's too close, then he leave in the opposite direction of players
+                    if (GetDistance(target) < detectionDistance_minimalBeforeLeave)
+                    {
+                        Leave();
+                    }
+                    else
+                    {
+                        Follow();
+                    }
+                }         
             }
 
             //If the monster don't have target then we look for one
@@ -239,84 +229,67 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 }
             }
 
-            //Start surround check how many colliders are triggered by the rope, if we have for example 3 triggered on 8 then we turn on the timer of cut 
-            //   ->    it's a light delay to have the feelings of real cutting
-
             Start_surround();
 
-            if (method == MethodToKill.Cut || method == MethodToKill.Surround)
+            if (methodToKill == MethodToKill.Cut || methodToKill == MethodToKill.Surround)
             {
-                if (method == MethodToKill.Surround)
-                {
-                    var ropeSystemGetChild = GameObject.Find("Rope_System");
+                if (methodToKill == MethodToKill.Surround)
+                {                   
                     switch (num_trig)
                     {
                         case 4:
-                            shakeDuration = 1;
+                            /*shakeDuration = 1;
                             shakeMagnitude = 0.04f;
-                            dampingSpeed = 0.04f;
+                            dampingSpeed = 0.04f;*/
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
-                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
                                 child.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 255);
-
                             }
                             break;
 
                         case 5:
-                            shakeDuration = 1;
-                            shakeMagnitude = 0.05f;
-                            dampingSpeed = 0.05f;
-                            CameraShake();
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
-                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
                                 child.GetComponent<SpriteRenderer>().color = new Color(255, 150, 0, 255);
                             }
                             break;
 
                         case 6:
-                            shakeDuration = 1;
-                            shakeMagnitude = 0.06f;
-                            dampingSpeed = 0.06f;
-                            CameraShake();
+                            //shakeDuration = 1;
+                            //shakeMagnitude = 0.06f;
+                            //dampingSpeed = 0.06f;
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
-                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
                                 child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 0, 255);
                             }
                             break;
 
                         case 7:
-                            shakeDuration = 1;
-                            shakeMagnitude = 0.07f;
-                            dampingSpeed = 0.07f;
-                            CameraShake();
+                            //shakeDuration = 1;
+                            //shakeMagnitude = 0.07f;
+                            //dampingSpeed = 0.07f;
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
-                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
                                 child.GetComponent<SpriteRenderer>().color = new Color(150, 255, 0, 255);
                             }
                             break;
 
                         case 8:
-                            shakeDuration = 0;
-                            shakeMagnitude = 0;
-                            dampingSpeed = 0;
+                            //shakeDuration = 0;
+                            //shakeMagnitude = 0;
+                            //dampingSpeed = 0;
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
-                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = false;
                                 child.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 255);
                             }
                             break;
 
                         default:
-                            shakeDuration = 0;
-                            shakeMagnitude = 0;
-                            dampingSpeed = 0;
+                            //shakeDuration = 0;
+                            //shakeMagnitude = 0;
+                            //dampingSpeed = 0;
                             foreach (Transform child in ropeSystemGetChild.transform)
                             {
-                                //child.GetComponent<Prime31.SpriteLightColorCycler>().enabled = true;
                                 child.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
                             }
                             confirmed = false;
@@ -326,7 +299,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
                 if (num_trig >= num_triggered)
                 {
-                    if(Players_dashing())
+                    if(Players_dashing()&& methodToKill == MethodToKill.Cut && methodToDie != MethodToDie.Kamikaze)
                     {
                         allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
                         allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
@@ -337,16 +310,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         transform.localScale = new Vector3(1, 1, 1);
                         StartCoroutine(Dead());
                     }
-                    if (!confirmed && method == MethodToKill.Surround)
+                    else if (!confirmed && methodToKill == MethodToKill.Surround)
                     {
                         Instantiate(shockwave, transform.position, Quaternion.identity);
-                        signConfirmed.Play();
                         confirmed = true;
                     }
-                    if (allPlayers[0].GetComponent<Player_Movement>().get_MovementX() != 0 || allPlayers[0].GetComponent<Player_Movement>().get_MovementY() != 0 /*&&  allPlayers[1].GetComponent<Player2_Movement>().moveX != 0 || allPlayers[1].GetComponent<Player2_Movement>().moveY != 0*/)
+
+                    if (allPlayers[0].GetComponent<Player_Movement>().get_MovementX() != 0 || allPlayers[0].GetComponent<Player_Movement>().get_MovementY() != 0)
                     {
                         timerCut += Time.deltaTime;
-                        if (method == MethodToKill.Surround)
+                        if (methodToKill == MethodToKill.Surround)
                         {
                             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.6f, 1, 1), timerCut / timerCut_TOT);
                         }
@@ -354,11 +327,25 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         {
                             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
                             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
-                            animator.SetBool("dead", true);
+
+                            
                             gameObject.GetComponent<Collider2D>().enabled = false;
                             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                             transform.localScale = new Vector3(1, 1, 1);
-                            StartCoroutine(Dead());
+
+                            if (methodToDie == MethodToDie.Normal)
+                            {
+                                animator.SetBool("dead", true);
+                                StartCoroutine(Dead());
+                            }
+                            else if (methodToDie == MethodToDie.Kamikaze)
+                            {
+                                blink.spriteBlinkingTotalDuration = timer_BeforeExplosion;
+                                blink.spriteBlinkingMiniDuration = 0.1f;
+                                blink.spawn = true;
+                                StartCoroutine(Wait_EXPLOSIONN());
+                            }
+                                
                         }
                     }
                     else
@@ -385,8 +372,11 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
                             animator.SetBool("dead", true);
                             GetComponent<CapsuleCollider2D>().enabled = false;
-                            animator.SetBool("attack", false);
-                            StartCoroutine(Dead());
+                            if(methodToKill == MethodToKill.Cut)
+                                animator.SetBool("attack", false);
+
+                            if (methodToDie == MethodToDie.Normal)
+                                StartCoroutine(Dead());
                         }
                     }
                     else
@@ -401,41 +391,24 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
     void Noise()
     {
-
         if (idle_anim_time > 0)
         {
             idle_anim_time -= Time.fixedDeltaTime;
         }
         if (idle_anim_time <= 0)
         {
-            SoundManager.PlaySound(SoundManager.Sound.SpydieNoise, transform.position);
             idle_anim_time = Random.Range(5.0f, 10.0f);
         }
     }
 
-    void CameraShake()
+    void Leave()
     {
-        if (shakeDuration > 0)
-        {
-            cameraTransform.localPosition = initialPosition + UnityEngine.Random.insideUnitSphere * shakeMagnitude;
-        }
-        else
-        {
-            cameraTransform.localPosition = initialPosition;
-        }
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * -enemySpeed);
     }
 
     public bool Players_dashing()
     {
-        if (allPlayers[0].GetComponent<Player_Movement>().Dashing()
-            || allPlayers[1].GetComponent<Player_Movement>().Dashing())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (allPlayers[0].GetComponent<Player_Movement>().Dashing() || allPlayers[1].GetComponent<Player_Movement>().Dashing());
     }
 
     void Start_surround()
@@ -444,9 +417,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         foreach (encer_trig trig in list_trig)
         {
             if (trig.Check_isTouching())
-            {
                 num_trig++;
-            }
         }
     }
 
@@ -460,13 +431,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * enemySpeed);
         if ((target.transform.position - transform.position).x > 0)
-        {
             transform.GetComponent<SpriteRenderer>().flipX = true;
-        }
         else
-        {
             transform.GetComponent<SpriteRenderer>().flipX = false;
-        }
     }
 
     //When an enemy collide with a player, he stop moving to avoid some shakings 
@@ -475,19 +442,16 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         if (other.gameObject.tag == "player")
         {
             enemySpeed = 0;
-            //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
-            atack_in_range = true;
-            anim_atack = true;
-            if (other.gameObject.name == "PlayerOne")
+            if (methodAttack == MethodAttack.Cac)
             {
-                p1_inRange = true;
+                //We allow him to attack, the bool attack will trigger a timer, before he's allowed to deal damage
+                atack_in_range = true;
+                anim_atack = true;
+                if (other.gameObject.name == "PlayerOne")
+                    p1_inRange = true;
+                else
+                    p2_inRange = true;
             }
-            else
-            {
-                p2_inRange = true;
-            }
-            //allPlayers[0].GetComponent<Player_Movement>().alreadyVibrated = false;
-            //allPlayers[1].GetComponent<Player_Movement>().alreadyVibrated = false;
         }
     }
 
@@ -495,14 +459,18 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            atack_in_range = false;
-            if (collision.gameObject.name == "PlayerOne")
+            enemySpeed = oldSpeed;
+            if (methodAttack == MethodAttack.Cac)
             {
-                p1_inRange = false;
-            }
-            else
-            {
-                p2_inRange = false;
+                atack_in_range = false;
+                if (collision.gameObject.name == "PlayerOne")
+                {
+                    p1_inRange = false;
+                }
+                else
+                {
+                    p2_inRange = false;
+                }
             }
         }
     }
@@ -512,26 +480,103 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         if (!dead)
         {
             dead = true;
-            
+            blink.SpriteBlinkingEffect();
             //Used to control the vibrations in both controllers
             allPlayers[0].GetComponent<Player_Movement>().testVibrationHitRope = true;
             allPlayers[1].GetComponent<Player_Movement>().testVibrationHitRope = true;
 
-            GetComponent<SpriteRenderer>().material = flash_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
             SoundManager.PlaySound(SoundManager.Sound.PlayerSlicing, transform.position);
             enemySpeed = 0;
 
             yield return new WaitForSeconds(0.2f);
-            GetComponent<SpriteRenderer>().material = default_sprite;
             GetComponent<SpriteRenderer>().color = Color.white;
 
             yield return new WaitForSeconds(0.2f);
-
-            audio_explosion.Play();           
+        
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             yield return new WaitForSeconds(0.25f);
             Destroy(gameObject);      
+        }
+    }
+
+    IEnumerator Wait_EXPLOSIONN()
+    {
+        if (!dead)
+        {
+            dead = true;
+            GetComponent<CircleCollider2D>().enabled = false;
+            detectionDistance = 0;
+            enemySpeed = 0;
+            GetComponent<Animator>().enabled = false;
+            
+            angle = 2 * Mathf.PI;
+
+            yield return new WaitForSeconds(timer_BeforeExplosion);
+
+            Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+            for (int i = 0; i < projectileToSpawn; i++)
+            {
+                angle += angleToADD;
+                Vector3 direction = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+                var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), transform.position + direction, Quaternion.identity) as GameObject;
+                var directionVect = instanceAddForce.transform.position - transform.position;
+                instanceAddForce.GetComponent<Rigidbody2D>().AddForce(directionVect.normalized * speedProjectile);
+            }
+            yield return new WaitForSeconds(0.8f);
+            Destroy(gameObject);
+        }
+    }
+
+    IEnumerator FireCoroutine(float cooldown)
+    {
+        if (!dead)
+        {
+            for (int i = 0; i <= projectileToFire; i++)
+            {
+                //Projectiles are instantiate and will be targeting the closer player
+                var instanceAddForce = Instantiate(Resources.Load("ShotDistance"), new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as GameObject;
+                instanceAddForce.GetComponent<Rigidbody2D>().AddForce((target.transform.position - transform.position).normalized * speedProjectile, ForceMode2D.Impulse);
+                //We wait a short time, to let the previous element go more forward before spawing an other one 
+                canShoot = false;
+                yield return new WaitForSeconds(cooldown_betweenNextProejctile);
+            }
+            canShoot = false;
+            yield return new WaitForSeconds(cooldown);
+            canShoot = true;
+        }
+    }
+
+    void AttackCac()
+    {
+        timer += Time.deltaTime;
+        animator.SetBool("attack", true);
+        if (timer > timer_BeforeAttack)
+        {
+            if (atack_in_range && !dead)
+            {
+                foreach (var player in allPlayers)
+                {
+                    if (player.name == "PlayerOne" && p1_inRange && !p2_inRange)
+                    {
+                        player.GetComponent<God_Mode>().Hit_verification("PlayerOne", allPlayers[0].transform.position, "Monster Choise - " + methodToKill.ToString());
+                    }
+                    else if (player.name == "PlayerTwo" && p2_inRange && !p1_inRange)
+                    {
+                        player.GetComponent<God_Mode>().Hit_verification("PlayerTwo", allPlayers[1].transform.position, "Monster Choise - " + methodToKill.ToString());
+                    }
+                    else if (p1_inRange && p2_inRange)
+                    {
+                        player.GetComponent<God_Mode>().Hit_verification("TwoOfThem", allPlayers[0].transform.position, "Monster Choise - " + methodToKill.ToString());
+                    }
+                }
+            }
+            timer = 0;
+            anim_atack = false;
+            atack_in_range = false;
+            animator.SetBool("attack", false);
+            if (!dead)
+                enemySpeed = oldSpeed;
         }
     }
 }

@@ -56,7 +56,7 @@ public class Camere_Shake_Manager : MonoBehaviour
     }
 
 
-    void CameraShake()
+    public void CameraShake()
     {
         if (shakeDuration > 0)
         {
