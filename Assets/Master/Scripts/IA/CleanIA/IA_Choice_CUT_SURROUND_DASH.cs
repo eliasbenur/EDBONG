@@ -189,8 +189,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 {
                     if (GetDistance(target) < distanceShoot)
                     {
-                        //if (canShoot)
-                        if (atack_in_range && !dead)
+                        if (canShoot)
                         {
                             if (GetDistance(target) > 4)
                             {
