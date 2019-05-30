@@ -11,7 +11,6 @@ public class Change_Prop : MonoBehaviour
     public Slider slider_dash;
     public Toggle toggle_solo_mode;
     public Slider slider_health;
-    private Slider slider_health_ui;
     public Slider slider_speed;
     public Slider slider_gravityP;
     public Slider slider_defense;
@@ -29,8 +28,6 @@ public class Change_Prop : MonoBehaviour
         p1 = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
         p2 = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
         game_manager = Camera.main.GetComponent<GameManager>();
-
-        slider_health_ui = GameObject.Find("SliderHealth").GetComponent<Slider>();
     }
 
     public void change_NumPoints()
@@ -113,12 +110,13 @@ public class Change_Prop : MonoBehaviour
     {
         game_manager.life = slider_health.value;
         game_manager.max_Life = slider_health.value;
-        slider_health_ui.maxValue = slider_health.value;
+        game_manager.Update_liveDisplay();
     }
 
     public void resetHealth()
     {
         game_manager.life = game_manager.max_Life;
+        game_manager.Update_liveDisplay();
     }
 
     public void change_speedp1()

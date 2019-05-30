@@ -127,7 +127,7 @@ public class Player_Movement : MonoBehaviour {
         }
 
         if (!testVibrationHitRope || joysticVibrationMan.alreadyVibrated)
-            joysticVibrationMan.Vibrate_Control(0, 0);
+            joysticVibrationMan.Vibrate_Control();
 
         if (startBlinking)
         {
