@@ -29,7 +29,7 @@ public class DieBoss_KillHit : MonoBehaviour
 
     [HideInInspector] public KillBoss_RopeDetection ropeCollisions;
 
-    private PolygonCollider2D laser;
+    public GameObject laser;
     private SpriteRenderer sprite_Renderer;
     private List<Player_Movement> players;
     private List<God_Mode> players_gm;
@@ -43,7 +43,6 @@ public class DieBoss_KillHit : MonoBehaviour
         camera = Camera.main.GetComponent<Camera_Focus>();      
         default_sprite = GetComponent<SpriteRenderer>().material;
         colliderBoss = GetComponent<CapsuleCollider2D>();
-        laser = GetComponentInChildren<LaserCollision>().GetComponent<PolygonCollider2D>();
         sprite_Renderer = GetComponent<SpriteRenderer>();
         ropeCollisions = GetComponentInChildren<KillBoss_RopeDetection>();
         players = Camera.main.GetComponent<GameManager>().players_Movement;
@@ -54,7 +53,7 @@ public class DieBoss_KillHit : MonoBehaviour
     {
         BehaviorCamera();
         if(laser != null)
-            laser.enabled = false;
+            laser.SetActive(false);
 
         if (camera.transform.position.y >= transform.position.y + offset)
         {

@@ -69,6 +69,8 @@ public class Door_Trigger : MonoBehaviour
         playerone.set_MovementY(mov_p1.y);
         playertwo.set_MovementX(mov_p2.x);
         playertwo.set_MovementY(mov_p2.y);
+
+        SaveSystem.SavePlayer(playersList);
     }
 
     /* When the 2 players are colliding the door, the door opens and the players start autoruning */

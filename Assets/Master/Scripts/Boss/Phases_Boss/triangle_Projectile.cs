@@ -11,7 +11,6 @@ public class triangle_Projectile : MonoBehaviour
     private float timer;
     bool confirmed;
     private GameObject p1, p2;
-    private Rigidbody2D rb_projectile;
     private List<God_Mode> players;
     #endregion
 
@@ -19,7 +18,6 @@ public class triangle_Projectile : MonoBehaviour
     {
         p1 = GameObject.Find("PlayerOne");
         p2 = GameObject.Find("PlayerTwo");
-        rb_projectile.GetComponent<Rigidbody2D>();
         players = Camera.main.GetComponent<GameManager>().players;
     }
     
@@ -41,8 +39,8 @@ public class triangle_Projectile : MonoBehaviour
                     targetObject = p2;
                 break;
             }
-            rb_projectile.velocity = Vector2.zero;
-            rb_projectile.AddForce((targetObject.transform.position - transform.position).normalized * enemySpeed);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().AddForce((targetObject.transform.position - transform.position).normalized * enemySpeed);
 
             var rotationUpdate = targetObject.transform.position - transform.position;
 
@@ -76,8 +74,11 @@ public class triangle_Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "player")
         {
-            collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerUndefined", collision.transform.position, "triangle_Projectile");
-            Destroy(this.gameObject);
+            if(!collision.gameObject.GetComponent<God_Mode>().godMode)
+            {
+                collision.gameObject.GetComponent<God_Mode>().Hit_verification("PlayerUndefined", collision.transform.position, "triangle_Projectile");
+                Destroy(this.gameObject);
+            }           
         }
 
         if (collision.gameObject.layer == 11)

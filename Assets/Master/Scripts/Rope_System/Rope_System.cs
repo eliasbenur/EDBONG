@@ -4,7 +4,7 @@ using UnityEngine;
 public class Rope_System : MonoBehaviour {
 
     #region Ini_Properties
-    private List<Rope_Point> Points = new List<Rope_Point>();
+    [HideInInspector] public List<Rope_Point> Points = new List<Rope_Point>();
     //Movement every Frame
     private Vector2 mov_P1;
     private Vector2 mov_P2;

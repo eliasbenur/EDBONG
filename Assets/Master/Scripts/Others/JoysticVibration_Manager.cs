@@ -1,41 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using XInputDotNetPure;
+using Rewired;
 
 public class JoysticVibration_Manager : MonoBehaviour
 {
+    #region Properties
     //Controller Vibration
-    public PlayerIndex playerIndex;
     GamePadState prevState;
     public bool alreadyVibrated;
     public float leftMotor_RopeHit, rightMotor_RopeHit;
     public float leftMotor_EnnemyHit, rightMotor_EnnemyHit;
+    public Player r_player;
+    #endregion
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        r_player = GetComponent<Player_Movement>().rew_player;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Vibrate_Control()
     {
-
-    }
-
-    public void Vibrate_Control(float leftMotor, float rightMotor)
-    {
-        GamePad.SetVibration(playerIndex, leftMotor, rightMotor);
+        r_player.StopVibration();
+        alreadyVibrated = false;
     }
 
     public void Vibrate_Control_Kill()
     {
-        GamePad.SetVibration(playerIndex, leftMotor_RopeHit, rightMotor_RopeHit);
+        foreach (Joystick j in r_player.controllers.Joysticks)
+        {
+            if (!j.supportsVibration) continue;
+            if (j.vibrationMotorCount > 0) j.SetVibration(0, leftMotor_RopeHit);
+            if (j.vibrationMotorCount > 1) j.SetVibration(1, rightMotor_RopeHit);
+        }
     }
 
     public void Vibrate_Control_Hit()
     {
-        GamePad.SetVibration(playerIndex, leftMotor_EnnemyHit, rightMotor_EnnemyHit);
+        foreach (Joystick j in r_player.controllers.Joysticks)
+        {
+            if (!j.supportsVibration) continue;
+            if (j.vibrationMotorCount > 0) j.SetVibration(0, leftMotor_EnnemyHit);
+            if (j.vibrationMotorCount > 1) j.SetVibration(1, rightMotor_EnnemyHit);
+        }
     }
 }

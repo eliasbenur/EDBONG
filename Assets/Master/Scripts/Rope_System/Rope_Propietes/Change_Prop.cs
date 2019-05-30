@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Change_Prop : MonoBehaviour
@@ -20,23 +21,16 @@ public class Change_Prop : MonoBehaviour
 
     private Player_Movement p1, p2;
 
-    private GameManager game_manager;
+    private GameManager game_manager;  
 
     // Start is called before the first frame update
     void Start()
     {
         p1 = GameObject.Find("PlayerOne").GetComponent<Player_Movement>();
         p2 = GameObject.Find("PlayerTwo").GetComponent<Player_Movement>();
-
-        game_manager = GameObject.Find("Main Camera").GetComponent<GameManager>();
+        game_manager = Camera.main.GetComponent<GameManager>();
 
         slider_health_ui = GameObject.Find("SliderHealth").GetComponent<Slider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void change_NumPoints()
@@ -102,6 +96,7 @@ public class Change_Prop : MonoBehaviour
 
         p1.set_Solo_Mode();
         p2.set_Solo_Mode();
+        
     }
 
     public void change_DashColdown()
@@ -162,5 +157,5 @@ public class Change_Prop : MonoBehaviour
             cheat_menu.SetActive(true);
         }
         
-    }
+    }    
 }

@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184027761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 1}
   m_LocalScale: {x: 1.875, y: 1.875, z: 1}
   m_Children: []
   m_Father: {fileID: 6897441273833837764}
@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063600562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 1}
+  m_LocalPosition: {x: -10, y: 0, z: 1}
   m_LocalScale: {x: 1.875, y: 1.875, z: 1}
   m_Children: []
   m_Father: {fileID: 6897441273833837764}
@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &1383809916014132732
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -537,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &8073252507396135717
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -646,6 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &2022464178253621774
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -755,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &9089344801726114842
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -864,6 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &841352117474694608
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -973,6 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &5942890794501448862
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1082,6 +1088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &5500532662449164494
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1483,7 +1490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5368143728734923263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bd0d5bb964f6cc4082e6596bbeaf693, type: 3}
   m_Name: 
@@ -1491,27 +1498,18 @@ MonoBehaviour:
   allPlayers: []
   list_trig: []
   rope_system: {fileID: 0}
-  hit_lasser: {fileID: 1170794371}
-  audio_explosion: {fileID: 1170794372}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
   default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
-  cameraTransform: {fileID: 0}
-  shakeDuration: 0
-  shakeMagnitude: 0
-  dampingSpeed: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  signConfirmed: {fileID: 1170794375}
   shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
     type: 3}
-  cut_delay: 1
   dieSmoke1: {fileID: 4813506586129915862, guid: 68cc032a58e100a47aba0ffafaca6901,
     type: 3}
   dieSmoke2: {fileID: 1618034618077096724, guid: 84d2fdf7dd7d24e40a1d6c58da3d5aaa,
     type: 3}
   cooldown: 1.5
-  method: 2
+  method: 1
 --- !u!1 &6409077780514485864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,13 +1585,9 @@ MonoBehaviour:
   Boss: {fileID: 6897441273833837763}
   timer: 0
   timerTot: 6
-  camera: {fileID: 0}
   offsetCamera: 14
   canvas: {fileID: 0}
   cinematic: {fileID: 0}
-  bossMusic: {fileID: 8300000, guid: 1acf8225a84606c4c83dfdb0ee511e2f, type: 3}
-  stopAlarm: {fileID: 0}
-  MaxVolumeBoss: 0.2
   miniMap: {fileID: 0}
 --- !u!114 &6409077780514485866
 MonoBehaviour:
@@ -1657,6 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fba82e6158d88d4e9672343f50d6e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkLayers_Touched: {fileID: 0}
 --- !u!58 &2723217672133187192
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2151,75 +2146,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8cf5065466e3547b151c8f44a094b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSpawn: 1
-  enemySpeed: 300
-  target: {fileID: 0}
-  all_Childrens:
-  - {fileID: 9184823449246317989, guid: e28397cd127419f45bdfc9d2546c6555, type: 3}
-  - {fileID: 9206801118187262936, guid: 7b421cfc8631f53489c3f5fb36e057a1, type: 3}
-  - {fileID: 4759775656000668853, guid: 6ea108ca2d4ec1a4d812c77c34c4c09a, type: 3}
-  midEye: {fileID: 6897441273386763131}
-  leftEye: {fileID: 6897441273653976379}
-  rightEye: {fileID: 6897441274203916727}
-  projectLeft: 2
-  projectRight: 2
-  projectMid: 2
-  projectLeftTriangle: 10
-  cooldown_Between_Projectil: 2
-  cooldown_Between_Monsters: 15
-  cooldown_Between_Projectil_Triangle: 0.1
-  L: 0
-  R: 0
-  M: 0
-  timer: 0
   timerAttack1: 5
   timerAttack2: 10
   timerAttack3: 15
   timerAttack4: 20
   numberCycle: 2
-  ennemiesList: []
+  timerTotBeforeTransition: 10
   spawnPosition: []
-  i: 0
-  a: 0
-  x: 0
-  y: 0
-  z: 0
-  angle: 45
-  segments: 1
-  xradius: 160
-  yradius: 160
+  ennemyToSpawn: {fileID: 1342271887, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
+  projectile_ToShoot: 3
+  Triangle_ToShoot: 6
+  cooldown_Between_Projectil: 2
+  cooldown_Between_Monsters: 15
+  cooldown_Between_Projectil_Triangle: 0.1
+  enemySpeed: 380
+  cooldownTrianglePhase: 2
+  timeToDo: 3
+  Triangle_Projectile: {fileID: 1792899444633729259, guid: 8ea0f7085e98c7b4c84522872cd7535c,
+    type: 3}
+  Projectile_Boss: {fileID: 6495450032185527312, guid: b333491ef34947349b29b5633cc5f7e3,
+    type: 3}
   line: {fileID: 1601383164}
   ennemyLaserSpeed: 25
   numberCycleLaser: 3
-  aller: 0
-  retour: 0
-  stop: 0
-  checkBeforeNewPhase: 0
-  oldCooldownBetweenMonsters: 0
-  alreadyPlay: 0
-  timerCondition: 0
-  timerCondition2: 0
-  timerTotBeforeTransition: 10
+  all_Childrens:
+  - {fileID: 9184823449246317989, guid: e28397cd127419f45bdfc9d2546c6555, type: 3}
+  - {fileID: 9206801118187262936, guid: 7b421cfc8631f53489c3f5fb36e057a1, type: 3}
+  - {fileID: 4759775656000668853, guid: 6ea108ca2d4ec1a4d812c77c34c4c09a, type: 3}
+  leftEye: {fileID: 6897441273653976379}
+  rightEye: {fileID: 6897441274203916727}
   eyeRightFalling: {fileID: 2442798392491054931, guid: e28397cd127419f45bdfc9d2546c6555,
     type: 3}
   eyeLeftFalling: {fileID: 3376230946173897676, guid: 6ea108ca2d4ec1a4d812c77c34c4c09a,
     type: 3}
-  position: {x: 0, y: 0, z: 0}
-  cooldownTrianglePhase: 2
-  enemyStart: 300
-  timeToDo: 3
   ennemySpeed_Chaos: 250
   angle_Chaos: 10
   projectileToSpawn_Chaos: 60
   angleToADD_Chaos: 10
   cooldown_Chaos: 2.5
   timeToDo_Chaos: 12
-  ennemyToSpawn: {fileID: 1342271887, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
   smoothTime: 2
-  camera: {fileID: 0}
+  timer: 0
+  x: 0
+  y: 0
+  z: 0
+  angle: 45
+  segments: 1
+  xradius: 180
+  yradius: 180
+  aller: 0
+  retour: 0
+  checkBeforeNewPhase: 0
+  alreadyPlay: 0
+  timerCondition: 0
+  timerCondition2: 0
   cameraMoving: 0
   returnCamera: 0
   CameraTestOneTime: 0
+  ennemies: []
+  eyes: []
 --- !u!58 &6897441273833837769
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2267,25 +2252,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3246624041f189a48ac92361bb0d2edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  timerTotBeforeDead: 0
-  timerReturn: 0
   smoothTime: 2
   camera: {fileID: 0}
+  offset: -2
   canvas: {fileID: 0}
-  dieSmoke1: {fileID: 0}
-  dieSmoke2: {fileID: 0}
-  cooldown: 0
   cinematicDie: {fileID: 0}
-  endOfLevelTrap: {fileID: 0}
   scale_Speed: 0.1
   limitScale_Boss: 0.1
   default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
-  offset: -2
   speed: 80
-  amount: 0.09
-  ropeCollisions: {fileID: 5368143728734923263}
+  amount: 0.105
+  ropeCollisions: {fileID: 0}
+  laser: {fileID: 1601383163}
 --- !u!1 &6897441274203916724
 GameObject:
   m_ObjectHideFlags: 0

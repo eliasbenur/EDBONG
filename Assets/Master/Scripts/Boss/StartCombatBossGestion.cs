@@ -31,7 +31,7 @@ public class StartCombatBossGestion : MonoBehaviour
         {
             boss.GetComponent<Boss>().enabled = true;
             canvas.SetActive(true);
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

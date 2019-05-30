@@ -222,6 +222,8 @@ public class EyeDestruction : MonoBehaviour
     {
         if (!dead)
         {
+            AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
+            
             if (boss.all_Childrens.Count == 3)
                 boss.GetComponent<Animator>().Play("BossHited_Phase1");
             else if (boss.all_Childrens.Count == 2)
@@ -235,7 +237,6 @@ public class EyeDestruction : MonoBehaviour
             boss.x = 0;
             boss.y = 0;
             boss.angle = 90;
-            boss.stop = false;
             boss.retour = false;
             boss.aller = true;
             //boss.canSpawn = true;

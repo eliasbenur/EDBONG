@@ -147,6 +147,11 @@ MonoBehaviour:
   projectileToSpawn: 11
   timer_BeforeExplosion: 3.2
   angleToADD: 40
+  cameraTransform: {fileID: 0}
+  shakeDuration: 0
+  shakeMagnitude: 0
+  dampingSpeed: 0
+  initialPosition: {x: 0, y: 0, z: 0}
   methodToKill: 1
   methodAttack: 1
   methodToDie: 2
@@ -179,7 +184,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDrag: 1
+  m_LinearDrag: 1000000
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
