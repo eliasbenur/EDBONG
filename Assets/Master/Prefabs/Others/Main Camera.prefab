@@ -207,8 +207,13 @@ MonoBehaviour:
   shieldPoint: 0
   gameOverCanvas: {fileID: 0}
   shieldGameObject: {fileID: 0}
+  shield_UI: {fileID: 6406841414921785428, guid: 14383a441d4395a42b1a3c9d96f5b341,
+    type: 3}
   players: []
   players_Movement: []
+  rope: {fileID: 0}
+  ropeSystem_position: {x: 0, y: 0, z: 0}
+  active_Scene: 
 --- !u!114 &2688556095755458902
 MonoBehaviour:
   m_ObjectHideFlags: 0
