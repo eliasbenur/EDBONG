@@ -9,7 +9,7 @@ public class Camera_Focus : MonoBehaviour{
     public float smoothTime = .5f;
 
     //Refs to GameObjects
-    private new Camera camera;
+    private Camera camera;
     private List<Transform> targets = new List<Transform>();
 
     // Velocity that is moving the camera with SmoothDamp

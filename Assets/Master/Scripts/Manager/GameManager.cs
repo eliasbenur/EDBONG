@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverCanvas;
 
     //Live and Shield UI
-    public GameObject shieldGameObject;
+    //public GameObject shieldGameObject;
     private Image liveDisplay;
     private Image liveDisplay_back;
     private bool update_lifeback = false;

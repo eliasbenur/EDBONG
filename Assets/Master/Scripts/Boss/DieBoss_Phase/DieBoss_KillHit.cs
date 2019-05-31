@@ -10,7 +10,7 @@ public class DieBoss_KillHit : MonoBehaviour
 
     //Camera Behavior
     public float smoothTime = 2f;
-    [HideInInspector] public new Camera_Focus camera;
+    [HideInInspector] public Camera_Focus camera;
     private Vector3 velocity;
     public float offset;
      

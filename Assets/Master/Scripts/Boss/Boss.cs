@@ -80,7 +80,7 @@ public class Boss : MonoBehaviour
     GameObject targetObject;
     bool checkedMonster;   
     private Vector3 velocity;
-    private new Camera_Focus camera;
+    private Camera_Focus camera;
     [HideInInspector]public bool cameraMoving;
     [HideInInspector] public bool returnCamera;
     [HideInInspector] public bool CameraTestOneTime;

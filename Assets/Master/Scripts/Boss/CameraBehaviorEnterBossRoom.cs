@@ -14,7 +14,7 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
     public CinematicBars cinematic;
     public GameObject miniMap;
 
-    private new Camera_Focus camera;
+    private Camera_Focus camera;
     private StartCombatBossGestion combatBoss;
     #endregion
     private void Awake()

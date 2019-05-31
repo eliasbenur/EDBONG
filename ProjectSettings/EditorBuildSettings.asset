@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Master/Scenes/Waves_Mode.unity
     guid: c226391b7f7b67342bd77d4694c4cf90
-  - enabled: 1
+  - enabled: 0
     path: Assets/Master/Scenes/Proto.unity
     guid: 142b6f823d99a0f4d9e5006a023eacd0
   - enabled: 1

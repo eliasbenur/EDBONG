@@ -6,6 +6,11 @@ public class Button_Menu_Prin : MonoBehaviour
 {
     public Button LoadButton;
 
+    public void Update()
+    {
+        Interactable();
+    }
+
     public void Quit()
     {
         Application.Quit();
@@ -18,7 +23,9 @@ public class Button_Menu_Prin : MonoBehaviour
 
     public void Interactable()
     {
-        //if(SaveSystem.GetPersitentPath())
-
+        if (!SaveSystem.GetPersitentPath())
+            LoadButton.interactable = false;
+        else
+            LoadButton.interactable = true;
     }
 }

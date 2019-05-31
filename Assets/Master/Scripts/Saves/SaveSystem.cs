@@ -33,4 +33,10 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static bool GetPersitentPath()
+    {
+        string path = Application.persistentDataPath + "data.save";
+        return (File.Exists(path));
+    }
 }
