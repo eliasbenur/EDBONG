@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 1961432416586514093}
   - component: {fileID: 2688556095755458905}
   - component: {fileID: 2688556095755458907}
+  - component: {fileID: 1818537424038865748}
   - component: {fileID: 2688556095755458909}
   - component: {fileID: 2688556095755458906}
   m_Layer: 0
@@ -205,7 +206,6 @@ MonoBehaviour:
   life: 0
   shieldPoint: 0
   gameOverCanvas: {fileID: 0}
-  shieldGameObject: {fileID: 0}
   shield_UI: {fileID: 6406841414921785428, guid: 14383a441d4395a42b1a3c9d96f5b341,
     type: 3}
   players: []
@@ -213,6 +213,7 @@ MonoBehaviour:
   rope: {fileID: 0}
   ropeSystem_position: {x: 0, y: 0, z: 0}
   active_Scene: 
+  money: 0
 --- !u!114 &2688556095755458902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +360,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
   endScreen: {fileID: 0}
+--- !u!114 &1818537424038865748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688556095755458908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f011c81d2cb934ca62cd4b3bd24e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taunt_val_max: 3
 --- !u!114 &2688556095755458909
 MonoBehaviour:
   m_ObjectHideFlags: 0

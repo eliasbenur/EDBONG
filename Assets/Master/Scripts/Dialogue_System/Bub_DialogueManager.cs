@@ -14,6 +14,14 @@ public class Bub_DialogueManager : MonoBehaviour
     private GameObject refObj_bubbles;
     private Vector3 position_to;
     private RectTransform RectT_canvas;
+    private bool taunt;
+    private Taunt_Manager taunt_mng;
+    
+
+    public void Set_position_to(Vector3 new_pos)
+    {
+        position_to = new_pos;
+    }
 
     void Start()
     {
@@ -23,6 +31,8 @@ public class Bub_DialogueManager : MonoBehaviour
         scales_y = new Queue<float>();
         font_sizes = new Queue<int>();
         RectT_canvas = GameObject.Find("Canvas").GetComponent<RectTransform>();
+
+        taunt_mng = Camera.main.GetComponent<Taunt_Manager>();
     }
 
     private void Update()
@@ -45,8 +55,12 @@ public class Bub_DialogueManager : MonoBehaviour
     }
 
     /*Load all the data */
-    public void StartDialogue(Bub_Dialogue dialogue, Vector3 position)
+    public GameObject StartDialogue(Bub_Dialogue dialogue, Vector3 position, bool taunt_)
     {
+        if (refObj_bubbles != null)
+        {
+            EndDialogue();
+        }
         sentences.Clear();
         delays.Clear();
         scales_x.Clear();
@@ -79,6 +93,7 @@ public class Bub_DialogueManager : MonoBehaviour
         }
 
         position_to = position;
+        taunt = taunt_;
 
         refObj_bubbles = Instantiate(prefab_bubbles, Vector3.zero, Quaternion.identity);
         refObj_bubbles.transform.SetParent(GameObject.Find("Canvas").transform);
@@ -91,6 +106,8 @@ public class Bub_DialogueManager : MonoBehaviour
         refObj_bubbles.GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
 
         DisplayNextSentence();
+
+        return refObj_bubbles;
     }
 
     /* Set Up of the Dialogue */
@@ -128,5 +145,10 @@ public class Bub_DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         Destroy(refObj_bubbles);
+        if (taunt)
+        {
+            taunt_mng.Reset_vars();
+            taunt = false;
+        }
     }
 }

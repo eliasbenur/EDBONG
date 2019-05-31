@@ -201,9 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale_speed: 0.5
+  spin_speed: 1
   delay: 0
-  godMode_Hole1: {fileID: 0}
-  godMode_Hole2: {fileID: 0}
 --- !u!1 &5886427393130802752
 GameObject:
   m_ObjectHideFlags: 0

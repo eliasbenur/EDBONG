@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Holes_Trigge : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class Holes_Trigge : MonoBehaviour
     private bool playertwo_falling;
 
     public float scale_speed;
+    public float spin_speed;
 
     public float delay;
     private float delay_tmp;
     private float delay_tmp_two;
     private Rope_System rope;
 
-    public God_Mode godMode_Hole1, godMode_Hole2;
+    private God_Mode godMode_Hole1, godMode_Hole2;
 
     private void Start()
     {
@@ -56,6 +58,7 @@ public class Holes_Trigge : MonoBehaviour
         if (player.transform.localScale.x > 0)
         {
             player.transform.localScale = new Vector3(player.transform.localScale.x - Time.deltaTime * scale_speed, player.transform.localScale.y - Time.deltaTime * scale_speed, player.transform.localScale.z);
+            player.transform.Rotate(0,0,spin_speed);
         }
         else
         {
@@ -66,9 +69,10 @@ public class Holes_Trigge : MonoBehaviour
             {
                 rope.get_points()[0].transform.position = pos_torespawn;
                 player.transform.localScale = new Vector3(1, 1, 1);
-                godMode_Hole2.Hit_verification("PlayerOne", player.transform.position, "Fall Damage");
+                godMode_Hole1.Hit_verification("PlayerOne", player.transform.position, "Fall Damage");
                 playerone_falling = false;
                 delay_tmp = 0;
+
             }
             else{
                 rope.get_points()[Nump - 1].transform.position = pos_torespawn;
@@ -76,8 +80,10 @@ public class Holes_Trigge : MonoBehaviour
                 godMode_Hole2.Hit_verification("PlayerTwo", player.transform.position, "Fall Damage");
                 playertwo_falling = false;
                 delay_tmp_two = 0;
+
             }
             Reset_Chain();
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
             playerone.Allow_Moving();
             playertwo.Allow_Moving();
         }

@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Vector3 ropeSystem_position;
     [HideInInspector] public string active_Scene;
 
+    //Taunt
+    private Taunt_Manager taunt_manager;
+
     public int money;
     #endregion
 
@@ -45,6 +48,8 @@ public class GameManager : MonoBehaviour
         liveDisplay = GameObject.Find("Life_Bar_Filled").GetComponent<Image>();
         liveDisplay_back = GameObject.Find("Life_Bar_Back").GetComponent<Image>();
         shieldDisplay = GameObject.Find("Shields_UI");
+
+        taunt_manager = Camera.main.GetComponent<Taunt_Manager>();
 
         targets = GetComponent<Camera_Focus>().GetCameraTargets();
         for(int i = 0; i< targets.Count;i++)
@@ -184,8 +189,20 @@ public class GameManager : MonoBehaviour
         else
             shieldPoint -= 1;
 
+        //UI Update
         Update_liveDisplay();
         Update_shieldDisyplay();
+
+        Debug.Log(player);
+        //Taunt Update
+        if (player == players[0].name)
+        {
+            taunt_manager.Update_Taunt(players[0].gameObject);
+        }
+        else
+        {
+            taunt_manager.Update_Taunt(players[1].gameObject);
+        }
 
 
         for (int i = 0; i < players.Count; i++)
@@ -201,6 +218,11 @@ public class GameManager : MonoBehaviour
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
+    }
+
+    public List<Player_Movement> get_playersMovements()
+    {
+        return players_Movement;
     }
 
     public void LoadPlayer()
