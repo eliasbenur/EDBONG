@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public Rope_System rope;
     [HideInInspector] public Vector3 ropeSystem_position;
     [HideInInspector] public string active_Scene;
+
+    public int money;
     #endregion
 
     public void Awake()
@@ -56,6 +58,30 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        if(Load.load)
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+
+            Vector3 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+
+            transform.position = position;
+            rope.transform.position = position;
+
+            rope.get_points()[0].transform.position = position;
+            rope.get_points()[rope.NumPoints - 1].transform.position = position;
+
+            Vector3 Delta = rope.get_points()[rope.NumPoints - 1].transform.position - rope.get_points()[0].transform.position;
+            for (int ParticleIndex = 0; ParticleIndex < rope.NumPoints; ParticleIndex++)
+            {
+                float Alpha = (float)ParticleIndex / (float)(rope.NumPoints - 1);
+                Vector3 InitializePosition = rope.get_points()[0].transform.position + (Alpha * Delta);
+                rope.get_points()[ParticleIndex].transform.position = InitializePosition;
+            }
+            Load.load = false;
+        }
         Application.targetFrameRate = 300;
 
         //MUSIC
@@ -106,7 +132,6 @@ public class GameManager : MonoBehaviour
         else
         {
             float dif_shield = shieldPoint - shieldDisplay.transform.childCount;
-            Debug.Log(dif_shield);
             if (dif_shield > 0)
             {
                 for (int x = 0; x < dif_shield; x++)

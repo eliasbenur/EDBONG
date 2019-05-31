@@ -6,9 +6,9 @@ public class Button_Menu_Prin : MonoBehaviour
 {
     public Button LoadButton;
 
-    public void Update()
+    public void Start()
     {
-        Interactable();
+        Interactable();    
     }
 
     public void Quit()
@@ -20,6 +20,13 @@ public class Button_Menu_Prin : MonoBehaviour
     {
         SceneManager.LoadScene("LD1", LoadSceneMode.Single);    
     } 
+
+    public void Load_Button()
+    {
+        Load.load = true;
+        PlayerData data = SaveSystem.LoadPlayer();       
+        SceneManager.LoadScene(data.level, LoadSceneMode.Single);        
+    }
 
     public void Interactable()
     {

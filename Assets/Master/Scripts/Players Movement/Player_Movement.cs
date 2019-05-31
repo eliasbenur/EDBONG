@@ -56,14 +56,7 @@ public class Player_Movement : MonoBehaviour {
 
     public bool Dashing()
     {
-        if (dash_tmp > (dash_delay - dash_time))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (dash_tmp > (dash_delay - dash_time));
     }
 
     private void Start()
