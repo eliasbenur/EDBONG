@@ -373,6 +373,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taunt_val_max: 3
+  list_dialogues:
+  - sentences:
+    - WTF Mate!
+    delays:
+    - 3
+    Bubble_scale_x:
+    - 200
+    Bubble_scale_y:
+    - 120
+    font_size: 18000000
+  - sentences:
+    - LOLOLOLOL
+    delays:
+    - 3
+    Bubble_scale_x:
+    - 200
+    Bubble_scale_y:
+    - 120
+    font_size: 18000000
+  - sentences:
+    - REALLY?...
+    delays:
+    - 3
+    Bubble_scale_x:
+    - 200
+    Bubble_scale_y:
+    - 120
+    font_size: 18000000
+  taunt_same_player: 000100
 --- !u!114 &2688556095755458909
 MonoBehaviour:
   m_ObjectHideFlags: 0
