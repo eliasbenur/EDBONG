@@ -43,4 +43,14 @@ public class JoysticVibration_Manager : MonoBehaviour
             if (j.vibrationMotorCount > 1) j.SetVibration(1, rightMotor_EnnemyHit);
         }
     }
+
+    public void Vibration_Control(float leftMotor,float rightMotor)
+    {
+        foreach (Joystick j in r_player.controllers.Joysticks)
+        {
+            if (!j.supportsVibration) continue;
+            if (j.vibrationMotorCount > 0) j.SetVibration(0, leftMotor);
+            if (j.vibrationMotorCount > 1) j.SetVibration(1, rightMotor);
+        }
+    }
 }

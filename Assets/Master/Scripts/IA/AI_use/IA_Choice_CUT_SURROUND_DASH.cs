@@ -62,6 +62,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     bool anim_atack;
     bool dead;
     private float idle_anim_time;
+    private moneyDrop moneyDrop;
     #endregion
 
     #region Kamikaza
@@ -114,6 +115,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         ropeSystemGetChild = rope_system.gameObject;
         cameraTransform = Camera.main.GetComponent<Transform>();
         players = Camera.main.GetComponent<GameManager>().players_Movement;
+        moneyDrop = GetComponent<moneyDrop>();
     }
 
     // Use this for initialization
@@ -466,8 +468,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         if (!dead)
         {
-            dead = true;
-
+            dead = true;            
             AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
             AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
 
@@ -485,7 +486,10 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+            if (moneyDrop != null)
+                moneyDrop.enabled = true;
             yield return new WaitForSeconds(0.25f);
+            
             Destroy(gameObject);      
         }
     }
@@ -494,11 +498,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         if (!dead)
         {
-            dead = true;
-
+            dead = true;            
             AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
             AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
-
             GetComponent<CircleCollider2D>().enabled = false;
             detectionDistance = 0;
             enemySpeed = 0;
@@ -511,6 +513,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             AkSoundEngine.PostEvent("play_kamikazeboom", Camera.main.gameObject);
 
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+            if (moneyDrop != null)
+                moneyDrop.enabled = true;
             for (int i = 0; i < projectileToSpawn; i++)
             {
                 angle += angleToADD;
@@ -519,7 +523,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 var directionVect = instanceAddForce.transform.position - transform.position;
                 instanceAddForce.GetComponent<Rigidbody2D>().AddForce(directionVect.normalized * speedProjectile);
             }
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.1f);
+            
             Destroy(gameObject);
         }
     }

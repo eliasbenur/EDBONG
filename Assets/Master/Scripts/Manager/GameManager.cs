@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 300;
 
         //MUSIC
-        AkSoundEngine.PostEvent("play_amb", Camera.main.gameObject);
+        AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
 
         Update_shieldDisyplay();
         Update_liveDisplay();
@@ -193,7 +193,6 @@ public class GameManager : MonoBehaviour
         Update_liveDisplay();
         Update_shieldDisyplay();
 
-        Debug.Log(player);
         //Taunt Update
         if (player == players[0].name)
         {
@@ -228,25 +227,12 @@ public class GameManager : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-
-        active_Scene = data.level;
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-
-        transform.position = position;
-        rope.transform.position = position;
-
-        rope.get_points()[0].transform.position = position;
-        rope.get_points()[rope.NumPoints - 1].transform.position = position;
-
-        Vector3 Delta = rope.get_points()[rope.NumPoints - 1].transform.position - rope.get_points()[0].transform.position;
-        for (int ParticleIndex = 0; ParticleIndex < rope.NumPoints; ParticleIndex++)
+        if (data != null)
         {
-            float Alpha = (float)ParticleIndex / (float)(rope.NumPoints - 1);
-            Vector3 InitializePosition = rope.get_points()[0].transform.position + (Alpha * Delta);
-            rope.get_points()[ParticleIndex].transform.position = InitializePosition;
+            Load.load = true;
+            SceneManager.LoadScene(data.level, LoadSceneMode.Single);
         }
+        else
+            SceneManager.LoadScene("LD1", LoadSceneMode.Single);
     }
 }

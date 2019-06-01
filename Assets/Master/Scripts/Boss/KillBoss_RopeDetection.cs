@@ -36,6 +36,10 @@ public class KillBoss_RopeDetection : MonoBehaviour
     public float cooldown;
     private SpriteRenderer sprite;
     private List<Player_Movement> players;
+
+    //Mashing 
+    public GameObject mashingCanvas;
+    public MashingController mashing;
     #endregion
 
     public enum MethodToKill
@@ -85,6 +89,18 @@ public class KillBoss_RopeDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mashing.confirmed)
+        {
+            players[0].testVibrationHitRope = true;
+            players[1].testVibrationHitRope = true;
+
+            GetComponentInParent<Collider2D>().enabled = false;
+            GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            StartCoroutine(Dead());
+            mashingCanvas.SetActive(false);
+        }
+
+
         if (dead)
             StartCoroutine(Smoke_Dead());
 
@@ -154,7 +170,7 @@ public class KillBoss_RopeDetection : MonoBehaviour
             }
             if (players[0].Is_Moving() || players[1].Is_Moving())
             {
-                timerCut += Time.deltaTime;
+                /*timerCut += Time.deltaTime;
                 if (timerCut > timerCut_TOT)
                 {
                     players[0].testVibrationHitRope = true;
@@ -163,7 +179,11 @@ public class KillBoss_RopeDetection : MonoBehaviour
                     GetComponentInParent<Collider2D>().enabled = false;
                     GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     StartCoroutine(Dead());
-                }
+                }*/
+
+                for (int i = 0; i < players.Count; i++)
+                    players[i].Stop_Moving();
+                mashingCanvas.SetActive(true);
             }
             else
                 timerCut = 0;
@@ -215,6 +235,8 @@ public class KillBoss_RopeDetection : MonoBehaviour
 
             yield return new WaitForSeconds(0.25f);
             GetComponentInParent<Animator>().Play("Die");
+            for (int i = 0; i < players.Count; i++)
+                players[i].Allow_Moving();
         }
     }
 

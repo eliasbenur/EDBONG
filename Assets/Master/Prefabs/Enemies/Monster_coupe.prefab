@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 1342271892}
   - component: {fileID: 5708033196596261481}
   - component: {fileID: 1342271891}
+  - component: {fileID: 8079529241965583082}
   - component: {fileID: 1342271889}
   - component: {fileID: 1342271888}
   - component: {fileID: 3757547648681589580}
@@ -414,24 +415,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880bca65f1b62a34ab5856bcd106a1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionDistance: 100
-  timer_BeforeAttack: 0.9
   detectionDistance_minimalBeforeLeave: 8
   distanceShoot: 40
+  detectionDistance: 100
   projectileToFire: 1
   cooldown: 3
   cooldown_betweenNextProejctile: 1.8
   speedProjectile: 9
-  cut_delay: 0.28
-  blink: {fileID: 0}
   shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
     type: 3}
+  timer_BeforeAttack: 0.9
+  cut_delay: 0.28
   list_trig: []
-  rope_system: {fileID: 0}
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
   enemySpeed: 3
-  idle_anim_time: 0
   projectileToSpawn: 11
   timer_BeforeExplosion: 3.2
   angleToADD: 40
@@ -457,6 +455,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8079529241965583082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342271887}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c9190341be4d9418c90c3277d009a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  gold: {fileID: 6105198143852007615, guid: 7d4a8171c52dcae46a0a6f0d2a1b4360, type: 3}
 --- !u!58 &1342271889
 CircleCollider2D:
   m_ObjectHideFlags: 0

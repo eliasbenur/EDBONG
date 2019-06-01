@@ -30,6 +30,8 @@ TagManager:
   - spawn
   - Monster_Phase
   - coll_hole
+  - Stuff
+  - Grid
   layers:
   - Default
   - TransparentFX

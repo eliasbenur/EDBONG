@@ -50,7 +50,9 @@ public class Menu_Manager : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("LD1");
+        PlayerData data = SaveSystem.LoadPlayer();
+        Load.load = true;
+        SceneManager.LoadScene(data.level, LoadSceneMode.Single);
     }
 
     IEnumerator Example()

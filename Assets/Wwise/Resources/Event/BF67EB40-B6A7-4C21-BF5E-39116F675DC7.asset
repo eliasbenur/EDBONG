@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9add0ebf6bdad43b176506458823b9, type: 3}
   m_Name: BF67EB40-B6A7-4C21-BF5E-39116F675DC7
   m_EditorClassIdentifier: 
-  objectName: play_kamikazeboom
-  id: 280677486
+  objectName: play_kamikazeboom_start
+  id: 3765876679
   guid: BF67EB40-B6A7-4C21-BF5E-39116F675DC7

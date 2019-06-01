@@ -1509,6 +1509,8 @@ MonoBehaviour:
   dieSmoke2: {fileID: 1618034618077096724, guid: 84d2fdf7dd7d24e40a1d6c58da3d5aaa,
     type: 3}
   cooldown: 1.5
+  mashingCanvas: {fileID: 0}
+  mashing: {fileID: 0}
   method: 1
 --- !u!1 &6409077780514485864
 GameObject:
