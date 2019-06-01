@@ -21,9 +21,11 @@ namespace AK
         static const AkUniqueID PLAY_BUY_ITEM = 2318727908U;
         static const AkUniqueID PLAY_DASH = 2211787386U;
         static const AkUniqueID PLAY_DEATH = 1172822028U;
+        static const AkUniqueID PLAY_DOOROPEN = 3197300806U;
         static const AkUniqueID PLAY_FALLING = 913957623U;
         static const AkUniqueID PLAY_FTPS = 3079036743U;
-        static const AkUniqueID PLAY_KAMIKAZEBOOM = 280677486U;
+        static const AkUniqueID PLAY_KAMIKAZEBOOM_EXPLOSION = 859572498U;
+        static const AkUniqueID PLAY_KAMIKAZEBOOM_START = 3765876679U;
         static const AkUniqueID PLAY_MONSTER1ATTACK = 1185501697U;
         static const AkUniqueID PLAY_MONSTER1DEATH = 407094821U;
         static const AkUniqueID PLAY_MONSTER1HIT = 640663108U;

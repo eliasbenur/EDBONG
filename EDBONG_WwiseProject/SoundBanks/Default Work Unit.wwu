@@ -10,7 +10,9 @@
 						<ObjectRef Name="play_death" ID="{BEECAE2C-9243-4222-8D97-3B83A5DA0DFC}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_monster1death" ID="{E3AB4BEF-E42F-4254-90ED-44C577BA3846}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_amb" ID="{39AD1313-11E3-42C7-9F05-97CF528D0EB9}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_dooropen" ID="{7F4EDC6C-F50C-448C-9A8A-F35FBB3073EC}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_buy_item" ID="{A50EBFD2-9E22-44AA-89C1-270CCB63D5C1}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_kamikazeboom_explosion" ID="{8446CE5E-A76A-44CA-9B01-351D1415748B}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_dash" ID="{A7024748-B7AF-458D-BECE-AD5A6FB97440}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_monster1attack" ID="{A374F2A0-648F-45CC-8AB8-9A049AEA8DD3}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_boss_shoots" ID="{FF1106CC-64BC-4604-8CDA-1C8F313892F4}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
@@ -22,7 +24,7 @@
 						<ObjectRef Name="play_boss_laser" ID="{B21E52FD-BCEF-492F-BC69-0A25817248F8}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_boss_laser_stop" ID="{773BD482-B8EE-4AA6-8670-154BDCB8A9BE}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_monster1idle" ID="{3F849B63-BEFB-4B29-86AC-94B9A9EAC994}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="play_kamikazeboom" ID="{BF67EB40-B6A7-4C21-BF5E-39116F675DC7}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="play_kamikazeboom_start" ID="{BF67EB40-B6A7-4C21-BF5E-39116F675DC7}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Monsters" ID="{29A9BFA1-DF76-4C39-A0F1-3A916D2567BA}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="plays_slicing" ID="{9375C399-9AC3-4FC1-A0B8-19DAE715D155}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="play_ftps" ID="{FB8C4CCC-E173-4FEA-AFA5-617631B854D7}" WorkUnitID="{1CF6F939-629C-420A-8F1A-F313FB9693BB}" Filter="7" Origin="Manual"/>

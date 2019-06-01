@@ -61,7 +61,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="play_kamikazeboom" ID="{BF67EB40-B6A7-4C21-BF5E-39116F675DC7}">
+						<Event Name="play_kamikazeboom_start" ID="{BF67EB40-B6A7-4C21-BF5E-39116F675DC7}">
 							<ChildrenList>
 								<Action Name="" ID="{1C8D041D-6FAD-4597-B27A-D9B915F9A1DD}" ShortID="865164355">
 									<PropertyList>
@@ -69,7 +69,21 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Kamikaze_boom" ID="{FF3CC97B-7040-4338-A70F-E67E363D11E9}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+											<ObjectRef Name="Kamikaze_boom_start" ID="{FF3CC97B-7040-4338-A70F-E67E363D11E9}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="play_kamikazeboom_explosion" ID="{8446CE5E-A76A-44CA-9B01-351D1415748B}">
+							<ChildrenList>
+								<Action Name="" ID="{E147C48A-39C5-45A0-9481-8A6F9A9B49FE}" ShortID="446009815">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Kamikaze_boom_explosion" ID="{32D501C0-D549-4B93-959F-A7843854B196}" WorkUnitID="{88F76CAF-AF8B-4744-84C7-9634332A2347}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -181,13 +195,13 @@
 				</Folder>
 				<Event Name="play_music" ID="{CEA11A42-1993-46BE-A172-A57A19A43F2E}">
 					<ChildrenList>
-						<Action Name="" ID="{2BB22A73-5649-4D48-964A-DF5F63E361DC}" ShortID="258463719">
+						<Action Name="" ID="{02FAEB9F-B025-451C-97EA-854EE708EB88}" ShortID="798490072">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="MUSIC" ID="{214BC4B8-8CEC-4773-A5E5-344F4073BC98}" WorkUnitID="{A6E1782C-5657-4386-BEC3-249801ACC2B1}"/>
+									<ObjectRef Name="Music" ID="{1A852D19-116F-454B-8A5B-667BAB34ADD7}" WorkUnitID="{A6E1782C-5657-4386-BEC3-249801ACC2B1}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

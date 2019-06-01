@@ -987,6 +987,9 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="MONSTERS" ID="{1E058064-226F-4C77-B6A5-2CECE56E8599}" ShortID="1007869906">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1343,7 +1346,7 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Kamikaze_boom" ID="{FF3CC97B-7040-4338-A70F-E67E363D11E9}" ShortID="744648087">
+						<RandomSequenceContainer Name="Kamikaze_boom_start" ID="{FF3CC97B-7040-4338-A70F-E67E363D11E9}" ShortID="744648087">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1507,6 +1510,55 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Kamikaze_boom_explosion" ID="{32D501C0-D549-4B93-959F-A7843854B196}" ShortID="237047545">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="12 Small Impact; Medium Explosion With Glass Debris" ID="{8E243FB3-BD03-4913-BF1A-7B449E7C283E}" ShortID="937251468">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>600</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A2681DEA-755B-4480-BD6C-C15ED373394E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="12 Small Impact; Medium Explosion With Glass Debris" ID="{78DEEF5E-CBA7-4DCF-ADB6-C71FDEBB87B2}" ShortID="325528059">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="7.28893822347365E-03"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.608854120979532"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.351387563523291"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.9926134868421"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>12 Small Impact; Medium Explosion With Glass Debris.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="12 Small Impact; Medium Explosion With Glass Debris" ID="{78DEEF5E-CBA7-4DCF-ADB6-C71FDEBB87B2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<BlendContainer Name="AMB" ID="{C7EA3EF3-E666-45DA-97DF-64F4EBC7AAD6}" ShortID="553710220">
@@ -1609,6 +1661,9 @@
 					</ActiveSourceList>
 				</Sound>
 				<ActorMixer Name="ENVIRONEMENT" ID="{5B172488-A2CB-423B-BB82-5E441B92FC3C}" ShortID="764223631">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
@@ -1678,6 +1733,9 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="BOSS" ID="{320CB2B5-4A63-4328-95C4-7E2414381BFE}" ShortID="869660933">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{1F39270A-AEFC-487D-92B7-0C595B9A5D40}"/>
