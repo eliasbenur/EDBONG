@@ -15,6 +15,6 @@ MonoBehaviour:
   stuff_name: Health_Potion
   life: 10
   shield: 0
-  sprite: {fileID: 21300000, guid: d77114dc19b1af240b5fbd9e0bd1879f, type: 3}
+  sprite: {fileID: 21300000, guid: 19904d53247e83f4aa5d98aeed0587d0, type: 3}
   speedBoost: 0
   cost: 0

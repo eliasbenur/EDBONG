@@ -6,6 +6,7 @@ using Rewired;
 public class Player_Movement : MonoBehaviour {
 
     public float speed;
+    public float y_offset;
     private float movementX, movementY;
     private Vector2 movement;
     private bool can_move = true;
@@ -134,11 +135,11 @@ public class Player_Movement : MonoBehaviour {
         //Set the position of the Sprite to the extrems of the chains
         if (PlayerNum == Enum_PlayerNum.PlayerOne && rope_system.get_points().Count > 0)
         {
-            transform.position = rope_system.get_points()[0].transform.position;
+            transform.position = rope_system.get_points()[0].transform.position + new Vector3(0,- y_offset,0); ;
         }
         else if(PlayerNum == Enum_PlayerNum.PlayerTwo && rope_system.get_points().Count > 0)
         {
-            transform.position = rope_system.get_points()[rope_system.NumPoints - 1].transform.position;
+            transform.position = rope_system.get_points()[rope_system.NumPoints - 1].transform.position + new Vector3(0, -y_offset, 0); ; ;
         }
 
         // Dash timer

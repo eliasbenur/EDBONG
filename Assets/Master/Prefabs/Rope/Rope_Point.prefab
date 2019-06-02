@@ -50,10 +50,7 @@ MonoBehaviour:
   new_pos_p1: {x: 0, y: 0, z: 0}
   new_pos_p2: {x: 0, y: 0, z: 0}
   new_pos: {x: 0, y: 0, z: 0}
-  close_coll: 0
   enemie_coll: 0
-  chain_sprite: {fileID: 21300000, guid: 23188b6cddadf80418bc661232219e63, type: 3}
-  spring_obj: {fileID: 0}
 --- !u!212 &304870342385484162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +87,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: a32db5240d469e44399593dd936db8a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

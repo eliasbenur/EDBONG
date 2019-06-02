@@ -70,7 +70,6 @@ public class Rope_System : MonoBehaviour {
             if (ParticleIndex % 2 == 0)
             {
                 particle.GetComponent<SpriteRenderer>().sprite = chainA;
-                particle.GetComponent<SpriteRenderer>().sortingOrder = 3;
             }
             else
             {
@@ -294,12 +293,9 @@ public class Rope_System : MonoBehaviour {
     {
         for (int SegmentIndex = 0; SegmentIndex < NumPoints - 1; SegmentIndex++)
         {
-            if (SegmentIndex%2 != 0)
-            {
-                Vector3 difference = Points[SegmentIndex+1].transform.position - Points[SegmentIndex].transform.position;
-                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-                Points[SegmentIndex].transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
-            }
+            Vector3 difference = Points[SegmentIndex+1].transform.position - Points[SegmentIndex].transform.position;
+            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            Points[SegmentIndex].transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         }
     }
 

@@ -567,9 +567,12 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 }
             }
             timer = 0;
-            anim_atack = false;
-            atack_in_range = false;
-            animator.SetBool("attack", false);
+            //atack_in_range = false;
+            if (!atack_in_range)
+            {
+                anim_atack = false;
+                animator.SetBool("attack", false);
+            }
             AkSoundEngine.PostEvent("play_monster1attack", Camera.main.gameObject);
             if (!dead)
                 enemySpeed = oldSpeed;

@@ -46,7 +46,6 @@ public class Taunt_Manager : MonoBehaviour
 
     public void Make_Taunt(GameObject player)
     {
-        Debug.Log("TAUNT!");
         int random_dialogue = Random.Range(0, list_dialogues.Count);
         if (taunt_same_player[random_dialogue])
         {
