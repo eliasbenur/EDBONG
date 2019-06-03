@@ -53,4 +53,6 @@ public class JoysticVibration_Manager : MonoBehaviour
             if (j.vibrationMotorCount > 1) j.SetVibration(1, rightMotor);
         }
     }
+
+
 }

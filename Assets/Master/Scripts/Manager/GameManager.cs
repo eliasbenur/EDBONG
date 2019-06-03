@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     List<Transform> targets;
     public List<God_Mode> players;
     public List<Player_Movement> players_Movement;
+    private List<JoysticVibration_Manager> control_Vibration;
+    private Camere_Shake_Manager shake_off;
 
     //Use for the save
     public Rope_System rope;
@@ -55,8 +57,12 @@ public class GameManager : MonoBehaviour
         for(int i = 0; i< targets.Count;i++)
             players.Add(targets[i].GetComponent<God_Mode>());
 
-        for(int i = 0; i< targets.Count; i++)
+        for (int i = 0; i < targets.Count; i++)
+        {
             players_Movement.Add(targets[i].GetComponent<Player_Movement>());
+            control_Vibration.Add(players_Movement[i].GetComponent<JoysticVibration_Manager>());
+        }
+        shake_off = GetComponent<Camere_Shake_Manager>();
 
         Time.timeScale = 1;
     }
@@ -168,6 +174,11 @@ public class GameManager : MonoBehaviour
             });
             AkSoundEngine.PostEvent("play_death", Camera.main.gameObject);
             gameOverCanvas.SetActive(true);
+            for(int i = 0; i < control_Vibration.Count; i++)
+            {
+                control_Vibration[i].Vibrate_Control();
+            }
+            shake_off.enabled = false;
             Time.timeScale = 0;
         }
     }

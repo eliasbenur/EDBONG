@@ -20,7 +20,7 @@ public class Player_Movement : MonoBehaviour {
     private Blinking_Effect blinking_Effect;
 
     //DASH
-    public float dash_power;
+    public float dash_power = 30;
     // the time that the dash takes
     public float dash_time;
     // delay between 2 dashes
@@ -69,14 +69,13 @@ public class Player_Movement : MonoBehaviour {
     }
 
     public void Start_Dash()
-    {
-        //Dash vars
+    {      
         dash_tmp = dash_delay;
         dash_direction = new Vector2(movementX, movementY).normalized;
         // God Mode ini
         god_ModeAction.timerGodMode = 1.5f;
         god_ModeAction.godMode = true;
-
+       
         AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
     }
 
