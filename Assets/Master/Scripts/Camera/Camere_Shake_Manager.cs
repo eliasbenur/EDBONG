@@ -42,7 +42,7 @@ public class Camere_Shake_Manager : MonoBehaviour
     }
 
 
-    void CameraShake_RopeHit()
+    public void CameraShake_RopeHit()
     {
         if (shakeDuration_RopeHit > 0)
         {

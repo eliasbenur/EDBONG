@@ -2169,7 +2169,7 @@ MonoBehaviour:
   Projectile_Boss: {fileID: 6495450032185527312, guid: b333491ef34947349b29b5633cc5f7e3,
     type: 3}
   line: {fileID: 1601383164}
-  ennemyLaserSpeed: 25
+  ennemyLaserSpeed: 20
   numberCycleLaser: 3
   all_Childrens:
   - {fileID: 9184823449246317989, guid: e28397cd127419f45bdfc9d2546c6555, type: 3}

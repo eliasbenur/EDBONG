@@ -69,14 +69,13 @@ public class Player_Movement : MonoBehaviour {
     }
 
     public void Start_Dash()
-    {
-        //Dash vars
+    {      
         dash_tmp = dash_delay;
         dash_direction = new Vector2(movementX, movementY).normalized;
         // God Mode ini
         god_ModeAction.timerGodMode = 1.5f;
         god_ModeAction.godMode = true;
-
+       
         AkSoundEngine.PostEvent("play_dash", Camera.main.gameObject);
     }
 
