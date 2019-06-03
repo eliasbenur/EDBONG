@@ -29,7 +29,8 @@ public class Door_Trigger : MonoBehaviour
 
     void Start()
     {
-        autorun_position = gameObject.transform.GetChild(0).transform.position;
+        autorun_position = 
+            gameObject.transform.GetChild(0).transform.position;
         for(int i=0; i < playersList.players_Movement.Count; i++)
         {
             if (playersList.players_Movement[i].name == "PlayerOne")

@@ -20,7 +20,7 @@ public class Player_Movement : MonoBehaviour {
     private Blinking_Effect blinking_Effect;
 
     //DASH
-    public float dash_power;
+    public float dash_power = 30;
     // the time that the dash takes
     public float dash_time;
     // delay between 2 dashes
