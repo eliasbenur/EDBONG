@@ -144,7 +144,7 @@ public class Player_Movement : MonoBehaviour {
         // Dash timer
         if (dash_tmp > 0)
         {
-            dash_tmp -= Time.fixedDeltaTime;
+            dash_tmp -= Time.deltaTime;
         }
         else
         {
@@ -278,7 +278,7 @@ public class Player_Movement : MonoBehaviour {
 
         if (idle_anim_time > 0)
         {
-            idle_anim_time -= Time.fixedDeltaTime;
+            idle_anim_time -= Time.deltaTime;
         }
         else if (idle_anim_time > -1 && idle_anim_time <= 0)
         {
@@ -291,7 +291,7 @@ public class Player_Movement : MonoBehaviour {
     {
         movement.Set(movementX, movementY);
 
-        //check_MovementLimits();
+        check_MovementLimits();
 
 
         if (Dashing())
