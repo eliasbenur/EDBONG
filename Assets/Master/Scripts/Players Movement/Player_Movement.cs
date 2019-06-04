@@ -111,7 +111,7 @@ public class Player_Movement : MonoBehaviour {
         //UI control with the controller
         if (manager.life <= 0)
             pause.cheatModeButton.SetActive(false);
-
+        /*
         if (ReInput.controllers.joystickCount > 0 && !pause.cheatMode.activeSelf && !modo_solo)
         {
             Cursor.visible = false;
@@ -121,7 +121,7 @@ public class Player_Movement : MonoBehaviour {
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-        }
+        }*/
 
         if (rew_player.GetButtonDown("Pause") && !modo_solo)
         {

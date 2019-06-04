@@ -19,6 +19,7 @@ public class Movement_IA_Collant : MonoBehaviour
         init_IA = GetComponent<Initialisation_Rope>();
         players = Camera.main.GetComponent<GameManager>();
         checkDistance = GetComponent<Detection_dash_Distance>();
+        rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
     }
 
     private void Update()

@@ -110,6 +110,14 @@ public class Rope_System : MonoBehaviour {
         return Points;
     }
 
+    public void reset_enemieColl()
+    {
+        foreach(Rope_Point rope_point in Points)
+        {
+            rope_point.enemie_coll = false;
+        }
+    }
+
     private void Chain_PhysicsUpdate(Vector3 P1_mov, Vector3 P2_mov)
     {
         // IF with the MovePositions some points are + far from MaxLenght (for collisions,etc..) we use transform position instead to correct their position

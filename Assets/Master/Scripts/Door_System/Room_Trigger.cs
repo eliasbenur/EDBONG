@@ -10,6 +10,8 @@ public class Room_Trigger : MonoBehaviour
     private int NumPlayer_inside = 0;
     private int num_doors = 0;
     private bool is_active = false;
+    private Rope_System rope_system;
+    
 
     public void Awake()
     {
@@ -20,6 +22,8 @@ public class Room_Trigger : MonoBehaviour
                 num_doors += 1;
             }
         }
+
+        rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
     }
 
     private void Update() 
@@ -43,8 +47,20 @@ public class Room_Trigger : MonoBehaviour
                     {
                         for (int x = 0; x < gameObject.transform.childCount; x++)
                         {
-                            gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
-                            gameObject.transform.GetChild(x).GetComponent<Animator>().SetBool("open", true);
+                            if (gameObject.transform.GetChild(x).tag == "door")
+                            {
+                                gameObject.transform.GetChild(x).GetChild(1).GetComponent<BoxCollider2D>().enabled = false;
+                                gameObject.transform.GetChild(x).GetComponent<Animator>().SetBool("open", true);
+                            }
+                            else
+                            {
+                                foreach (Transform child in gameObject.transform)
+                                {
+                                    Destroy(child.gameObject);
+                                }
+                                rope_system.reset_enemieColl();
+                            }
+
                         }
 
                         AnalyticsEvent.Custom("Room Completed", new Dictionary<string, object>{
