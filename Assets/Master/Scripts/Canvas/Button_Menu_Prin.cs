@@ -27,7 +27,7 @@ public class Button_Menu_Prin : MonoBehaviour
     IEnumerator LoadNewScene()
     {
         yield return new WaitForSeconds(1);
-        AsyncOperation async = SceneManager.LoadSceneAsync("LD1");
+        AsyncOperation async = SceneManager.LoadSceneAsync("LD_Final");
         while (!async.isDone)
         {
             yield return null;

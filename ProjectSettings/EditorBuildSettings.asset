@@ -8,13 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Master/Scenes/Menu_Principal.unity
     guid: c4ff21bf3f1d8a24399c5cebc247dab6
-  - enabled: 0
-    path: Assets/Master/Scenes/Waves_Mode.unity
-    guid: c226391b7f7b67342bd77d4694c4cf90
-  - enabled: 0
-    path: Assets/Master/Scenes/Proto.unity
-    guid: 142b6f823d99a0f4d9e5006a023eacd0
   - enabled: 1
     path: Assets/Master/Scenes/LD1.unity
     guid: d8720324cccebbb45af793a1c7f84ba4
+  - enabled: 1
+    path: Assets/Master/Scenes/LD_Final/LD_Final.unity
+    guid: aa47e6980e3da1e4aab94917e17c8abf
   m_configObjects: {}
