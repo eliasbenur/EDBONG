@@ -52,7 +52,11 @@ public class DieBoss_KillHit : MonoBehaviour
     private void Update()
     {
         BehaviorCamera();
-        if(laser != null)
+        for (int i = 0; i < players_gm.Count; i++)
+        {
+            players_gm[i].godMode = true;
+        }
+        if (laser != null)
             laser.SetActive(false);
 
         if (camera.transform.position.y >= transform.position.y + offset)
@@ -91,14 +95,7 @@ public class DieBoss_KillHit : MonoBehaviour
                     players[i].enabled = true;
                     players[i].Allow_Moving();
                 }
-
-                for (int i = 0; i < players_gm.Count; i++)
-                {
-                    players_gm[i].timerTotGodMode = players_gm[i].oldValueTimerGod;
-                    players_gm[i].godMode = false;
-                    players_gm[i].timerGodMode = 0;
-                }
-
+             
                 foreach(Collider2D c in GetComponents<Collider2D>())
                 {
                     c.enabled = false;

@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
 
     List<Transform> targets;
     public List<God_Mode> players;
-    public List<Player_Movement> players_Movement;
-    public List<JoysticVibration_Manager> control_Vibration;
+    [HideInInspector] public List<Player_Movement> players_Movement;
+    [HideInInspector] public List<JoysticVibration_Manager> control_Vibration;
     private Camere_Shake_Manager shake_off;
 
     //Use for the save
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
             }
             Load.load = false;
         }
-        Application.targetFrameRate = 300;
+        //Application.targetFrameRate = 300;
 
         //MUSIC
         AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);

@@ -299,9 +299,9 @@ public class Boss : MonoBehaviour
 
                 line.SetPosition(0, new Vector3(x, y, 0));
                 if (aller)
-                    angle += ennemyLaserSpeed * Time.fixedDeltaTime;
+                    angle += ennemyLaserSpeed * Time.deltaTime;
                 else
-                    angle -= ennemyLaserSpeed * Time.fixedDeltaTime;
+                    angle -= ennemyLaserSpeed * Time.deltaTime;
             }
             if (angle < 90)
             {

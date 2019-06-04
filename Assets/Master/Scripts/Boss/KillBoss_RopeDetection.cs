@@ -40,6 +40,7 @@ public class KillBoss_RopeDetection : MonoBehaviour
     //Mashing 
     public GameObject mashingCanvas;
     public MashingController mashing;
+    public GameObject canvas;
     #endregion
 
     public enum MethodToKill
@@ -220,8 +221,8 @@ public class KillBoss_RopeDetection : MonoBehaviour
         {
             dead = true;
             //Used to control the vibrations in both controllers
-            players[0].testVibrationHitRope = true;
-            players[1].testVibrationHitRope = true;
+            players[0].testVibrationHitRope = true;//?
+            players[1].testVibrationHitRope = true;//?
 
             sprite.material = flash_sprite;
             sprite.color = Color.white;
@@ -232,6 +233,8 @@ public class KillBoss_RopeDetection : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);   
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
+
+            canvas.SetActive(false);
 
             yield return new WaitForSeconds(0.25f);
             GetComponentInParent<Animator>().Play("Die");

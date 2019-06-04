@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using XInputDotNetPure;
 using Rewired;
 
 public class Player_Movement : MonoBehaviour {
@@ -46,6 +45,9 @@ public class Player_Movement : MonoBehaviour {
     public float timerTot_RopeHitVibrate;
     public bool startBlinking = false;
 
+    public Menu_Manager pause;
+    private GameManager manager;
+
     private void Awake()
     {
         god_ModeAction = GetComponent<God_Mode>();
@@ -53,6 +55,8 @@ public class Player_Movement : MonoBehaviour {
         joysticVibrationMan = GetComponent<JoysticVibration_Manager>();
         camera_ShakeMan = Camera.main.GetComponent<Camere_Shake_Manager>();
         blinking_Effect = GetComponent<Blinking_Effect>();
+        pause = Camera.main.GetComponent<Menu_Manager>();
+        manager = Camera.main.GetComponent<GameManager>();
     }
 
     public bool Dashing()
@@ -89,7 +93,7 @@ public class Player_Movement : MonoBehaviour {
         {
             if (PlayerNum == Enum_PlayerNum.PlayerOne)
             {
-                rew_player = ReInput.players.GetPlayer("PlayerOne");
+                rew_player = ReInput.players.GetPlayer("PlayerOne");               
             }
             else
             {
@@ -99,11 +103,70 @@ public class Player_Movement : MonoBehaviour {
     }
 
     private void Update()
-    {
+    {      
         //Reset God Mode timer
         if (god_ModeAction.godMode == false)
             god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
 
+        //UI control with the controller
+        if (manager.life <= 0)
+            pause.cheatModeButton.SetActive(false);
+
+        if (ReInput.controllers.joystickCount > 0 && !pause.cheatMode.activeSelf && !modo_solo)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (rew_player.GetButtonDown("Pause") && !modo_solo)
+        {
+            if (manager.life > 0)
+            {
+                if (pause.menu.activeSelf)
+                {
+                    pause.cheatModeButton.SetActive(true);
+                    pause.menu.SetActive(false);
+                    Time.timeScale = 1;
+                }
+                else
+                {
+                    pause.cheatModeButton.SetActive(false);
+                    pause.menu.SetActive(true);
+                    Time.timeScale = 0;
+                }
+            }
+        }
+
+        if (rew_player.GetButtonDown("CheatMode") && !modo_solo)
+        {
+            pause.cheatModeButton.SetActive(true);
+            if (pause.cheatMode.activeSelf)
+            {
+                pause.cheatMode.SetActive(false);
+                if (ReInput.controllers.joystickCount > 0)
+                {
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+                Time.timeScale = 1;
+            }
+
+            else
+            {
+                pause.cheatMode.SetActive(true);
+                if (ReInput.controllers.joystickCount > 0)
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                Time.timeScale = 0;
+            }
+        }
 
         ///////// HIT SYSTEM - A CLEAN ////////////////
         if (testVibrationHitRope)

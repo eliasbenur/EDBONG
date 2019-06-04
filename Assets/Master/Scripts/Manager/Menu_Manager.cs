@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Menu_Manager : MonoBehaviour
 {
     public GameObject menu;
+    public GameObject cheatMode;
+    public GameObject cheatModeButton;
     public Image endScreen;
     GameManager GameOver_Control;
 
