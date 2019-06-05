@@ -311,7 +311,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             {
                 if (Players_dashing())
                 {
-                    if (methodToKill == MethodToKill.Cut || methodToKill == MethodToKill.Surround && methodToDie != MethodToDie.Kamikaze)
+                    if (methodToKill == MethodToKill.Cut && methodToDie != MethodToDie.Kamikaze || methodToKill == MethodToKill.Surround)
                     {
                         players[0].testVibrationHitRope = true;
                         players[1].testVibrationHitRope = true;
