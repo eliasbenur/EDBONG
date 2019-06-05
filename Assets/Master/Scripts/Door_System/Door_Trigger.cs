@@ -101,7 +101,7 @@ public class Door_Trigger : MonoBehaviour
                     { "Room" , transform.parent.name }
                 });
 
-                //AkSoundEngine.PostEvent("play_dooropen", Camera.main.gameObject);
+                AkSoundEngine.PostEvent("play_dooropen", Camera.main.gameObject);
 
                 animator.SetBool("open", true);
                 auto_run_1time = true;

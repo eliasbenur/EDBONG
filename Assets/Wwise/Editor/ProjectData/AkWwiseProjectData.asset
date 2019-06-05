@@ -31,7 +31,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: f39033920e557e46b5d62c45bef2fc45
     GuidInternal: 
-    m_lastTime: -8586421944656971905
+    m_lastTime: -8586418504527015643
     List:
     - name: soundbank
       guid: edddbfcb70c7ec4297ca1bedb1bb5f34
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 39f9f61c9c620a428f1af313fb9693bb
     GuidInternal: 
-    m_lastTime: -8586421944704548020
+    m_lastTime: -8586418504539688395
     List:
     - name: play_amb
       guid: 1313ad39e311c7429f0597cf528d0eb9
@@ -369,10 +369,7 @@ MonoBehaviour:
   - /EDBONG_WwiseProject
   - /EDBONG_WwiseProject/Events
   - /EDBONG_WwiseProject/Events/Default Work Unit
-  - /EDBONG_WwiseProject/Events/Default Work Unit/Boss
   - /EDBONG_WwiseProject/Events/Default Work Unit/Environement
-  - /EDBONG_WwiseProject/Events/Default Work Unit/Players
-  - /EDBONG_WwiseProject/SoundBanks
-  - /EDBONG_WwiseProject/SoundBanks/Default Work Unit
+  - /EDBONG_WwiseProject/Events/Default Work Unit/Monsters
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

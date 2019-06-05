@@ -500,7 +500,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         {
             dead = true;            
             AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
-            AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
+            AkSoundEngine.PostEvent("play_kamikazeboom_start", Camera.main.gameObject);
             GetComponent<CircleCollider2D>().enabled = false;
             detectionDistance = 0;
             enemySpeed = 0;
@@ -509,8 +509,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             angle = 2 * Mathf.PI;
 
             yield return new WaitForSeconds(timer_BeforeExplosion);
-
-            AkSoundEngine.PostEvent("play_kamikazeboom", Camera.main.gameObject);
 
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             if (moneyDrop != null)
@@ -524,7 +522,9 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                 instanceAddForce.GetComponent<Rigidbody2D>().AddForce(directionVect.normalized * speedProjectile);
             }
             yield return new WaitForSeconds(0.1f);
-            
+
+            AkSoundEngine.PostEvent("play_kamikazeboom_explosion", Camera.main.gameObject);
+
             Destroy(gameObject);
         }
     }

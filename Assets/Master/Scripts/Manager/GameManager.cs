@@ -38,7 +38,9 @@ public class GameManager : MonoBehaviour
     //Taunt
     private Taunt_Manager taunt_manager;
 
+    //Money
     public int money;
+    public Text money_txt;
     #endregion
 
     public void Awake()
@@ -98,10 +100,17 @@ public class GameManager : MonoBehaviour
         //MUSIC
         AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
 
+        //Update UI
         Update_shieldDisyplay();
         Update_liveDisplay();
+        Update_UI_money();
 
         active_Scene = SceneManager.GetActiveScene().name;
+    }
+
+    public void Update_UI_money()
+    {
+        money_txt.text = money + " ß";
     }
 
     public void Update()

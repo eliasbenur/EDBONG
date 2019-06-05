@@ -32,6 +32,7 @@ TagManager:
   - coll_hole
   - Stuff
   - Grid
+  - Group_EnemieColl
   layers:
   - Default
   - TransparentFX

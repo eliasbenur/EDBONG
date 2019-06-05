@@ -33,7 +33,7 @@ public class Room_Trigger : MonoBehaviour
             if (gameObject.transform.childCount > 0 + num_doors)
             {
                 // If the are no more enemies, the next round starts
-                if (gameObject.transform.GetChild(0).gameObject.transform.childCount == 0)
+                if (gameObject.transform.GetChild(0).gameObject.transform.childCount == 0 && gameObject.transform.GetChild(0).tag == "round")
                 {
                     NextRound();
                     Destroy(gameObject.transform.GetChild(0).gameObject);
@@ -54,7 +54,7 @@ public class Room_Trigger : MonoBehaviour
                             }
                             else
                             {
-                                foreach (Transform child in gameObject.transform)
+                                foreach (Transform child in gameObject.transform.GetChild(x).transform)
                                 {
                                     Destroy(child.gameObject);
                                 }
@@ -68,7 +68,7 @@ public class Room_Trigger : MonoBehaviour
                             { "Room" , transform.name }
                         });
 
-                        //AkSoundEngine.PostEvent("play_dooropen", Camera.main.gameObject);
+                        AkSoundEngine.PostEvent("play_dooropen", Camera.main.gameObject);
                     }
                 }
             }
@@ -78,11 +78,24 @@ public class Room_Trigger : MonoBehaviour
 
     private void FirstRound()
     {
-        for (int x = 0; x < gameObject.transform.GetChild(0).gameObject.transform.childCount; x++)
+        if (gameObject.transform.childCount > 0)
         {
-            gameObject.transform.GetChild(0).transform.GetChild(x).gameObject.SetActive(true);
+            for (int x = 0; x < gameObject.transform.GetChild(0).gameObject.transform.childCount; x++)
+            {
+                gameObject.transform.GetChild(0).transform.GetChild(x).gameObject.SetActive(true);
+            }
+
+            foreach (Transform child in gameObject.transform)
+            {
+                if (child.tag == "Group_EnemieColl")
+                {
+                    for (int x = 0; x < child.gameObject.transform.childCount; x++)
+                    {
+                        child.transform.GetChild(x).gameObject.SetActive(true);
+                    }
+                }
+            }
         }
-        
     }
 
     private void NextRound()
