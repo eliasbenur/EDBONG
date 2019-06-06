@@ -146,7 +146,8 @@ public class GameManager : MonoBehaviour
         {
             for (int x  = 0; x < shieldDisplay.transform.childCount; x++)
             {
-                Destroy(shieldDisplay.transform.GetChild(x).gameObject);
+                //Destroy(shieldDisplay.transform.GetChild(x).gameObject);
+                shieldDisplay.transform.GetChild(x).GetComponent<UI_Shield>().Destroy();
             }
         }
         else
@@ -166,7 +167,8 @@ public class GameManager : MonoBehaviour
                 for (int x = 0; x < (dif_shield * -1); x++)
                 {
                     // Destroy
-                    Destroy(shieldDisplay.transform.GetChild(shieldDisplay.transform.childCount - 1 - x).gameObject);
+                    //Destroy(shieldDisplay.transform.GetChild(shieldDisplay.transform.childCount - 1 - x).gameObject);
+                    shieldDisplay.transform.GetChild(shieldDisplay.transform.childCount - 1 - x).gameObject.GetComponent<UI_Shield>().Destroy();
                 }
             }
         }
@@ -224,15 +226,22 @@ public class GameManager : MonoBehaviour
             taunt_manager.Update_Taunt(players[1].gameObject);
         }
 
+        StartCoroutine(Delay_blinking_animation(player));
+
+        Check_GameOver(pos, who_hit);
+    }
+
+    IEnumerator Delay_blinking_animation(string player)
+    {
+        yield return new WaitForSeconds(0.2f);
 
         for (int i = 0; i < players.Count; i++)
         {
-            if(player == players[i].name)
+            if (player == players[i].name)
                 players[i].blinking_Player.startBlinking = true;
-            else if(player == "PlayerUndefined" || player == "TwoOfThem")
+            else if (player == "PlayerUndefined" || player == "TwoOfThem")
                 players[i].blinking_Player.startBlinking = true;
-        } 
-        Check_GameOver(pos, who_hit);
+        }
     }
 
     public void SavePlayer()

@@ -4,17 +4,17 @@ using UnityEngine.UI;
 public class SliderDecreaseValue : MonoBehaviour
 {
     public float speedDecrease;
-    private Slider sliderValue;
+    private Image sliderValue;
     public float factorLevel;
 
     private void Awake()
     {
-        sliderValue = GetComponent<Slider>();
+        sliderValue = GameObject.Find("Smashing_Fill").GetComponent<Image>();
     }
     // Update is called once per frame
     void Update()
     {
-        speedDecrease = sliderValue.value * factorLevel;
-        sliderValue.value -= speedDecrease * Time.deltaTime;
+        speedDecrease = sliderValue.fillAmount * factorLevel;
+        sliderValue.fillAmount -= speedDecrease * Time.deltaTime;
     }
 }

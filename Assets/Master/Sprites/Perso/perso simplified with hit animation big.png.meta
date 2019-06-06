@@ -1,0 +1,1149 @@
+fileFormatVersion: 2
+guid: b7f86411a455ab24f900178fa583bfc5
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: perso simplified with hit animation big_0
+    21300002: perso simplified with hit animation big_1
+    21300004: perso simplified with hit animation big_2
+    21300006: perso simplified with hit animation big_3
+    21300008: perso simplified with hit animation big_4
+    21300010: perso simplified with hit animation big_5
+    21300012: perso simplified with hit animation big_6
+    21300014: perso simplified with hit animation big_7
+    21300016: perso simplified with hit animation big_8
+    21300018: perso simplified with hit animation big_9
+    21300020: perso simplified with hit animation big_10
+    21300022: perso simplified with hit animation big_11
+    21300024: perso simplified with hit animation big_12
+    21300026: perso simplified with hit animation big_13
+    21300028: perso simplified with hit animation big_14
+    21300030: perso simplified with hit animation big_15
+    21300032: perso simplified with hit animation big_16
+    21300034: perso simplified with hit animation big_17
+    21300036: perso simplified with hit animation big_18
+    21300038: perso simplified with hit animation big_19
+    21300040: perso simplified with hit animation big_20
+    21300042: perso simplified with hit animation big_21
+    21300044: perso simplified with hit animation big_22
+    21300046: perso simplified with hit animation big_23
+    21300048: perso simplified with hit animation big_24
+    21300050: perso simplified with hit animation big_25
+    21300052: perso simplified with hit animation big_26
+    21300054: perso simplified with hit animation big_27
+    21300056: perso simplified with hit animation big_28
+    21300058: perso simplified with hit animation big_29
+    21300060: perso simplified with hit animation big_30
+    21300062: perso simplified with hit animation big_31
+    21300064: perso simplified with hit animation big_32
+    21300066: perso simplified with hit animation big_33
+    21300068: perso simplified with hit animation big_34
+    21300070: perso simplified with hit animation big_35
+    21300072: perso simplified with hit animation big_36
+    21300074: perso simplified with hit animation big_37
+    21300076: perso simplified with hit animation big_38
+    21300078: perso simplified with hit animation big_39
+    21300080: perso simplified with hit animation big_40
+    21300082: perso simplified with hit animation big_41
+    21300084: perso simplified with hit animation big_42
+    21300086: perso simplified with hit animation big_43
+    21300088: perso simplified with hit animation big_44
+    21300090: perso simplified with hit animation big_45
+    21300092: perso simplified with hit animation big_46
+    21300094: perso simplified with hit animation big_47
+    21300096: perso simplified with hit animation big_48
+    21300098: perso simplified with hit animation big_49
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772606cecf0c75545afbc1bdab5ad199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d767251f0d62d41904965ba7192b48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab41352e973182f4f8850c7443f10fca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_3
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ba41d2c4dbafb458d4b96d4587ee17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_4
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a2065adceb31a4eb621a2dfe1225fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8816db9c2debfe46b4ecd7420238704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31756bb873899d4a992a242b0173650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c2d661e1e74504b859d84d6f39dd86
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_8
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebcb39e05e32d84796b6e8e97e6d158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_9
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609facb8c153ed845975cac0585d92c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144208036dc5da64ea851d624751c45d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_11
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd6c1eec1b874640ac5a11cbd72867b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_12
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22ed66f98df6d9499b4a8ae40307ace
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_13
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ab05cd214550d479ab4779ec4d7d40
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_14
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd9f43d56e0de047822cb1f02135cc4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_15
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1711839546f0a9640a6baf95e02b4057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_16
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 325
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd9ce06abe30b746868cec4770e328e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b8a34d0ea23fc418d639167d384aa7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8436e0cf4a6c05f49b4e66c6a4d92216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb721f949e7acd4b9c1f2a419b73693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_20
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771347af10ec21048a90f3809973ae7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e3af53fea0fec4196d698d767d5229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_22
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34cbfc66ef799ea4fa0cfd8c93621955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_23
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9613dc608b390dd4b8093279b22a6dc2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_24
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82c9521bcfd6524bb298c6313aa1e04
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_25
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3165d3ad74698da499b2f3287866e7cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_26
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e810f4e712adbdd4aa5ca6883024722f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d8ed9d0067bcd4caa515887f183796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_28
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c43482447ec2884bb268a8046ba200b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_29
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af004911b3f6a34d99ec706d44eb34a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_30
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd87c6754f9bce04b80861815a4bad2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_31
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50eee276105eed44db37eba4f42dc34e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_32
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70542cf653587845b8f4ffd8fbe1c97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_33
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 165
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379135d0c9f66394f8672bdb189f9ed2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a64d225e77a1c479984f530280e189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97c4152ab2dedb4d91d35d8843fcc29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1b700b48a07074d8975cf9d949e18b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_37
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc43af49257d95640a82e78f222d38ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_38
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16099137ab9132498fb951e818012d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_39
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b8f6242bfcd7d4e83877fedf2eeb45
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_40
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5f030a383dcbf4a8d2d7e0ecb3a3cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_41
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20ed709fd19d66458b688a50ae4d24a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_42
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d01848e9d8cc54fa10dae9f9130351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_43
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccdfe32a46e56be4da6daf01fbc9d3e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_44
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1391a08447ef3ba4cafe263dc8c990af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_45
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ff465bc25a86143a5e4efd6e1ef2d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_46
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a64d151e8b5afb41a7c24bdd866886e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_47
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d3387ea056ef942955ec02aa3b8a37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_48
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d4fe13a2bc3fc4585228a5946efce0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso simplified with hit animation big_49
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5
+        width: 155
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26558ae920ad9945b57993dc62c2b30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4baa049442b1ed4b9485879cebbe868
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

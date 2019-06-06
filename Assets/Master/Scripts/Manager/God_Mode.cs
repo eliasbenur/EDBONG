@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class God_Mode : MonoBehaviour
@@ -45,11 +46,17 @@ public class God_Mode : MonoBehaviour
             {
                 hit_check.Hit(player, pos, who_hit);
                 godMode = true;
+
+                blinking_Player.gameObject.GetComponent<Animator>().SetBool("hit", true);
+                StartCoroutine("Delay_hit_animation");
             }
             else if (player == "PlayerTwo" && !godMode)
             {
                 hit_check.Hit(player, pos, who_hit);
                 godMode = true;
+
+                blinking_Player.gameObject.GetComponent<Animator>().SetBool("hit", true);
+                StartCoroutine("Delay_hit_animation");
             }
             else if (player == "PlayerUndefined" || player == "TwoOfThem")
             {
@@ -58,8 +65,17 @@ public class God_Mode : MonoBehaviour
                     hit_check.players[0].godMode = true;
                     hit_check.players[1].godMode = true;
                     hit_check.Hit(player, pos, who_hit);
+
+                    blinking_Player.gameObject.GetComponent<Animator>().SetBool("hit", true);
+                    StartCoroutine("Delay_hit_animation");
                 }        
             }
         }
+    }
+
+    IEnumerator Delay_hit_animation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        blinking_Player.gameObject.GetComponent<Animator>().SetBool("hit", false);
     }
 }

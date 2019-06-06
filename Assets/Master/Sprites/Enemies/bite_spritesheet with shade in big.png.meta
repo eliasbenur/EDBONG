@@ -1,0 +1,708 @@
+fileFormatVersion: 2
+guid: 72693e21e01e7554d83df8a9a3fd9c5d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bite_spritesheet with shade in big_0
+    21300002: bite_spritesheet with shade in big_1
+    21300004: bite_spritesheet with shade in big_2
+    21300006: bite_spritesheet with shade in big_3
+    21300008: bite_spritesheet with shade in big_4
+    21300010: bite_spritesheet with shade in big_5
+    21300012: bite_spritesheet with shade in big_6
+    21300014: bite_spritesheet with shade in big_7
+    21300016: bite_spritesheet with shade in big_8
+    21300018: bite_spritesheet with shade in big_9
+    21300020: bite_spritesheet with shade in big_10
+    21300022: bite_spritesheet with shade in big_11
+    21300024: bite_spritesheet with shade in big_12
+    21300026: bite_spritesheet with shade in big_13
+    21300028: bite_spritesheet with shade in big_14
+    21300030: bite_spritesheet with shade in big_15
+    21300032: bite_spritesheet with shade in big_16
+    21300034: bite_spritesheet with shade in big_17
+    21300036: bite_spritesheet with shade in big_18
+    21300038: bite_spritesheet with shade in big_19
+    21300040: bite_spritesheet with shade in big_20
+    21300042: bite_spritesheet with shade in big_21
+    21300044: bite_spritesheet with shade in big_22
+    21300046: bite_spritesheet with shade in big_23
+    21300048: bite_spritesheet with shade in big_24
+    21300050: bite_spritesheet with shade in big_25
+    21300052: bite_spritesheet with shade in big_26
+    21300054: bite_spritesheet with shade in big_27
+    21300056: bite_spritesheet with shade in big_28
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 70
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954fe666e384f024b99a049acdd88a4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641d63e3c75095b44b1e1f5303782901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_2
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f681591fd49ca14a9204da1bcb499f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_3
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d802fca2425c24eb32574161f87fef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_4
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4ba518535df634e929fbb13bff3597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_5
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ccb2657014cec745a96cb3ef684d6d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_6
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9ecf07a6139e949896bde0cae815eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_7
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62338612b7493434ea89decfac214acf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_8
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2424487a9bd4c4645980fba1c092648b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_9
+      rect:
+        serializedVersion: 2
+        x: 3825
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85393dae8416ec4da37e3d37e6acc2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_10
+      rect:
+        serializedVersion: 2
+        x: 4250
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ab6b2d2f1826143b7e16b5d877ed85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_11
+      rect:
+        serializedVersion: 2
+        x: 4675
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc798a871e008764fa549287b75bb882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_12
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd1710b6824d1247ac222f12a86acd9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_13
+      rect:
+        serializedVersion: 2
+        x: 5525
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a7ed1d85c6e8742a5ba4477f7fcd36
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_14
+      rect:
+        serializedVersion: 2
+        x: 5950
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8232b8f3b62998743a5d0a07235f8fe2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_15
+      rect:
+        serializedVersion: 2
+        x: 6375
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4f791fb62a3154dae23ee0c0e31bf5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_16
+      rect:
+        serializedVersion: 2
+        x: 6800
+        y: 205
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f4a8c5dd3603664e8cb3df64e74e1e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5475801ddf570c445800ebb584e3cd4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_18
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e58e5f34ca0964b8c592225b7d4310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_19
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae4f11a4331a40241ad3c36308ced966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_20
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21a74d904f99244b94b25509ccdfe97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_21
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c6f2139f9b28d4089dfb11c37a4b8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_22
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d00d63404528144da5e4fad00bb1af0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_23
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54728c6a1852ce46b7539b1cd808c5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_24
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39f191ff19018d4f9d761c242343958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_25
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159d2786c244d8947959312cfb03c99f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_26
+      rect:
+        serializedVersion: 2
+        x: 3825
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d1a432588ed2943bea8524d7c83a32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_27
+      rect:
+        serializedVersion: 2
+        x: 4250
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964eee52ab4cd0043a733823008d8e5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bite_spritesheet with shade in big_28
+      rect:
+        serializedVersion: 2
+        x: 4675
+        y: 5
+        width: 420
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89e719e4feb16249af88620d66ea068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b9ef76040832a5a45859c9124903a330
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

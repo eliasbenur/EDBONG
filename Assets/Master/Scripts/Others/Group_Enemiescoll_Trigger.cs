@@ -22,7 +22,7 @@ public class Group_Enemiescoll_Trigger : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
-                Destroy(child.gameObject);
+                StartCoroutine(child.GetComponent<Movement_IA_Collant>().Dead());
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Movement_IA_Collant : MonoBehaviour
 {
@@ -53,5 +54,12 @@ public class Movement_IA_Collant : MonoBehaviour
             Vector3 Delta = init_IA.target.transform.position - transform.position;
             gameObject.GetComponent<Rigidbody2D>().MovePosition(transform.position + Delta.normalized * Time.fixedDeltaTime * enemySpeed);
         }
+    }
+
+    public IEnumerator Dead()
+    {
+        GetComponent<Animator>().SetBool("dead", true);
+        yield return new WaitForSeconds(0.7f);
+        Destroy(gameObject);
     }
 }

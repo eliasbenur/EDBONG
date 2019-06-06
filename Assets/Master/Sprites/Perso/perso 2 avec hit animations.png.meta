@@ -1,0 +1,1107 @@
+fileFormatVersion: 2
+guid: 7dd2f279c3f132641902c488d47ab5e3
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: perso 2 avec hit animations_0
+    21300002: perso 2 avec hit animations_1
+    21300004: perso 2 avec hit animations_2
+    21300006: perso 2 avec hit animations_3
+    21300008: perso 2 avec hit animations_4
+    21300010: perso 2 avec hit animations_5
+    21300012: perso 2 avec hit animations_6
+    21300014: perso 2 avec hit animations_7
+    21300016: perso 2 avec hit animations_8
+    21300018: perso 2 avec hit animations_9
+    21300020: perso 2 avec hit animations_10
+    21300022: perso 2 avec hit animations_11
+    21300024: perso 2 avec hit animations_12
+    21300026: perso 2 avec hit animations_13
+    21300028: perso 2 avec hit animations_14
+    21300030: perso 2 avec hit animations_15
+    21300032: perso 2 avec hit animations_16
+    21300034: perso 2 avec hit animations_17
+    21300036: perso 2 avec hit animations_18
+    21300038: perso 2 avec hit animations_19
+    21300040: perso 2 avec hit animations_20
+    21300042: perso 2 avec hit animations_21
+    21300044: perso 2 avec hit animations_22
+    21300046: perso 2 avec hit animations_23
+    21300048: perso 2 avec hit animations_24
+    21300050: perso 2 avec hit animations_25
+    21300052: perso 2 avec hit animations_26
+    21300054: perso 2 avec hit animations_27
+    21300056: perso 2 avec hit animations_28
+    21300058: perso 2 avec hit animations_29
+    21300060: perso 2 avec hit animations_30
+    21300062: perso 2 avec hit animations_31
+    21300064: perso 2 avec hit animations_32
+    21300066: perso 2 avec hit animations_33
+    21300068: perso 2 avec hit animations_34
+    21300070: perso 2 avec hit animations_35
+    21300072: perso 2 avec hit animations_36
+    21300074: perso 2 avec hit animations_37
+    21300076: perso 2 avec hit animations_38
+    21300078: perso 2 avec hit animations_39
+    21300080: perso 2 avec hit animations_40
+    21300082: perso 2 avec hit animations_41
+    21300084: perso 2 avec hit animations_42
+    21300086: perso 2 avec hit animations_43
+    21300088: perso 2 avec hit animations_44
+    21300090: perso 2 avec hit animations_45
+    21300092: perso 2 avec hit animations_46
+    21300094: perso 2 avec hit animations_47
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 60
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10a9d2eff763ff4cb31760a39224aa1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63e371b43829d14b9dcd8dc4fa390eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f383ecc3c726c84e9b788d5543cbb30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_3
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9462c20bfe375b46a5a94db1c87d429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_4
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c37d46ce81f5044ac5522c0fdf2969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_5
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6192d2823aa29a645b78eb6d77ae47ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_6
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d118912a356a8347b50e9e3764678b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_7
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c8f1cf45e275c4d873b0dcbb1eadab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_8
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec5397fb18b24d43863bae1e302dda6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_9
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278589b7d2e1c174c8ef72c2301243cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_10
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1f9f4e646bc4e4ab5e106aee9e0ae8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_11
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5943eb857348ae4c88b40f071fcc6c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_12
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e26286b35db5c64dbffab7483f84e02
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_13
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523884043bac0b747bfc76df92dcab3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_14
+      rect:
+        serializedVersion: 2
+        x: 4080
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b01fc8568e0484d93f1dfb9e2a9b27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_15
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 485
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1ee93403d6f9b4b81674aa111f85f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6baaa1af43b7e47a380925784447b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_17
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eba690f28500ee4093d93b2226ac100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_18
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81659e89a5519a4191e0b4283491d6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_19
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae17887ecde2934408b369c608a9f740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_20
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf7e2ce54cd3ee47830ff02237a5d58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_21
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9746e207ac66478489a0d2f2fba23cb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_22
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92505cfb00340f44c903c1e313014e57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_23
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe10fad4ebf459140a2f9681271507eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_24
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eebc3086cc3a0a47be90f412ce43eb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_25
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a94f4120e95b94987b1fa3c6b735e3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_26
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 823dc171c6d66fe4dbb0b28773fc12a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_27
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a88c7645c613ea842a1d04541ebcf01e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_28
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a8ff5d16325424e952c8b22ccb09fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_29
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504bae655f50eb546931171ba2a30545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_30
+      rect:
+        serializedVersion: 2
+        x: 4080
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3967d6aa48d94c049b935360eded3ce8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_31
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 245
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24005d4fea9aa7438d0fec755290c87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a3aae643b6334469c726208f525746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ae7f6dee68c6b4f9b760a7a6392792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_34
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921fda547e990cf478df44affcc1b371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_35
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334a83d7bcdb2714fb7960ced09dbac8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_36
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442e00953966f8449bc847a4e827d8e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_37
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe025a8e8d4753e41b5028b628bada23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_38
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307be5c74afd5c34188faa3abbc9dedd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_39
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2691790b721cf5d46bbe06bad2a4dd84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_40
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7745825b116854583208db02f12035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_41
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355497048bbdf2f4998eae6e4f37b415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_42
+      rect:
+        serializedVersion: 2
+        x: 2640
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759baa2af55ad1740a4be7ae6e1caef7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_43
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ea1055844444940bc45a9f522e1ab2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_44
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca3968c648605f429b2cb96ce9fb5d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_45
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2598bf653299ab847ac609562d64fc30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_46
+      rect:
+        serializedVersion: 2
+        x: 4080
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d24e09ad63b7344cb05294f20ac30f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: perso 2 avec hit animations_47
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 5
+        width: 235
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34713b105eed2a42af8a401372f9bdc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a6e06fbed8131db44878b96b0d89791e
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -56,7 +56,7 @@ public class Room_Trigger : MonoBehaviour
                             {
                                 foreach (Transform child in gameObject.transform.GetChild(x).transform)
                                 {
-                                    Destroy(child.gameObject);
+                                    StartCoroutine(child.GetComponent<Movement_IA_Collant>().Dead());
                                 }
                                 rope_system.reset_enemieColl();
                             }
