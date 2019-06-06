@@ -47,6 +47,10 @@ public class Player_Movement : MonoBehaviour {
 
     public Menu_Manager pause;
     private GameManager manager;
+    public Animator miniMap;
+
+    public  float timer;
+    public float timerMiniMap = 1f;
 
     private void Awake()
     {
@@ -103,10 +107,18 @@ public class Player_Movement : MonoBehaviour {
     }
 
     private void Update()
-    {      
+    {
+        if (miniMap.GetBool("Open"))
+            timer += Time.deltaTime;
+
+        if (miniMap.GetBool("Open") && miniMap.GetBool("Close") )
+        {
+            timer = 0;
+        }
+
         //Reset God Mode timer
         if (god_ModeAction.godMode == false)
-            god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
+        god_ModeAction.timerTotGodMode = god_ModeAction.oldValueTimerGod;
 
         //UI control with the controller
         if (manager.life <= 0)
@@ -142,29 +154,15 @@ public class Player_Movement : MonoBehaviour {
             }
         }
 
-        if (rew_player.GetButtonDown("CheatMode") && !modo_solo)
-        {
-            pause.cheatModeButton.SetActive(true);
-            if (pause.cheatMode.activeSelf)
-            {
-                pause.cheatMode.SetActive(false);
-                if (ReInput.controllers.joystickCount > 0)
-                {
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
-                Time.timeScale = 1;
-            }
+        if (rew_player.GetButtonDown("CheatMode"))
+        {        
+            if (!miniMap.GetBool("Open"))
+                miniMap.SetBool("Open", true);
 
-            else
+            if(!miniMap.GetBool("Close") && timer >= timerMiniMap)
             {
-                pause.cheatMode.SetActive(true);
-                if (ReInput.controllers.joystickCount > 0)
-                {
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                }
-                Time.timeScale = 0;
+                timer = 0;
+                miniMap.SetBool("Close", true);
             }
         }
 
@@ -446,6 +444,7 @@ public class Player_Movement : MonoBehaviour {
         can_move = false;
         movementX = 0;
         movementY = 0;
+        dash_tmp = 0;
     }
 
     public void Allow_Moving()

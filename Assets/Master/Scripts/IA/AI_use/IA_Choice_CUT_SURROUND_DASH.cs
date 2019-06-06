@@ -16,7 +16,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     public float projectileToFire;
     public float cooldown, cooldown_betweenNextProejctile;
     public float speedProjectile;
-    public GameObject shockwave;
+    public RippleEffect shockwave;
     Animator animator;
     #endregion
 
@@ -116,6 +116,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         cameraTransform = Camera.main.GetComponent<Transform>();
         players = Camera.main.GetComponent<GameManager>().players_Movement;
         moneyDrop = GetComponent<moneyDrop>();
+
+        shockwave = Camera.main.GetComponent<RippleEffect>();
     }
 
     // Use this for initialization
@@ -290,7 +292,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                         }
                         if (!confirmed)
                         {
-                            Instantiate(shockwave, transform.position, Quaternion.identity);
+                            shockwave.enabled = true;
                             confirmed = true;
                         }
                         break;
@@ -468,7 +470,8 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     {
         if (!dead)
         {
-            dead = true;            
+            dead = true;
+            shockwave.enabled = false;
             AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
             AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
 
@@ -488,6 +491,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
             if (moneyDrop != null)
                 moneyDrop.enabled = true;
+            
             yield return new WaitForSeconds(0.25f);
             
             Destroy(gameObject);      
