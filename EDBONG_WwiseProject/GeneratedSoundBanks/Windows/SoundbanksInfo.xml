@@ -122,7 +122,7 @@
 				</File>
 				<File Id="325528059" Language="SFX">
 					<ShortName>12 Small Impact; Medium Explosion With Glass Debris.wav</ShortName>
-					<Path>SFX\12 Small Impact; Medium Explosion With Glass Debris_74C4E44B.wem</Path>
+					<Path>SFX\12 Small Impact; Medium Explosion With Glass Debris_A048898C.wem</Path>
 				</File>
 				<File Id="368587850" Language="SFX">
 					<ShortName>EB_monster1_death_05.wav</ShortName>
@@ -139,10 +139,6 @@
 				<File Id="383073143" Language="SFX">
 					<ShortName>EB_boss_laser_end_01.wav</ShortName>
 					<Path>SFX\EB_boss_laser_end_01_56D34C19.wem</Path>
-				</File>
-				<File Id="385562842" Language="SFX">
-					<ShortName>carpenter-brut-le-perv.wav</ShortName>
-					<Path>SFX\carpenter-brut-le-perv_8956FC97.wem</Path>
 				</File>
 				<File Id="404836823" Language="SFX">
 					<ShortName>EB_boss_laser_lp_01.wav</ShortName>
@@ -224,6 +220,10 @@
 					<ShortName>EB_player_dash_02.wav</ShortName>
 					<Path>SFX\EB_player_dash_02_56D34C19.wem</Path>
 				</File>
+				<File Id="775822735" Language="SFX">
+					<ShortName>EB_Music_loop_v1.wav</ShortName>
+					<Path>SFX\EB_Music_loop_v1_8956FC97.wem</Path>
+				</File>
 				<File Id="797985785" Language="SFX">
 					<ShortName>EB_amb_lp_01.wav</ShortName>
 					<Path>SFX\EB_amb_lp_01_8956FC97.wem</Path>
@@ -275,6 +275,10 @@
 				<File Id="1017636730" Language="SFX">
 					<ShortName>EB_player_slicing_05.wav</ShortName>
 					<Path>SFX\EB_player_slicing_05_56D34C19.wem</Path>
+				</File>
+				<File Id="1018759056" Language="SFX">
+					<ShortName>EB_Music_start_v1.wav</ShortName>
+					<Path>SFX\EB_Music_start_v1_8956FC97.wem</Path>
 				</File>
 				<File Id="1035963716" Language="SFX">
 					<ShortName>EB_monster1_death_03.wav</ShortName>
