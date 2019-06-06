@@ -291,8 +291,7 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
                             child.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 255);
                         }
                         if (!confirmed)
-                        {
-                            shockwave.enabled = true;
+                        {                          
                             confirmed = true;
                         }
                         break;
@@ -471,7 +470,6 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         if (!dead)
         {
             dead = true;
-            shockwave.enabled = false;
             AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
             AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
 
@@ -482,10 +480,12 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
 
             GetComponent<SpriteRenderer>().color = Color.white;
             enemySpeed = 0;
-
+            
             yield return new WaitForSeconds(0.2f);
             GetComponent<SpriteRenderer>().color = Color.white;
-
+            var newPosition = Camera.main.WorldToScreenPoint(transform.position);
+            newPosition = new Vector3(newPosition.x / Screen.width, newPosition.y / Screen.height);
+            shockwave.Emit(newPosition.x, newPosition.y);
             yield return new WaitForSeconds(0.2f);
         
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
+using System.Collections;
 
 public class Player_Movement : MonoBehaviour {
 
@@ -27,7 +28,6 @@ public class Player_Movement : MonoBehaviour {
     private float dash_tmp = 0;
     //Direction of the Dash
     private Vector2 dash_direction;
-    public Image dash_bar;
 
     //Players Inputs
     public enum Enum_PlayerNum {PlayerOne = 1, PlayerTwo = 2};
@@ -47,10 +47,16 @@ public class Player_Movement : MonoBehaviour {
 
     public Menu_Manager pause;
     private GameManager manager;
-    public Animator miniMap;
+    //public Animator miniMap;
 
     public  float timer;
     public float timerMiniMap = 1f;
+
+    public SpriteRenderer sprite;
+    public GameObject playerPrefab;
+    public bool canShoot;
+    public Material flashMat;
+    public float spriteToSpawn;
 
     private void Awake()
     {
@@ -61,10 +67,12 @@ public class Player_Movement : MonoBehaviour {
         blinking_Effect = GetComponent<Blinking_Effect>();
         pause = Camera.main.GetComponent<Menu_Manager>();
         manager = Camera.main.GetComponent<GameManager>();
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     public bool Dashing()
-    {
+    {       
         return (dash_tmp > (dash_delay - dash_time));
     }
 
@@ -77,7 +85,8 @@ public class Player_Movement : MonoBehaviour {
     }
 
     public void Start_Dash()
-    {      
+    {
+        canShoot = true;
         dash_tmp = dash_delay;
         dash_direction = new Vector2(movementX, movementY).normalized;
         // God Mode ini
@@ -108,13 +117,19 @@ public class Player_Movement : MonoBehaviour {
 
     private void Update()
     {
-        if (miniMap.GetBool("Open"))
+        if (canShoot)
+        {
+            StartCoroutine(SpriteInstanciation(0.05f));
+        }
+
+        //MINI MAP
+        /*if (miniMap.GetBool("Open"))
             timer += Time.deltaTime;
 
         if (miniMap.GetBool("Open") && miniMap.GetBool("Close") )
         {
             timer = 0;
-        }
+        }*/
 
         //Reset God Mode timer
         if (god_ModeAction.godMode == false)
@@ -156,14 +171,14 @@ public class Player_Movement : MonoBehaviour {
 
         if (rew_player.GetButtonDown("CheatMode"))
         {        
-            if (!miniMap.GetBool("Open"))
+            /*if (!miniMap.GetBool("Open"))
                 miniMap.SetBool("Open", true);
 
             if(!miniMap.GetBool("Close") && timer >= timerMiniMap)
             {
                 timer = 0;
                 miniMap.SetBool("Close", true);
-            }
+            }*/
         }
 
         ///////// HIT SYSTEM - A CLEAN ////////////////
@@ -281,11 +296,6 @@ public class Player_Movement : MonoBehaviour {
 
         // If Player dont move, play idle anim
         idle_anim();
-
-        //UI Dash
-        dash_bar.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position) + new Vector3(20, 35, 0);
-        dash_bar.fillAmount = dash_tmp / dash_delay;
-
         Move(movementX, movementY);
     }
 
@@ -436,6 +446,28 @@ public class Player_Movement : MonoBehaviour {
                 movement.Normalize();
             }
         }
+    }
+
+    IEnumerator SpriteInstanciation(float cooldown)
+    {
+        for (int i = 0; i < spriteToSpawn; i++)
+        {
+            var player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+            player.GetComponent<SpriteRenderer>().sprite = sprite.sprite;
+            if (get_MovementX() > 0)
+            {
+                player.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if (get_MovementX() < 0)
+            {
+                player.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            player.GetComponent<SpriteRenderer>().material = flashMat;
+            canShoot = false;
+            yield return new WaitForSeconds(cooldown);
+            canShoot = true;
+        }
+        canShoot = false;
     }
 
 
