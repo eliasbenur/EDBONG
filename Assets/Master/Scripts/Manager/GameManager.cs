@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
         life = 20;
         max_Life = life;
 
+        // 1 Come
+
         //Display UI
         liveDisplay = GameObject.Find("Life_Bar_Filled").GetComponent<Image>();
         liveDisplay_back = GameObject.Find("Life_Bar_Back").GetComponent<Image>();
