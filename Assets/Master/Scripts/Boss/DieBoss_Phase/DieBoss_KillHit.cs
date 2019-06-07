@@ -25,7 +25,6 @@ public class DieBoss_KillHit : MonoBehaviour
     public float speed; //how fast it shakes
     public float amount; //how much it shakes
     float startPosX, startPosY;
-    private CapsuleCollider2D colliderBoss;
 
     [HideInInspector] public KillBoss_RopeDetection ropeCollisions;
 
@@ -42,7 +41,6 @@ public class DieBoss_KillHit : MonoBehaviour
     {
         camera = Camera.main.GetComponent<Camera_Focus>();      
         default_sprite = GetComponent<SpriteRenderer>().material;
-        colliderBoss = GetComponent<CapsuleCollider2D>();
         sprite_Renderer = GetComponent<SpriteRenderer>();
         ropeCollisions = GetComponentInChildren<KillBoss_RopeDetection>();
         players = Camera.main.GetComponent<GameManager>().players_Movement;
@@ -78,13 +76,7 @@ public class DieBoss_KillHit : MonoBehaviour
                 sprite_Renderer.material = default_sprite;
 
                 StopCoroutine(cameraShake);
-
-                colliderBoss.size = new Vector2(10, 10);
-                colliderBoss.enabled = true;
-                ropeCollisions.gameObject.SetActive(true);
-
-                //Change here
-                ropeCollisions.enabled = true;
+                
 
                 camera.enabled = true;
                 canvas.SetActive(true);
@@ -98,11 +90,16 @@ public class DieBoss_KillHit : MonoBehaviour
              
                 foreach(Collider2D c in GetComponents<Collider2D>())
                 {
-                    c.enabled = false;
-                }
+                    Destroy(c);
+                }               
+
                 CapsuleCollider2D collider = gameObject.AddComponent<CapsuleCollider2D>();
                 collider.size = new Vector2(10, 10);
                 collider.offset = new Vector2(0.1334858f, -1.468382f);
+
+                ropeCollisions.gameObject.SetActive(true);
+                //Change here
+                ropeCollisions.enabled = true;
 
                 cinematicDie.Hide(0.001f);
 

@@ -7,6 +7,7 @@ public class Button_Menu_Prin : MonoBehaviour
 {
     public Button LoadButton;
     public GameObject loadingScreen;
+    public GameObject Boss;
 
     public void Start()
     {
@@ -22,6 +23,10 @@ public class Button_Menu_Prin : MonoBehaviour
     {
         StartCoroutine(LoadNewScene());
         loadingScreen.SetActive(true);
+        Boss.GetComponent<Animator>().enabled = true;
+
+        PlayerData data = SaveSystem.LoadPlayer();
+        AsyncOperation async = SceneManager.LoadSceneAsync(data.level);
     } 
 
     IEnumerator LoadNewScene()
@@ -38,6 +43,7 @@ public class Button_Menu_Prin : MonoBehaviour
     {
         StartCoroutine(LoadNewScene());
         loadingScreen.SetActive(true);
+        Boss.GetComponent<Animator>().enabled = true;
 
         Load.load = true;
         PlayerData data = SaveSystem.LoadPlayer();

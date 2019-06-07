@@ -47,7 +47,7 @@ public class Player_Movement : MonoBehaviour {
 
     public Menu_Manager pause;
     private GameManager manager;
-    //public Animator miniMap;
+    public Animator miniMap;
 
     public  float timer;
     public float timerMiniMap = 1f;
@@ -57,6 +57,10 @@ public class Player_Movement : MonoBehaviour {
     public bool canShoot;
     public Material flashMat;
     public float spriteToSpawn;
+    private TrailRenderer trail;
+
+    [Header("DO NOT TOUCH THIS ONE ! PANIC MODE")]
+    public KillBoss_RopeDetection panicEscape;
 
     private void Awake()
     {
@@ -69,6 +73,7 @@ public class Player_Movement : MonoBehaviour {
         manager = Camera.main.GetComponent<GameManager>();
 
         sprite = GetComponent<SpriteRenderer>();
+        trail = GetComponent<TrailRenderer>();
     }
 
     public bool Dashing()
@@ -123,13 +128,13 @@ public class Player_Movement : MonoBehaviour {
         }
 
         //MINI MAP
-        /*if (miniMap.GetBool("Open"))
+        if (miniMap.GetBool("Open"))
             timer += Time.deltaTime;
 
         if (miniMap.GetBool("Open") && miniMap.GetBool("Close") )
         {
             timer = 0;
-        }*/
+        }
 
         //Reset God Mode timer
         if (god_ModeAction.godMode == false)
@@ -171,14 +176,24 @@ public class Player_Movement : MonoBehaviour {
 
         if (rew_player.GetButtonDown("CheatMode"))
         {        
-            /*if (!miniMap.GetBool("Open"))
+            if (!miniMap.GetBool("Open"))
                 miniMap.SetBool("Open", true);
 
             if(!miniMap.GetBool("Close") && timer >= timerMiniMap)
             {
                 timer = 0;
                 miniMap.SetBool("Close", true);
-            }*/
+            }
+        }
+
+        if(rew_player.GetButtonDown("Panic"))
+        {
+            if(panicEscape.enabled)
+            {
+                Stop_Moving();
+                panicEscape.mashingCanvas.SetActive(true);
+            }
+                
         }
 
         ///////// HIT SYSTEM - A CLEAN ////////////////
@@ -450,6 +465,7 @@ public class Player_Movement : MonoBehaviour {
 
     IEnumerator SpriteInstanciation(float cooldown)
     {
+        trail.enabled = true;
         for (int i = 0; i < spriteToSpawn; i++)
         {
             var player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
@@ -467,6 +483,7 @@ public class Player_Movement : MonoBehaviour {
             yield return new WaitForSeconds(cooldown);
             canShoot = true;
         }
+        trail.enabled = false;
         canShoot = false;
     }
 

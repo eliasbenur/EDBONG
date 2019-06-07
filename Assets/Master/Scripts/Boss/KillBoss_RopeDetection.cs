@@ -29,7 +29,6 @@ public class KillBoss_RopeDetection : MonoBehaviour
     private float shakeMagnitude;
     private Vector3 initialPosition;
 
-    public GameObject shockwave;
     private bool confirmed;
 
     public GameObject dieSmoke1, dieSmoke2;
@@ -41,6 +40,12 @@ public class KillBoss_RopeDetection : MonoBehaviour
     public GameObject mashingCanvas;
     public MashingController mashing;
     public GameObject canvas;
+    private RippleEffect shockwave;
+
+    //Actualisation of the collider
+    public float cooldownCollider;
+    private bool canChange = true;
+    public CapsuleCollider2D colliderUpdate;
     #endregion
 
     public enum MethodToKill
@@ -50,7 +55,7 @@ public class KillBoss_RopeDetection : MonoBehaviour
     public MethodToKill method;
 
     private void Awake()
-    {
+    {      
         players = Camera.main.GetComponent<GameManager>().players_Movement;
 
         foreach (GameObject Obj in GameObject.FindGameObjectsWithTag("player"))        
@@ -60,11 +65,13 @@ public class KillBoss_RopeDetection : MonoBehaviour
         if (rope_system == null)
             rope_system = GameObject.Find("Rope_System").GetComponent<Rope_System>();
         sprite = GetComponentInParent<SpriteRenderer>();
+
+        shockwave = Camera.main.GetComponent<RippleEffect>();
     }
 
     // Use this for initialization
     void Start()
-    {
+    {       
         dead = false;
         foreach (Transform child in transform)
         {
@@ -90,6 +97,13 @@ public class KillBoss_RopeDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(colliderUpdate == null)
+            colliderUpdate = GetComponentInParent<CapsuleCollider2D>();
+
+        if (canChange)
+            StartCoroutine(Actualisation(cooldownCollider));
+
+
         if (mashing.confirmed)
         {
             players[0].testVibrationHitRope = true;
@@ -165,23 +179,11 @@ public class KillBoss_RopeDetection : MonoBehaviour
         if (num_trig >= num_triggered)
         {
             if (!confirmed && method == MethodToKill.Surround)
-            {
-                Instantiate(shockwave, transform.position, Quaternion.identity);                        
+            {                   
                 confirmed = true;
             }
             if (players[0].Is_Moving() || players[1].Is_Moving())
             {
-                /*timerCut += Time.deltaTime;
-                if (timerCut > timerCut_TOT)
-                {
-                    players[0].testVibrationHitRope = true;
-                    players[1].testVibrationHitRope = true;
-                            
-                    GetComponentInParent<Collider2D>().enabled = false;
-                    GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                    StartCoroutine(Dead());
-                }*/
-
                 for (int i = 0; i < players.Count; i++)
                     players[i].Stop_Moving();
                 mashingCanvas.SetActive(true);
@@ -231,6 +233,14 @@ public class KillBoss_RopeDetection : MonoBehaviour
             sprite.material = default_sprite;
             sprite.color = Color.white;
 
+            if (method == MethodToKill.Surround)
+            {
+                var newPosition = Camera.main.WorldToScreenPoint(transform.position);
+                newPosition = new Vector3(newPosition.x / Screen.width, newPosition.y / Screen.height);
+                shockwave.Emit(newPosition.x, newPosition.y);
+            }
+
+
             yield return new WaitForSeconds(0.2f);   
             Instantiate(blood_explo, new Vector3(transform.position.x, transform.position.y, blood_explo.transform.position.z), blood_explo.transform.rotation);
 
@@ -277,5 +287,16 @@ public class KillBoss_RopeDetection : MonoBehaviour
             Destroy(transform.parent.gameObject);          
         }
         yield return null;
+    }
+
+    IEnumerator Actualisation(float cooldown)
+    {
+        if (colliderUpdate.direction == CapsuleDirection2D.Horizontal)
+            colliderUpdate.direction = CapsuleDirection2D.Vertical;
+        else
+            colliderUpdate.direction = CapsuleDirection2D.Horizontal;
+        canChange = false;
+        yield return new WaitForSeconds(cooldown);
+        canChange = true;
     }
 }

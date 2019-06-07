@@ -40,6 +40,9 @@ public class Projectile_Boss_Division : MonoBehaviour
                 angle = 2 * Mathf.PI;
                 coroutineFire = FireCoroutine_Boss();
                 StartCoroutine(coroutineFire);
+
+                AkSoundEngine.PostEvent("play_boss_explodes", Camera.main.gameObject);
+
                 Destroy(this.gameObject);
             }
         }

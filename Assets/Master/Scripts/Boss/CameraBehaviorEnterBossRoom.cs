@@ -12,7 +12,6 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
     public float offsetCamera;
     public GameObject canvas;
     public CinematicBars cinematic;
-    public GameObject miniMap;
 
     private Camera_Focus camera;
     private StartCombatBossGestion combatBoss;
@@ -28,7 +27,6 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
     {
         if(detected)
         {
-            miniMap.SetActive(false);
             cinematic.Show(200, 0.8f);
             canvas.SetActive(false);
             camera.enabled = false;

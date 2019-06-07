@@ -21,11 +21,6 @@ public class Camere_Shake_Manager : MonoBehaviour
         god_Mode = GetComponent<God_Mode>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void start_Shake_Kill(float duration)
     {

@@ -6,8 +6,6 @@ public class AI_tp : MonoBehaviour{
 
     #region Properties
 
-
-
     public float delay_tp;
     float curr_delay_tp;
     public List<Transform> targets;
@@ -25,7 +23,9 @@ public class AI_tp : MonoBehaviour{
     private float shakeMagnitude;
     GameObject ropeSystemGetChild;
     bool confirmed;
-    public GameObject shockwave;
+
+    private RippleEffect shockwave;
+
     private Vector3 initialPosition;
     private Transform cameraTransform;
     [HideInInspector] public List<encer_trig> list_trig;
@@ -44,6 +44,11 @@ public class AI_tp : MonoBehaviour{
 
 
     #endregion
+
+    private void Awake()
+    {
+        shockwave = Camera.main.GetComponent<RippleEffect>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -194,7 +199,6 @@ public class AI_tp : MonoBehaviour{
                     }
                     if (!confirmed)
                     {
-                        Instantiate(shockwave, transform.position, Quaternion.identity);
                         confirmed = true;
                     }
                     break;
@@ -278,6 +282,11 @@ public class AI_tp : MonoBehaviour{
 
             yield return new WaitForSeconds(0.2f);
             GetComponent<SpriteRenderer>().color = Color.white;
+
+            GetComponent<SpriteRenderer>().color = Color.white;
+            var newPosition = Camera.main.WorldToScreenPoint(transform.position);
+            newPosition = new Vector3(newPosition.x / Screen.width, newPosition.y / Screen.height);
+            shockwave.Emit(newPosition.x, newPosition.y);
 
             yield return new WaitForSeconds(0.2f);
 

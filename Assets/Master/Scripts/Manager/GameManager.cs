@@ -98,7 +98,9 @@ public class GameManager : MonoBehaviour
         //Application.targetFrameRate = 300;
 
         //MUSIC
+
         AkSoundEngine.PostEvent("play_music", Camera.main.gameObject);
+        AkSoundEngine.PostEvent("play_amb", Camera.main.gameObject);
 
         //Update UI
         Update_shieldDisyplay();

@@ -33,6 +33,7 @@ public class Boss : MonoBehaviour
     public LineRenderer line;
     public float ennemyLaserSpeed;
     public float numberCycleLaser;
+    private bool laserSound;
 
     [Header("Eyes Settings")]
     public List<Transform> all_Childrens; 
@@ -242,7 +243,11 @@ public class Boss : MonoBehaviour
                     Phase1();
                 }
                 else if (all_Childrens.Count == 2)
+                {
+                    numberCycle = 2;
                     Phase2();
+                }
+                    
                 else if (all_Childrens.Count == 1)
                 {
                     Phase3();
@@ -268,23 +273,29 @@ public class Boss : MonoBehaviour
 
     void Laser()
     {
+        if(!laserSound)
+        {
+            laserSound = true;
+            AkSoundEngine.PostEvent("play_boss_laser", Camera.main.gameObject);
+        }
         bossAnimation.SetBool("FireLeftPhase1", false);
         bossAnimation.SetBool("FireRightPhase1", false);
+
         if (line_Collider == null)
         {
             line.gameObject.AddComponent<PolygonCollider2D>();
             line_Collider = line.GetComponent<PolygonCollider2D>();
-            line_Collider.isTrigger = true;
+            line_Collider.isTrigger = true;          
         }
         else
         {
             myPoints = line_Collider.points;
-
             myPoints[1].Set(x, y);
             line_Collider.points = myPoints;
         }
 
-        line.enabled = true;
+        line.enabled = true;      
+
         if (a < numberCycleLaser)
         {
             for (int i = 0; i < (segments + 1); i++)
@@ -314,6 +325,7 @@ public class Boss : MonoBehaviour
                 aller = false;
                 a += 1;
                 retour = true;
+
             }
         }
         else
@@ -324,6 +336,9 @@ public class Boss : MonoBehaviour
             checkBeforeNewPhase = true;
             bossAnimation.SetBool("Laser", false);
             bossAnimation.SetBool("Laser2", false);
+            laserSound = false;
+            AkSoundEngine.PostEvent("play_boss_laser_stop", Camera.main.gameObject);
+
             StopAllCoroutines();
             i = 0;
             a = 0;
@@ -562,6 +577,9 @@ public class Boss : MonoBehaviour
             GetComponent<CircleCollider2D>().radius = circle;
             var instanceAddForce = Instantiate(Projectile_Boss, new Vector2(eye.transform.position.x, eye.transform.position.y), Quaternion.identity) as GameObject;
             instanceAddForce.GetComponent<Rigidbody2D>().AddForce((targetObject.transform.position - eye.transform.position).normalized * enemySpeed);
+
+            AkSoundEngine.PostEvent("play_boss_shoots", Camera.main.gameObject);
+
             //We wait a short time, to let the previous element go more forward before spawing an other one 
             canShoot = false;
             yield return new WaitForSeconds(cooldown_Between_Projectil);
