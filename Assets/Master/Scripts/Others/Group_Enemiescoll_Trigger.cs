@@ -24,6 +24,7 @@ public class Group_Enemiescoll_Trigger : MonoBehaviour
             {
                 StartCoroutine(child.GetComponent<Movement_IA_Collant>().Dead());
             }
+            Destroy(gameObject);
         }
     }
 }
