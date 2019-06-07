@@ -20,7 +20,8 @@ public class StuffDisplay : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = stuff.sprite;
         var collider = gameObject.AddComponent<CircleCollider2D>();
         collider.isTrigger = true;
-        costText.text = stuff.cost.ToString() + " ß";
+        if(stuff.cost != 0)
+            costText.text = stuff.cost.ToString() + " ß";
     }
 
     private void Update()
