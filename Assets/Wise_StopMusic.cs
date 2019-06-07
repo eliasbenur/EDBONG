@@ -18,7 +18,7 @@ public class Wise_StopMusic : MonoBehaviour
             delay = -999;
             Debug.Log("Hey");
             //AkSoundEngine.StopPlayingID(AkSoundEngine.GetIDFromString("play_music"));
-            AkSoundEngine.StopAll();
+            //AkSoundEngine.StopAll();
         }
         else
         {

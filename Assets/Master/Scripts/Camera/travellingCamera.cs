@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class travellingCamera : MonoBehaviour
 {
-    public CinematicBars cinematic;
     public GameObject canvas;
 
     public float smoothTime = 2f;
@@ -25,12 +25,11 @@ public class travellingCamera : MonoBehaviour
     private void Start()
     {
         target = targets[0];
-        cinematic.Show(200, 0.8f);
         canvas.SetActive(false);
         i = 0;
-        for (int i = 0; i < playersList.Count; i++)
+        for (int j = 0; j < playersList.Count; j++)
         {
-            playersList[i].Stop_Moving();
+            playersList[j].Stop_Moving();
         }
     }
     private void Update()
@@ -44,15 +43,23 @@ public class travellingCamera : MonoBehaviour
         if(i== targets.Count)
         {         
             GetComponent<Camera_Focus>().enabled = true;
-            cinematic.Hide(0.1f);
             canvas.SetActive(true);
-            for(int i=0; i < playersList.Count;i++)
+            for(int j=0; j < playersList.Count;j++)
             {
-                playersList[i].Allow_Moving();
+                playersList[j].Allow_Moving();
+
             }
-            Destroy(this);
+            StartCoroutine(Delay_Cinematique());
+            
         }
     }
+
+    IEnumerator Delay_Cinematique()
+    {
+        yield return new WaitForSeconds(1.5f);
+        gameObject.GetComponent<travellingCamera>().enabled = false;
+    }
+
     private void FixedUpdate()
     {       
         transform.position = Vector3.SmoothDamp(Camera.main.transform.position, new Vector3(target.transform.position.x, target.transform.position.y - offsetCamera, transform.position.z), ref velocity, smoothTime);

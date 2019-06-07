@@ -16,6 +16,7 @@ public class Bub_DialogueManager : MonoBehaviour
     private RectTransform RectT_canvas;
     private bool taunt;
     private Taunt_Manager taunt_mng;
+    public GameObject canvas_obj;
     
 
     public void Set_position_to(Vector3 new_pos)
@@ -96,7 +97,7 @@ public class Bub_DialogueManager : MonoBehaviour
         taunt = taunt_;
 
         refObj_bubbles = Instantiate(prefab_bubbles, Vector3.zero, Quaternion.identity);
-        refObj_bubbles.transform.SetParent(GameObject.Find("Canvas").transform);
+        refObj_bubbles.transform.SetParent(canvas_obj.transform);
 
         Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(position_to);
         Vector2 WorldObject_ScreenPosition = new Vector2(

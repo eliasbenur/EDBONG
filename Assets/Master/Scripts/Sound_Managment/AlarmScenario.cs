@@ -56,7 +56,7 @@ public class AlarmScenario : MonoBehaviour
             if (NumPlayer_inside == 2)
             {
                 audioReady = true;
-
+                AkSoundEngine.StopAll();
                 for (int x = 0; x < gameObject.transform.childCount; x++)
                 {
                     if (gameObject.transform.GetChild(x).tag == "door")

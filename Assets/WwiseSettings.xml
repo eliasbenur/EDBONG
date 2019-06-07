@@ -8,6 +8,6 @@
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
   <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
   <WwiseInstallationPathMac />
-  <WwiseInstallationPathWindows>C:\Users\elias\Documents\Unity Projects\EDBONG\Assets\Wwise</WwiseInstallationPathWindows>
+  <WwiseInstallationPathWindows>C:\Program Files (x86)\Audiokinetic\Wwise 2018.1.7.6880</WwiseInstallationPathWindows>
   <WwiseProjectPath>../EDBONG_WwiseProject/EDBONG_WwiseProject.wproj</WwiseProjectPath>
 </WwiseSettings>

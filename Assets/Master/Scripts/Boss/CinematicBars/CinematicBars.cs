@@ -64,5 +64,6 @@ public class CinematicBars : MonoBehaviour
     {
         targetSize = 0f;
         changeSizeAmount = (targetSize - topBar.sizeDelta.y) / time;
+        Debug.Log("LOL");
     }
 }

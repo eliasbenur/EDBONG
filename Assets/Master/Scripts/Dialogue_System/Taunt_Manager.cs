@@ -41,7 +41,9 @@ public class Taunt_Manager : MonoBehaviour
         if (random_var == 0)
         {
             Make_Taunt(player);
+            Debug.Log("Taunt");
         }
+
     }
 
     public void Make_Taunt(GameObject player)
