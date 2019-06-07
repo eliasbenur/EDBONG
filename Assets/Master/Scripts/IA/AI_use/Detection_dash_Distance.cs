@@ -22,7 +22,7 @@ public class Detection_dash_Distance : MonoBehaviour
     //Check whenever a player is dashing
     public bool Player_dashing()
     {
-        if (checkPlayers.allPlayers.Count > 0)
+        if (checkPlayers.allPlayers.Count > 0 && players.Count > 0)
             return (players[0].Dashing() || players[1].Dashing());
         else
             return false;

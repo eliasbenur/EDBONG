@@ -25,13 +25,13 @@ public class Movement_IA_Collant : MonoBehaviour
 
     private void Update()
     {
-        if (init_IA.target == null)
+        if (init_IA.target == null && rope_system != null)
         {
             for(int i = 0; i< players.players_Movement.Count; i++)
                 init_IA.allPlayers.Add(players.players_Movement[i].gameObject);
 
             if (rope_system.get_points().Count > 0)
-                init_IA.target = rope_system.get_points()[init_IA.rope_system.NumPoints / 2].gameObject;
+                init_IA.target = rope_system.get_points()[rope_system.NumPoints / 2].gameObject;
         }
     }
 

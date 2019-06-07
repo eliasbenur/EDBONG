@@ -8,6 +8,10 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
     private Vector3 velocity;
     public GameObject Boss;
     public float timer, timerTot;
+    AudioSource audio;
+    bool audioReady, lerpAudioBoss, alreadyPlaying;
+    public AudioClip bossMusic;
+    public float MaxVolumeBoss;
 
     public float offsetCamera;
     public GameObject canvas;
@@ -15,16 +19,48 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
 
     private Camera_Focus camera;
     private StartCombatBossGestion combatBoss;
+    public GameObject stopAlarm;
+
     #endregion
     private void Awake()
     {
         camera = Camera.main.GetComponent<Camera_Focus>();
         combatBoss = GetComponent<StartCombatBossGestion>();
         offsetCamera = 14;
+        audio = Camera.main.GetComponent<AudioSource>();
+    }
+
+    public void Update()
+    {
+        if (audioReady)
+        {
+            audio.volume -= Time.deltaTime * 0.65f;
+            stopAlarm.GetComponent<AlarmScenario>().StopAllCoroutines();
+            if (audio.volume == 0)
+            {
+                lerpAudioBoss = true;
+                audioReady = false;
+            }
+        }
+
+        if (lerpAudioBoss)
+        {
+            audio.clip = bossMusic;
+            if (!alreadyPlaying)
+            {
+                audio.Play();
+                alreadyPlaying = true;
+            }
+
+            audio.volume += Time.deltaTime * 0.15f;
+            if (audio.volume >= MaxVolumeBoss)
+                lerpAudioBoss = false;
+        }
     }
 
     private void FixedUpdate()
     {
+
         if(detected)
         {
             cinematic.Show(200, 0.8f);
@@ -58,6 +94,7 @@ public class CameraBehaviorEnterBossRoom : MonoBehaviour
         if(collision.gameObject.tag == "player" && !detected)
         {
             detected = true;
+            audioReady = true;
             GetComponent<Collider2D>().enabled = false;        
         }
     }

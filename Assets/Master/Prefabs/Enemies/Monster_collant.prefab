@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e47454f6c5f6c46a4a4484bee9c0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionDistance: 200
+  detectionDistance: 8
   enemySpeed: 2
   point_to_coll: {fileID: 0}
   rope_system: {fileID: 0}

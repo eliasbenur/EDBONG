@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
   stuff_name: Health_Potion
-  life: 10
+  life: 40
   shield: 0
-  sprite: {fileID: 21300000, guid: 29b34c2867deb8a44b135a795f4f2504, type: 3}
+  sprite: {fileID: 21300000, guid: 19904d53247e83f4aa5d98aeed0587d0, type: 3}
   speedBoost: 0
-  cost: 50
+  cost: 0

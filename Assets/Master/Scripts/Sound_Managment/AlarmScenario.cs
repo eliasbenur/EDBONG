@@ -7,8 +7,10 @@ public class AlarmScenario : MonoBehaviour
     #region Properties
     private int NumPlayer_inside = 0;
     public AudioClip Alarm;
+    public AudioClip VoiceAlarm;
     bool audioReady;
     new AudioSource audio;
+    AudioSource voice_audiosource;
     bool canSpeak;
     public float cooldown;
     IEnumerator audioAlarm;
@@ -20,6 +22,7 @@ public class AlarmScenario : MonoBehaviour
     public void Awake()
     {
         audio = Camera.main.GetComponent<AudioSource>();
+        voice_audiosource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -53,6 +56,7 @@ public class AlarmScenario : MonoBehaviour
             if (NumPlayer_inside == 2)
             {
                 audioReady = true;
+
                 for (int x = 0; x < gameObject.transform.childCount; x++)
                 {
                     if (gameObject.transform.GetChild(x).tag == "door")
@@ -65,6 +69,11 @@ public class AlarmScenario : MonoBehaviour
     IEnumerator System_Failure()
     {
         Active_alamrs();
+        if (!voice_audiosource.isPlaying)
+        {
+            voice_audiosource.clip = VoiceAlarm;
+            voice_audiosource.Play();
+        }
         canSpeak = false;
         yield return new WaitForSeconds(cooldown);
         canSpeak = true;

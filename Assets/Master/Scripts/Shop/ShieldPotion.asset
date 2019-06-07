@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuff_name: Shield_Potion
   life: 0
-  shield: 10
-  sprite: {fileID: 21300000, guid: 996d27c06103b084db575a842ee8ded9, type: 3}
+  shield: 5
+  sprite: {fileID: 21300000, guid: ede15ab8e5b5e9943b39719a36cce433, type: 3}
   speedBoost: 0
   cost: 40
