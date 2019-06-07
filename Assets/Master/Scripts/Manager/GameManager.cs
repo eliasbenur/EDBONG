@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         max_Life = life;
 
         // 1 Come
+        // 2 Come
 
         //Display UI
         liveDisplay = GameObject.Find("Life_Bar_Filled").GetComponent<Image>();
