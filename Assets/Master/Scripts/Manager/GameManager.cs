@@ -41,16 +41,14 @@ public class GameManager : MonoBehaviour
     //Money
     public int money;
     public Text money_txt;
+
+    public CinematicBars cinematicHide;
     #endregion
 
     public void Awake()
     {       
         life = 20;
         max_Life = life;
-
-        // 1 Come
-        // 2 Come
-
         //Display UI
         liveDisplay = GameObject.Find("Life_Bar_Filled").GetComponent<Image>();
         liveDisplay_back = GameObject.Find("Life_Bar_Back").GetComponent<Image>();
@@ -82,6 +80,7 @@ public class GameManager : MonoBehaviour
             position.x = data.position[0];
             position.y = data.position[1];
             position.z = data.position[2];
+            Debug.Log(position);
 
             transform.position = position;
             rope.transform.position = position;
@@ -120,6 +119,14 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (Load.cinematic && !GetComponent<travellingCamera>().enabled)
+        {
+            cinematicHide.Hide(0.4f);
+            Wait();
+            Load.cinematic = false;
+        }
+            
+
         if (update_lifeback)
         {
             if (liveDisplay.fillAmount < liveDisplay_back.fillAmount)
@@ -143,6 +150,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         update_lifeback = true;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
     }
 
     public void Update_shieldDisyplay()
@@ -251,6 +263,7 @@ public class GameManager : MonoBehaviour
 
     public void SavePlayer()
     {
+        Debug.Log("Test : Never call");
         SaveSystem.SavePlayer(this);
     }
 
@@ -265,9 +278,7 @@ public class GameManager : MonoBehaviour
         if (data != null)
         {
             Load.load = true;
-            SceneManager.LoadScene(data.level, LoadSceneMode.Single);
+            AsyncOperation async = SceneManager.LoadSceneAsync("LD_Final");
         }
-        else
-            SceneManager.LoadScene("LD1", LoadSceneMode.Single);
     }
 }

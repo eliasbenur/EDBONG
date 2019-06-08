@@ -42,7 +42,8 @@ public class Menu_Manager : MonoBehaviour
 
     public void Go_ToMainMenu()
     {
-        SceneManager.LoadScene("Menu_Principal");
+        AkSoundEngine.StopAll();
+        SceneManager.LoadScene("Menu_Principal", LoadSceneMode.Single);
     }
 
     public void EndScreen()
@@ -52,6 +53,7 @@ public class Menu_Manager : MonoBehaviour
 
     public void Retry()
     {
+        AkSoundEngine.StopAll();
         PlayerData data = SaveSystem.LoadPlayer();
         Load.load = true;
         SceneManager.LoadScene(data.level, LoadSceneMode.Single);
@@ -62,6 +64,7 @@ public class Menu_Manager : MonoBehaviour
         yield return new WaitForSeconds(2);
         endScreen.gameObject.SetActive(true); 
         yield return new WaitForSeconds(10);
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene("Menu_Principal");
     }
 }

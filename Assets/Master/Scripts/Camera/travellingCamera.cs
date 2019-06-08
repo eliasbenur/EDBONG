@@ -5,7 +5,7 @@ using UnityEngine;
 public class travellingCamera : MonoBehaviour
 {
     public GameObject canvas;
-
+    public CinematicBars cinematic;
     public float smoothTime = 2f;
     private Vector3 velocity;
 
@@ -19,11 +19,17 @@ public class travellingCamera : MonoBehaviour
 
     private void Awake()
     {
+        if (!Load.cinematic)
+        {
+            GetComponent<Camera_Focus>().enabled = true;
+            gameObject.GetComponent<travellingCamera>().enabled = false;
+        }
         playersList = Camera.main.GetComponent<GameManager>().players_Movement;
     }
 
     private void Start()
     {
+        
         target = targets[0];
         canvas.SetActive(false);
         i = 0;
@@ -34,6 +40,7 @@ public class travellingCamera : MonoBehaviour
     }
     private void Update()
     {
+        cinematic.Show(200, 0.8f);
         if (Vector3.Distance(transform.position, target.transform.position) < distance)
         {
             i++;
@@ -42,22 +49,17 @@ public class travellingCamera : MonoBehaviour
         }
         if(i== targets.Count)
         {         
-            GetComponent<Camera_Focus>().enabled = true;
+            
             canvas.SetActive(true);
             for(int j=0; j < playersList.Count;j++)
             {
                 playersList[j].Allow_Moving();
 
             }
-            StartCoroutine(Delay_Cinematique());
-            
-        }
-    }
+            GetComponent<Camera_Focus>().enabled = true;
+            gameObject.GetComponent<travellingCamera>().enabled = false;
 
-    IEnumerator Delay_Cinematique()
-    {
-        yield return new WaitForSeconds(1.5f);
-        gameObject.GetComponent<travellingCamera>().enabled = false;
+        }
     }
 
     private void FixedUpdate()

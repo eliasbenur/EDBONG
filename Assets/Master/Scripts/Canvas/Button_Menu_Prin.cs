@@ -20,34 +20,19 @@ public class Button_Menu_Prin : MonoBehaviour
     }
 
     public void NewGame_Button()
-    {
-        StartCoroutine(LoadNewScene());
+    {       
         loadingScreen.SetActive(true);
+        Load.cinematic = true;
         Boss.GetComponent<Animator>().enabled = true;
-
-        PlayerData data = SaveSystem.LoadPlayer();
-        AsyncOperation async = SceneManager.LoadSceneAsync(data.level);
+        AsyncOperation async = SceneManager.LoadSceneAsync("LD_Final", LoadSceneMode.Single);
     } 
-
-    IEnumerator LoadNewScene()
-    {
-        yield return new WaitForSeconds(1);
-        AsyncOperation async = SceneManager.LoadSceneAsync("LD_Final");
-        while (!async.isDone)
-        {
-            yield return null;
-        }
-    }
 
     public void Load_Button()
     {
-        StartCoroutine(LoadNewScene());
         loadingScreen.SetActive(true);
-        Boss.GetComponent<Animator>().enabled = true;
-
         Load.load = true;
-        PlayerData data = SaveSystem.LoadPlayer();
-        AsyncOperation async = SceneManager.LoadSceneAsync(data.level);      
+        Boss.GetComponent<Animator>().enabled = true;
+        AsyncOperation async = SceneManager.LoadSceneAsync("LD_Final", LoadSceneMode.Single);
     }
 
     public void Interactable()

@@ -63,7 +63,8 @@ public class FallingFloor_HoleDetection : MonoBehaviour
         }
         else
         {
-            if(detection != null)
+            AkSoundEngine.StopAll();
+            if (detection != null)
                 detection.colliderDestroy.enabled = true;
             PlayerData data = SaveSystem.LoadPlayer();
             if (data != null)
