@@ -155,6 +155,15 @@ public class Player_Movement : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
         }*/
 
+        if (rew_player.GetButtonDown("PanicHealth"))
+        {
+            if (manager.life > 0)
+            {
+                manager.life = manager.max_Life;
+                manager.Update_liveDisplay();
+            }
+        }
+
         if (rew_player.GetButtonDown("Pause") && !modo_solo)
         {
             if (manager.life > 0)
