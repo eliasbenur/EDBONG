@@ -621,8 +621,6 @@ MonoBehaviour:
   cooldown_betweenNextProejctile: 1.8
   projectileToFire: 1
   speedProjectile: 9
-  shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
-    type: 3}
   list_trig: []
   blood_explo: {fileID: 7167917739809399993, guid: 2982aafdb07069f4da4ce648d18ead15,
     type: 3}
@@ -668,7 +666,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9056813565670119301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79c9190341be4d9418c90c3277d009a6, type: 3}
   m_Name: 

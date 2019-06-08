@@ -134,7 +134,6 @@ public class AI_tp : MonoBehaviour{
                 //Condition to turn animations on
                 if (GetDistance(target) < distanceShoot)
                 {
-                    Debug.Log("Dist MAX ok");
                     if (canShoot)
                     {
                         if (GetDistance(target) > 4)

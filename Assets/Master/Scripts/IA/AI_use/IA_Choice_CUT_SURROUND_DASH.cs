@@ -83,6 +83,11 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
     private List<Player_Movement> players;
     #endregion
 
+    #region Sound
+    public bool soundEnable_Rope = true;
+    public bool soundEnable_Death = true;
+    #endregion
+
     public enum MethodToKill
     {
         Cut = 1,
@@ -470,8 +475,10 @@ public class IA_Choice_CUT_SURROUND_DASH : MonoBehaviour
         if (!dead)
         {
             dead = true;
-            AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
-            AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
+            if(soundEnable_Rope)
+                AkSoundEngine.PostEvent("plays_slicing", Camera.main.gameObject);
+            if(soundEnable_Death)
+                AkSoundEngine.PostEvent("play_monster1death", Camera.main.gameObject);
 
             blink.SpriteBlinkingEffect();
             //Used to control the vibrations in both controllers
