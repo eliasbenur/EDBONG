@@ -9,6 +9,8 @@ public class Props_Destructible : MonoBehaviour
         if (collision.tag == "player")
         {
             GetComponent<Animator>().SetBool("destroy", true);
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<AudioSource>().Play();
         }
     }
 }
