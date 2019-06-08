@@ -54,9 +54,8 @@ public class Menu_Manager : MonoBehaviour
     public void Retry()
     {
         AkSoundEngine.StopAll();
-        PlayerData data = SaveSystem.LoadPlayer();
         Load.load = true;
-        SceneManager.LoadScene(data.level, LoadSceneMode.Single);
+        AsyncOperation async = SceneManager.LoadSceneAsync("LD_Final", LoadSceneMode.Single);
     }
 
     IEnumerator Example()
