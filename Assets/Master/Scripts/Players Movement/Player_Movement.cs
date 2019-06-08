@@ -190,7 +190,10 @@ public class Player_Movement : MonoBehaviour {
         {
             if(panicEscape.enabled)
             {
-                Stop_Moving();
+                for(int i =0; i < manager.players_Movement.Count;i++)
+                {
+                    manager.players_Movement[i].Stop_Moving();
+                }
                 panicEscape.mashingCanvas.SetActive(true);
             }
                 
@@ -283,7 +286,6 @@ public class Player_Movement : MonoBehaviour {
             }
             if (rew_player.GetButtonDown("Dash") && dash_tmp <= 0 && new Vector2(movementX, movementY) != Vector2.zero)
             {
-                Debug.Log("DASH!");
                 Start_Dash();
                 if (PlayerNum == Enum_PlayerNum.PlayerOne)
                 {

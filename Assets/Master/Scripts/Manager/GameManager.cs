@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
             position.x = data.position[0];
             position.y = data.position[1];
             position.z = data.position[2];
-            Debug.Log(position);
 
             transform.position = position;
             rope.transform.position = position;
