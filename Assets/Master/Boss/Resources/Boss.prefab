@@ -1502,8 +1502,6 @@ MonoBehaviour:
     type: 3}
   default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
-  shockwave: {fileID: 5745426808199567778, guid: 7ce958306702ab541b501a4a0a368223,
-    type: 3}
   dieSmoke1: {fileID: 4813506586129915862, guid: 68cc032a58e100a47aba0ffafaca6901,
     type: 3}
   dieSmoke2: {fileID: 1618034618077096724, guid: 84d2fdf7dd7d24e40a1d6c58da3d5aaa,
@@ -1511,6 +1509,9 @@ MonoBehaviour:
   cooldown: 1.5
   mashingCanvas: {fileID: 0}
   mashing: {fileID: 0}
+  canvas: {fileID: 0}
+  cooldownCollider: 5
+  colliderUpdate: {fileID: 0}
   method: 1
 --- !u!1 &6409077780514485864
 GameObject:
@@ -1587,10 +1588,12 @@ MonoBehaviour:
   Boss: {fileID: 6897441273833837763}
   timer: 0
   timerTot: 6
+  bossMusic: {fileID: 8300000, guid: 1acf8225a84606c4c83dfdb0ee511e2f, type: 3}
+  MaxVolumeBoss: 0.2
   offsetCamera: 14
   canvas: {fileID: 0}
   cinematic: {fileID: 0}
-  miniMap: {fileID: 0}
+  stopAlarm: {fileID: 0}
 --- !u!114 &6409077780514485866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2157,7 +2160,7 @@ MonoBehaviour:
   spawnPosition: []
   ennemyToSpawn: {fileID: 1342271887, guid: 69a1e10764d941e4081391757e1a1894, type: 3}
   projectile_ToShoot: 3
-  Triangle_ToShoot: 6
+  Triangle_ToShoot: 9
   cooldown_Between_Projectil: 2
   cooldown_Between_Monsters: 15
   cooldown_Between_Projectil_Triangle: 0.1
@@ -2169,7 +2172,7 @@ MonoBehaviour:
   Projectile_Boss: {fileID: 6495450032185527312, guid: b333491ef34947349b29b5633cc5f7e3,
     type: 3}
   line: {fileID: 1601383164}
-  ennemyLaserSpeed: 20
+  ennemyLaserSpeed: 30
   numberCycleLaser: 3
   all_Childrens:
   - {fileID: 9184823449246317989, guid: e28397cd127419f45bdfc9d2546c6555, type: 3}
@@ -2264,7 +2267,7 @@ MonoBehaviour:
   default_sprite: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   flash_sprite: {fileID: 2100000, guid: e726a7a7c7d9da446828d00f96fcd560, type: 2}
   speed: 80
-  amount: 0.105
+  amount: 0.085
   ropeCollisions: {fileID: 0}
   laser: {fileID: 1601383163}
 --- !u!1 &6897441274203916724
