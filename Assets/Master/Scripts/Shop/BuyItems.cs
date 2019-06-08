@@ -48,6 +48,7 @@ public class BuyItems : MonoBehaviour
                     players_stats.Update_shieldDisyplay();
 
                     //Play sound for buy here
+                    AkSoundEngine.PostEvent("play_buy_item", Camera.main.gameObject);
                     Destroy(stuff);
                 }
                 

@@ -39,7 +39,6 @@ public class MashingController : MonoBehaviour
         else
         {
             sliderValue.fillAmount = 1;
-            Debug.Log("Kill Confirmed");
             confirmed = true;
             decreaseStop.enabled = false;
             fill.color = Color.green;

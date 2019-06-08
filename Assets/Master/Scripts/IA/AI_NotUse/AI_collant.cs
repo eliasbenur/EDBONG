@@ -46,7 +46,6 @@ public class AI_collant : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Debug.Log(distancePreview);
         dead = false;
         foreach (Transform child in transform)
         {
