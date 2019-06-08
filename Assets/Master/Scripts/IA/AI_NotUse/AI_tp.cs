@@ -23,6 +23,7 @@ public class AI_tp : MonoBehaviour{
     private float shakeMagnitude;
     GameObject ropeSystemGetChild;
     bool confirmed;
+    public List<GameObject> tp_points;
 
     private RippleEffect shockwave;
 
@@ -62,7 +63,7 @@ public class AI_tp : MonoBehaviour{
 
         foreach (Transform child in transform)
         {
-            if (child.name != "CleanCollision")
+            if (child.name != "CleanCollision" && child.name != "TP_points")
                 list_trig.Add(child.GetComponent<encer_trig>());
         }
 
@@ -138,7 +139,6 @@ public class AI_tp : MonoBehaviour{
                     {
                         if (GetDistance(target) > 4)
                         {
-                            Debug.Log("Dist MIN ok");
                             coroutineFire = FireCoroutine(cooldown);
                             StartCoroutine(coroutineFire);
                         }
@@ -349,7 +349,8 @@ public class AI_tp : MonoBehaviour{
 
     IEnumerator Tepe()
     {
-        animator.SetBool("tp", true);
+        
+        /*animator.SetBool("tp", true);
         yield return new WaitForSeconds(1.875f);
         animator.SetBool("tp", false);
         tp_active = false;
@@ -371,6 +372,23 @@ public class AI_tp : MonoBehaviour{
         else
         {
             transform.position = new_pos + direction.normalized * 15;
+        }*/
+        ////
+        animator.SetBool("tp", true);
+        yield return new WaitForSeconds(1.875f);
+        animator.SetBool("tp", false);
+        tp_active = false;
+
+
+        bool tpPoint_found = false;
+        while (!tpPoint_found)
+        {
+            int random_poit = Random.Range(0, tp_points.Count);
+            if (Vector2.Distance(transform.position, tp_points[random_poit].transform.position) > 1)
+            {
+                transform.position = tp_points[random_poit].transform.position;
+                tpPoint_found = true;
+            }
         }
     }
 
