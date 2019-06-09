@@ -24,6 +24,7 @@ public class AI_tp : MonoBehaviour{
     GameObject ropeSystemGetChild;
     bool confirmed;
     public List<GameObject> tp_points;
+    private List<Vector3> tp_points_positions = new List<Vector3>();
 
     private RippleEffect shockwave;
 
@@ -76,6 +77,12 @@ public class AI_tp : MonoBehaviour{
         targets.Clear();
         targets.Add(rope_system.get_points()[0].transform);
         targets.Add(rope_system.get_points()[rope_system.NumPoints - 1].transform);
+
+
+        foreach (GameObject point in tp_points)
+        {
+            tp_points_positions.Add(point.transform.position);
+        }
 
     }
 
@@ -379,14 +386,13 @@ public class AI_tp : MonoBehaviour{
         animator.SetBool("tp", false);
         tp_active = false;
 
-
         bool tpPoint_found = false;
         while (!tpPoint_found)
         {
-            int random_poit = Random.Range(0, tp_points.Count);
-            if (Vector2.Distance(transform.position, tp_points[random_poit].transform.position) > 1)
+            int random_poit = Random.Range(0, tp_points_positions.Count);
+            if (Vector2.Distance(transform.position, tp_points_positions[random_poit]) > 1)
             {
-                transform.position = tp_points[random_poit].transform.position;
+                transform.position = tp_points_positions[random_poit];
                 tpPoint_found = true;
             }
         }
