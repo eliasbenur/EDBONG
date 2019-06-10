@@ -27,6 +27,7 @@ public class Group_Enemiescoll_Trigger : MonoBehaviour
             {
                 StartCoroutine(child.GetComponent<Movement_IA_Collant>().Dead());
             }
+            GameObject.Find("Rope_System").GetComponent<Rope_System>().reset_enemieColl();
             Destroy(gameObject);
         }
     }
