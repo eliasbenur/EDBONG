@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Benur\Documents\UnityProjects\EDBONG\EDBONG_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Benur\Documents\UnityProjects\EDBONG\EDBONG_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Benur\Documents\UnityProjects\EDBONG\EDBONG_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Benur\Documents\UnityProjects\EDBONG\EDBONG_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\GitHub\EDBONG\EDBONG_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
